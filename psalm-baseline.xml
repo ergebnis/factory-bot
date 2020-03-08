@@ -158,23 +158,6 @@
       <code>getAssociationMapping</code>
     </MixedMethodCall>
   </file>
-  <file src="src/Doctrine/ORM/Locking/TableLock.php">
-    <MixedAssignment occurrences="1">
-      <code>$alias</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>getTableName</code>
-    </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;getRepository()-&gt;getClassMetadata()-&gt;getTableName()</code>
-    </MixedReturnStatement>
-    <UndefinedDocblockClass occurrences="1">
-      <code>callback</code>
-    </UndefinedDocblockClass>
-  </file>
   <file src="src/Doctrine/ORM/QueryBuilder.php">
     <InvalidDocblock occurrences="4">
       <code>protected $_statuses = [];</code>
@@ -204,77 +187,6 @@
       <code>is_string($this-&gt;entityName)</code>
       <code>is_string($this-&gt;entityAlias)</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Doctrine/ORM/Repository.php">
-    <InvalidArgument occurrences="2"/>
-    <InvalidDocblock occurrences="7">
-      <code>callback(Exception)</code>
-      <code>callback(Exception)</code>
-      <code>callback(QueryBuilder, Doctrine\ORM\Query\Expr)</code>
-      <code>callback(Doctrine\ORM\EntityManager, Repository)</code>
-      <code>callback($entity, Doctrine\ORM\EntityManager, Repository)</code>
-      <code>callback($entity, Doctrine\ORM\EntityManager, Repository)</code>
-      <code>callback($entity, Doctrine\ORM\EntityManager, Repository)</code>
-    </InvalidDocblock>
-    <InvalidNullableReturnType occurrences="1">
-      <code>object</code>
-    </InvalidNullableReturnType>
-    <MissingClosureParamType occurrences="3">
-      <code>$em</code>
-      <code>$self</code>
-      <code>$self</code>
-    </MissingClosureParamType>
-    <MissingClosureReturnType occurrences="4">
-      <code>function () use ($builder) {</code>
-      <code>function () use ($builder) {</code>
-      <code>function ($em, $self) use ($id, $lockMode, $callback, $entityName) {</code>
-      <code>function (VersionLockable $entity, EntityManager $em, $self) use ($lockVersion, $callback) {</code>
-    </MissingClosureReturnType>
-    <MissingParamType occurrences="7">
-      <code>$fallback</code>
-      <code>$fallback</code>
-      <code>$do</code>
-      <code>$transaction</code>
-      <code>$callback</code>
-      <code>$callback</code>
-      <code>$callback</code>
-    </MissingParamType>
-    <MixedArgument occurrences="2">
-      <code>$fallback</code>
-      <code>$fallback</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$result</code>
-      <code>$entity</code>
-      <code>$result</code>
-    </MixedAssignment>
-    <MixedFunctionCall occurrences="4">
-      <code>$do($qb, $qb-&gt;expr())</code>
-      <code>$transaction($em, $this)</code>
-      <code>$callback($entity, $em, $self)</code>
-      <code>$callback($entity, $em, $self)</code>
-    </MixedFunctionCall>
-    <MixedInferredReturnType occurrences="2">
-      <code>object | null</code>
-      <code>object | null</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>find</code>
-    </MixedMethodCall>
-    <MixedReturnStatement occurrences="2"/>
-    <NullableReturnStatement occurrences="1"/>
-    <UndefinedClass occurrences="1">
-      <code>Exception</code>
-    </UndefinedClass>
-    <UndefinedDocblockClass occurrences="4">
-      <code>callback</code>
-      <code>callback</code>
-      <code>Exception</code>
-      <code>callback</code>
-    </UndefinedDocblockClass>
-    <UndefinedMethod occurrences="1">
-      <code>OptimisticLockException::lockFailedVersionMissmatch($entity, $lockVersion, $entity-&gt;getVersion())</code>
-    </UndefinedMethod>
   </file>
   <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
     <MissingReturnType occurrences="12">
@@ -482,14 +394,6 @@
       <code>getOwner</code>
       <code>getSpaceShip</code>
     </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/ORM/RepositoryTest.php">
-    <MissingPropertyType occurrences="1">
-      <code>$user-&gt;id</code>
-    </MissingPropertyType>
-    <MissingReturnType occurrences="1">
-      <code>getsReference</code>
-    </MissingReturnType>
   </file>
   <file src="test/Doctrine/TestDb.php">
     <InvalidArgument occurrences="2">
