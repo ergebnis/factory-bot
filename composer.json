@@ -53,7 +53,6 @@
       "Ergebnis\\FactoryBot\\": "src/"
     },
     "classmap": [
-      "src/Definition/",
       "src/Doctrine/"
     ]
   },
@@ -62,9 +61,7 @@
       "Ergebnis\\FactoryBot\\Test\\": "test/"
     },
     "classmap": [
-      "test/Definition/",
-      "test/Doctrine/",
-      "test/Fixture/"
+      "test/Doctrine/"
     ]
   },
   "support": {

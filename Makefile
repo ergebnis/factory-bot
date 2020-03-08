@@ -1,5 +1,5 @@
 MIN_COVERED_MSI:=91
-MIN_MSI:=53
+MIN_MSI:=54
 
 .PHONY: it
 it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
@@ -46,7 +46,6 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
-	vendor/bin/phpunit --configuration=test/Definition/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml

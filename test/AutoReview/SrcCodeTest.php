@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\AutoReview;
 
-use Ergebnis\FactoryGirl\Definition;
+use Ergebnis\FactoryBot\Definition;
 use Ergebnis\Test\Util\Helper;
 use FactoryGirl\Provider\Doctrine;
 use PHPUnit\Framework;
