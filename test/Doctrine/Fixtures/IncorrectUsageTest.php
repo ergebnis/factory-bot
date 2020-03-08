@@ -30,7 +30,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEntities()
     {
-        $this->assertTrue(class_exists('FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\NotAnEntity', true));
+        $this->assertTrue(class_exists(TestEntity\NotAnEntity::class, true));
 
         $this->expectException(\Exception::class);
 

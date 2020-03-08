@@ -459,28 +459,15 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/ReferencesTest.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>'Doctrine\Common\Collections\ArrayCollection'</code>
-      <code>'Doctrine\Common\Collections\ArrayCollection'</code>
-      <code>'Doctrine\Common\Collections\ArrayCollection'</code>
-      <code>'Doctrine\Common\Collections\ArrayCollection'</code>
-    </ArgumentTypeCoercion>
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertEmpty</code>
+    </DocblockTypeContradiction>
     <MissingReturnType occurrences="4">
       <code>referencedObjectsShouldBeCreatedAutomatically</code>
       <code>referencedObjectsShouldBeOverrideable</code>
       <code>referencedObjectsShouldBeNullable</code>
       <code>referencedObjectsCanBeSingletons</code>
     </MissingReturnType>
-    <MixedArgument occurrences="3">
-      <code>$crew</code>
-      <code>$crew</code>
-      <code>$crew</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$crew</code>
-      <code>$crew</code>
-      <code>$crew</code>
-    </MixedAssignment>
   </file>
   <file src="test/Doctrine/Fixtures/SequenceTest.php">
     <MissingClosureParamType occurrences="1">
@@ -617,9 +604,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/Doctrine/ORM/RepositoryTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'FactoryGirl\Tests\Provider\Doctrine\ORM\TestEntity\User'</code>
-    </ArgumentTypeCoercion>
     <MissingPropertyType occurrences="1">
       <code>$user-&gt;id</code>
     </MissingPropertyType>
@@ -637,9 +621,6 @@
     </MissingReturnType>
   </file>
   <file src="test/Doctrine/Types/StatusArrayTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'\Doctrine\DBAL\Platforms\AbstractPlatform'</code>
-    </ArgumentTypeCoercion>
     <MissingParamType occurrences="5">
       <code>$stupidValue</code>
       <code>$expectedSerialization</code>

@@ -4,6 +4,7 @@ namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class ReferencesTest extends TestCase
 {
@@ -30,8 +31,8 @@ class ReferencesTest extends TestCase
 
         $crew = $spaceShip->getCrew();
 
-        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $crew);
-        $this->assertContainsOnly('FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\Person', $crew);
+        $this->assertInstanceOf(ArrayCollection::class, $crew);
+        $this->assertContainsOnly(TestEntity\Person::class, $crew);
         $this->assertCount(1, $crew);
     }
 
@@ -49,8 +50,8 @@ class ReferencesTest extends TestCase
 
         $crew = $spaceShip->getCrew();
 
-        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $crew);
-        $this->assertContainsOnly('FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\Person', $crew);
+        $this->assertInstanceOf(ArrayCollection::class, $crew);
+        $this->assertContainsOnly(TestEntity\Person::class, $crew);
         $this->assertCount($count, $crew);
     }
 
@@ -66,7 +67,7 @@ class ReferencesTest extends TestCase
 
         $crew = $spaceShip->getCrew();
 
-        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $crew);
+        $this->assertInstanceOf(ArrayCollection::class, $crew);
         $this->assertEmpty($crew);
     }
 
@@ -83,7 +84,7 @@ class ReferencesTest extends TestCase
 
         $crew = $spaceShip->getCrew();
 
-        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $crew);
+        $this->assertInstanceOf(ArrayCollection::class, $crew);
         $this->assertContains($person, $crew);
         $this->assertCount(1, $crew);
     }

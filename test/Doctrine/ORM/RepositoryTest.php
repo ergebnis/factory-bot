@@ -25,7 +25,7 @@ class RepositoryTest extends TestCase
 
         $this->repository = new Repository(
             $this->em,
-            $this->em->getClassMetadata('FactoryGirl\Tests\Provider\Doctrine\ORM\TestEntity\User')
+            $this->em->getClassMetadata(TestEntity\User::class)
         );
     }
 
@@ -39,7 +39,7 @@ class RepositoryTest extends TestCase
         $this->em->flush();
 
         $this->assertInstanceOf(
-            'FactoryGirl\Tests\Provider\Doctrine\ORM\TestEntity\User',
+            TestEntity\User::class,
             $this->repository->getReference($user->id)
         );
     }
