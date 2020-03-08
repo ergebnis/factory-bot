@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\AutoReview;
 
-use Ergebnis\FactoryBot\Definition;
 use Ergebnis\Test\Util\Helper;
 use FactoryGirl\Provider\Doctrine;
 use PHPUnit\Framework;
@@ -45,9 +44,6 @@ final class SrcCodeTest extends Framework\TestCase
                 Doctrine\ORM\Locking\TableLockMode::class,
                 Doctrine\ORM\QueryBuilder::class,
                 Doctrine\ORM\Repository::class,
-                Definition\Definitions::class,
-                Definition\Exception\InvalidDefinition::class,
-                Definition\Exception\InvalidDirectory::class,
             ]
         );
     }
