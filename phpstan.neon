@@ -3,6 +3,11 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+	ergebnis:
+		classesAllowedToBeExtended:
+			- Ergebnis\FactoryGirl\Definition\AbstractDefinition
+			- InvalidArgumentException
+			- RuntimeException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
 	paths:
