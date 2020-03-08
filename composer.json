@@ -1,0 +1,59 @@
+{
+  "name": "ergebnis/factory-bot",
+  "type": "library",
+  "description": "Provides an entity factory for doctrine/orm entities that can be used in tests.",
+  "keywords": [
+    "doctrine",
+    "entity",
+    "factory"
+  ],
+  "homepage": "https://github.com/ergebnis/factory-bot",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.2.4",
+    "ergebnis/license": "~0.1.0",
+    "ergebnis/php-cs-fixer-config": "^2.1.0",
+    "ergebnis/phpstan-rules": "~0.14.3",
+    "ergebnis/test-util": "~0.9.1",
+    "infection/infection": "~0.15.3",
+    "jangregor/phpstan-prophecy": "~0.6.2",
+    "phpstan/extension-installer": "^1.0.3",
+    "phpstan/phpstan": "~0.12.14",
+    "phpstan/phpstan-deprecation-rules": "~0.12.2",
+    "phpstan/phpstan-phpunit": "~0.12.6",
+    "phpstan/phpstan-strict-rules": "~0.12.2",
+    "phpunit/phpunit": "^8.5.2",
+    "psalm/plugin-phpunit": "~0.9.0",
+    "vimeo/psalm": "^3.9.4"
+  },
+  "config": {
+    "platform": {
+      "php": "7.2.25"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Ergebnis\\FactoryBot\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ergebnis\\FactoryBot\\Test\\": "test/"
+    }
+  },
+  "support": {
+    "issues": "https://github.com/ergebnis/factory-bot/issues",
+    "source": "https://github.com/ergebnis/factory-bot"
+  }
+}
