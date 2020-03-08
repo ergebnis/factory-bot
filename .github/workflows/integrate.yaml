@@ -10,7 +10,7 @@ on: # yamllint disable-line rule:truthy
 
 env:
   MIN_COVERED_MSI: 91
-  MIN_MSI: 59
+  MIN_MSI: 53
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -251,6 +251,9 @@ jobs:
 
       - name: "Run auto-review tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml"
+
+      - name: "Run definition tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Definition/phpunit.xml"
 
       - name: "Run doctrine tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml"
