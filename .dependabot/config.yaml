@@ -18,8 +18,6 @@ update_configs:
       - match:
           dependency_name: "doctrine/collections"
       - match:
-          dependency_name: "doctrine/dbal"
-      - match:
           dependency_name: "doctrine/orm"
     package_manager: "php:composer"
     update_schedule: "live"
