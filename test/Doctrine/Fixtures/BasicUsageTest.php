@@ -12,10 +12,10 @@ class BasicUsageTest extends TestCase
     public function acceptsConstantValuesInEntityDefinitions()
     {
         $ss = $this->factory
-            ->defineEntity('SpaceShip', [
+            ->defineEntity(TestEntity\SpaceShip::class, [
                 'name' => 'My BattleCruiser'
             ])
-            ->get('SpaceShip');
+            ->get(TestEntity\SpaceShip::class);
 
         $this->assertSame('My BattleCruiser', $ss->getName());
     }
@@ -26,15 +26,15 @@ class BasicUsageTest extends TestCase
     public function acceptsGeneratorFunctionsInEntityDefinitions()
     {
         $name = "Star";
-        $this->factory->defineEntity('SpaceShip', [
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
             'name' => function () use (&$name) {
                 return "M/S $name";
             }
         ]);
 
-        $this->assertSame('M/S Star', $this->factory->get('SpaceShip')->getName());
+        $this->assertSame('M/S Star', $this->factory->get(TestEntity\SpaceShip::class)->getName());
         $name = "Superstar";
-        $this->assertSame('M/S Superstar', $this->factory->get('SpaceShip')->getName());
+        $this->assertSame('M/S Superstar', $this->factory->get(TestEntity\SpaceShip::class)->getName());
     }
 
     /**
@@ -43,10 +43,10 @@ class BasicUsageTest extends TestCase
     public function valuesCanBeOverriddenAtCreationTime()
     {
         $ss = $this->factory
-            ->defineEntity('SpaceShip', [
+            ->defineEntity(TestEntity\SpaceShip::class, [
                 'name' => 'My BattleCruiser'
             ])
-            ->get('SpaceShip', ['name' => 'My CattleBruiser']);
+            ->get(TestEntity\SpaceShip::class, ['name' => 'My CattleBruiser']);
         $this->assertSame('My CattleBruiser', $ss->getName());
     }
 
@@ -56,8 +56,8 @@ class BasicUsageTest extends TestCase
     public function preservesDefaultValuesOfEntity()
     {
         $ss = $this->factory
-            ->defineEntity('SpaceStation')
-            ->get('SpaceStation');
+            ->defineEntity(TestEntity\SpaceStation::class)
+            ->get(TestEntity\SpaceStation::class);
         $this->assertSame('Babylon5', $ss->getName());
     }
 
@@ -67,8 +67,8 @@ class BasicUsageTest extends TestCase
     public function doesNotCallTheConstructorOfTheEntity()
     {
         $ss = $this->factory
-            ->defineEntity('SpaceShip', [])
-            ->get('SpaceShip');
+            ->defineEntity(TestEntity\SpaceShip::class, [])
+            ->get(TestEntity\SpaceShip::class);
         $this->assertFalse($ss->constructorWasCalled());
     }
 
@@ -78,10 +78,10 @@ class BasicUsageTest extends TestCase
     public function instantiatesCollectionAssociationsToBeEmptyCollectionsWhenUnspecified()
     {
         $ss = $this->factory
-            ->defineEntity('SpaceShip', [
+            ->defineEntity(TestEntity\SpaceShip::class, [
                 'name' => 'Battlestar Galaxy'
             ])
-            ->get('SpaceShip');
+            ->get(TestEntity\SpaceShip::class);
 
         $this->assertInstanceOf(ArrayCollection::class, $ss->getCrew());
         $this->assertEmpty($ss->getCrew());
@@ -92,15 +92,15 @@ class BasicUsageTest extends TestCase
      */
     public function arrayElementsAreMappedToCollectionAsscociationFields()
     {
-        $this->factory->defineEntity('SpaceShip');
-        $this->factory->defineEntity('Person', [
-            'spaceShip' => FieldDef::reference('SpaceShip')
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
+        $this->factory->defineEntity(TestEntity\Person::class, [
+            'spaceShip' => FieldDef::reference(TestEntity\SpaceShip::class)
         ]);
 
-        $p1 = $this->factory->get('Person');
-        $p2 = $this->factory->get('Person');
+        $p1 = $this->factory->get(TestEntity\Person::class);
+        $p2 = $this->factory->get(TestEntity\Person::class);
 
-        $ship = $this->factory->get('SpaceShip', [
+        $ship = $this->factory->get(TestEntity\SpaceShip::class, [
             'name' => 'Battlestar Galaxy',
             'crew' => [$p1, $p2]
         ]);
@@ -115,8 +115,8 @@ class BasicUsageTest extends TestCase
      */
     public function unspecifiedFieldsAreLeftNull()
     {
-        $this->factory->defineEntity('SpaceShip');
-        $this->assertNull($this->factory->get('SpaceShip')->getName());
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
+        $this->assertNull($this->factory->get(TestEntity\SpaceShip::class)->getName());
     }
 
     /**
@@ -124,17 +124,17 @@ class BasicUsageTest extends TestCase
      */
     public function entityIsDefinedToDefaultNamespace()
     {
-        $this->factory->defineEntity('SpaceShip');
-        $this->factory->defineEntity('Person\User');
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
+        $this->factory->defineEntity(TestEntity\Person\User::class);
 
         $this->assertInstanceOf(
-            'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\SpaceShip',
-            $this->factory->get('SpaceShip')
+            TestEntity\SpaceShip::class,
+            $this->factory->get(TestEntity\SpaceShip::class)
         );
 
         $this->assertInstanceOf(
-            'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\Person\User',
-            $this->factory->get('Person\User')
+            TestEntity\Person\User::class,
+            $this->factory->get(TestEntity\Person\User::class)
         );
     }
 
@@ -144,13 +144,13 @@ class BasicUsageTest extends TestCase
     public function entityCanBeDefinedToAnotherNamespace()
     {
         $this->factory->defineEntity(
-            '\FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestAnotherEntity\Artist'
+            TestAnotherEntity\Artist::class
         );
 
         $this->assertInstanceOf(
-            'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestAnotherEntity\Artist',
+            TestAnotherEntity\Artist::class,
             $this->factory->get(
-                '\FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestAnotherEntity\Artist'
+                TestAnotherEntity\Artist::class
             )
         );
     }
@@ -160,9 +160,9 @@ class BasicUsageTest extends TestCase
      */
     public function returnsListOfEntities()
     {
-        $this->factory->defineEntity('SpaceShip');
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
 
-        $this->assertCount(1, $this->factory->getList('SpaceShip'));
+        $this->assertCount(1, $this->factory->getList(TestEntity\SpaceShip::class));
     }
 
     /**
@@ -170,8 +170,8 @@ class BasicUsageTest extends TestCase
      */
     public function canSpecifyNumberOfReturnedInstances()
     {
-        $this->factory->defineEntity('SpaceShip');
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
 
-        $this->assertCount(5, $this->factory->getList('SpaceShip', [], 5));
+        $this->assertCount(5, $this->factory->getList(TestEntity\SpaceShip::class, [], 5));
     }
 }

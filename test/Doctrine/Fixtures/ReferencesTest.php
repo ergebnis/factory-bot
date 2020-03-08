@@ -11,11 +11,11 @@ class ReferencesTest extends TestCase
     {
         parent::setUp();
 
-        $this->factory->defineEntity('SpaceShip', [
-            'crew' => FieldDef::references('Person')
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+            'crew' => FieldDef::references(TestEntity\Person::class)
         ]);
 
-        $this->factory->defineEntity('Person', [
+        $this->factory->defineEntity(TestEntity\Person::class, [
             'name' => 'Eve',
         ]);
     }
@@ -26,7 +26,7 @@ class ReferencesTest extends TestCase
     public function referencedObjectsShouldBeCreatedAutomatically()
     {
         /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get('SpaceShip');
+        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 
@@ -43,8 +43,8 @@ class ReferencesTest extends TestCase
         $count = 5;
 
         /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get('SpaceShip', [
-            'crew' => $this->factory->getList('Person', [], $count),
+        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class, [
+            'crew' => $this->factory->getList(TestEntity\Person::class, [], $count),
         ]);
 
         $crew = $spaceShip->getCrew();
@@ -60,7 +60,7 @@ class ReferencesTest extends TestCase
     public function referencedObjectsShouldBeNullable()
     {
         /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get('SpaceShip', [
+        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class, [
             'crew' => null,
         ]);
 
@@ -76,10 +76,10 @@ class ReferencesTest extends TestCase
     public function referencedObjectsCanBeSingletons()
     {
         /** @var TestEntity\Person $person*/
-        $person = $this->factory->getAsSingleton('Person');
+        $person = $this->factory->getAsSingleton(TestEntity\Person::class);
 
         /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get('SpaceShip');
+        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 

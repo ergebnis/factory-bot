@@ -11,10 +11,10 @@ class PersistingTest extends TestCase
      */
     public function automaticPersistCanBeTurnedOn()
     {
-        $this->factory->defineEntity('SpaceShip', ['name' => 'Zeta']);
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Zeta']);
 
         $this->factory->persistOnGet();
-        $ss = $this->factory->get('SpaceShip');
+        $ss = $this->factory->get(TestEntity\SpaceShip::class);
         $this->em->flush();
 
         $this->assertNotNull($ss->getId());
@@ -26,8 +26,8 @@ class PersistingTest extends TestCase
      */
     public function doesNotPersistByDefault()
     {
-        $this->factory->defineEntity('SpaceShip', ['name' => 'Zeta']);
-        $ss = $this->factory->get('SpaceShip');
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Zeta']);
+        $ss = $this->factory->get(TestEntity\SpaceShip::class);
         $this->em->flush();
 
         $this->assertNull($ss->getId());
@@ -55,7 +55,7 @@ class PersistingTest extends TestCase
             }
         }
 
-        $this->factory->defineEntity('Name', [
+        $this->factory->defineEntity(TestEntity\Name::class, [
             'first' => FieldDef::sequence(static function () {
                 $values = [
                     null,
@@ -76,14 +76,14 @@ class PersistingTest extends TestCase
             }),
         ]);
 
-        $this->factory->defineEntity('Commander', [
-            'name' => FieldDef::reference('Name'),
+        $this->factory->defineEntity(TestEntity\Commander::class, [
+            'name' => FieldDef::reference(TestEntity\Name::class),
         ]);
 
         $this->factory->persistOnGet();
 
         /** @var TestEntity\Commander $commander */
-        $commander = $this->factory->get('Commander');
+        $commander = $this->factory->get(TestEntity\Commander::class);
 
         $this->assertInstanceOf(TestEntity\Commander::class, $commander);
         $this->assertInstanceOf(TestEntity\Name::class, $commander->name());

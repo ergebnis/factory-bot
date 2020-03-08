@@ -12,8 +12,13 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 
 * Imported [`breerly/factory-girl-php@0e6f1b6`](https://github.com/unhashable/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856), ([#1]), by [@localheinz]
 
+### Changed
+
+* Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
+
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
+[#3]: https://github.com/ergebnis/factory-bot/pull/3
 
 [@localheinz]: https://github.com/localheinz
