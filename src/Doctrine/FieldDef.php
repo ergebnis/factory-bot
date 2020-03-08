@@ -47,22 +47,6 @@ class FieldDef
     }
 
     /**
-     * @return DateIntervalHelper
-     */
-    public static function past()
-    {
-        return new DateIntervalHelper(new \DateTime(), true);
-    }
-
-    /**
-     * @return DateIntervalHelper
-     */
-    public static function future()
-    {
-        return new DateIntervalHelper(new \DateTime(), false);
-    }
-
-    /**
      * Defines a field to `get()` a named entity from the factory.
      *
      * The normal semantics of `get()` apply.

@@ -17,6 +17,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 
 * Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
 * Removed `StatusArrayType` ([#13]), by [@localheinz]
+* Removed `FieldDef::past()`, `FieldDef::future()`, and `DateIntervalHelper` ([#14]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -24,5 +25,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
 [#6]: https://github.com/ergebnis/factory-bot/pull/6
 [#13]: https://github.com/ergebnis/factory-bot/pull/13
+[#14]: https://github.com/ergebnis/factory-bot/pull/14
 
 [@localheinz]: https://github.com/localheinz
