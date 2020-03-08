@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\AutoReview;
 
 use Ergebnis\Test\Util\Helper;
+use FactoryGirl\Provider\Doctrine;
 use PHPUnit\Framework;
 
 /**
@@ -30,7 +31,20 @@ final class SrcCodeTest extends Framework\TestCase
         self::assertClassesHaveTests(
             __DIR__ . '/../../src/',
             'Ergebnis\\FactoryBot\\',
-            'Ergebnis\\FactoryBot\\Test\\Unit'
+            'Ergebnis\\FactoryBot\\Test\\Unit',
+            [
+                Doctrine\DateIntervalHelper::class,
+                Doctrine\DBAL\Types\StatusArrayType::class,
+                Doctrine\EntityDef::class,
+                Doctrine\EntityDefinitionUnavailable::class,
+                Doctrine\FieldDef::class,
+                Doctrine\FixtureFactory::class,
+                Doctrine\ORM\Locking\LockException::class,
+                Doctrine\ORM\Locking\TableLock::class,
+                Doctrine\ORM\Locking\TableLockMode::class,
+                Doctrine\ORM\QueryBuilder::class,
+                Doctrine\ORM\Repository::class,
+            ]
         );
     }
 }

@@ -1,3 +1,1747 @@
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/DBAL/Types/StatusArrayType.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Provider\\\\Doctrine\\\\DBAL\\\\Types\\\\StatusArrayType\" is not allowed to extend \"Doctrine\\\\DBAL\\\\Types\\\\Type\"\\.$#"
+			count: 1
+			path: src/Doctrine/DBAL/Types/StatusArrayType.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\DBAL\\\\Types\\\\StatusArrayType is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/DBAL/Types/StatusArrayType.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
+			count: 1
+			path: src/Doctrine/DBAL/Types/StatusArrayType.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"void\"\\.$#"
+			count: 2
+			path: src/Doctrine/DBAL/Types/StatusArrayType.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^Constructor in FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper has parameter \\$negative with default value\\.$#"
+			count: 1
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^Access to an undefined property FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:\\$time\\.$#"
+			count: 5
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:modify\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:assertIntegerish\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/DateIntervalHelper.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:\\$entityType has no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:__construct\\(\\) has parameter \\$type with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:readFieldDefs\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:defaultDefsFromMetadata\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:getFieldDefs\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:normalizeFieldDef\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:normalizeFieldDef\\(\\) has parameter \\$def with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:ensureInvokable\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDef\\:\\:ensureInvokable\\(\\) has parameter \\$f with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDef.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"
+			count: 1
+			path: src/Doctrine/EntityDefinitionUnavailable.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/Exception.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/FieldDef.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\FieldDef is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/FieldDef.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
+			count: 2
+			path: src/Doctrine/FieldDef.php
+
+		-
+			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
+			count: 1
+			path: src/Doctrine/FieldDef.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setEntityNamespace\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setEntityNamespace\\(\\) has parameter \\$namespace with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getEntityNamespace\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:get\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 5
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getList\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getList\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getList\\(\\) has parameter \\$numberOfInstances with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:checkFieldOverrides\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Language construct empty\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setField\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$ent with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldName with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) has parameter \\$array with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:persistOnGet\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:persistOnGet\\(\\) has parameter \\$enabled with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getAsSingleton\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getAsSingleton\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setSingleton\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setSingleton\\(\\) has parameter \\$entity with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setSingleton\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:unsetSingleton\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:unsetSingleton\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Variable \\$metadata in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$entityBeingCreated with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldName with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$metadata with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/FixtureFactory.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/LockException.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\LockException\" is not allowed to extend \"Exception\"\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/LockException.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\LockException is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/LockException.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\TableLock is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Parameter \\$transaction of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\TableLock\\:\\:transaction\\(\\) has invalid typehint type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\callback\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Parameter \\$em of anonymous function has invalid typehint type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\EntityManager\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Call to method getConnection\\(\\) on an unknown class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\EntityManager\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Caught class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\Exception not found\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Throwing object of an unknown class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\Exception\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, string\\|null given\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^Call to protected method getClassMetadata\\(\\) of class Doctrine\\\\ORM\\\\EntityRepository\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLock.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLockMode.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\TableLockMode is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLockMode.php
+
+		-
+			message: "#^Control structures using switch should not be used\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLockMode.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\TableLockMode\\:\\:toString\\(\\) should return string\\|null but return statement is missing\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/TableLockMode.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Locking/VersionLockable.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\" is not allowed to extend \"Doctrine\\\\ORM\\\\QueryBuilder\"\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(array\\<string \\=\\> boolean\\>\\)\\: Unexpected token \"\\=\\>\", expected '\\>' at offset 29$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:\\$_statuses has no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(array\\<callback\\(Query\\)\\>\\)\\: Unexpected token \"\\(\", expected '\\>' at offset 30$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:\\$_queryConfigurers has no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Constructor in FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder has parameter \\$entityAlias with default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Constructor in FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder has parameter \\$entityName with default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:__construct\\(\\) has parameter \\$entityAlias with null as default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:__construct\\(\\) has parameter \\$entityName with null as default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:\\$entityName \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:\\$entityAlias \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:init\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
+			count: 2
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Result of && is always true\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:_configureQuery\\(\\) has parameter \\$configurer with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(Doctrine\\\\ORM\\\\Query\\) \\$configurer\\)\\: Unexpected token \"\\(\", expected variable at offset 66$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\QueryBuilder\\:\\:ensure\\(\\) has parameter \\$operation with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(QueryBuilder\\) \\$operation\\)\\: Unexpected token \"\\(\", expected variable at offset 916$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Language construct empty\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"void\"\\.$#"
+			count: 2
+			path: src/Doctrine/ORM/QueryBuilder.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\" is not allowed to extend \"Doctrine\\\\ORM\\\\EntityRepository\"\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository is neither abstract nor final\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:getSingleQueryResult\\(\\) has parameter \\$fallback with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:getSingleQueryResult\\(\\) has parameter \\$fallback with null as default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(Exception\\) \\$fallback optional\\)\\: Unexpected token \"\\(\", expected variable at offset 76$#"
+			count: 2
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Parameter \\#1 \\$do of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:attemptQuery\\(\\) expects FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback, Closure\\(\\)\\: mixed given\\.$#"
+			count: 2
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:getSingleScalarQueryResult\\(\\) has parameter \\$fallback with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:getSingleScalarQueryResult\\(\\) has parameter \\$fallback with null as default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:attemptQuery\\(\\) has parameter \\$fallback with null as default value\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Parameter \\$do of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:attemptQuery\\(\\) has invalid typehint type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Parameter \\$fallback of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:attemptQuery\\(\\) has invalid typehint type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"void\"\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Invoking callable on an unknown class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback\\.$#"
+			count: 3
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:withQueryBuilder\\(\\) has parameter \\$do with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(QueryBuilder, Doctrine\\\\ORM\\\\Query\\\\Expr\\) \\$do\\)\\: Unexpected token \"\\(\", expected variable at offset 244$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:getReference\\(\\) should return object but returns object\\|null\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:transaction\\(\\) has parameter \\$transaction with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(Doctrine\\\\ORM\\\\EntityManager, Repository\\) \\$transaction\\)\\: Unexpected token \"\\(\", expected variable at offset 221$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @throws with type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Exception is not subtype of Throwable$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Caught class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Exception not found\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Call to method Doctrine\\\\DBAL\\\\Connection\\:\\:rollBack\\(\\) with incorrect case\\: rollback$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Throwing object of an unknown class FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Exception\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:useWithLock\\(\\) has parameter \\$callback with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(\\$entity, Doctrine\\\\ORM\\\\EntityManager, Repository\\) \\$callback\\)\\: Unexpected token \"\\(\", expected variable at offset 253$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Language construct empty\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:useWithPessimisticWriteLock\\(\\) has parameter \\$callback with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(\\$entity, Doctrine\\\\ORM\\\\EntityManager, Repository\\) \\$callback\\)\\: Unexpected token \"\\(\", expected variable at offset 117$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:useWithPessimisticVersionLock\\(\\) has parameter \\$callback with no typehint specified\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(callback\\(\\$entity, Doctrine\\\\ORM\\\\EntityManager, Repository\\) \\$callback\\)\\: Unexpected token \"\\(\", expected variable at offset 575$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Call to an undefined static method Doctrine\\\\ORM\\\\OptimisticLockException\\:\\:lockFailedVersionMissmatch\\(\\)\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Parameter \\$transaction of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Repository\\:\\:transactionWithTableLock\\(\\) has invalid typehint type FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Parameter \\#2 \\$transaction of method FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\TableLock\\:\\:transaction\\(\\) expects FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\Locking\\\\callback, FactoryGirl\\\\Provider\\\\Doctrine\\\\ORM\\\\callback given\\.$#"
+			count: 1
+			path: src/Doctrine/ORM/Repository.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and FactoryGirl\\\\Provider\\\\Doctrine\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
+			count: 1
+			path: test/Doctrine/EntityDefinitionUnavailableTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:acceptsConstantValuesInEntityDefinitions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 5
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:acceptsGeneratorFunctionsInEntityDefinitions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:valuesCanBeOverriddenAtCreationTime\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:preservesDefaultValuesOfEntity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:doesNotCallTheConstructorOfTheEntity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:instantiatesCollectionAssociationsToBeEmptyCollectionsWhenUnspecified\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 5
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:arrayElementsAreMappedToCollectionAsscociationFields\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:unspecifiedFieldsAreLeftNull\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:entityIsDefinedToDefaultNamespace\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:entityCanBeDefinedToAnotherNamespace\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:returnsListOfEntities\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\\:\\:canSpecifyNumberOfReturnedInstances\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BasicUsageTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest\\:\\:bidirectionalOntToManyReferencesAreAssignedBothWays\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContains\\(\\)\\.$#"
+			count: 3
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest\\:\\:unidirectionalReferencesWorkAsUsual\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest\\:\\:whenTheOneSideIsASingletonItMayGetSeveralChildObjects\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest\\:\\:canInvokeACallbackAfterObjectConstruction\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"void\"\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest\\:\\:theAfterCreateCallbackCanBeUsedToCallTheConstructor\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToDefineTheSameEntityTwice\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToDefineEntitiesThatAreNotEvenClasses\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToDefineEntitiesThatAreNotEntities\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToDefineNonexistentFields\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToGiveNonexistentFieldsWhileConstructing\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\\:\\:throwsWhenTryingToGetLessThanOneInstance\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest\\:\\:automaticPersistCanBeTurnedOn\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest\\:\\:doesNotPersistByDefault\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest\\:\\:doesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:markTestSkipped\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FactoryGirl\\\\\\\\Tests…' and FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Commander will always evaluate to true\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FactoryGirl\\\\\\\\Tests…' and FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name will always evaluate to true\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/PersistingTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest\\:\\:referencedObjectShouldBeCreatedAutomatically\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotSame\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest\\:\\:referencedObjectsShouldBeNullable\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferenceTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\\:\\:referencedObjectsShouldBeCreatedAutomatically\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 4
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContainsOnly\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 3
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\\:\\:referencedObjectsShouldBeOverrideable\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\\:\\:referencedObjectsShouldBeNullable\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\\:\\:referencedObjectsCanBeSingletons\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertContains\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/ReferencesTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest\\:\\:sequenceGeneratorCallsAFunctionWithAnIncrementingArgument\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 12
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest\\:\\:sequenceGeneratorCanTakeAPlaceholderString\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest\\:\\:sequenceGeneratorCanTakeAStringToAppendTo\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SequenceTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:afterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 6
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:getAsSingletonMethodAcceptsFieldOverridesLikeGet\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:throwsAnErrorWhenCallingGetSingletonTwiceOnTheSameEntity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:allowsSettingSingletons\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:allowsUnsettingSingletons\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotSame\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\\:\\:allowsOverwritingExistingSingletons\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/SingletonTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestAnotherEntity/Artist.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestAnotherEntity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestAnotherEntity/Artist.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestCase.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\\:\\:setUp\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestCase.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$label has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$owner has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getLabel\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getOwner\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Badge.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Commander.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Name.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Name.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Name.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/NotAnEntity.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\NotAnEntity is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/NotAnEntity.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$spaceShip has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Constructor in FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person has parameter \\$spaceShip with default value\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with null as default value\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getSpaceShip\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person/User.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\\\User\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/Person/User.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$crew has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getCrew\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:constructorWasCalled\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\\:\\:testGetTimePast\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 4
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\\:\\:testGetTimeFuture\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TimeTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\\:\\:simpleSetup\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\\:\\:referencesGetInstantiatedTransitively\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\\:\\:transitiveReferencesWorkWithSingletons\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotSame\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testYearsRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testMonthsRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testDaysRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"array\"\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/DateIntervalHelperTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/RepositoryTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\RepositoryTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/RepositoryTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\RepositoryTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/RepositoryTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\RepositoryTest\\:\\:getsReference\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/RepositoryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/RepositoryTest.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/TestCase.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\TestCase\\:\\:setUp\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/TestCase.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/TestEntity/User.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\TestEntity\\\\User\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/ORM/TestEntity/User.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/TestDb.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/TestDb.php
+
+		-
+			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
+			count: 1
+			path: test/Doctrine/TestDb.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb\\:\\:createSchema\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/TestDb.php
+
+		-
+			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest is neither abstract nor final\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:\\$platform has no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:\\$type \\(FactoryGirl\\\\Provider\\\\Doctrine\\\\DBAL\\\\Types\\\\StatusArrayType\\) does not accept Doctrine\\\\DBAL\\\\Types\\\\Type\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:getNameShouldReturnExpectedName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 3
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:nullShouldAlwaysConvertToNull\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 2
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:nonArrayOrNotNullShouldFailDatabaseConversion\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:provideStupidValues\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:provideAcceptableValues\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:invalidCharactersShouldFailDatabaseConversion\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:invalidCharactersShouldFailDatabaseConversion\\(\\) has parameter \\$stupidValue with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:acceptableCharactersShouldPassDatabaseConversionAndReturnExpectedSerialization\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:acceptableCharactersShouldPassDatabaseConversionAndReturnExpectedSerialization\\(\\) has parameter \\$acceptableValue with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:acceptableCharactersShouldPassDatabaseConversionAndReturnExpectedSerialization\\(\\) has parameter \\$expectedSerialization with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:provideSerializedValues\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:valuesShouldDeserializeProperly\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:valuesShouldDeserializeProperly\\(\\) has parameter \\$expected with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:valuesShouldDeserializeProperly\\(\\) has parameter \\$serialized with no typehint specified\\.$#"
+			count: 1
+			path: test/Doctrine/Types/StatusArrayTest.php
 

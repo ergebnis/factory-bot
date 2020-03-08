@@ -12,6 +12,15 @@ update_configs:
     default_labels:
       - "dependency"
     directory: "/"
+    ignored_updates:
+      - match:
+          dependency_name: "doctrine/annotations"
+      - match:
+          dependency_name: "doctrine/collections"
+      - match:
+          dependency_name: "doctrine/dbal"
+      - match:
+          dependency_name: "doctrine/orm"
     package_manager: "php:composer"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
