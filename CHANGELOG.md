@@ -16,11 +16,13 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 ### Changed
 
 * Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
+* Removed `StatusArrayType` ([#13]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
 [#6]: https://github.com/ergebnis/factory-bot/pull/6
+[#13]: https://github.com/ergebnis/factory-bot/pull/13
 
 [@localheinz]: https://github.com/localheinz

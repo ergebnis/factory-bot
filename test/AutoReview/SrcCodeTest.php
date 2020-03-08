@@ -34,7 +34,6 @@ final class SrcCodeTest extends Framework\TestCase
             'Ergebnis\\FactoryBot\\Test\\Unit',
             [
                 Doctrine\DateIntervalHelper::class,
-                Doctrine\DBAL\Types\StatusArrayType::class,
                 Doctrine\EntityDef::class,
                 Doctrine\EntityDefinitionUnavailable::class,
                 Doctrine\FieldDef::class,
