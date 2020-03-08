@@ -5,8 +5,10 @@ namespace FactoryGirl\Tests\Provider\Doctrine\Types;
 use FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestCase;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use FactoryGirl\Provider\Doctrine\DBAL\Types\StatusArrayType;
 
-Type::addType('statusarray', 'FactoryGirl\Provider\Doctrine\DBAL\Types\StatusArrayType');
+Type::addType('statusarray', StatusArrayType::class);
 
 class StatusArrayTest extends TestCase
 {
@@ -19,7 +21,7 @@ class StatusArrayTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->platform = $this->getMockForAbstractClass('\Doctrine\DBAL\Platforms\AbstractPlatform');
+        $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
         $this->type = Type::getType('statusarray');
     }
 
