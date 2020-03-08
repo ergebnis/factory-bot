@@ -1,6 +1,17 @@
 <?php
 
-namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2020 Andreas Möller
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE.md file that was distributed with this source code.
+ *
+ * @see https://github.com/ergebnis/factory-bot
+ */
+
+namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
 /**
  * @Entity
@@ -8,7 +19,7 @@ namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
 class Commander
 {
     /**
-     * @Id()
+     * @Id
      * @GeneratedValue(strategy="AUTO")
      * @Column(
      *     name="id",
@@ -21,7 +32,7 @@ class Commander
 
     /**
      * @Embedded(
-     *     class="FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\Name",
+     *     class="Ergebnis\FactoryBot\Test\Fixture\Entity\Name",
      *     columnPrefix=false
      * )
      *

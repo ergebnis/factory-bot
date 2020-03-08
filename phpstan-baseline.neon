@@ -1001,7 +1001,7 @@ parameters:
 			path: test/Doctrine/Fixtures/PersistingTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FactoryGirl\\\\\\\\Tests…' and FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Commander will always evaluate to true\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Commander will always evaluate to true\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/PersistingTest.php
 
@@ -1011,7 +1011,7 @@ parameters:
 			path: test/Doctrine/Fixtures/PersistingTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FactoryGirl\\\\\\\\Tests…' and FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name will always evaluate to true\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name will always evaluate to true\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/PersistingTest.php
 
@@ -1213,247 +1213,12 @@ parameters:
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
 			count: 1
-			path: test/Doctrine/Fixtures/TestAnotherEntity/Artist.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestAnotherEntity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestAnotherEntity/Artist.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
 			path: test/Doctrine/Fixtures/TestCase.php
 
 		-
 			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\\:\\:setUp\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TestCase.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$label has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:\\$owner has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getId\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getLabel\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Badge\\:\\:getOwner\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Badge.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Commander.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Name.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Name.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Name.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/NotAnEntity.php
-
-		-
-			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\NotAnEntity is neither abstract nor final\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/NotAnEntity.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:\\$spaceShip has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Constructor in FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person has parameter \\$spaceShip with default value\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with null as default value\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getId\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\:\\:getSpaceShip\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person/User.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\Person\\\\User\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/Person/User.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:\\$crew has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getId\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:setName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:getCrew\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceShip\\:\\:constructorWasCalled\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceShip.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Property FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:getId\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:getName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:setName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestEntity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestEntity/SpaceStation.php
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
@@ -1729,4 +1494,184 @@ parameters:
 			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Types\\\\StatusArrayTest\\:\\:valuesShouldDeserializeProperly\\(\\) has parameter \\$serialized with no typehint specified\\.$#"
 			count: 1
 			path: test/Doctrine/Types/StatusArrayTest.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Artist.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$label has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$owner has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getLabel\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getOwner\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Name.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Name.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$spaceShip has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person has parameter \\$spaceShip with default value\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with a nullable type declaration\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with null as default value\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getSpaceShip\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\\\User\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/Person/User.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$crew has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getCrew\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:constructorWasCalled\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceShip.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			count: 1
+			path: test/Fixture/Entity/SpaceStation.php
 

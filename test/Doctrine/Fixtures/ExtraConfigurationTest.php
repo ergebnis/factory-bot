@@ -1,6 +1,8 @@
 <?php
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
+
 class ExtraConfigurationTest extends TestCase
 {
     /**
@@ -8,14 +10,14 @@ class ExtraConfigurationTest extends TestCase
      */
     public function canInvokeACallbackAfterObjectConstruction()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'name' => 'Foo'
         ], [
-            'afterCreate' => function (TestEntity\SpaceShip $ss, array $fieldValues) {
+            'afterCreate' => function (Entity\SpaceShip $ss, array $fieldValues) {
                 $ss->setName($ss->getName() . '-' . $fieldValues['name']);
             }
         ]);
-        $ss = $this->factory->get(TestEntity\SpaceShip::class);
+        $ss = $this->factory->get(Entity\SpaceShip::class);
 
         $this->assertSame("Foo-Foo", $ss->getName());
     }
@@ -25,14 +27,14 @@ class ExtraConfigurationTest extends TestCase
      */
     public function theAfterCreateCallbackCanBeUsedToCallTheConstructor()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'name' => 'Foo'
         ], [
-            'afterCreate' => function (TestEntity\SpaceShip $ss, array $fieldValues) {
+            'afterCreate' => function (Entity\SpaceShip $ss, array $fieldValues) {
                 $ss->__construct($fieldValues['name'] . 'Master');
             }
         ]);
-        $ss = $this->factory->get(TestEntity\SpaceShip::class, ['name' => 'Xoo']);
+        $ss = $this->factory->get(Entity\SpaceShip::class, ['name' => 'Xoo']);
 
         $this->assertTrue($ss->constructorWasCalled());
         $this->assertSame('XooMaster', $ss->getName());

@@ -1,6 +1,7 @@
 <?php
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 
 class ReferenceTest extends TestCase
@@ -9,10 +10,10 @@ class ReferenceTest extends TestCase
     {
         parent::setUp();
 
-        $this->factory->defineEntity(TestEntity\SpaceShip::class);
-        $this->factory->defineEntity(TestEntity\Person::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $this->factory->defineEntity(Entity\Person::class, [
             'name' => 'Eve',
-            'spaceShip' => FieldDef::reference(TestEntity\SpaceShip::class)
+            'spaceShip' => FieldDef::reference(Entity\SpaceShip::class)
         ]);
     }
 
@@ -21,8 +22,8 @@ class ReferenceTest extends TestCase
      */
     public function referencedObjectShouldBeCreatedAutomatically()
     {
-        $ss1 = $this->factory->get(TestEntity\Person::class)->getSpaceShip();
-        $ss2 = $this->factory->get(TestEntity\Person::class)->getSpaceShip();
+        $ss1 = $this->factory->get(Entity\Person::class)->getSpaceShip();
+        $ss2 = $this->factory->get(Entity\Person::class)->getSpaceShip();
 
         $this->assertNotNull($ss1);
         $this->assertNotNull($ss2);
@@ -34,7 +35,7 @@ class ReferenceTest extends TestCase
      */
     public function referencedObjectsShouldBeNullable()
     {
-        $person = $this->factory->get(TestEntity\Person::class, ['spaceShip' => null]);
+        $person = $this->factory->get(Entity\Person::class, ['spaceShip' => null]);
 
         $this->assertNull($person->getSpaceShip());
     }

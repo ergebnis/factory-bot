@@ -1,6 +1,7 @@
 <?php
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use Doctrine\ORM\Mapping;
 
@@ -11,14 +12,14 @@ class PersistingTest extends TestCase
      */
     public function automaticPersistCanBeTurnedOn()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Zeta']);
+        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
 
         $this->factory->persistOnGet();
-        $ss = $this->factory->get(TestEntity\SpaceShip::class);
+        $ss = $this->factory->get(Entity\SpaceShip::class);
         $this->em->flush();
 
         $this->assertNotNull($ss->getId());
-        $this->assertSame($ss, $this->em->find(TestEntity\SpaceShip::class, $ss->getId()));
+        $this->assertSame($ss, $this->em->find(Entity\SpaceShip::class, $ss->getId()));
     }
 
     /**
@@ -26,15 +27,15 @@ class PersistingTest extends TestCase
      */
     public function doesNotPersistByDefault()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Zeta']);
-        $ss = $this->factory->get(TestEntity\SpaceShip::class);
+        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
+        $ss = $this->factory->get(Entity\SpaceShip::class);
         $this->em->flush();
 
         $this->assertNull($ss->getId());
         $q = $this->em
             ->createQueryBuilder()
             ->select('ss')
-            ->from(TestEntity\SpaceShip::class, 'ss')
+            ->from(Entity\SpaceShip::class, 'ss')
             ->getQuery();
         $this->assertEmpty($q->getResult());
     }
@@ -55,7 +56,7 @@ class PersistingTest extends TestCase
             }
         }
 
-        $this->factory->defineEntity(TestEntity\Name::class, [
+        $this->factory->defineEntity(Entity\Name::class, [
             'first' => FieldDef::sequence(static function () {
                 $values = [
                     null,
@@ -76,17 +77,17 @@ class PersistingTest extends TestCase
             }),
         ]);
 
-        $this->factory->defineEntity(TestEntity\Commander::class, [
-            'name' => FieldDef::reference(TestEntity\Name::class),
+        $this->factory->defineEntity(Entity\Commander::class, [
+            'name' => FieldDef::reference(Entity\Name::class),
         ]);
 
         $this->factory->persistOnGet();
 
-        /** @var TestEntity\Commander $commander */
-        $commander = $this->factory->get(TestEntity\Commander::class);
+        /** @var Entity\Commander $commander */
+        $commander = $this->factory->get(Entity\Commander::class);
 
-        $this->assertInstanceOf(TestEntity\Commander::class, $commander);
-        $this->assertInstanceOf(TestEntity\Name::class, $commander->name());
+        $this->assertInstanceOf(Entity\Commander::class, $commander);
+        $this->assertInstanceOf(Entity\Name::class, $commander->name());
 
         $this->em->flush();
     }

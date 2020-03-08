@@ -34,7 +34,7 @@ abstract class TestCase extends Framework\TestCase
         $here = dirname(__FILE__);
 
         $this->testDb = new TestDb(
-            $here . '/TestEntity',
+            __DIR__ . '/../../Fixture/Entity',
             $here . '/TestProxy',
             'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestProxy'
         );
