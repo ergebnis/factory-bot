@@ -125,8 +125,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>isset($metadata)</code>
     </DocblockTypeContradiction>
-    <MissingParamType occurrences="18">
-      <code>$namespace</code>
+    <MissingParamType occurrences="17">
       <code>$name</code>
       <code>$name</code>
       <code>$numberOfInstances</code>
@@ -145,9 +144,7 @@
       <code>$fieldName</code>
       <code>$value</code>
     </MissingParamType>
-    <MissingReturnType occurrences="12">
-      <code>setEntityNamespace</code>
-      <code>getEntityNamespace</code>
+    <MissingReturnType occurrences="10">
       <code>get</code>
       <code>getList</code>
       <code>checkFieldOverrides</code>
@@ -159,8 +156,7 @@
       <code>unsetSingleton</code>
       <code>updateCollectionSideOfAssocation</code>
     </MissingReturnType>
-    <MixedArgument occurrences="16">
-      <code>$namespace</code>
+    <MixedArgument occurrences="15">
       <code>$name</code>
       <code>$name</code>
       <code>$fieldName</code>
@@ -172,7 +168,7 @@
       <code>$ent</code>
       <code>$fieldName</code>
       <code>$fieldName</code>
-      <code>$name</code>
+      <code>$type</code>
       <code>$value</code>
       <code>$value</code>
       <code>$inverse</code>
@@ -193,12 +189,13 @@
       <code>$this-&gt;entityDefs[$name]</code>
       <code>$this-&gt;entityDefs[$name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="9">
       <code>$fieldDef</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$instances[]</code>
       <code>$this-&gt;persist</code>
+      <code>$type</code>
       <code>$assoc</code>
       <code>$inverse</code>
       <code>$collection</code>
@@ -330,11 +327,6 @@
     </UndefinedMethod>
   </file>
   <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
-    <ArgumentTypeCoercion occurrences="3">
-      <code>'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\SpaceShip'</code>
-      <code>'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\Person\User'</code>
-      <code>'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestAnotherEntity\Artist'</code>
-    </ArgumentTypeCoercion>
     <MissingReturnType occurrences="12">
       <code>acceptsConstantValuesInEntityDefinitions</code>
       <code>acceptsGeneratorFunctionsInEntityDefinitions</code>
@@ -350,8 +342,8 @@
       <code>canSpecifyNumberOfReturnedInstances</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>$this-&gt;factory-&gt;getList('SpaceShip')</code>
-      <code>$this-&gt;factory-&gt;getList('SpaceShip', [], 5)</code>
+      <code>$this-&gt;factory-&gt;getList(TestEntity\SpaceShip::class)</code>
+      <code>$this-&gt;factory-&gt;getList(TestEntity\SpaceShip::class, [], 5)</code>
     </MixedArgument>
     <MixedAssignment occurrences="8">
       <code>$ss</code>

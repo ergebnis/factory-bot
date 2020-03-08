@@ -42,6 +42,5 @@ abstract class TestCase extends Framework\TestCase
         $this->em = $this->testDb->createEntityManager();
 
         $this->factory = new FixtureFactory($this->em);
-        $this->factory->setEntityNamespace('FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity');
     }
 }

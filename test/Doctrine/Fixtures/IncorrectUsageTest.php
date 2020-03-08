@@ -8,11 +8,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineTheSameEntityTwice()
     {
-        $factory = $this->factory->defineEntity('SpaceShip');
+        $factory = $this->factory->defineEntity(TestEntity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $factory->defineEntity('SpaceShip');
+        $factory->defineEntity(TestEntity\SpaceShip::class);
     }
 
     /**
@@ -34,7 +34,7 @@ class IncorrectUsageTest extends TestCase
 
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity('NotAnEntity');
+        $this->factory->defineEntity(TestEntity\NotAnEntity::class);
     }
 
     /**
@@ -44,7 +44,7 @@ class IncorrectUsageTest extends TestCase
     {
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity('SpaceShip', [
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -54,11 +54,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGiveNonexistentFieldsWhileConstructing()
     {
-        $this->factory->defineEntity('SpaceShip', ['name' => 'Alpha']);
+        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Alpha']);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->get('SpaceShip', [
+        $this->factory->get(TestEntity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -68,10 +68,10 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGetLessThanOneInstance()
     {
-        $this->factory->defineEntity('SpaceShip');
+        $this->factory->defineEntity(TestEntity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->getList('SpaceShip', [], 0);
+        $this->factory->getList(TestEntity\SpaceShip::class, [], 0);
     }
 }

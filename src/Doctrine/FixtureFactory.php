@@ -20,11 +20,6 @@ class FixtureFactory
     protected $em;
 
     /**
-     * @var string
-     */
-    protected $entityNamespace;
-
-    /**
      * @var array<EntityDef>
      */
     protected $entityDefs;
@@ -43,26 +38,11 @@ class FixtureFactory
     {
         $this->em = $em;
 
-        $this->entityNamespace = '';
-
         $this->entityDefs = [];
 
         $this->singletons = [];
 
         $this->persist = false;
-    }
-
-    /**
-     * Sets the namespace to be prefixed to all entity names passed to this class.
-     */
-    public function setEntityNamespace($namespace)
-    {
-        $this->entityNamespace = trim($namespace, '\\');
-    }
-
-    public function getEntityNamespace()
-    {
-        return $this->entityNamespace;
     }
 
     /**
@@ -233,7 +213,7 @@ class FixtureFactory
             throw new Exception("Entity '$name' already defined in fixture factory");
         }
 
-        $type = $this->addNamespace($name);
+        $type = $name;
         if (!class_exists($type, true)) {
             throw new Exception("Not a class: $type");
         }
@@ -246,21 +226,6 @@ class FixtureFactory
         $this->entityDefs[$name] = new EntityDef($this->em, $name, $type, $fieldDefs, $config);
 
         return $this;
-    }
-
-    /**
-     * @param  string $name
-     * @return string
-     */
-    protected function addNamespace($name)
-    {
-        $name = rtrim($name, '\\');
-
-        if ($name[0] === '\\') {
-            return $name;
-        }
-
-        return $this->entityNamespace . '\\' . $name;
     }
 
     protected function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value)

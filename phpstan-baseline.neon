@@ -166,21 +166,6 @@ parameters:
 			path: src/Doctrine/FixtureFactory.php
 
 		-
-			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setEntityNamespace\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Doctrine/FixtureFactory.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:setEntityNamespace\\(\\) has parameter \\$namespace with no typehint specified\\.$#"
-			count: 1
-			path: src/Doctrine/FixtureFactory.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:getEntityNamespace\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Doctrine/FixtureFactory.php
-
-		-
 			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Doctrine/FixtureFactory.php
