@@ -3,36 +3,6 @@ parameters:
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
 			count: 1
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^Class FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper is neither abstract nor final\\.$#"
-			count: 1
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^Constructor in FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper has parameter \\$negative with default value\\.$#"
-			count: 1
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^Access to an undefined property FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:\\$time\\.$#"
-			count: 5
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:modify\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Provider\\\\Doctrine\\\\DateIntervalHelper\\:\\:assertIntegerish\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Doctrine/DateIntervalHelper.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
 			path: src/Doctrine/EntityDef.php
 
 		-
@@ -1198,36 +1168,6 @@ parameters:
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
 			count: 1
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest is neither abstract nor final\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\\:\\:testGetTimePast\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
-			count: 4
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TimeTest\\:\\:testGetTimeFuture\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TimeTest.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
 
 		-
@@ -1269,36 +1209,6 @@ parameters:
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
-
-		-
-			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest is neither abstract nor final\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testYearsRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testMonthsRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\ORM\\\\DateIntervalHelperTest\\:\\:testDaysRejectsInvalidValue\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
-
-		-
-			message: "#^Anonymous function should have native return typehint \"array\"\\.$#"
-			count: 1
-			path: test/Doctrine/ORM/DateIntervalHelperTest.php
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
