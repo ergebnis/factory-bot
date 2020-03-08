@@ -37,11 +37,7 @@ final class SrcCodeTest extends Framework\TestCase
                 Doctrine\EntityDefinitionUnavailable::class,
                 Doctrine\FieldDef::class,
                 Doctrine\FixtureFactory::class,
-                Doctrine\ORM\Locking\LockException::class,
-                Doctrine\ORM\Locking\TableLock::class,
-                Doctrine\ORM\Locking\TableLockMode::class,
                 Doctrine\ORM\QueryBuilder::class,
-                Doctrine\ORM\Repository::class,
             ]
         );
     }
