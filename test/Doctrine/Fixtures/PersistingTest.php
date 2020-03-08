@@ -34,7 +34,7 @@ class PersistingTest extends TestCase
         $q = $this->em
             ->createQueryBuilder()
             ->select('ss')
-            ->from('FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity\SpaceShip', 'ss')
+            ->from(TestEntity\SpaceShip::class, 'ss')
             ->getQuery();
         $this->assertEmpty($q->getResult());
     }
