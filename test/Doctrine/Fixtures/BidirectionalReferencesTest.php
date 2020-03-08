@@ -1,6 +1,7 @@
 <?php
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 
 class BidirectionalReferencesTest extends TestCase
@@ -10,12 +11,12 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function bidirectionalOntToManyReferencesAreAssignedBothWays()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class);
-        $this->factory->defineEntity(TestEntity\Person::class, [
-            'spaceShip' => FieldDef::reference(TestEntity\SpaceShip::class)
+        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $this->factory->defineEntity(Entity\Person::class, [
+            'spaceShip' => FieldDef::reference(Entity\SpaceShip::class)
         ]);
 
-        $person = $this->factory->get(TestEntity\Person::class);
+        $person = $this->factory->get(Entity\Person::class);
         $ship = $person->getSpaceShip();
 
         $this->assertContains($person, $ship->getCrew());
@@ -26,12 +27,12 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function unidirectionalReferencesWorkAsUsual()
     {
-        $this->factory->defineEntity(TestEntity\Badge::class, [
-            'owner' => FieldDef::reference(TestEntity\Person::class)
+        $this->factory->defineEntity(Entity\Badge::class, [
+            'owner' => FieldDef::reference(Entity\Person::class)
         ]);
-        $this->factory->defineEntity(TestEntity\Person::class);
+        $this->factory->defineEntity(Entity\Person::class);
 
-        $this->assertInstanceOf(TestEntity\Person::class, $this->factory->get(TestEntity\Badge::class)->getOwner());
+        $this->assertInstanceOf(Entity\Person::class, $this->factory->get(Entity\Badge::class)->getOwner());
     }
 
     /**
@@ -39,14 +40,14 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function whenTheOneSideIsASingletonItMayGetSeveralChildObjects()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class);
-        $this->factory->defineEntity(TestEntity\Person::class, [
-            'spaceShip' => FieldDef::reference(TestEntity\SpaceShip::class)
+        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $this->factory->defineEntity(Entity\Person::class, [
+            'spaceShip' => FieldDef::reference(Entity\SpaceShip::class)
         ]);
 
-        $ship = $this->factory->getAsSingleton(TestEntity\SpaceShip::class);
-        $p1 = $this->factory->get(TestEntity\Person::class);
-        $p2 = $this->factory->get(TestEntity\Person::class);
+        $ship = $this->factory->getAsSingleton(Entity\SpaceShip::class);
+        $p1 = $this->factory->get(Entity\Person::class);
+        $p2 = $this->factory->get(Entity\Person::class);
 
         $this->assertContains($p1, $ship->getCrew());
         $this->assertContains($p2, $ship->getCrew());

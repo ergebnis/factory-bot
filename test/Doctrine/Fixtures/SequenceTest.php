@@ -2,6 +2,7 @@
 
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 
 class SequenceTest extends TestCase
@@ -11,15 +12,15 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCallsAFunctionWithAnIncrementingArgument()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence(function ($n) {
                 return "Alpha $n";
             })
         ]);
-        $this->assertSame('Alpha 1', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Alpha 2', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Alpha 3', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Alpha 4', $this->factory->get(TestEntity\SpaceShip::class)->getName());
+        $this->assertSame('Alpha 1', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Alpha 2', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Alpha 3', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Alpha 4', $this->factory->get(Entity\SpaceShip::class)->getName());
     }
 
     /**
@@ -27,13 +28,13 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCanTakeAPlaceholderString()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence("Beta %d")
         ]);
-        $this->assertSame('Beta 1', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Beta 2', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Beta 3', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Beta 4', $this->factory->get(TestEntity\SpaceShip::class)->getName());
+        $this->assertSame('Beta 1', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Beta 2', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Beta 3', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Beta 4', $this->factory->get(Entity\SpaceShip::class)->getName());
     }
 
     /**
@@ -41,12 +42,12 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCanTakeAStringToAppendTo()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence("Gamma ")
         ]);
-        $this->assertSame('Gamma 1', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Gamma 2', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Gamma 3', $this->factory->get(TestEntity\SpaceShip::class)->getName());
-        $this->assertSame('Gamma 4', $this->factory->get(TestEntity\SpaceShip::class)->getName());
+        $this->assertSame('Gamma 1', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Gamma 2', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Gamma 3', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Gamma 4', $this->factory->get(Entity\SpaceShip::class)->getName());
     }
 }

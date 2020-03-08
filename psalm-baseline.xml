@@ -342,8 +342,8 @@
       <code>canSpecifyNumberOfReturnedInstances</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>$this-&gt;factory-&gt;getList(TestEntity\SpaceShip::class)</code>
-      <code>$this-&gt;factory-&gt;getList(TestEntity\SpaceShip::class, [], 5)</code>
+      <code>$this-&gt;factory-&gt;getList(Entity\SpaceShip::class)</code>
+      <code>$this-&gt;factory-&gt;getList(Entity\SpaceShip::class, [], 5)</code>
     </MixedArgument>
     <MixedAssignment occurrences="8">
       <code>$ss</code>
@@ -511,55 +511,6 @@
       <code>getName</code>
     </MixedMethodCall>
   </file>
-  <file src="test/Doctrine/Fixtures/TestEntity/Badge.php">
-    <MissingParamType occurrences="1">
-      <code>$label</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>getId</code>
-      <code>getLabel</code>
-      <code>getOwner</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Doctrine/Fixtures/TestEntity/Commander.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="test/Doctrine/Fixtures/TestEntity/Person.php">
-    <MissingParamType occurrences="1">
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>getId</code>
-      <code>getName</code>
-      <code>getSpaceShip</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Doctrine/Fixtures/TestEntity/SpaceShip.php">
-    <MissingParamType occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="5">
-      <code>getId</code>
-      <code>getName</code>
-      <code>setName</code>
-      <code>getCrew</code>
-      <code>constructorWasCalled</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Doctrine/Fixtures/TestEntity/SpaceStation.php">
-    <MissingParamType occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>getId</code>
-      <code>getName</code>
-      <code>setName</code>
-    </MissingReturnType>
-  </file>
   <file src="test/Doctrine/Fixtures/TimeTest.php">
     <MissingReturnType occurrences="2">
       <code>testGetTimePast</code>
@@ -656,6 +607,53 @@
     <PropertyTypeCoercion occurrences="1">
       <code>Type::getType('statusarray')</code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="test/Fixture/Entity/Badge.php">
+    <MissingParamType occurrences="1">
+      <code>$label</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
+      <code>getId</code>
+      <code>getLabel</code>
+      <code>getOwner</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/Entity/Commander.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$id</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="test/Fixture/Entity/Person.php">
+    <MissingParamType occurrences="1">
+      <code>$name</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
+      <code>getId</code>
+      <code>getName</code>
+      <code>getSpaceShip</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/Entity/SpaceShip.php">
+    <MissingParamType occurrences="2">
+      <code>$name</code>
+      <code>$name</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="4">
+      <code>getId</code>
+      <code>getName</code>
+      <code>getCrew</code>
+      <code>constructorWasCalled</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/Entity/SpaceStation.php">
+    <MissingParamType occurrences="2">
+      <code>$name</code>
+      <code>$name</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="2">
+      <code>getId</code>
+      <code>getName</code>
+    </MissingReturnType>
   </file>
   <file src="test/Unit/Definition/DefinitionsTest.php">
     <MixedAssignment occurrences="1">

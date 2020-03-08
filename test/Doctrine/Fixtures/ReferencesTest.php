@@ -2,6 +2,7 @@
 
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,11 +13,11 @@ class ReferencesTest extends TestCase
     {
         parent::setUp();
 
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
-            'crew' => FieldDef::references(TestEntity\Person::class)
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
+            'crew' => FieldDef::references(Entity\Person::class)
         ]);
 
-        $this->factory->defineEntity(TestEntity\Person::class, [
+        $this->factory->defineEntity(Entity\Person::class, [
             'name' => 'Eve',
         ]);
     }
@@ -26,13 +27,13 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsShouldBeCreatedAutomatically()
     {
-        /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class);
+        /** @var Entity\SpaceShip $spaceShip */
+        $spaceShip = $this->factory->get(Entity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 
         $this->assertInstanceOf(ArrayCollection::class, $crew);
-        $this->assertContainsOnly(TestEntity\Person::class, $crew);
+        $this->assertContainsOnly(Entity\Person::class, $crew);
         $this->assertCount(1, $crew);
     }
 
@@ -43,15 +44,15 @@ class ReferencesTest extends TestCase
     {
         $count = 5;
 
-        /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class, [
-            'crew' => $this->factory->getList(TestEntity\Person::class, [], $count),
+        /** @var Entity\SpaceShip $spaceShip */
+        $spaceShip = $this->factory->get(Entity\SpaceShip::class, [
+            'crew' => $this->factory->getList(Entity\Person::class, [], $count),
         ]);
 
         $crew = $spaceShip->getCrew();
 
         $this->assertInstanceOf(ArrayCollection::class, $crew);
-        $this->assertContainsOnly(TestEntity\Person::class, $crew);
+        $this->assertContainsOnly(Entity\Person::class, $crew);
         $this->assertCount($count, $crew);
     }
 
@@ -60,8 +61,8 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsShouldBeNullable()
     {
-        /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class, [
+        /** @var Entity\SpaceShip $spaceShip */
+        $spaceShip = $this->factory->get(Entity\SpaceShip::class, [
             'crew' => null,
         ]);
 
@@ -76,11 +77,11 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsCanBeSingletons()
     {
-        /** @var TestEntity\Person $person*/
-        $person = $this->factory->getAsSingleton(TestEntity\Person::class);
+        /** @var Entity\Person $person*/
+        $person = $this->factory->getAsSingleton(Entity\Person::class);
 
-        /** @var TestEntity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(TestEntity\SpaceShip::class);
+        /** @var Entity\SpaceShip $spaceShip */
+        $spaceShip = $this->factory->get(Entity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 

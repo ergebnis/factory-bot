@@ -1,6 +1,8 @@
 <?php
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
+use Ergebnis\FactoryBot\Test\Fixture\Entity;
+
 class IncorrectUsageTest extends TestCase
 {
     /**
@@ -8,11 +10,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineTheSameEntityTwice()
     {
-        $factory = $this->factory->defineEntity(TestEntity\SpaceShip::class);
+        $factory = $this->factory->defineEntity(Entity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $factory->defineEntity(TestEntity\SpaceShip::class);
+        $factory->defineEntity(Entity\SpaceShip::class);
     }
 
     /**
@@ -30,11 +32,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEntities()
     {
-        $this->assertTrue(class_exists(TestEntity\NotAnEntity::class, true));
+        $this->assertTrue(class_exists(Entity\NotAnEntity::class, true));
 
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity(TestEntity\NotAnEntity::class);
+        $this->factory->defineEntity(Entity\NotAnEntity::class);
     }
 
     /**
@@ -44,7 +46,7 @@ class IncorrectUsageTest extends TestCase
     {
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, [
+        $this->factory->defineEntity(Entity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -54,11 +56,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGiveNonexistentFieldsWhileConstructing()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class, ['name' => 'Alpha']);
+        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->get(TestEntity\SpaceShip::class, [
+        $this->factory->get(Entity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -68,10 +70,10 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGetLessThanOneInstance()
     {
-        $this->factory->defineEntity(TestEntity\SpaceShip::class);
+        $this->factory->defineEntity(Entity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->getList(TestEntity\SpaceShip::class, [], 0);
+        $this->factory->getList(Entity\SpaceShip::class, [], 0);
     }
 }
