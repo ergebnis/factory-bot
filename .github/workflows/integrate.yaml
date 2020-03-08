@@ -9,8 +9,8 @@ on: # yamllint disable-line rule:truthy
       - "master"
 
 env:
-  MIN_COVERED_MSI: 100
-  MIN_MSI: 100
+  MIN_COVERED_MSI: 65
+  MIN_MSI: 59
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -136,6 +136,8 @@ jobs:
 
       - name: "Run maglnet/composer-require-checker"
         uses: "docker://webfactory/composer-require-checker:2.1.0"
+        with:
+          args: "check --config-file=composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
@@ -250,6 +252,9 @@ jobs:
       - name: "Run auto-review tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml"
 
+      - name: "Run doctrine tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml"
+
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml"
 
@@ -304,7 +309,7 @@ jobs:
         run: "composer update --no-interaction --no-progress --no-suggest"
 
       - name: "Collect code coverage with pcov and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=.build/logs/clover.xml"
+        run: "vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:

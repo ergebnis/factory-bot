@@ -16,7 +16,11 @@
     }
   ],
   "require": {
-    "php": "^7.2"
+    "php": "^7.2",
+    "doctrine/annotations": "^1.7.0",
+    "doctrine/collections": "^1.0.0",
+    "doctrine/dbal": "^2.2.1",
+    "doctrine/orm": "^2.6.3"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.2.4",
@@ -35,6 +39,9 @@
     "psalm/plugin-phpunit": "~0.9.0",
     "vimeo/psalm": "^3.9.4"
   },
+  "suggest": {
+    "fzaninotto/faker": "For generating fake data in entity definitions"
+  },
   "config": {
     "platform": {
       "php": "7.2.25"
@@ -44,12 +51,14 @@
   },
   "autoload": {
     "psr-4": {
-      "Ergebnis\\FactoryBot\\": "src/"
+      "Ergebnis\\FactoryBot\\": "src/",
+      "FactoryGirl\\Provider\\Doctrine\\": "src/Doctrine/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ergebnis\\FactoryBot\\Test\\": "test/"
+      "Ergebnis\\FactoryBot\\Test\\": "test/",
+      "FactoryGirl\\Tests\\Provider\\Doctrine\\": "test/Doctrine/"
     }
   },
   "support": {
