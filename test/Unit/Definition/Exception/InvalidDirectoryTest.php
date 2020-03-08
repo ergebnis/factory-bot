@@ -3,24 +3,24 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2017-2020 Andreas Möller
+ * Copyright (c) 2020 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/ergebnis/factory-girl-definition
+ * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryGirl\Definition\Test\Unit\Exception;
+namespace Ergebnis\FactoryBot\Test\Unit\Definition\Exception;
 
-use Ergebnis\FactoryGirl\Definition\Exception;
+use Ergebnis\FactoryBot\Definition\Exception;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryGirl\Definition\Exception\InvalidDirectory
+ * @covers \Ergebnis\FactoryBot\Definition\Exception\InvalidDirectory
  */
 final class InvalidDirectoryTest extends Framework\TestCase
 {

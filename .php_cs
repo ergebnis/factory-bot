@@ -35,11 +35,8 @@ $config->getFinder()
         '.build/',
         '.dependabot/',
         '.github/',
-        'src/Definition/',
         'src/Doctrine/',
-        'test/Definition/',
         'test/Doctrine/',
-        'test/Fixture/',
     ])
     ->name('.php_cs');
 

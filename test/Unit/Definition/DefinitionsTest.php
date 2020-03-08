@@ -3,21 +3,20 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2017-2020 Andreas Möller
+ * Copyright (c) 2020 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/ergebnis/factory-girl-definition
+ * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryGirl\Definition\Test\Unit;
+namespace Ergebnis\FactoryBot\Test\Unit\Definition;
 
-use Ergebnis\FactoryGirl\Definition\Definition;
-use Ergebnis\FactoryGirl\Definition\Definitions;
-use Ergebnis\FactoryGirl\Definition\Exception;
-use Ergebnis\FactoryGirl\Definition\FakerAwareDefinition;
-use Ergebnis\FactoryGirl\Definition\Test\Fixture;
+use Ergebnis\FactoryBot\Definition\Definition;
+use Ergebnis\FactoryBot\Definition\Definitions;
+use Ergebnis\FactoryBot\Definition\Exception;
+use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
 use Ergebnis\Test\Util\Helper;
 use FactoryGirl\Provider\Doctrine\FixtureFactory;
 use Faker\Generator;
@@ -26,10 +25,10 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryGirl\Definition\Definitions
+ * @covers \Ergebnis\FactoryBot\Definition\Definitions
  *
- * @uses \Ergebnis\FactoryGirl\Definition\Exception\InvalidDefinition
- * @uses \Ergebnis\FactoryGirl\Definition\Exception\InvalidDirectory
+ * @uses \Ergebnis\FactoryBot\Definition\Exception\InvalidDefinition
+ * @uses \Ergebnis\FactoryBot\Definition\Exception\InvalidDirectory
  */
 final class DefinitionsTest extends Framework\TestCase
 {
@@ -39,7 +38,7 @@ final class DefinitionsTest extends Framework\TestCase
     {
         $this->expectException(Exception\InvalidDirectory::class);
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/NonExistentDirectory');
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/NonExistentDirectory');
     }
 
     public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
@@ -50,7 +49,7 @@ final class DefinitionsTest extends Framework\TestCase
             ->defineEntity()
             ->shouldNotBeCalled();
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/DoesNotImplementInterface')->registerWith($fixtureFactory->reveal());
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/DoesNotImplementInterface')->registerWith($fixtureFactory->reveal());
     }
 
     public function testInIgnoresClassesWhichAreAbstract(): void
@@ -61,7 +60,7 @@ final class DefinitionsTest extends Framework\TestCase
             ->defineEntity()
             ->shouldNotBeCalled();
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/IsAbstract')->registerWith($fixtureFactory->reveal());
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/IsAbstract')->registerWith($fixtureFactory->reveal());
     }
 
     public function testInIgnoresClassesWhichHavePrivateConstructors(): void
@@ -72,7 +71,7 @@ final class DefinitionsTest extends Framework\TestCase
             ->defineEntity()
             ->shouldNotBeCalled();
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/PrivateConstructor')->registerWith($fixtureFactory->reveal());
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/PrivateConstructor')->registerWith($fixtureFactory->reveal());
     }
 
     public function testInAcceptsClassesWhichAreAcceptable(): void
@@ -80,15 +79,15 @@ final class DefinitionsTest extends Framework\TestCase
         $fixtureFactory = $this->prophesize(FixtureFactory::class);
 
         $fixtureFactory
-            ->defineEntity(Fixture\Entity\User::class)
+            ->defineEntity(\Ergebnis\FactoryBot\Test\Fixture\Entity\User::class)
             ->shouldBeCalled();
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/Acceptable')->registerWith($fixtureFactory->reveal());
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable')->registerWith($fixtureFactory->reveal());
     }
 
     public function testFluentInterface(): void
     {
-        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definition/Acceptable');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable');
 
         self::assertSame($definitions, $definitions->registerWith($this->prophesize(FixtureFactory::class)->reveal()));
         self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
@@ -98,7 +97,7 @@ final class DefinitionsTest extends Framework\TestCase
     {
         $faker = $this->prophesize(Generator::class);
 
-        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definition/FakerAware')->provideWith($faker->reveal());
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/FakerAware')->provideWith($faker->reveal());
 
         $reflection = new \ReflectionClass(Definitions::class);
 
@@ -119,7 +118,7 @@ final class DefinitionsTest extends Framework\TestCase
 
         $fakerAwareDefinition = \array_shift($fakerAwareDefinitions);
 
-        self::assertInstanceOf(Fixture\Definition\FakerAware\GroupDefinition::class, $fakerAwareDefinition);
+        self::assertInstanceOf(\Ergebnis\FactoryBot\Test\Fixture\Definition\FakerAware\GroupDefinition::class, $fakerAwareDefinition);
         self::assertSame($faker->reveal(), $fakerAwareDefinition->faker());
     }
 
@@ -127,6 +126,6 @@ final class DefinitionsTest extends Framework\TestCase
     {
         $this->expectException(Exception\InvalidDefinition::class);
 
-        Definitions::in(__DIR__ . '/../Fixture/Definition/ThrowsExceptionDuringConstruction');
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/ThrowsExceptionDuringConstruction');
     }
 }

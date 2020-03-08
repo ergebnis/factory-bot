@@ -5,7 +5,7 @@ parameters:
 	checkMissingIterableValueType: false
 	ergebnis:
 		classesAllowedToBeExtended:
-			- Ergebnis\FactoryGirl\Definition\AbstractDefinition
+			- Ergebnis\FactoryBot\Definition\AbstractDefinition
 			- InvalidArgumentException
 			- RuntimeException
 	inferPrivatePropertyTypeFromConstructor: true

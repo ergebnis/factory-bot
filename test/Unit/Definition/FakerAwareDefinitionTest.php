@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2017-2020 Andreas Möller
+ * Copyright (c) 2020 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/ergebnis/factory-girl-definition
+ * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryGirl\Definition\Test\Unit;
+namespace Ergebnis\FactoryBot\Test\Unit\Definition;
 
-use Ergebnis\FactoryGirl\Definition\Definition;
-use Ergebnis\FactoryGirl\Definition\FakerAwareDefinition;
+use Ergebnis\FactoryBot\Definition\Definition;
+use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 

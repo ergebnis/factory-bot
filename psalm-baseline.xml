@@ -326,11 +326,6 @@
       <code>OptimisticLockException::lockFailedVersionMissmatch($entity, $lockVersion, $entity-&gt;getVersion())</code>
     </UndefinedMethod>
   </file>
-  <file src="test/Definition/DefinitionsTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$definitions</code>
-    </MixedAssignment>
-  </file>
   <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
     <MissingReturnType occurrences="12">
       <code>acceptsConstantValuesInEntityDefinitions</code>
@@ -680,5 +675,10 @@
     <PropertyTypeCoercion occurrences="1">
       <code>Type::getType('statusarray')</code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="test/Unit/Definition/DefinitionsTest.php">
+    <MixedAssignment occurrences="1">
+      <code>$definitions</code>
+    </MixedAssignment>
   </file>
 </files>
