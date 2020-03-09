@@ -19,8 +19,6 @@ abstract class TestCase extends Framework\TestCase
     {
         parent::setUp();
 
-        $testDb = new TestDb();
-
-        $this->em = $testDb->createEntityManager();
+        $this->em = TestDb::createEntityManager();
     }
 }

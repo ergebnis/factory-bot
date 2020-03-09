@@ -19,7 +19,7 @@ class TestDb
     /**
      * @return EntityManager
      */
-    public function createEntityManager()
+    public static function createEntityManager()
     {
         $annotationPath = __DIR__ . '/../Fixture/Entity';
         $proxyDir = __DIR__ . '/Fixtures/TestProxy';
