@@ -22,11 +22,6 @@ class TestDb
     private $doctrineConfig;
 
     /**
-     * @var array
-     */
-    private $connectionOptions;
-
-    /**
      * @return EntityManager
      */
     public function createEntityManager()
@@ -47,15 +42,13 @@ class TestDb
         $config->setProxyNamespace($proxyNamespace);
         $config->setAutoGenerateProxyClasses(true);
 
-        $this->connectionOptions = [
-            'driver' => 'pdo_sqlite',
-            'path'   => ':memory:'
-        ];
-
         $this->doctrineConfig = $config;
 
         $em = EntityManager::create(
-            $this->connectionOptions,
+            [
+                'driver' => 'pdo_sqlite',
+                'path'   => ':memory:'
+            ],
             $this->doctrineConfig
         );
 
