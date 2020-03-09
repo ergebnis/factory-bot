@@ -2,6 +2,7 @@
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
+use FactoryGirl\Provider\Doctrine\FixtureFactory;
 
 class SingletonTest extends TestCase
 {
@@ -10,12 +11,14 @@ class SingletonTest extends TestCase
      */
     public function afterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
 
-        $ss = $this->factory->getAsSingleton(Entity\SpaceShip::class);
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
-        $this->assertSame($ss, $this->factory->get(Entity\SpaceShip::class));
-        $this->assertSame($ss, $this->factory->get(Entity\SpaceShip::class));
+        $ss = $fixtureFactory->getAsSingleton(Entity\SpaceShip::class);
+
+        $this->assertSame($ss, $fixtureFactory->get(Entity\SpaceShip::class));
+        $this->assertSame($ss, $fixtureFactory->get(Entity\SpaceShip::class));
     }
 
     /**
@@ -23,11 +26,13 @@ class SingletonTest extends TestCase
      */
     public function getAsSingletonMethodAcceptsFieldOverridesLikeGet()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
 
-        $ss = $this->factory->getAsSingleton(Entity\SpaceShip::class, ['name' => 'Beta']);
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
+
+        $ss = $fixtureFactory->getAsSingleton(Entity\SpaceShip::class, ['name' => 'Beta']);
         $this->assertSame('Beta', $ss->getName());
-        $this->assertSame('Beta', $this->factory->get(Entity\SpaceShip::class)->getName());
+        $this->assertSame('Beta', $fixtureFactory->get(Entity\SpaceShip::class)->getName());
     }
 
     /**
@@ -35,12 +40,14 @@ class SingletonTest extends TestCase
      */
     public function throwsAnErrorWhenCallingGetSingletonTwiceOnTheSameEntity()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
-        $this->factory->getAsSingleton(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
+        $fixtureFactory->getAsSingleton(Entity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->getAsSingleton(Entity\SpaceShip::class);
+        $fixtureFactory->getAsSingleton(Entity\SpaceShip::class);
     }
 
     //TODO: should it be an error to get() a singleton with overrides?
@@ -50,12 +57,14 @@ class SingletonTest extends TestCase
      */
     public function allowsSettingSingletons()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss = new Entity\SpaceShip("The mothership");
 
-        $this->factory->setSingleton(Entity\SpaceShip::class, $ss);
+        $fixtureFactory->setSingleton(Entity\SpaceShip::class, $ss);
 
-        $this->assertSame($ss, $this->factory->get(Entity\SpaceShip::class));
+        $this->assertSame($ss, $fixtureFactory->get(Entity\SpaceShip::class));
     }
 
     /**
@@ -63,13 +72,15 @@ class SingletonTest extends TestCase
      */
     public function allowsUnsettingSingletons()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss = new Entity\SpaceShip("The mothership");
 
-        $this->factory->setSingleton(Entity\SpaceShip::class, $ss);
-        $this->factory->unsetSingleton(Entity\SpaceShip::class);
+        $fixtureFactory->setSingleton(Entity\SpaceShip::class, $ss);
+        $fixtureFactory->unsetSingleton(Entity\SpaceShip::class);
 
-        $this->assertNotSame($ss, $this->factory->get(Entity\SpaceShip::class));
+        $this->assertNotSame($ss, $fixtureFactory->get(Entity\SpaceShip::class));
     }
 
     /**
@@ -77,13 +88,15 @@ class SingletonTest extends TestCase
      */
     public function allowsOverwritingExistingSingletons()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss1 = new Entity\SpaceShip("The mothership");
         $ss2 = new Entity\SpaceShip("The battlecruiser");
 
-        $this->factory->setSingleton(Entity\SpaceShip::class, $ss1);
-        $this->factory->setSingleton(Entity\SpaceShip::class, $ss2);
+        $fixtureFactory->setSingleton(Entity\SpaceShip::class, $ss1);
+        $fixtureFactory->setSingleton(Entity\SpaceShip::class, $ss2);
 
-        $this->assertSame($ss2, $this->factory->get(Entity\SpaceShip::class));
+        $this->assertSame($ss2, $fixtureFactory->get(Entity\SpaceShip::class));
     }
 }

@@ -4,6 +4,7 @@ namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use Doctrine\ORM\Mapping;
+use FactoryGirl\Provider\Doctrine\FixtureFactory;
 
 class PersistingTest extends TestCase
 {
@@ -12,10 +13,13 @@ class PersistingTest extends TestCase
      */
     public function automaticPersistCanBeTurnedOn()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
+        $fixtureFactory = new FixtureFactory($this->em);
 
-        $this->factory->persistOnGet();
-        $ss = $this->factory->get(Entity\SpaceShip::class);
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
+
+        $fixtureFactory->persistOnGet();
+
+        $ss = $fixtureFactory->get(Entity\SpaceShip::class);
         $this->em->flush();
 
         $this->assertNotNull($ss->getId());
@@ -27,8 +31,12 @@ class PersistingTest extends TestCase
      */
     public function doesNotPersistByDefault()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
-        $ss = $this->factory->get(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
+
+        $ss = $fixtureFactory->get(Entity\SpaceShip::class);
+
         $this->em->flush();
 
         $this->assertNull($ss->getId());
@@ -56,7 +64,9 @@ class PersistingTest extends TestCase
             }
         }
 
-        $this->factory->defineEntity(Entity\Name::class, [
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\Name::class, [
             'first' => FieldDef::sequence(static function () {
                 $values = [
                     null,
@@ -77,14 +87,14 @@ class PersistingTest extends TestCase
             }),
         ]);
 
-        $this->factory->defineEntity(Entity\Commander::class, [
+        $fixtureFactory->defineEntity(Entity\Commander::class, [
             'name' => FieldDef::reference(Entity\Name::class),
         ]);
 
-        $this->factory->persistOnGet();
+        $fixtureFactory->persistOnGet();
 
         /** @var Entity\Commander $commander */
-        $commander = $this->factory->get(Entity\Commander::class);
+        $commander = $fixtureFactory->get(Entity\Commander::class);
 
         $this->assertInstanceOf(Entity\Commander::class, $commander);
         $this->assertInstanceOf(Entity\Name::class, $commander->name());

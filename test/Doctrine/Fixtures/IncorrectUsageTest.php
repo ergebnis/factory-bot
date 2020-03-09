@@ -2,6 +2,7 @@
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
+use FactoryGirl\Provider\Doctrine\FixtureFactory;
 
 class IncorrectUsageTest extends TestCase
 {
@@ -10,11 +11,13 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineTheSameEntityTwice()
     {
-        $factory = $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
     }
 
     /**
@@ -22,9 +25,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEvenClasses()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity('NotAClass');
+        $fixtureFactory->defineEntity('NotAClass');
     }
 
     /**
@@ -32,11 +37,13 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEntities()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
         $this->assertTrue(class_exists(Entity\NotAnEntity::class, true));
 
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity(Entity\NotAnEntity::class);
+        $fixtureFactory->defineEntity(Entity\NotAnEntity::class);
     }
 
     /**
@@ -44,9 +51,11 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineNonexistentFields()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
         $this->expectException(\Exception::class);
 
-        $this->factory->defineEntity(Entity\SpaceShip::class, [
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -56,11 +65,13 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGiveNonexistentFieldsWhileConstructing()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->get(Entity\SpaceShip::class, [
+        $fixtureFactory->get(Entity\SpaceShip::class, [
             'pieType' => 'blueberry'
         ]);
     }
@@ -70,10 +81,12 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGetLessThanOneInstance()
     {
-        $this->factory->defineEntity(Entity\SpaceShip::class);
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
         $this->expectException(\Exception::class);
 
-        $this->factory->getList(Entity\SpaceShip::class, [], 0);
+        $fixtureFactory->getList(Entity\SpaceShip::class, [], 0);
     }
 }
