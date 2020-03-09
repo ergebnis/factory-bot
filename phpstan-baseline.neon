@@ -791,6 +791,11 @@ parameters:
 			path: test/Doctrine/Fixtures/TestCase.php
 
 		-
+			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestCase.php
+
+		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
@@ -837,11 +842,6 @@ parameters:
 
 		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb is neither abstract nor final\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
-
-		-
-			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
 			count: 1
 			path: test/Doctrine/TestDb.php
 
