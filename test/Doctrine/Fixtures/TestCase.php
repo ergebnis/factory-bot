@@ -11,11 +11,6 @@ use Exception;
 abstract class TestCase extends Framework\TestCase
 {
     /**
-     * @var TestDb
-     */
-    protected $testDb;
-
-    /**
      * @var EntityManager
      */
     protected $em;
@@ -24,12 +19,12 @@ abstract class TestCase extends Framework\TestCase
     {
         parent::setUp();
 
-        $this->testDb = new TestDb(
+        $testDb = new TestDb(
             __DIR__ . '/../../Fixture/Entity',
             __DIR__ . '/TestProxy',
             'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestProxy'
         );
 
-        $this->em = $this->testDb->createEntityManager();
+        $this->em = $testDb->createEntityManager();
     }
 }
