@@ -2,9 +2,10 @@
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
+use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 use FactoryGirl\Provider\Doctrine\FixtureFactory;
 
-class SingletonTest extends TestCase
+class SingletonTest extends AbstractTestCase
 {
     /**
      * @test

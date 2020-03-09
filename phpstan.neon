@@ -6,6 +6,8 @@ parameters:
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Ergebnis\FactoryBot\Definition\AbstractDefinition
+			- Ergebnis\FactoryBot\Test\Integration\AbstractTestCase
+			- Ergebnis\FactoryBot\Test\Unit\AbstractTestCase
 			- InvalidArgumentException
 			- RuntimeException
 	inferPrivatePropertyTypeFromConstructor: true
