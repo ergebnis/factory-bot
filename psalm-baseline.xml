@@ -343,6 +343,12 @@
       <code>getName</code>
     </MixedMethodCall>
   </file>
+  <file src="test/Doctrine/Fixtures/TestCase.php">
+    <InvalidArgument occurrences="2">
+      <code>$annotationPath</code>
+      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
+    </InvalidArgument>
+  </file>
   <file src="test/Doctrine/Fixtures/TransitiveReferencesTest.php">
     <MissingReturnType occurrences="2">
       <code>referencesGetInstantiatedTransitively</code>
@@ -363,15 +369,6 @@
       <code>getOwner</code>
       <code>getSpaceShip</code>
     </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/TestDb.php">
-    <InvalidArgument occurrences="2">
-      <code>$annotationPath</code>
-      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
-    </InvalidArgument>
-    <MissingReturnType occurrences="1">
-      <code>createSchema</code>
-    </MissingReturnType>
   </file>
   <file src="test/Fixture/Entity/Badge.php">
     <MissingParamType occurrences="1">

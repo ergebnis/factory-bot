@@ -791,6 +791,11 @@ parameters:
 			path: test/Doctrine/Fixtures/TestCase.php
 
 		-
+			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
+			count: 1
+			path: test/Doctrine/Fixtures/TestCase.php
+
+		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
@@ -829,26 +834,6 @@ parameters:
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
-
-		-
-			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb is neither abstract nor final\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
-
-		-
-			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
-
-		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb\\:\\:createSchema\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
 
 		-
 			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
