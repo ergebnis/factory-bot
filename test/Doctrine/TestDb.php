@@ -26,7 +26,10 @@ class TestDb
      */
     private $connectionOptions;
 
-    public function __construct()
+    /**
+     * @return EntityManager
+     */
+    public function createEntityManager()
     {
         $annotationPath = __DIR__ . '/../Fixture/Entity';
         $proxyDir = __DIR__ . '/Fixtures/TestProxy';
@@ -50,13 +53,7 @@ class TestDb
         ];
 
         $this->doctrineConfig = $config;
-    }
 
-    /**
-     * @return EntityManager
-     */
-    public function createEntityManager()
-    {
         $em = EntityManager::create(
             $this->connectionOptions,
             $this->doctrineConfig
