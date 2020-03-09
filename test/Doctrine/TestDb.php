@@ -26,13 +26,12 @@ class TestDb
      */
     private $connectionOptions;
 
-    /**
-     * @param string $annotationPath
-     * @param string $proxyDir
-     * @param string $proxyNamespace
-     */
-    public function __construct($annotationPath, $proxyDir, $proxyNamespace)
+    public function __construct()
     {
+        $annotationPath = __DIR__ . '/../Fixture/Entity';
+        $proxyDir = __DIR__ . '/Fixtures/TestProxy';
+        $proxyNamespace = 'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestProxy';
+
         $cache = new ArrayCache();
 
         $config = new Configuration();

@@ -19,11 +19,7 @@ abstract class TestCase extends Framework\TestCase
     {
         parent::setUp();
 
-        $testDb = new TestDb(
-            __DIR__ . '/../../Fixture/Entity',
-            __DIR__ . '/TestProxy',
-            'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestProxy'
-        );
+        $testDb = new TestDb();
 
         $this->em = $testDb->createEntityManager();
     }
