@@ -369,9 +369,6 @@
       <code>$annotationPath</code>
       <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
     </InvalidArgument>
-    <MissingReturnType occurrences="1">
-      <code>createSchema</code>
-    </MissingReturnType>
   </file>
   <file src="test/Fixture/Entity/Badge.php">
     <MissingParamType occurrences="1">

@@ -61,17 +61,11 @@ class TestDb
             $this->connectionOptions,
             $this->doctrineConfig
         );
-        $this->createSchema($em);
+
+        $tool = new SchemaTool($em);
+
+        $tool->createSchema($em->getMetadataFactory()->getAllMetadata());
 
         return $em;
-    }
-
-    /**
-     * @param EntityManager $em
-     */
-    private function createSchema(EntityManager $em)
-    {
-        $tool = new SchemaTool($em);
-        $tool->createSchema($em->getMetadataFactory()->getAllMetadata());
     }
 }

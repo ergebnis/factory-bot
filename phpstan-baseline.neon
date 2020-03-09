@@ -846,11 +846,6 @@ parameters:
 			path: test/Doctrine/TestDb.php
 
 		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\TestDb\\:\\:createSchema\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/TestDb.php
-
-		-
 			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: test/Fixture/Entity/Artist.php
