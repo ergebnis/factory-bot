@@ -20,13 +20,6 @@ abstract class TestCase extends Framework\TestCase
      */
     protected $em;
 
-    /**
-     * Public to allow access from the broken 5.3 closures.
-     *
-     * @var FixtureFactory
-     */
-    public $factory;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -40,7 +33,5 @@ abstract class TestCase extends Framework\TestCase
         );
 
         $this->em = $this->testDb->createEntityManager();
-
-        $this->factory = new FixtureFactory($this->em);
     }
 }

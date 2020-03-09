@@ -174,8 +174,8 @@
       <code>canSpecifyNumberOfReturnedInstances</code>
     </MissingReturnType>
     <MixedArgument occurrences="2">
-      <code>$this-&gt;factory-&gt;getList(Entity\SpaceShip::class)</code>
-      <code>$this-&gt;factory-&gt;getList(Entity\SpaceShip::class, [], 5)</code>
+      <code>$fixtureFactory-&gt;getList(Entity\SpaceShip::class)</code>
+      <code>$fixtureFactory-&gt;getList(Entity\SpaceShip::class, [], 5)</code>
     </MixedArgument>
     <MixedAssignment occurrences="8">
       <code>$ss</code>
@@ -344,8 +344,7 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/TransitiveReferencesTest.php">
-    <MissingReturnType occurrences="3">
-      <code>simpleSetup</code>
+    <MissingReturnType occurrences="2">
       <code>referencesGetInstantiatedTransitively</code>
       <code>transitiveReferencesWorkWithSingletons</code>
     </MissingReturnType>

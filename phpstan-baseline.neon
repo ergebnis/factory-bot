@@ -806,11 +806,6 @@ parameters:
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
 
 		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\\:\\:simpleSetup\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
-
-		-
 			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\\:\\:referencesGetInstantiatedTransitively\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php

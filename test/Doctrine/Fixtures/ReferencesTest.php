@@ -4,31 +4,29 @@ namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
 use FactoryGirl\Provider\Doctrine\FieldDef;
+use FactoryGirl\Provider\Doctrine\FixtureFactory;
 use FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class ReferencesTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->factory->defineEntity(Entity\SpaceShip::class, [
-            'crew' => FieldDef::references(Entity\Person::class)
-        ]);
-
-        $this->factory->defineEntity(Entity\Person::class, [
-            'name' => 'Eve',
-        ]);
-    }
-
     /**
      * @test
      */
     public function referencedObjectsShouldBeCreatedAutomatically()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
+            'crew' => FieldDef::references(Entity\Person::class)
+        ]);
+
+        $fixtureFactory->defineEntity(Entity\Person::class, [
+            'name' => 'Eve',
+        ]);
+
         /** @var Entity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(Entity\SpaceShip::class);
+        $spaceShip = $fixtureFactory->get(Entity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 
@@ -44,9 +42,19 @@ class ReferencesTest extends TestCase
     {
         $count = 5;
 
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
+            'crew' => FieldDef::references(Entity\Person::class)
+        ]);
+
+        $fixtureFactory->defineEntity(Entity\Person::class, [
+            'name' => 'Eve',
+        ]);
+
         /** @var Entity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(Entity\SpaceShip::class, [
-            'crew' => $this->factory->getList(Entity\Person::class, [], $count),
+        $spaceShip = $fixtureFactory->get(Entity\SpaceShip::class, [
+            'crew' => $fixtureFactory->getList(Entity\Person::class, [], $count),
         ]);
 
         $crew = $spaceShip->getCrew();
@@ -61,8 +69,18 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsShouldBeNullable()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
+            'crew' => FieldDef::references(Entity\Person::class)
+        ]);
+
+        $fixtureFactory->defineEntity(Entity\Person::class, [
+            'name' => 'Eve',
+        ]);
+
         /** @var Entity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(Entity\SpaceShip::class, [
+        $spaceShip = $fixtureFactory->get(Entity\SpaceShip::class, [
             'crew' => null,
         ]);
 
@@ -77,11 +95,21 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsCanBeSingletons()
     {
+        $fixtureFactory = new FixtureFactory($this->em);
+
+        $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
+            'crew' => FieldDef::references(Entity\Person::class)
+        ]);
+
+        $fixtureFactory->defineEntity(Entity\Person::class, [
+            'name' => 'Eve',
+        ]);
+
         /** @var Entity\Person $person*/
-        $person = $this->factory->getAsSingleton(Entity\Person::class);
+        $person = $fixtureFactory->getAsSingleton(Entity\Person::class);
 
         /** @var Entity\SpaceShip $spaceShip */
-        $spaceShip = $this->factory->get(Entity\SpaceShip::class);
+        $spaceShip = $fixtureFactory->get(Entity\SpaceShip::class);
 
         $crew = $spaceShip->getCrew();
 
