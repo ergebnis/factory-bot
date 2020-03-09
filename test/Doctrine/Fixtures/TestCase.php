@@ -6,7 +6,6 @@ use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework;
-use FactoryGirl\Tests\Provider\Doctrine\TestDb;
 use FactoryGirl\Provider\Doctrine\FixtureFactory;
 use Doctrine\ORM\EntityManager;
 use Exception;
