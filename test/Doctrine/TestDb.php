@@ -17,11 +17,6 @@ use Doctrine\ORM\Configuration;
 class TestDb
 {
     /**
-     * @var \Doctrine\ORM\Configuration
-     */
-    private $doctrineConfig;
-
-    /**
      * @return EntityManager
      */
     public function createEntityManager()
@@ -42,14 +37,12 @@ class TestDb
         $config->setProxyNamespace($proxyNamespace);
         $config->setAutoGenerateProxyClasses(true);
 
-        $this->doctrineConfig = $config;
-
         $em = EntityManager::create(
             [
                 'driver' => 'pdo_sqlite',
                 'path'   => ':memory:'
             ],
-            $this->doctrineConfig
+            $config
         );
 
         $tool = new SchemaTool($em);
