@@ -37,7 +37,6 @@ final class SrcCodeTest extends Framework\TestCase
                 Doctrine\EntityDefinitionUnavailable::class,
                 Doctrine\FieldDef::class,
                 Doctrine\FixtureFactory::class,
-                Doctrine\ORM\QueryBuilder::class,
             ]
         );
     }

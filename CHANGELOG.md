@@ -19,6 +19,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `StatusArrayType` ([#13]), by [@localheinz]
 * Removed `FieldDef::past()`, `FieldDef::future()`, and `DateIntervalHelper` ([#14]), by [@localheinz]
 * Removed `Repository` along with locking capabilities ([#15]), by [@localheinz]
+* Removed `QueryBuilder` ([#16]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -28,5 +29,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#13]: https://github.com/ergebnis/factory-bot/pull/13
 [#14]: https://github.com/ergebnis/factory-bot/pull/14
 [#15]: https://github.com/ergebnis/factory-bot/pull/15
+[#16]: https://github.com/ergebnis/factory-bot/pull/16
 
 [@localheinz]: https://github.com/localheinz

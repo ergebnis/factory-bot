@@ -158,36 +158,6 @@
       <code>getAssociationMapping</code>
     </MixedMethodCall>
   </file>
-  <file src="src/Doctrine/ORM/QueryBuilder.php">
-    <InvalidDocblock occurrences="4">
-      <code>protected $_statuses = [];</code>
-      <code>protected $_queryConfigurers = [];</code>
-      <code>callback(Doctrine\ORM\Query)</code>
-      <code>callback(QueryBuilder)</code>
-    </InvalidDocblock>
-    <MissingParamType occurrences="2">
-      <code>$configurer</code>
-      <code>$operation</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="1">
-      <code>init</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="1">
-      <code>$configurer</code>
-    </MixedAssignment>
-    <MixedFunctionCall occurrences="2">
-      <code>$configurer($query)</code>
-      <code>$operation($this)</code>
-    </MixedFunctionCall>
-    <PossiblyNullPropertyAssignmentValue occurrences="2">
-      <code>$entityName</code>
-      <code>$entityAlias</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>is_string($this-&gt;entityName)</code>
-      <code>is_string($this-&gt;entityAlias)</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
     <MissingReturnType occurrences="12">
       <code>acceptsConstantValuesInEntityDefinitions</code>
