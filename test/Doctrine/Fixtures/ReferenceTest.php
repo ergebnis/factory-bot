@@ -12,7 +12,7 @@ class ReferenceTest extends TestCase
      */
     public function referencedObjectShouldBeCreatedAutomatically()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person::class, [
@@ -33,7 +33,7 @@ class ReferenceTest extends TestCase
      */
     public function referencedObjectsShouldBeNullable()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person::class, [

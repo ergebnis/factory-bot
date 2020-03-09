@@ -11,7 +11,7 @@ class ExtraConfigurationTest extends TestCase
      */
     public function canInvokeACallbackAfterObjectConstruction()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => 'Foo'
@@ -30,7 +30,7 @@ class ExtraConfigurationTest extends TestCase
      */
     public function theAfterCreateCallbackCanBeUsedToCallTheConstructor()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => 'Foo'

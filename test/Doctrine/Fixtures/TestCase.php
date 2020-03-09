@@ -12,18 +12,6 @@ use Exception;
 
 abstract class TestCase extends Framework\TestCase
 {
-    /**
-     * @var EntityManager
-     */
-    protected $em;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->em = self::createEntityManager();
-    }
-
     final protected static function createEntityManager(): EntityManager
     {
         $annotationPath = __DIR__ . '/../../Fixture/Entity';

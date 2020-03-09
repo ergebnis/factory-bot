@@ -13,17 +13,19 @@ class PersistingTest extends TestCase
      */
     public function automaticPersistCanBeTurnedOn()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $entityManager = self::createEntityManager();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
 
         $fixtureFactory->persistOnGet();
 
         $ss = $fixtureFactory->get(Entity\SpaceShip::class);
-        $this->em->flush();
+        $entityManager->flush();
 
         $this->assertNotNull($ss->getId());
-        $this->assertSame($ss, $this->em->find(Entity\SpaceShip::class, $ss->getId()));
+        $this->assertSame($ss, $entityManager->find(Entity\SpaceShip::class, $ss->getId()));
     }
 
     /**
@@ -31,16 +33,18 @@ class PersistingTest extends TestCase
      */
     public function doesNotPersistByDefault()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $entityManager = self::createEntityManager();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Zeta']);
 
         $ss = $fixtureFactory->get(Entity\SpaceShip::class);
 
-        $this->em->flush();
+        $entityManager->flush();
 
         $this->assertNull($ss->getId());
-        $q = $this->em
+        $q = $entityManager
             ->createQueryBuilder()
             ->select('ss')
             ->from(Entity\SpaceShip::class, 'ss')
@@ -64,7 +68,9 @@ class PersistingTest extends TestCase
             }
         }
 
-        $fixtureFactory = new FixtureFactory($this->em);
+        $entityManager = self::createEntityManager();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
 
         $fixtureFactory->defineEntity(Entity\Name::class, [
             'first' => FieldDef::sequence(static function () {
@@ -99,6 +105,6 @@ class PersistingTest extends TestCase
         $this->assertInstanceOf(Entity\Commander::class, $commander);
         $this->assertInstanceOf(Entity\Name::class, $commander->name());
 
-        $this->em->flush();
+        $entityManager->flush();
     }
 }

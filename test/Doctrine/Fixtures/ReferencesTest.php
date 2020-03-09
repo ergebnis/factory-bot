@@ -15,7 +15,7 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsShouldBeCreatedAutomatically()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'crew' => FieldDef::references(Entity\Person::class)
@@ -42,7 +42,7 @@ class ReferencesTest extends TestCase
     {
         $count = 5;
 
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'crew' => FieldDef::references(Entity\Person::class)
@@ -69,7 +69,7 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsShouldBeNullable()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'crew' => FieldDef::references(Entity\Person::class)
@@ -95,7 +95,7 @@ class ReferencesTest extends TestCase
      */
     public function referencedObjectsCanBeSingletons()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'crew' => FieldDef::references(Entity\Person::class)

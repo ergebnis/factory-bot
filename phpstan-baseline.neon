@@ -786,11 +786,6 @@ parameters:
 			path: test/Doctrine/Fixtures/TestCase.php
 
 		-
-			message: "#^Method FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\\:\\:setUp\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestCase.php
-
-		-
 			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TestCase.php

@@ -11,7 +11,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineTheSameEntityTwice()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
@@ -25,7 +25,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEvenClasses()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(\Exception::class);
 
@@ -37,7 +37,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineEntitiesThatAreNotEntities()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->assertTrue(class_exists(Entity\NotAnEntity::class, true));
 
@@ -51,7 +51,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToDefineNonexistentFields()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(\Exception::class);
 
@@ -65,7 +65,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGiveNonexistentFieldsWhileConstructing()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
 
@@ -81,7 +81,7 @@ class IncorrectUsageTest extends TestCase
      */
     public function throwsWhenTryingToGetLessThanOneInstance()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
