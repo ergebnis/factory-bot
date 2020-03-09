@@ -11,7 +11,7 @@ class SingletonTest extends TestCase
      */
     public function afterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
@@ -26,7 +26,7 @@ class SingletonTest extends TestCase
      */
     public function getAsSingletonMethodAcceptsFieldOverridesLikeGet()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
@@ -40,7 +40,7 @@ class SingletonTest extends TestCase
      */
     public function throwsAnErrorWhenCallingGetSingletonTwiceOnTheSameEntity()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, ['name' => 'Alpha']);
         $fixtureFactory->getAsSingleton(Entity\SpaceShip::class);
@@ -57,7 +57,7 @@ class SingletonTest extends TestCase
      */
     public function allowsSettingSingletons()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss = new Entity\SpaceShip("The mothership");
@@ -72,7 +72,7 @@ class SingletonTest extends TestCase
      */
     public function allowsUnsettingSingletons()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss = new Entity\SpaceShip("The mothership");
@@ -88,7 +88,7 @@ class SingletonTest extends TestCase
      */
     public function allowsOverwritingExistingSingletons()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $ss1 = new Entity\SpaceShip("The mothership");

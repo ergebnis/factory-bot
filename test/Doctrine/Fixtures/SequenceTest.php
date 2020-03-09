@@ -13,7 +13,7 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCallsAFunctionWithAnIncrementingArgument()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence(function ($n) {
@@ -31,7 +31,7 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCanTakeAPlaceholderString()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence("Beta %d")
@@ -47,7 +47,7 @@ class SequenceTest extends TestCase
      */
     public function sequenceGeneratorCanTakeAStringToAppendTo()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => FieldDef::sequence("Gamma ")

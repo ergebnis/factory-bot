@@ -13,7 +13,7 @@ class BasicUsageTest extends TestCase
      */
     public function acceptsConstantValuesInEntityDefinitions()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $ss = $fixtureFactory
             ->defineEntity(Entity\SpaceShip::class, [
@@ -31,7 +31,7 @@ class BasicUsageTest extends TestCase
     {
         $name = "Star";
 
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class, [
             'name' => function () use (&$name) {
@@ -49,7 +49,7 @@ class BasicUsageTest extends TestCase
      */
     public function valuesCanBeOverriddenAtCreationTime()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $ss = $fixtureFactory
             ->defineEntity(Entity\SpaceShip::class, [
@@ -64,7 +64,7 @@ class BasicUsageTest extends TestCase
      */
     public function preservesDefaultValuesOfEntity()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $ss = $fixtureFactory
             ->defineEntity(Entity\SpaceStation::class)
@@ -77,7 +77,7 @@ class BasicUsageTest extends TestCase
      */
     public function doesNotCallTheConstructorOfTheEntity()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $ss = $fixtureFactory
             ->defineEntity(Entity\SpaceShip::class, [])
@@ -90,7 +90,7 @@ class BasicUsageTest extends TestCase
      */
     public function instantiatesCollectionAssociationsToBeEmptyCollectionsWhenUnspecified()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $ss = $fixtureFactory
             ->defineEntity(Entity\SpaceShip::class, [
@@ -107,7 +107,7 @@ class BasicUsageTest extends TestCase
      */
     public function arrayElementsAreMappedToCollectionAsscociationFields()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person::class, [
@@ -132,7 +132,7 @@ class BasicUsageTest extends TestCase
      */
     public function unspecifiedFieldsAreLeftNull()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $this->assertNull($fixtureFactory->get(Entity\SpaceShip::class)->getName());
@@ -143,7 +143,7 @@ class BasicUsageTest extends TestCase
      */
     public function entityIsDefinedToDefaultNamespace()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person\User::class);
@@ -164,7 +164,7 @@ class BasicUsageTest extends TestCase
      */
     public function entityCanBeDefinedToAnotherNamespace()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(
             Entity\Artist::class
@@ -183,7 +183,7 @@ class BasicUsageTest extends TestCase
      */
     public function returnsListOfEntities()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 
@@ -195,7 +195,7 @@ class BasicUsageTest extends TestCase
      */
     public function canSpecifyNumberOfReturnedInstances()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
 

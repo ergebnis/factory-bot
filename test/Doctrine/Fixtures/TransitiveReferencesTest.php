@@ -13,7 +13,7 @@ class TransitiveReferencesTest extends TestCase
      */
     public function referencesGetInstantiatedTransitively()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\Person::class, [
             'spaceShip' => FieldDef::reference(Entity\SpaceShip::class),
@@ -35,7 +35,7 @@ class TransitiveReferencesTest extends TestCase
      */
     public function transitiveReferencesWorkWithSingletons()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\Person::class, [
             'spaceShip' => FieldDef::reference(Entity\SpaceShip::class),

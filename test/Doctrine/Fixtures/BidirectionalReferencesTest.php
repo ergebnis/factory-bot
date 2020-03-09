@@ -12,7 +12,7 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function bidirectionalOntToManyReferencesAreAssignedBothWays()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person::class, [
@@ -30,7 +30,7 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function unidirectionalReferencesWorkAsUsual()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\Badge::class, [
             'owner' => FieldDef::reference(Entity\Person::class)
@@ -45,7 +45,7 @@ class BidirectionalReferencesTest extends TestCase
      */
     public function whenTheOneSideIsASingletonItMayGetSeveralChildObjects()
     {
-        $fixtureFactory = new FixtureFactory($this->em);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Entity\SpaceShip::class);
         $fixtureFactory->defineEntity(Entity\Person::class, [
