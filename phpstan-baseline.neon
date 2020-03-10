@@ -346,17 +346,12 @@ parameters:
 			path: test/Integration/FixtureFactoryTest.php
 
 		-
-			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
-			count: 1
-			path: test/Unit/BasicUsageTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/EntityDefinitionUnavailableTest.php
 
 		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
-			count: 1
-			path: test/Unit/SequenceTest.php
+			count: 2
+			path: test/Unit/FixtureFactoryTest.php
 
