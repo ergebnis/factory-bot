@@ -11,15 +11,15 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot;
+namespace Ergebnis\FactoryBot\Exception;
 
-final class EntityDefinitionUnavailable extends \OutOfRangeException implements Exception
+final class InvalidDirectory extends \InvalidArgumentException
 {
-    public static function for(string $name): self
+    public static function notDirectory(string $directory): self
     {
         return new self(\sprintf(
-            'An entity definition for name "%s" is not available.',
-            $name
+            'Directory should be a directory, but "%s" is not.',
+            $directory
         ));
     }
 }

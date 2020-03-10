@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\Definition\Exception;
+namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Definition\Exception;
+use Ergebnis\FactoryBot\Exception;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Definition\Exception\InvalidDefinition
+ * @covers \Ergebnis\FactoryBot\Exception\InvalidDefinition
  */
 final class InvalidDefinitionTest extends Framework\TestCase
 {
