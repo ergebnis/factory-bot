@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
-use Doctrine\Common;
 use Doctrine\ORM;
 use PHPUnit\Framework;
 
@@ -24,28 +23,19 @@ abstract class AbstractTestCase extends Framework\TestCase
 {
     final protected static function createEntityManager(): ORM\EntityManager
     {
-        $annotationPath = __DIR__ . '/../Fixture/Entity';
-        $proxyDir = __DIR__ . '/../Doctrine/Fixtures/TestProxy';
-        $proxyNamespace = 'FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestProxy';
-
-        $cache = new Common\Cache\ArrayCache();
-
-        $config = new ORM\Configuration();
-        $config->setMetadataCacheImpl($cache);
-        $config->setQueryCacheImpl($cache);
-        $config->setMetadataDriverImpl(
-            $config->newDefaultAnnotationDriver($annotationPath)
+        $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
+            [
+                __DIR__ . '/../Fixture/Entity',
+            ],
+            true
         );
-        $config->setProxyDir($proxyDir);
-        $config->setProxyNamespace($proxyNamespace);
-        $config->setAutoGenerateProxyClasses(true);
 
         return ORM\EntityManager::create(
             [
                 'driver' => 'pdo_sqlite',
                 'path' => ':memory:',
             ],
-            $config
+            $configuration
         );
     }
 }

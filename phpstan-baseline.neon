@@ -950,13 +950,3 @@ parameters:
 			count: 1
 			path: test/Fixture/Entity/SpaceStation.php
 
-		-
-			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
-			count: 1
-			path: test/Integration/AbstractTestCase.php
-
-		-
-			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
-			count: 1
-			path: test/Unit/AbstractTestCase.php
-
