@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.4@352bd3f5c5789db04e4010856c2f4e01ed354f4e">
-  <file src="src/Doctrine/EntityDef.php">
+<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
+  <file src="src/EntityDef.php">
     <MissingClosureReturnType occurrences="4">
       <code>function () use ($defaultFieldValue) {</code>
       <code>function () {</code>
@@ -19,9 +19,7 @@
       <code>$fieldDefs</code>
       <code>$config</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="5">
-      <code>readFieldDefs</code>
-      <code>defaultDefsFromMetadata</code>
+    <MissingReturnType occurrences="3">
       <code>getFieldDefs</code>
       <code>normalizeFieldDef</code>
       <code>ensureInvokable</code>
@@ -39,7 +37,7 @@
       <code>$defaultFieldValue</code>
     </MixedAssignment>
     <MixedFunctionCall occurrences="1">
-      <code>call_user_func_array($f, func_get_args())</code>
+      <code>\call_user_func_array($f, \func_get_args())</code>
     </MixedFunctionCall>
     <MixedInferredReturnType occurrences="3">
       <code>string</code>
@@ -55,7 +53,7 @@
       <code>$this-&gt;config</code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Doctrine/FieldDef.php">
+  <file src="src/FieldDef.php">
     <MissingClosureReturnType occurrences="3">
       <code>function () use (&amp;$n, $funcOrString) {</code>
       <code>function (FixtureFactory $factory) use ($name) {</code>
@@ -71,46 +69,32 @@
       <code>$n</code>
     </MixedOperand>
   </file>
-  <file src="src/Doctrine/FixtureFactory.php">
+  <file src="src/FixtureFactory.php">
     <DocblockTypeContradiction occurrences="1">
       <code>isset($metadata)</code>
     </DocblockTypeContradiction>
-    <MissingParamType occurrences="17">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$numberOfInstances</code>
+    <MissingParamType occurrences="8">
       <code>$ent</code>
       <code>$fieldName</code>
       <code>$fieldValue</code>
       <code>$array</code>
-      <code>$enabled</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$entity</code>
-      <code>$name</code>
-      <code>$name</code>
       <code>$entityBeingCreated</code>
       <code>$metadata</code>
       <code>$fieldName</code>
       <code>$value</code>
     </MissingParamType>
-    <MissingReturnType occurrences="10">
+    <MissingReturnType occurrences="4">
       <code>get</code>
       <code>getList</code>
-      <code>checkFieldOverrides</code>
-      <code>setField</code>
-      <code>createCollectionFrom</code>
-      <code>persistOnGet</code>
       <code>getAsSingleton</code>
-      <code>setSingleton</code>
-      <code>unsetSingleton</code>
-      <code>updateCollectionSideOfAssocation</code>
+      <code>createCollectionFrom</code>
     </MissingReturnType>
     <MixedArgument occurrences="15">
       <code>$name</code>
       <code>$name</code>
       <code>$fieldName</code>
       <code>$name</code>
+      <code>$type</code>
       <code>$def-&gt;getFieldDefs()</code>
       <code>$fieldName</code>
       <code>$ent</code>
@@ -118,7 +102,6 @@
       <code>$ent</code>
       <code>$fieldName</code>
       <code>$fieldName</code>
-      <code>$type</code>
       <code>$value</code>
       <code>$value</code>
       <code>$inverse</code>
@@ -156,305 +139,6 @@
     </MixedFunctionCall>
     <MixedMethodCall occurrences="1">
       <code>getAssociationMapping</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="12">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="12">
-      <code>acceptsConstantValuesInEntityDefinitions</code>
-      <code>acceptsGeneratorFunctionsInEntityDefinitions</code>
-      <code>valuesCanBeOverriddenAtCreationTime</code>
-      <code>preservesDefaultValuesOfEntity</code>
-      <code>doesNotCallTheConstructorOfTheEntity</code>
-      <code>instantiatesCollectionAssociationsToBeEmptyCollectionsWhenUnspecified</code>
-      <code>arrayElementsAreMappedToCollectionAsscociationFields</code>
-      <code>unspecifiedFieldsAreLeftNull</code>
-      <code>entityIsDefinedToDefaultNamespace</code>
-      <code>entityCanBeDefinedToAnotherNamespace</code>
-      <code>returnsListOfEntities</code>
-      <code>canSpecifyNumberOfReturnedInstances</code>
-    </MissingReturnType>
-    <MixedArgument occurrences="2">
-      <code>$fixtureFactory-&gt;getList(Entity\SpaceShip::class)</code>
-      <code>$fixtureFactory-&gt;getList(Entity\SpaceShip::class, [], 5)</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="8">
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$p1</code>
-      <code>$p2</code>
-      <code>$ship</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="14">
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>constructorWasCalled</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/BidirectionalReferencesTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="3">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="3">
-      <code>bidirectionalOntToManyReferencesAreAssignedBothWays</code>
-      <code>unidirectionalReferencesWorkAsUsual</code>
-      <code>whenTheOneSideIsASingletonItMayGetSeveralChildObjects</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="5">
-      <code>$person</code>
-      <code>$ship</code>
-      <code>$ship</code>
-      <code>$p1</code>
-      <code>$p2</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="5">
-      <code>getSpaceShip</code>
-      <code>getCrew</code>
-      <code>getOwner</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/ExtraConfigurationTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="2">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="2">
-      <code>canInvokeACallbackAfterObjectConstruction</code>
-      <code>theAfterCreateCallbackCanBeUsedToCallTheConstructor</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="2">
-      <code>$ss</code>
-      <code>$ss</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getName</code>
-      <code>constructorWasCalled</code>
-      <code>getName</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="3">
-      <code>$ss-&gt;getName()</code>
-      <code>$fieldValues['name']</code>
-      <code>$fieldValues['name']</code>
-    </MixedOperand>
-  </file>
-  <file src="test/Doctrine/Fixtures/IncorrectUsageTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="6">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="6">
-      <code>throwsWhenTryingToDefineTheSameEntityTwice</code>
-      <code>throwsWhenTryingToDefineEntitiesThatAreNotEvenClasses</code>
-      <code>throwsWhenTryingToDefineEntitiesThatAreNotEntities</code>
-      <code>throwsWhenTryingToDefineNonexistentFields</code>
-      <code>throwsWhenTryingToGiveNonexistentFieldsWhileConstructing</code>
-      <code>throwsWhenTryingToGetLessThanOneInstance</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Doctrine/Fixtures/PersistingTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="3">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="3">
-      <code>automaticPersistCanBeTurnedOn</code>
-      <code>doesNotPersistByDefault</code>
-      <code>doesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="2">
-      <code>$ss</code>
-      <code>$ss</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getId</code>
-      <code>getId</code>
-      <code>getId</code>
-    </MixedMethodCall>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Doctrine/Fixtures/ReferenceTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="2">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="2">
-      <code>referencedObjectShouldBeCreatedAutomatically</code>
-      <code>referencedObjectsShouldBeNullable</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="3">
-      <code>$ss1</code>
-      <code>$ss2</code>
-      <code>$person</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getSpaceShip</code>
-      <code>getSpaceShip</code>
-      <code>getSpaceShip</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/ReferencesTest.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>assertEmpty</code>
-    </DocblockTypeContradiction>
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="4">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="4">
-      <code>referencedObjectsShouldBeCreatedAutomatically</code>
-      <code>referencedObjectsShouldBeOverrideable</code>
-      <code>referencedObjectsShouldBeNullable</code>
-      <code>referencedObjectsCanBeSingletons</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Doctrine/Fixtures/SequenceTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="3">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingClosureParamType occurrences="1">
-      <code>$n</code>
-    </MissingClosureParamType>
-    <MissingReturnType occurrences="3">
-      <code>sequenceGeneratorCallsAFunctionWithAnIncrementingArgument</code>
-      <code>sequenceGeneratorCanTakeAPlaceholderString</code>
-      <code>sequenceGeneratorCanTakeAStringToAppendTo</code>
-    </MissingReturnType>
-    <MixedMethodCall occurrences="12">
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/SingletonTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="6">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="6">
-      <code>afterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject</code>
-      <code>getAsSingletonMethodAcceptsFieldOverridesLikeGet</code>
-      <code>throwsAnErrorWhenCallingGetSingletonTwiceOnTheSameEntity</code>
-      <code>allowsSettingSingletons</code>
-      <code>allowsUnsettingSingletons</code>
-      <code>allowsOverwritingExistingSingletons</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="2">
-      <code>$ss</code>
-      <code>$ss</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getName</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Doctrine/Fixtures/TransitiveReferencesTest.php">
-    <InternalClass occurrences="1">
-      <code>AbstractTestCase</code>
-    </InternalClass>
-    <InternalMethod occurrences="2">
-      <code>self::createEntityManager()</code>
-      <code>self::createEntityManager()</code>
-    </InternalMethod>
-    <MissingReturnType occurrences="2">
-      <code>referencesGetInstantiatedTransitively</code>
-      <code>transitiveReferencesWorkWithSingletons</code>
-    </MissingReturnType>
-    <MixedAssignment occurrences="3">
-      <code>$badge</code>
-      <code>$badge1</code>
-      <code>$badge2</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
     </MixedMethodCall>
   </file>
   <file src="test/Fixture/Entity/Badge.php">
@@ -504,9 +188,147 @@
       <code>getName</code>
     </MissingReturnType>
   </file>
+  <file src="test/Integration/FixtureFactoryTest.php">
+    <MixedAssignment occurrences="2">
+      <code>$ss</code>
+      <code>$ss</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="3">
+      <code>getId</code>
+      <code>getId</code>
+      <code>getId</code>
+    </MixedMethodCall>
+  </file>
+  <file src="test/Unit/BasicUsageTest.php">
+    <MixedArgument occurrences="2">
+      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class, [], 5)</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="8">
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$p1</code>
+      <code>$p2</code>
+      <code>$ship</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="14">
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>constructorWasCalled</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>contains</code>
+      <code>getCrew</code>
+      <code>contains</code>
+      <code>getName</code>
+    </MixedMethodCall>
+  </file>
+  <file src="test/Unit/BidirectionalReferencesTest.php">
+    <MixedAssignment occurrences="5">
+      <code>$person</code>
+      <code>$ship</code>
+      <code>$ship</code>
+      <code>$p1</code>
+      <code>$p2</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="5">
+      <code>getSpaceShip</code>
+      <code>getCrew</code>
+      <code>getOwner</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+    </MixedMethodCall>
+  </file>
   <file src="test/Unit/Definition/DefinitionsTest.php">
     <MixedAssignment occurrences="1">
       <code>$definitions</code>
     </MixedAssignment>
+  </file>
+  <file src="test/Unit/ExtraConfigurationTest.php">
+    <MixedAssignment occurrences="2">
+      <code>$ss</code>
+      <code>$ss</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="3">
+      <code>getName</code>
+      <code>constructorWasCalled</code>
+      <code>getName</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="3">
+      <code>$ss-&gt;getName()</code>
+      <code>$fieldValues['name']</code>
+      <code>$fieldValues['name']</code>
+    </MixedOperand>
+  </file>
+  <file src="test/Unit/ReferenceTest.php">
+    <MixedAssignment occurrences="3">
+      <code>$ss1</code>
+      <code>$ss2</code>
+      <code>$person</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="3">
+      <code>getSpaceShip</code>
+      <code>getSpaceShip</code>
+      <code>getSpaceShip</code>
+    </MixedMethodCall>
+  </file>
+  <file src="test/Unit/ReferencesTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertEmpty</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="test/Unit/SequenceTest.php">
+    <MissingClosureParamType occurrences="1">
+      <code>$n</code>
+    </MissingClosureParamType>
+    <MixedMethodCall occurrences="12">
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+    </MixedMethodCall>
+  </file>
+  <file src="test/Unit/SingletonTest.php">
+    <MixedAssignment occurrences="2">
+      <code>$ss</code>
+      <code>$ss</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>getName</code>
+      <code>getName</code>
+    </MixedMethodCall>
+  </file>
+  <file src="test/Unit/TransitiveReferencesTest.php">
+    <MixedAssignment occurrences="3">
+      <code>$badge</code>
+      <code>$badge1</code>
+      <code>$badge2</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="8">
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getOwner</code>
+      <code>getOwner</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+    </MixedMethodCall>
   </file>
 </files>

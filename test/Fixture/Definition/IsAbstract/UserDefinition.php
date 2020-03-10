@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\Definition\IsAbstract;
 
 use Ergebnis\FactoryBot\Definition\Definition;
-use Ergebnis\FactoryBot\Test\Fixture\Entity;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
  * Is not acceptable as it is abstract.
@@ -24,6 +24,6 @@ abstract class UserDefinition implements Definition
 {
     final public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Entity\User::class);
+        $factory->defineEntity(Fixture\Entity\User::class);
     }
 }

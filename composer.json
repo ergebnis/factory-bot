@@ -50,18 +50,12 @@
   "autoload": {
     "psr-4": {
       "Ergebnis\\FactoryBot\\": "src/"
-    },
-    "classmap": [
-      "src/Doctrine/"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
       "Ergebnis\\FactoryBot\\Test\\": "test/"
-    },
-    "classmap": [
-      "test/Doctrine/"
-    ]
+    }
   },
   "support": {
     "issues": "https://github.com/ergebnis/factory-bot/issues",

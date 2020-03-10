@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Acceptable;
 
 use Ergebnis\FactoryBot\Definition\Definition;
-use Ergebnis\FactoryBot\Test\Fixture\Entity;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
  * Is acceptable as it implements the interface.
@@ -24,6 +24,6 @@ final class UserDefinition implements Definition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Entity\User::class);
+        $factory->defineEntity(Fixture\Entity\User::class);
     }
 }

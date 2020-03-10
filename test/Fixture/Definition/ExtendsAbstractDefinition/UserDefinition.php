@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\Definition\ExtendsAbstractDefinition;
 
 use Ergebnis\FactoryBot\Definition\AbstractDefinition;
-use Ergebnis\FactoryBot\Test\Fixture\Entity;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 
 final class UserDefinition extends AbstractDefinition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Entity\User::class);
+        $factory->defineEntity(Fixture\Entity\User::class);
     }
 }

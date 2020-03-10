@@ -11,11 +11,11 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Definition;
+namespace Ergebnis\FactoryBot;
 
-use Ergebnis\FactoryBot\FixtureFactory;
-
-interface Definition
+/**
+ * Marker interface for FactoryGirl\Provider\Doctrine exceptions.
+ */
+interface Exception
 {
-    public function accept(FixtureFactory $fixtureFactory): void;
 }

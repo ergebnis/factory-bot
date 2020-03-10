@@ -2,13 +2,23 @@
 
 declare(strict_types=1);
 
-namespace FactoryGirl\Tests\Provider\Doctrine;
+/**
+ * Copyright (c) 2020 Andreas Möller
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE.md file that was distributed with this source code.
+ *
+ * @see https://github.com/ergebnis/factory-bot
+ */
 
-use FactoryGirl\Provider\Doctrine\EntityDefinitionUnavailable;
+namespace Ergebnis\FactoryBot\Test\Unit;
+
 use PHPUnit\Framework;
 
 /**
- * @covers \FactoryGirl\Provider\Doctrine\EntityDefinitionUnavailable
+ * @internal
+ *
+ * @covers \Ergebnis\FactoryBot\EntityDefinitionUnavailable
  */
 final class EntityDefinitionUnavailableTest extends Framework\TestCase
 {
@@ -16,11 +26,11 @@ final class EntityDefinitionUnavailableTest extends Framework\TestCase
     {
         $name = 'foo';
 
-        $exception = EntityDefinitionUnavailable::for($name);
+        $exception = \Ergebnis\FactoryBot\EntityDefinitionUnavailable::for($name);
 
         self::assertInstanceOf(\OutOfRangeException::class, $exception);
 
-        $message = sprintf(
+        $message = \sprintf(
             'An entity definition for name "%s" is not available.',
             $name
         );
