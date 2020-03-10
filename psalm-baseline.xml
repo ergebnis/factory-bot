@@ -504,18 +504,6 @@
       <code>getName</code>
     </MissingReturnType>
   </file>
-  <file src="test/Integration/AbstractTestCase.php">
-    <InvalidArgument occurrences="2">
-      <code>$annotationPath</code>
-      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
-    </InvalidArgument>
-  </file>
-  <file src="test/Unit/AbstractTestCase.php">
-    <InvalidArgument occurrences="2">
-      <code>$annotationPath</code>
-      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
-    </InvalidArgument>
-  </file>
   <file src="test/Unit/Definition/DefinitionsTest.php">
     <MixedAssignment occurrences="1">
       <code>$definitions</code>
