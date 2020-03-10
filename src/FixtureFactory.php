@@ -1,11 +1,20 @@
 <?php
-namespace FactoryGirl\Provider\Doctrine;
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping;
-use Exception;
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2020 Andreas Möller
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE.md file that was distributed with this source code.
+ *
+ * @see https://github.com/ergebnis/factory-bot
+ */
+
+namespace Ergebnis\FactoryBot;
+
+use Doctrine\Common;
+use Doctrine\ORM;
 
 /**
  * Creates Doctrine entities for use in tests.
@@ -15,7 +24,7 @@ use Exception;
 class FixtureFactory
 {
     /**
-     * @var EntityManager
+     * @var ORM\EntityManager
      */
     protected $em;
 
@@ -30,11 +39,11 @@ class FixtureFactory
     protected $singletons;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $persist;
 
-    public function __construct(EntityManager $em)
+    public function __construct(ORM\EntityManager $em)
     {
         $this->em = $em;
 
@@ -53,6 +62,9 @@ class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
+     * @param mixed $name
+     * @param array $fieldOverrides
+     *
      * @throws EntityDefinitionUnavailable
      */
     public function get($name, array $fieldOverrides = [])
@@ -61,7 +73,7 @@ class FixtureFactory
             return $this->singletons[$name];
         }
 
-        if (!array_key_exists($name, $this->entityDefs)) {
+        if (!\array_key_exists($name, $this->entityDefs)) {
             throw EntityDefinitionUnavailable::for($name);
         }
 
@@ -72,13 +84,14 @@ class FixtureFactory
 
         $this->checkFieldOverrides($def, $fieldOverrides);
 
-        /** @var Mapping\ClassMetadata $entityMetadata */
+        /** @var ORM\Mapping\ClassMetadata $entityMetadata */
         $entityMetadata = $def->getEntityMetadata();
 
         $ent = $entityMetadata->newInstance();
         $fieldValues = [];
+
         foreach ($def->getFieldDefs() as $fieldName => $fieldDef) {
-            $fieldValues[$fieldName] = array_key_exists($fieldName, $fieldOverrides)
+            $fieldValues[$fieldName] = \array_key_exists($fieldName, $fieldOverrides)
                 ? $fieldOverrides[$fieldName]
                 : $fieldDef($this);
         }
@@ -105,63 +118,38 @@ class FixtureFactory
      * a singleton with the entity name. See `getAsSingleton()`.
      *
      * If you've called `persistOnGet()` then the entities are also persisted.
+     *
+     * @param mixed $name
+     * @param array $fieldOverrides
+     * @param mixed $numberOfInstances
      */
     public function getList($name, array $fieldOverrides = [], $numberOfInstances = 1)
     {
-        if ($numberOfInstances < 1) {
+        if (1 > $numberOfInstances) {
             throw new \InvalidArgumentException('Can only get >= 1 instances');
         }
 
-        if ($numberOfInstances > 1 && array_key_exists($name, $this->singletons)) {
+        if (1 < $numberOfInstances && \array_key_exists($name, $this->singletons)) {
             $numberOfInstances = 1;
         }
 
         $instances = [];
-        for ($i = 0; $i < $numberOfInstances; $i++) {
+
+        for ($i = 0; $i < $numberOfInstances; ++$i) {
             $instances[] = $this->get($name, $fieldOverrides);
         }
 
         return $instances;
     }
 
-    protected function checkFieldOverrides(EntityDef $def, array $fieldOverrides)
-    {
-        $extraFields = array_diff(array_keys($fieldOverrides), array_keys($def->getFieldDefs()));
-        if (!empty($extraFields)) {
-            throw new Exception("Field(s) not in " . $def->getEntityType() . ": '" . implode("', '", $extraFields) . "'");
-        }
-    }
-
-    protected function setField($ent, EntityDef $def, $fieldName, $fieldValue)
-    {
-        $metadata = $def->getEntityMetadata();
-
-        if ($metadata->isCollectionValuedAssociation($fieldName)) {
-            $metadata->setFieldValue($ent, $fieldName, $this->createCollectionFrom($fieldValue));
-        } else {
-            $metadata->setFieldValue($ent, $fieldName, $fieldValue);
-
-            if (is_object($fieldValue) && $metadata->isSingleValuedAssociation($fieldName)) {
-                $this->updateCollectionSideOfAssocation($ent, $metadata, $fieldName, $fieldValue);
-            }
-        }
-    }
-
-    protected function createCollectionFrom($array = [])
-    {
-        if (is_array($array)) {
-            return new ArrayCollection($array);
-        }
-
-        return new ArrayCollection();
-    }
-
     /**
      * Sets whether `get()` should automatically persist the entity it creates.
      * By default it does not. In any case, you still need to call
      * flush() yourself.
+     *
+     * @param mixed $enabled
      */
-    public function persistOnGet($enabled = true)
+    public function persistOnGet($enabled = true): void
     {
         $this->persist = $enabled;
     }
@@ -170,13 +158,17 @@ class FixtureFactory
      * A shorthand combining `get()` and `setSingleton()`.
      *
      * It's illegal to call this if `$name` already has a singleton.
+     *
+     * @param mixed $name
+     * @param array $fieldOverrides
      */
     public function getAsSingleton($name, array $fieldOverrides = [])
     {
         if (isset($this->singletons[$name])) {
-            throw new Exception("Already a singleton: $name");
+            throw new \Exception("Already a singleton: {$name}");
         }
         $this->singletons[$name] = $this->get($name, $fieldOverrides);
+
         return $this->singletons[$name];
     }
 
@@ -184,8 +176,11 @@ class FixtureFactory
      * Sets `$entity` to be the singleton for `$name`.
      *
      * This causes `get($name)` to return `$entity`.
+     *
+     * @param mixed $name
+     * @param mixed $entity
      */
-    public function setSingleton($name, $entity)
+    public function setSingleton($name, $entity): void
     {
         $this->singletons[$name] = $entity;
     }
@@ -194,8 +189,10 @@ class FixtureFactory
      * Unsets the singleton for `$name`.
      *
      * This causes `get($name)` to return new entities again.
+     *
+     * @param mixed $name
      */
-    public function unsetSingleton($name)
+    public function unsetSingleton($name): void
     {
         unset($this->singletons[$name]);
     }
@@ -205,22 +202,28 @@ class FixtureFactory
      *
      * See the readme for a tutorial.
      *
+     * @param mixed $name
+     * @param array $fieldDefs
+     * @param array $config
+     *
      * @return FixtureFactory
      */
     public function defineEntity($name, array $fieldDefs = [], array $config = [])
     {
         if (isset($this->entityDefs[$name])) {
-            throw new Exception("Entity '$name' already defined in fixture factory");
+            throw new \Exception("Entity '{$name}' already defined in fixture factory");
         }
 
         $type = $name;
-        if (!class_exists($type, true)) {
-            throw new Exception("Not a class: $type");
+
+        if (!\class_exists($type, true)) {
+            throw new \Exception("Not a class: {$type}");
         }
 
         $metadata = $this->em->getClassMetadata($type);
+
         if (!isset($metadata)) {
-            throw new Exception("Unknown entity type: $type");
+            throw new \Exception("Unknown entity type: {$type}");
         }
 
         $this->entityDefs[$name] = new EntityDef($this->em, $name, $type, $fieldDefs, $config);
@@ -228,14 +231,49 @@ class FixtureFactory
         return $this;
     }
 
-    protected function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value)
+    protected function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
+    {
+        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefs()));
+
+        if (!empty($extraFields)) {
+            throw new \Exception('Field(s) not in ' . $def->getEntityType() . ": '" . \implode("', '", $extraFields) . "'");
+        }
+    }
+
+    protected function setField($ent, EntityDef $def, $fieldName, $fieldValue): void
+    {
+        $metadata = $def->getEntityMetadata();
+
+        if ($metadata->isCollectionValuedAssociation($fieldName)) {
+            $metadata->setFieldValue($ent, $fieldName, $this->createCollectionFrom($fieldValue));
+        } else {
+            $metadata->setFieldValue($ent, $fieldName, $fieldValue);
+
+            if (\is_object($fieldValue) && $metadata->isSingleValuedAssociation($fieldName)) {
+                $this->updateCollectionSideOfAssocation($ent, $metadata, $fieldName, $fieldValue);
+            }
+        }
+    }
+
+    protected function createCollectionFrom($array = [])
+    {
+        if (\is_array($array)) {
+            return new Common\Collections\ArrayCollection($array);
+        }
+
+        return new Common\Collections\ArrayCollection();
+    }
+
+    protected function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value): void
     {
         $assoc = $metadata->getAssociationMapping($fieldName);
         $inverse = $assoc['inversedBy'];
+
         if ($inverse) {
-            $valueMetadata = $this->em->getClassMetadata(get_class($value));
+            $valueMetadata = $this->em->getClassMetadata(\get_class($value));
             $collection = $valueMetadata->getFieldValue($value, $inverse);
-            if ($collection instanceof Collection) {
+
+            if ($collection instanceof Common\Collections\Collection) {
                 $collection->add($entityBeingCreated);
             }
         }

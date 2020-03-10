@@ -9,8 +9,8 @@ on: # yamllint disable-line rule:truthy
       - "master"
 
 env:
-  MIN_COVERED_MSI: 92
-  MIN_MSI: 70
+  MIN_COVERED_MSI: 84
+  MIN_MSI: 53
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -252,9 +252,6 @@ jobs:
       - name: "Run auto-review tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml"
 
-      - name: "Run doctrine tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml"
-
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml"
 
@@ -309,7 +306,7 @@ jobs:
         run: "composer update --no-interaction --no-progress --no-suggest"
 
       - name: "Collect code coverage with pcov and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Doctrine/phpunit.xml --coverage-clover=.build/logs/clover.xml"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:

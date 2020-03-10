@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\Definition\FakerAware;
 
 use Ergebnis\FactoryBot\Definition\Definition;
-use Ergebnis\FactoryBot\Test\Fixture\Entity;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 
 final class UserDefinition implements Definition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Entity\Group::class);
+        $factory->defineEntity(Fixture\Entity\Group::class);
     }
 }

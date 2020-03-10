@@ -17,8 +17,9 @@ use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\Definition\Definitions;
 use Ergebnis\FactoryBot\Definition\Exception;
 use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\Test\Util\Helper;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
 use Faker\Generator;
 use PHPUnit\Framework;
 
@@ -79,7 +80,7 @@ final class DefinitionsTest extends Framework\TestCase
         $fixtureFactory = $this->prophesize(FixtureFactory::class);
 
         $fixtureFactory
-            ->defineEntity(\Ergebnis\FactoryBot\Test\Fixture\Entity\User::class)
+            ->defineEntity(Fixture\Entity\User::class)
             ->shouldBeCalled();
 
         Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable')->registerWith($fixtureFactory->reveal());

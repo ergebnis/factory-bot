@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Definition\DoesNotImplementInterface;
 
-use Ergebnis\FactoryBot\Test\Fixture\Entity;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
  * Is not acceptable as it does not implement the DefinitionInterface.
@@ -23,6 +23,6 @@ final class UserDefinition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Entity\User::class);
+        $factory->defineEntity(Fixture\Entity\User::class);
     }
 }

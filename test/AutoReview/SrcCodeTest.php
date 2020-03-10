@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\AutoReview;
 
+use Ergebnis\FactoryBot;
 use Ergebnis\Test\Util\Helper;
-use FactoryGirl\Provider\Doctrine;
 use PHPUnit\Framework;
 
 /**
@@ -33,10 +33,8 @@ final class SrcCodeTest extends Framework\TestCase
             'Ergebnis\\FactoryBot\\',
             'Ergebnis\\FactoryBot\\Test\\Unit',
             [
-                Doctrine\EntityDef::class,
-                Doctrine\EntityDefinitionUnavailable::class,
-                Doctrine\FieldDef::class,
-                Doctrine\FixtureFactory::class,
+                FactoryBot\EntityDef::class,
+                FactoryBot\FieldDef::class,
             ]
         );
     }

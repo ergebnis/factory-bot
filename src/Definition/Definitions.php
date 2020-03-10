@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Definition;
 
 use Ergebnis\Classy;
-use FactoryGirl\Provider\Doctrine\FixtureFactory;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
 
 final class Definitions
