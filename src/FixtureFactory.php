@@ -24,7 +24,7 @@ use Doctrine\ORM;
 class FixtureFactory
 {
     /**
-     * @var ORM\EntityManager
+     * @var ORM\EntityManagerInterface
      */
     protected $em;
 
@@ -43,7 +43,7 @@ class FixtureFactory
      */
     protected $persist;
 
-    public function __construct(ORM\EntityManager $em)
+    public function __construct(ORM\EntityManagerInterface $em)
     {
         $this->em = $em;
 
