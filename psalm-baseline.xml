@@ -199,67 +199,94 @@
       <code>getId</code>
     </MixedMethodCall>
   </file>
-  <file src="test/Unit/BasicUsageTest.php">
-    <MixedArgument occurrences="2">
-      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class)</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class, [], 5)</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="8">
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$p1</code>
-      <code>$p2</code>
-      <code>$ship</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="14">
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>constructorWasCalled</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Unit/BidirectionalReferencesTest.php">
-    <MixedAssignment occurrences="5">
-      <code>$person</code>
-      <code>$ship</code>
-      <code>$ship</code>
-      <code>$p1</code>
-      <code>$p2</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="5">
-      <code>getSpaceShip</code>
-      <code>getCrew</code>
-      <code>getOwner</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-    </MixedMethodCall>
-  </file>
   <file src="test/Unit/Definition/DefinitionsTest.php">
     <MixedAssignment occurrences="1">
       <code>$definitions</code>
     </MixedAssignment>
   </file>
-  <file src="test/Unit/ExtraConfigurationTest.php">
-    <MixedAssignment occurrences="2">
+  <file src="test/Unit/FixtureFactoryTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertEmpty</code>
+    </DocblockTypeContradiction>
+    <MissingClosureParamType occurrences="1">
+      <code>$n</code>
+    </MissingClosureParamType>
+    <MixedArgument occurrences="2">
+      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class, [], 5)</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="23">
       <code>$ss</code>
       <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$p1</code>
+      <code>$p2</code>
+      <code>$ship</code>
+      <code>$person</code>
+      <code>$ship</code>
+      <code>$person</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ship</code>
+      <code>$p1</code>
+      <code>$p2</code>
+      <code>$ss</code>
+      <code>$ss</code>
+      <code>$ss1</code>
+      <code>$ss2</code>
+      <code>$badge</code>
+      <code>$badge1</code>
+      <code>$badge2</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="3">
+    <MixedMethodCall occurrences="47">
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
       <code>getName</code>
       <code>constructorWasCalled</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>contains</code>
+      <code>getCrew</code>
+      <code>contains</code>
+      <code>getName</code>
+      <code>getSpaceShip</code>
+      <code>getCrew</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getCrew</code>
+      <code>getCrew</code>
+      <code>getName</code>
+      <code>constructorWasCalled</code>
+      <code>getName</code>
+      <code>getSpaceShip</code>
+      <code>getSpaceShip</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getOwner</code>
+      <code>getOwner</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getOwner</code>
+      <code>getSpaceShip</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
+      <code>getName</code>
       <code>getName</code>
     </MixedMethodCall>
     <MixedOperand occurrences="3">
@@ -267,68 +294,5 @@
       <code>$fieldValues['name']</code>
       <code>$fieldValues['name']</code>
     </MixedOperand>
-  </file>
-  <file src="test/Unit/ReferenceTest.php">
-    <MixedAssignment occurrences="3">
-      <code>$ss1</code>
-      <code>$ss2</code>
-      <code>$person</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getSpaceShip</code>
-      <code>getSpaceShip</code>
-      <code>getSpaceShip</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Unit/ReferencesTest.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>assertEmpty</code>
-    </DocblockTypeContradiction>
-  </file>
-  <file src="test/Unit/SequenceTest.php">
-    <MissingClosureParamType occurrences="1">
-      <code>$n</code>
-    </MissingClosureParamType>
-    <MixedMethodCall occurrences="12">
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Unit/SingletonTest.php">
-    <MixedAssignment occurrences="2">
-      <code>$ss</code>
-      <code>$ss</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="2">
-      <code>getName</code>
-      <code>getName</code>
-    </MixedMethodCall>
-  </file>
-  <file src="test/Unit/TransitiveReferencesTest.php">
-    <MixedAssignment occurrences="3">
-      <code>$badge</code>
-      <code>$badge1</code>
-      <code>$badge2</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="8">
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-    </MixedMethodCall>
   </file>
 </files>
