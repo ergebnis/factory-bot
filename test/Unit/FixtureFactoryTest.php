@@ -29,7 +29,7 @@ final class FixtureFactoryTest extends Framework\TestCase
 {
     public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
     {
-        $entityManager = $this->prophesize(ORM\EntityManager::class)->reveal();
+        $entityManager = $this->prophesize(ORM\EntityManagerInterface::class)->reveal();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 

@@ -21,7 +21,7 @@ use PHPUnit\Framework;
  */
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    final protected static function createEntityManager(): ORM\EntityManager
+    final protected static function createEntityManager(): ORM\EntityManagerInterface
     {
         $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
             [

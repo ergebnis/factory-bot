@@ -33,7 +33,7 @@ class EntityDef
 
     private $config;
 
-    public function __construct(ORM\EntityManager $em, $name, $type, array $fieldDefs, array $config)
+    public function __construct(ORM\EntityManagerInterface $em, $name, $type, array $fieldDefs, array $config)
     {
         $this->name = $name;
         $this->entityType = $type;
