@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Definition\Exception;
+namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidDefinition extends \RuntimeException
 {

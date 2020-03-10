@@ -65,7 +65,7 @@ class FixtureFactory
      * @param mixed $name
      * @param array $fieldOverrides
      *
-     * @throws EntityDefinitionUnavailable
+     * @throws Exception\EntityDefinitionUnavailable
      */
     public function get($name, array $fieldOverrides = [])
     {
@@ -74,7 +74,7 @@ class FixtureFactory
         }
 
         if (!\array_key_exists($name, $this->entityDefs)) {
-            throw EntityDefinitionUnavailable::for($name);
+            throw Exception\EntityDefinitionUnavailable::for($name);
         }
 
         /** @var EntityDef $def */

@@ -56,9 +56,9 @@ parameters:
 			path: src/EntityDef.php
 
 		-
-			message: "#^Class \"Ergebnis\\\\FactoryBot\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"
+			message: "#^Class \"Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"
 			count: 1
-			path: src/EntityDefinitionUnavailable.php
+			path: src/Exception/EntityDefinitionUnavailable.php
 
 		-
 			message: "#^Class Ergebnis\\\\FactoryBot\\\\FieldDef is neither abstract nor final\\.$#"
@@ -346,9 +346,9 @@ parameters:
 			path: test/Integration/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
 			count: 1
-			path: test/Unit/EntityDefinitionUnavailableTest.php
+			path: test/Unit/Exception/EntityDefinitionUnavailableTest.php
 
 		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"

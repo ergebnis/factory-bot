@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\Common;
 use Doctrine\ORM;
-use Ergebnis\FactoryBot\EntityDefinitionUnavailable;
+use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDef;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
@@ -26,7 +26,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\EntityDef
- * @uses \Ergebnis\FactoryBot\EntityDefinitionUnavailable
+ * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
  * @uses \Ergebnis\FactoryBot\FieldDef
  */
 final class FixtureFactoryTest extends AbstractTestCase
@@ -37,7 +37,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $this->expectException(EntityDefinitionUnavailable::class);
+        $this->expectException(Exception\EntityDefinitionUnavailable::class);
 
         $fixtureFactory->get('foo');
     }

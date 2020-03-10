@@ -11,14 +11,15 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit;
+namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
+use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\EntityDefinitionUnavailable
+ * @covers \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
  */
 final class EntityDefinitionUnavailableTest extends Framework\TestCase
 {
@@ -26,7 +27,7 @@ final class EntityDefinitionUnavailableTest extends Framework\TestCase
     {
         $name = 'foo';
 
-        $exception = \Ergebnis\FactoryBot\EntityDefinitionUnavailable::for($name);
+        $exception = Exception\EntityDefinitionUnavailable::for($name);
 
         self::assertInstanceOf(\OutOfRangeException::class, $exception);
 

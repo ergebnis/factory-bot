@@ -15,8 +15,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\Definition;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\Definition\Definitions;
-use Ergebnis\FactoryBot\Definition\Exception;
 use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
+use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\Test\Util\Helper;
@@ -28,8 +28,8 @@ use PHPUnit\Framework;
  *
  * @covers \Ergebnis\FactoryBot\Definition\Definitions
  *
- * @uses \Ergebnis\FactoryBot\Definition\Exception\InvalidDefinition
- * @uses \Ergebnis\FactoryBot\Definition\Exception\InvalidDirectory
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidDirectory
  */
 final class DefinitionsTest extends Framework\TestCase
 {

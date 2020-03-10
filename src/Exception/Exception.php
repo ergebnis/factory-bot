@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot;
+namespace Ergebnis\FactoryBot\Exception;
 
 /**
  * Marker interface for FactoryGirl\Provider\Doctrine exceptions.

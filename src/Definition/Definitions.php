@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Definition;
 
 use Ergebnis\Classy;
+use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
 
@@ -33,8 +34,8 @@ final class Definitions
      *
      * @param string $directory
      *
-     * @throws Exception\InvalidDirectory
      * @throws Exception\InvalidDefinition
+     * @throws Exception\InvalidDirectory
      *
      * @return self
      */
