@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-final class InvalidDefinition extends \RuntimeException
+final class InvalidDefinition extends \RuntimeException implements Exception
 {
     public static function fromClassNameAndException(string $className, \Exception $exception): self
     {

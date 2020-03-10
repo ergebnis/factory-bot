@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-final class InvalidDirectory extends \InvalidArgumentException
+final class InvalidDirectory extends \InvalidArgumentException implements Exception
 {
     public static function notDirectory(string $directory): self
     {
