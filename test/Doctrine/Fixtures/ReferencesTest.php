@@ -3,12 +3,13 @@
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
+use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use FactoryGirl\Provider\Doctrine\FixtureFactory;
 use FactoryGirl\Tests\Provider\Doctrine\Fixtures\TestEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class ReferencesTest extends TestCase
+class ReferencesTest extends AbstractTestCase
 {
     /**
      * @test

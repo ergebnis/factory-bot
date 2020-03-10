@@ -2,11 +2,12 @@
 namespace FactoryGirl\Tests\Provider\Doctrine\Fixtures;
 
 use Ergebnis\FactoryBot\Test\Fixture\Entity;
+use Ergebnis\FactoryBot\Test\Integration\AbstractTestCase;
 use FactoryGirl\Provider\Doctrine\FieldDef;
 use Doctrine\ORM\Mapping;
 use FactoryGirl\Provider\Doctrine\FixtureFactory;
 
-class PersistingTest extends TestCase
+class PersistingTest extends AbstractTestCase
 {
     /**
      * @test

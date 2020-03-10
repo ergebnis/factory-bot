@@ -159,6 +159,23 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/BasicUsageTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="12">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="12">
       <code>acceptsConstantValuesInEntityDefinitions</code>
       <code>acceptsGeneratorFunctionsInEntityDefinitions</code>
@@ -205,6 +222,14 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/BidirectionalReferencesTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="3">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="3">
       <code>bidirectionalOntToManyReferencesAreAssignedBothWays</code>
       <code>unidirectionalReferencesWorkAsUsual</code>
@@ -226,6 +251,13 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/ExtraConfigurationTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="2">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="2">
       <code>canInvokeACallbackAfterObjectConstruction</code>
       <code>theAfterCreateCallbackCanBeUsedToCallTheConstructor</code>
@@ -246,6 +278,17 @@
     </MixedOperand>
   </file>
   <file src="test/Doctrine/Fixtures/IncorrectUsageTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="6">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="6">
       <code>throwsWhenTryingToDefineTheSameEntityTwice</code>
       <code>throwsWhenTryingToDefineEntitiesThatAreNotEvenClasses</code>
@@ -256,6 +299,14 @@
     </MissingReturnType>
   </file>
   <file src="test/Doctrine/Fixtures/PersistingTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="3">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="3">
       <code>automaticPersistCanBeTurnedOn</code>
       <code>doesNotPersistByDefault</code>
@@ -275,6 +326,13 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Doctrine/Fixtures/ReferenceTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="2">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="2">
       <code>referencedObjectShouldBeCreatedAutomatically</code>
       <code>referencedObjectsShouldBeNullable</code>
@@ -294,6 +352,15 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertEmpty</code>
     </DocblockTypeContradiction>
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="4">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="4">
       <code>referencedObjectsShouldBeCreatedAutomatically</code>
       <code>referencedObjectsShouldBeOverrideable</code>
@@ -302,6 +369,14 @@
     </MissingReturnType>
   </file>
   <file src="test/Doctrine/Fixtures/SequenceTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="3">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingClosureParamType occurrences="1">
       <code>$n</code>
     </MissingClosureParamType>
@@ -326,6 +401,17 @@
     </MixedMethodCall>
   </file>
   <file src="test/Doctrine/Fixtures/SingletonTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="6">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="6">
       <code>afterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject</code>
       <code>getAsSingletonMethodAcceptsFieldOverridesLikeGet</code>
@@ -343,13 +429,14 @@
       <code>getName</code>
     </MixedMethodCall>
   </file>
-  <file src="test/Doctrine/Fixtures/TestCase.php">
-    <InvalidArgument occurrences="2">
-      <code>$annotationPath</code>
-      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
-    </InvalidArgument>
-  </file>
   <file src="test/Doctrine/Fixtures/TransitiveReferencesTest.php">
+    <InternalClass occurrences="1">
+      <code>AbstractTestCase</code>
+    </InternalClass>
+    <InternalMethod occurrences="2">
+      <code>self::createEntityManager()</code>
+      <code>self::createEntityManager()</code>
+    </InternalMethod>
     <MissingReturnType occurrences="2">
       <code>referencesGetInstantiatedTransitively</code>
       <code>transitiveReferencesWorkWithSingletons</code>
@@ -416,6 +503,18 @@
       <code>getId</code>
       <code>getName</code>
     </MissingReturnType>
+  </file>
+  <file src="test/Integration/AbstractTestCase.php">
+    <InvalidArgument occurrences="2">
+      <code>$annotationPath</code>
+      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/Unit/AbstractTestCase.php">
+    <InvalidArgument occurrences="2">
+      <code>$annotationPath</code>
+      <code>$config-&gt;newDefaultAnnotationDriver($annotationPath)</code>
+    </InvalidArgument>
   </file>
   <file src="test/Unit/Definition/DefinitionsTest.php">
     <MixedAssignment occurrences="1">

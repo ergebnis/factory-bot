@@ -276,11 +276,6 @@ parameters:
 			path: test/Doctrine/Fixtures/BasicUsageTest.php
 
 		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/BasicUsageTest.php
-
-		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BasicUsageTest is neither abstract nor final\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/BasicUsageTest.php
@@ -391,11 +386,6 @@ parameters:
 			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
 
 		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
-
-		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\BidirectionalReferencesTest is neither abstract nor final\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/BidirectionalReferencesTest.php
@@ -431,11 +421,6 @@ parameters:
 			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
 
 		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
-
-		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ExtraConfigurationTest is neither abstract nor final\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/ExtraConfigurationTest.php
@@ -467,11 +452,6 @@ parameters:
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\IncorrectUsageTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/IncorrectUsageTest.php
 
@@ -517,11 +497,6 @@ parameters:
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/PersistingTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\PersistingTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/PersistingTest.php
 
@@ -591,11 +566,6 @@ parameters:
 			path: test/Doctrine/Fixtures/ReferenceTest.php
 
 		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/ReferenceTest.php
-
-		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferenceTest is neither abstract nor final\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/ReferenceTest.php
@@ -627,11 +597,6 @@ parameters:
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/ReferencesTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\ReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/ReferencesTest.php
 
@@ -691,11 +656,6 @@ parameters:
 			path: test/Doctrine/Fixtures/SequenceTest.php
 
 		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/SequenceTest.php
-
-		-
 			message: "#^Class FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SequenceTest is neither abstract nor final\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/SequenceTest.php
@@ -727,11 +687,6 @@ parameters:
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/SingletonTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\SingletonTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/SingletonTest.php
 
@@ -782,21 +737,6 @@ parameters:
 
 		-
 			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestCase.php
-
-		-
-			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TestCase.php
-
-		-
-			message: "#^File is missing a \"declare\\(strict_types\\=1\\)\" declaration\\.$#"
-			count: 1
-			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
-
-		-
-			message: "#^Class \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TransitiveReferencesTest\" is not allowed to extend \"FactoryGirl\\\\Tests\\\\Provider\\\\Doctrine\\\\Fixtures\\\\TestCase\"\\.$#"
 			count: 1
 			path: test/Doctrine/Fixtures/TransitiveReferencesTest.php
 
@@ -1009,4 +949,14 @@ parameters:
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
 			path: test/Fixture/Entity/SpaceStation.php
+
+		-
+			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
+			count: 1
+			path: test/Integration/AbstractTestCase.php
+
+		-
+			message: "#^Parameter \\#1 \\$paths of method Doctrine\\\\ORM\\\\Configuration\\:\\:newDefaultAnnotationDriver\\(\\) expects array, string given\\.$#"
+			count: 1
+			path: test/Unit/AbstractTestCase.php
 
