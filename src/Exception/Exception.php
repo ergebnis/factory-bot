@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-/**
- * Marker interface for FactoryGirl\Provider\Doctrine exceptions.
- */
 interface Exception
 {
 }
