@@ -13,6 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-interface Exception
+interface Exception extends \Throwable
 {
 }
