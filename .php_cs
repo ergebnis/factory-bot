@@ -27,7 +27,6 @@ $license = License\Type\MIT::markdown(
 $license->save();
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($license->header()), [
-    'final_class' => false,
     'mb_str_functions' => false,
 ]);
 

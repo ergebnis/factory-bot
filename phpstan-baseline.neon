@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Class Ergebnis\\\\FactoryBot\\\\EntityDef is neither abstract nor final\\.$#"
-			count: 1
-			path: src/EntityDef.php
-
-		-
 			message: "#^Property Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:\\$name has no typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
@@ -61,11 +56,6 @@ parameters:
 			path: src/Exception/EntityDefinitionUnavailable.php
 
 		-
-			message: "#^Class Ergebnis\\\\FactoryBot\\\\FieldDef is neither abstract nor final\\.$#"
-			count: 1
-			path: src/FieldDef.php
-
-		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
 			count: 2
 			path: src/FieldDef.php
@@ -74,11 +64,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
 			count: 1
 			path: src/FieldDef.php
-
-		-
-			message: "#^Class Ergebnis\\\\FactoryBot\\\\FixtureFactory is neither abstract nor final\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"

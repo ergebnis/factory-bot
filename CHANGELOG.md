@@ -21,6 +21,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `Repository` along with locking capabilities ([#15]), by [@localheinz]
 * Removed `QueryBuilder` ([#16]), by [@localheinz]
 * Used `Doctrine\ORM\EntityManagerInterface` instead of `Doctrine\ORM\EntityManager` in type and return type declarations ([#24]), by [@localheinz]
+* Marked all classes as `final` ([#33]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -32,5 +33,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#15]: https://github.com/ergebnis/factory-bot/pull/15
 [#16]: https://github.com/ergebnis/factory-bot/pull/16
 [#24]: https://github.com/ergebnis/factory-bot/pull/24
+[#33]: https://github.com/ergebnis/factory-bot/pull/33
 
 [@localheinz]: https://github.com/localheinz
