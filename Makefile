@@ -2,7 +2,7 @@ MIN_COVERED_MSI:=84
 MIN_MSI:=53
 
 .PHONY: it
-it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
+it: coding-standards dependency-analysis static-code-analysis doctrine tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, doctrine, and tests targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit tests with phpunit/phpunit
@@ -17,6 +17,11 @@ coding-standards: vendor ## Fixes code style issues with friendsofphp/php-cs-fix
 .PHONY: dependency-analysis
 dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
 	docker run --interactive --rm --tty --volume ${PWD}:/app webfactory/composer-require-checker:2.1.0 check --config-file=composer-require-checker.json
+
+.PHONY: doctrine
+doctrine: vendor ## Shows and validates Docrine mapping information
+	vendor/bin/doctrine orm:info
+	vendor/bin/doctrine orm:validate-schema --skip-sync
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions

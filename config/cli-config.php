@@ -11,19 +11,11 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit;
-
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\Test\Util;
-use PHPUnit\Framework;
 
-/**
- * @internal
- */
-abstract class AbstractTestCase extends Framework\TestCase
-{
-    final protected static function createEntityManager(): ORM\EntityManagerInterface
-    {
-        return Util\Doctrine\ORM\EntityManagerFactory::create();
-    }
-}
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$entityManager = Util\Doctrine\ORM\EntityManagerFactory::create();
+
+return ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);
