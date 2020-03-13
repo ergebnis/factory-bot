@@ -2,10 +2,10 @@
 <files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
   <file src="src/EntityDef.php">
     <MissingClosureReturnType occurrences="4">
-      <code>function () use ($defaultFieldValue) {</code>
-      <code>function () {</code>
-      <code>function () use ($def) {</code>
-      <code>function () use ($f) {</code>
+      <code>static function () use ($defaultFieldValue) {</code>
+      <code>static function () {</code>
+      <code>static function () use ($def) {</code>
+      <code>static function () use ($f) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="4">
       <code>$name</code>
@@ -55,9 +55,9 @@
   </file>
   <file src="src/FieldDef.php">
     <MissingClosureReturnType occurrences="3">
-      <code>function () use (&amp;$n, $funcOrString) {</code>
-      <code>function (FixtureFactory $factory) use ($name) {</code>
-      <code>function (FixtureFactory $factory) use ($name, $numberOfInstances) {</code>
+      <code>static function () use (&amp;$n, $funcOrString) {</code>
+      <code>static function (FixtureFactory $factory) use ($name) {</code>
+      <code>static function (FixtureFactory $factory) use ($name, $numberOfInstances) {</code>
     </MissingClosureReturnType>
     <MixedArgument occurrences="1">
       <code>$n</code>
