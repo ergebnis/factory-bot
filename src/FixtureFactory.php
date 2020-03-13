@@ -21,27 +21,27 @@ use Doctrine\ORM;
  *
  * See the README file for a tutorial.
  */
-class FixtureFactory
+final class FixtureFactory
 {
     /**
      * @var ORM\EntityManagerInterface
      */
-    protected $em;
+    private $em;
 
     /**
      * @var array<EntityDef>
      */
-    protected $entityDefs;
+    private $entityDefs;
 
     /**
      * @var array
      */
-    protected $singletons;
+    private $singletons;
 
     /**
      * @var bool
      */
-    protected $persist;
+    private $persist;
 
     public function __construct(ORM\EntityManagerInterface $em)
     {
@@ -231,7 +231,7 @@ class FixtureFactory
         return $this;
     }
 
-    protected function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
+    private function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
     {
         $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefs()));
 
@@ -240,7 +240,7 @@ class FixtureFactory
         }
     }
 
-    protected function setField($ent, EntityDef $def, $fieldName, $fieldValue): void
+    private function setField($ent, EntityDef $def, $fieldName, $fieldValue): void
     {
         $metadata = $def->getEntityMetadata();
 
@@ -255,7 +255,7 @@ class FixtureFactory
         }
     }
 
-    protected function createCollectionFrom($array = [])
+    private function createCollectionFrom($array = [])
     {
         if (\is_array($array)) {
             return new Common\Collections\ArrayCollection($array);
@@ -264,7 +264,7 @@ class FixtureFactory
         return new Common\Collections\ArrayCollection();
     }
 
-    protected function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value): void
+    private function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value): void
     {
         $assoc = $metadata->getAssociationMapping($fieldName);
         $inverse = $assoc['inversedBy'];

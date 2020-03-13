@@ -18,7 +18,7 @@ use Doctrine\ORM;
 /**
  * An internal class that `FixtureFactory` uses to normalize and store entity definitions in.
  */
-class EntityDef
+final class EntityDef
 {
     private $name;
 
