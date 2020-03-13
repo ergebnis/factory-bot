@@ -13,22 +13,22 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Mapping\Entity
+ * @ORM\Entity
  */
 class SpaceStation
 {
     /**
-     * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @ORM\Mapping\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @ORM\Mapping\Column
+     * @ORM\Column
      */
     protected $name = 'Babylon5';
 
