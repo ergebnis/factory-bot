@@ -23,7 +23,10 @@ final class EntityManagerFactory
             [
                 __DIR__ . '/../../../Fixture/Entity',
             ],
-            true
+            true,
+            null,
+            null,
+            false
         );
 
         return ORM\EntityManager::create(

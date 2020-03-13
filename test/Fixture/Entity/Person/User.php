@@ -13,15 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity\Person;
 
+use Doctrine\ORM;
+
 /**
- * @Entity
+ * @ORM\Mapping\Entity
  */
 class User
 {
     /**
-     * @Id
-     * @GeneratedValue(strategy="AUTO")
-     * @Column(type="integer")
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(type="integer")
      */
     protected $id;
 }

@@ -13,15 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
+use Doctrine\ORM;
+
 /**
- * @Entity
+ * @ORM\Mapping\Entity
  */
 class Commander
 {
     /**
-     * @Id
-     * @GeneratedValue(strategy="AUTO")
-     * @Column(
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(
      *     name="id",
      *     type="integer"
      * )
@@ -31,7 +33,7 @@ class Commander
     private $id;
 
     /**
-     * @Embedded(
+     * @ORM\Mapping\Embedded(
      *     class="Ergebnis\FactoryBot\Test\Fixture\Entity\Name",
      *     columnPrefix=false
      * )
