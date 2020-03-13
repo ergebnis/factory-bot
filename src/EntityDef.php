@@ -116,11 +116,11 @@ class EntityDef
                 $defaultFieldValue = $this->metadata->getFieldValue($defaultEntity, $fieldName);
 
                 if (null !== $defaultFieldValue) {
-                    $this->fieldDefs[$fieldName] = function () use ($defaultFieldValue) {
+                    $this->fieldDefs[$fieldName] = static function () use ($defaultFieldValue) {
                         return $defaultFieldValue;
                     };
                 } else {
-                    $this->fieldDefs[$fieldName] = function () {
+                    $this->fieldDefs[$fieldName] = static function () {
                         return null;
                     };
                 }
@@ -134,7 +134,7 @@ class EntityDef
             return $this->ensureInvokable($def);
         }
 
-        return function () use ($def) {
+        return static function () use ($def) {
             return $def;
         };
     }
@@ -145,7 +145,7 @@ class EntityDef
             return $f;
         }
 
-        return function () use ($f) {
+        return static function () use ($f) {
             return \call_user_func_array($f, \func_get_args());
         };
     }

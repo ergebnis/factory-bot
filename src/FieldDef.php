@@ -40,7 +40,7 @@ class FieldDef
         $n = $firstNum - 1;
 
         if (\is_callable($funcOrString)) {
-            return function () use (&$n, $funcOrString) {
+            return static function () use (&$n, $funcOrString) {
                 ++$n;
 
                 return \call_user_func($funcOrString, $n);
@@ -48,14 +48,14 @@ class FieldDef
         }
 
         if (false !== \strpos($funcOrString, '%d')) {
-            return function () use (&$n, $funcOrString) {
+            return static function () use (&$n, $funcOrString) {
                 ++$n;
 
                 return \str_replace('%d', $n, $funcOrString);
             };
         }
 
-        return function () use (&$n, $funcOrString) {
+        return static function () use (&$n, $funcOrString) {
             ++$n;
 
             return $funcOrString . $n;
@@ -75,7 +75,7 @@ class FieldDef
      */
     public static function reference($name)
     {
-        return function (FixtureFactory $factory) use ($name) {
+        return static function (FixtureFactory $factory) use ($name) {
             return $factory->get($name);
         };
     }
@@ -101,7 +101,7 @@ class FieldDef
             throw new \InvalidArgumentException('Can only get >= 1 instances');
         }
 
-        return function (FixtureFactory $factory) use ($name, $numberOfInstances) {
+        return static function (FixtureFactory $factory) use ($name, $numberOfInstances) {
             return $factory->getList(
                 $name,
                 [],
