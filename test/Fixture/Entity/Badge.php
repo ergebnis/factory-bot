@@ -13,28 +13,28 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
-use Doctrine\ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Mapping\Entity
+ * @ORM\Entity
  */
 class Badge
 {
     /**
-     * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @ORM\Mapping\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @ORM\Mapping\Column
+     * @ORM\Column
      */
     protected $label;
 
     /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Person")
-     * @ORM\Mapping\JoinColumn(
+     * @ORM\ManyToOne(targetEntity="Person")
+     * @ORM\JoinColumn(
      *     name="person_id",
      *     referencedColumnName="id",
      *     nullable=true
