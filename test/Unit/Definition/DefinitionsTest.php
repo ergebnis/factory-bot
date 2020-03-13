@@ -19,19 +19,21 @@ use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
+use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 use Ergebnis\Test\Util\Helper;
 use Faker\Generator;
-use PHPUnit\Framework;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\FactoryBot\Definition\Definitions
  *
+ * @uses \Ergebnis\FactoryBot\EntityDef
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDirectory
+ * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class DefinitionsTest extends Framework\TestCase
+final class DefinitionsTest extends AbstractTestCase
 {
     use Helper;
 
@@ -44,53 +46,47 @@ final class DefinitionsTest extends Framework\TestCase
 
     public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
     {
-        $fixtureFactory = $this->prophesize(FixtureFactory::class);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $fixtureFactory
-            ->defineEntity()
-            ->shouldNotBeCalled();
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/DoesNotImplementInterface')->registerWith($fixtureFactory);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/DoesNotImplementInterface')->registerWith($fixtureFactory->reveal());
+        self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresClassesWhichAreAbstract(): void
     {
-        $fixtureFactory = $this->prophesize(FixtureFactory::class);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $fixtureFactory
-            ->defineEntity()
-            ->shouldNotBeCalled();
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/IsAbstract')->registerWith($fixtureFactory);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/IsAbstract')->registerWith($fixtureFactory->reveal());
+        self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresClassesWhichHavePrivateConstructors(): void
     {
-        $fixtureFactory = $this->prophesize(FixtureFactory::class);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $fixtureFactory
-            ->defineEntity()
-            ->shouldNotBeCalled();
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/PrivateConstructor')->registerWith($fixtureFactory);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/PrivateConstructor')->registerWith($fixtureFactory->reveal());
+        self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInAcceptsClassesWhichAreAcceptable(): void
     {
-        $fixtureFactory = $this->prophesize(FixtureFactory::class);
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $fixtureFactory
-            ->defineEntity(Fixture\Entity\User::class)
-            ->shouldBeCalled();
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable')->registerWith($fixtureFactory);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable')->registerWith($fixtureFactory->reveal());
+        self::assertArrayHasKey(Fixture\Entity\User::class, $fixtureFactory->definitions());
     }
 
     public function testFluentInterface(): void
     {
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Acceptable');
 
-        self::assertSame($definitions, $definitions->registerWith($this->prophesize(FixtureFactory::class)->reveal()));
+        self::assertSame($definitions, $definitions->registerWith($fixtureFactory));
         self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
     }
 

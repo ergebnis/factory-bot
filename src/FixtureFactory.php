@@ -231,6 +231,14 @@ final class FixtureFactory
         return $this;
     }
 
+    /**
+     * @return EntityDef[]
+     */
+    public function definitions(): array
+    {
+        return $this->entityDefs;
+    }
+
     private function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
     {
         $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefs()));
