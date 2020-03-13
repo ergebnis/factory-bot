@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Integration;
 
 use Doctrine\ORM;
+use Ergebnis\FactoryBot\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -23,20 +24,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 {
     final protected static function createEntityManager(): ORM\EntityManagerInterface
     {
-        $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
-            [
-                __DIR__ . '/../Fixture/Entity',
-            ],
-            true
-        );
-
-        $entityManager = ORM\EntityManager::create(
-            [
-                'driver' => 'pdo_sqlite',
-                'path' => ':memory:',
-            ],
-            $configuration
-        );
+        $entityManager = Util\Doctrine\ORM\EntityManagerFactory::create();
 
         $schemaTool = new ORM\Tools\SchemaTool($entityManager);
 
