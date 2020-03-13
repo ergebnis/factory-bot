@@ -261,11 +261,6 @@ parameters:
 			path: test/Fixture/Entity/Person.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\\\User\\:\\:\\$id has no typehint specified\\.$#"
-			count: 1
-			path: test/Fixture/Entity/Person/User.php
-
-		-
 			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: test/Fixture/Entity/SpaceShip.php

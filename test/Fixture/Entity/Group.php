@@ -13,6 +13,24 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
-final class Group
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="group")
+ */
+class Group
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     *
+     * @var string
+     */
+    private $id;
+
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
 }
