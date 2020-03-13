@@ -13,26 +13,35 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
+use Doctrine\ORM;
+
 /**
- * @Entity
+ * @ORM\Mapping\Entity
  */
 class Person
 {
     /**
-     * @Id
-     * @GeneratedValue(strategy="AUTO")
-     * @Column(type="integer")
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @Column
+     * @ORM\Mapping\Column
      */
     protected $name;
 
     /**
-     * @ManyToOne(targetEntity="SpaceShip", inversedBy="crew")
-     * @JoinColumn(name="spaceShip_id", referencedColumnName="id", nullable=true)
+     * @ORM\Mapping\ManyToOne(
+     *     targetEntity="SpaceShip",
+     *     inversedBy="crew"
+     * )
+     * @ORM\Mapping\JoinColumn(
+     *     name="spaceShip_id",
+     *     referencedColumnName="id",
+     *     nullable=true
+     * )
      */
     protected $spaceShip;
 

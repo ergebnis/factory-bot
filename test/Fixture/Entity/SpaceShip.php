@@ -14,26 +14,30 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM;
 
 /**
- * @Entity
+ * @ORM\Mapping\Entity
  */
 class SpaceShip
 {
     /**
-     * @Id
-     * @GeneratedValue(strategy="AUTO")
-     * @Column(type="integer")
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @Column
+     * @ORM\Mapping\Column
      */
     protected $name;
 
     /**
-     * @OneToMany(targetEntity="Person", mappedBy="spaceShip")
+     * @ORM\Mapping\OneToMany(
+     *     targetEntity="Person",
+     *     mappedBy="spaceShip"
+     * )
      */
     protected $crew;
 

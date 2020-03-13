@@ -13,13 +13,15 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
 
+use Doctrine\ORM;
+
 /**
- * @Embeddable
+ * @ORM\Mapping\Embeddable
  */
 final class Name
 {
     /**
-     * @Column(
+     * @ORM\Mapping\Column(
      *     name="first_name",
      *     type="string",
      *     length=100,
@@ -31,7 +33,7 @@ final class Name
     private $first;
 
     /**
-     * @Column(
+     * @ORM\Mapping\Column(
      *     name="last_name",
      *     type="string",
      *     length=100,
