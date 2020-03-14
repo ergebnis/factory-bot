@@ -31,6 +31,15 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
+    public function testDefineReturnsFixtureFactory(): void
+    {
+        $entityManager = self::createEntityManager();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
+
+        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class));
+    }
+
     public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
     {
         $entityManager = $this->prophesize(ORM\EntityManagerInterface::class)->reveal();
