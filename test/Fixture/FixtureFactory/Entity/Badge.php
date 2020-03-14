@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,7 +34,7 @@ class Badge
     protected $label;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Person")
+     * @ORM\ManyToOne(targetEntity="\Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person")
      * @ORM\JoinColumn(
      *     name="person_id",
      *     referencedColumnName="id",

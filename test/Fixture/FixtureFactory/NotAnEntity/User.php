@@ -11,11 +11,11 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\NotAnEntity;
 
 /**
  * Used to test that the factory won't try to create objects that aren't entities.
  */
-final class NotAnEntity
+final class User
 {
 }

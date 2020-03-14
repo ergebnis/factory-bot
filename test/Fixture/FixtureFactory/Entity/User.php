@@ -11,13 +11,13 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity\Person;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="person_user")
+ * @ORM\Table(name="user")
  */
 class User
 {
@@ -27,7 +27,7 @@ class User
      *
      * @var string
      */
-    protected $id;
+    private $id;
 
     public function __construct(string $id)
     {

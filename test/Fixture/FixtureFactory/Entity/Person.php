@@ -11,15 +11,15 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="space_station")
+ * @ORM\Table(name="person")
  */
-class SpaceStation
+class Person
 {
     /**
      * @ORM\Id
@@ -31,11 +31,25 @@ class SpaceStation
     /**
      * @ORM\Column
      */
-    protected $name = 'Babylon5';
+    protected $name;
 
-    public function __construct($name)
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\SpaceShip",
+     *     inversedBy="crew"
+     * )
+     * @ORM\JoinColumn(
+     *     name="spaceShip_id",
+     *     referencedColumnName="id",
+     *     nullable=true
+     * )
+     */
+    protected $spaceShip;
+
+    public function __construct($name, ?SpaceShip $spaceShip = null)
     {
         $this->name = $name;
+        $this->spaceShip = $spaceShip;
     }
 
     public function getId()
@@ -48,8 +62,8 @@ class SpaceStation
         return $this->name;
     }
 
-    public function setName($name): void
+    public function getSpaceShip()
     {
-        $this->name = $name;
+        return $this->spaceShip;
     }
 }

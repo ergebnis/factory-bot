@@ -11,24 +11,18 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\ThrowsExceptionDuringConstruction;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\DoesNotImplementInterface;
 
-use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
- * Is not acceptable as it throws an exception during construction.
+ * Is not acceptable as it does not implement the DefinitionInterface.
  */
-final class UserDefinition implements Definition
+final class UserDefinition
 {
-    public function __construct()
-    {
-        throw new \RuntimeException();
-    }
-
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\Entity\User::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
     }
 }

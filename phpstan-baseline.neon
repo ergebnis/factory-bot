@@ -146,182 +146,182 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Artist\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Artist.php
+			path: test/Fixture/FixtureFactory/Entity/Artist.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$id has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$label has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:\\$label has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:\\$owner has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:\\$owner has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:__construct\\(\\) has parameter \\$label with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getId\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getLabel\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getLabel\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Badge\\:\\:getOwner\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getOwner\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Name.php
+			path: test/Fixture/FixtureFactory/Entity/Name.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Name.php
+			path: test/Fixture/FixtureFactory/Entity/Name.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$name has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:\\$name has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:\\$spaceShip has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:\\$spaceShip has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person has parameter \\$spaceShip with default value\\.$#"
+			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person has parameter \\$spaceShip with default value\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with a nullable type declaration\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with null as default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceShip with null as default value\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:getId\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:getName\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Person\\:\\:getSpaceShip\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:getSpaceShip\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$name has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:\\$name has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:\\$crew has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:\\$crew has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:getId\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:getName\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:getCrew\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:getCrew\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceShip\\:\\:constructorWasCalled\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\:\\:constructorWasCalled\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceShip.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceShip.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:\\$id has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:\\$name has no typehint specified\\.$#"
+			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:\\$name has no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:getId\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:getName\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:getName\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:setName\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
-			path: test/Fixture/Entity/SpaceStation.php
+			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\Entity\\\\Name will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name will always evaluate to true\\.$#"
 			count: 1
 			path: test/Integration/FixtureFactoryTest.php
 

@@ -11,20 +11,26 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="artist")
+ * @ORM\Table(name="person_user")
  */
-class Artist
+class User
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     *
+     * @var string
      */
-    private $id;
+    protected $id;
+
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
 }

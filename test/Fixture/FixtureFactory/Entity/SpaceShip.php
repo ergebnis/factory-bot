@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Entity;
+namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -36,7 +36,7 @@ class SpaceShip
 
     /**
      * @ORM\OneToMany(
-     *     targetEntity="Person",
+     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person",
      *     mappedBy="spaceShip"
      * )
      */
