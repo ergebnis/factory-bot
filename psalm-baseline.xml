@@ -141,7 +141,7 @@
       <code>getAssociationMapping</code>
     </MixedMethodCall>
   </file>
-  <file src="test/Fixture/Entity/Badge.php">
+  <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
     <MissingParamType occurrences="1">
       <code>$label</code>
     </MissingParamType>
@@ -151,12 +151,12 @@
       <code>getOwner</code>
     </MissingReturnType>
   </file>
-  <file src="test/Fixture/Entity/Commander.php">
+  <file src="test/Fixture/FixtureFactory/Entity/Commander.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="test/Fixture/Entity/Person.php">
+  <file src="test/Fixture/FixtureFactory/Entity/Person.php">
     <MissingParamType occurrences="1">
       <code>$name</code>
     </MissingParamType>
@@ -166,7 +166,7 @@
       <code>getSpaceShip</code>
     </MissingReturnType>
   </file>
-  <file src="test/Fixture/Entity/SpaceShip.php">
+  <file src="test/Fixture/FixtureFactory/Entity/SpaceShip.php">
     <MissingParamType occurrences="2">
       <code>$name</code>
       <code>$name</code>
@@ -178,7 +178,7 @@
       <code>constructorWasCalled</code>
     </MissingReturnType>
   </file>
-  <file src="test/Fixture/Entity/SpaceStation.php">
+  <file src="test/Fixture/FixtureFactory/Entity/SpaceStation.php">
     <MissingParamType occurrences="2">
       <code>$name</code>
       <code>$name</code>
@@ -199,11 +199,6 @@
       <code>getId</code>
     </MixedMethodCall>
   </file>
-  <file src="test/Unit/Definition/DefinitionsTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$definitions</code>
-    </MixedAssignment>
-  </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <DocblockTypeContradiction occurrences="1">
       <code>assertEmpty</code>
@@ -212,8 +207,8 @@
       <code>$n</code>
     </MissingClosureParamType>
     <MixedArgument occurrences="2">
-      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class)</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\Entity\SpaceShip::class, [], 5)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\SpaceShip::class)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\SpaceShip::class, [], 5)</code>
     </MixedArgument>
     <MixedAssignment occurrences="23">
       <code>$ss</code>

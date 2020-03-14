@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\FakerAware;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\FakerAware;
 
 use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -27,7 +27,7 @@ final class GroupDefinition implements FakerAwareDefinition
 
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\Entity\Group::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Group::class);
     }
 
     public function provideWith(Generator $faker): void

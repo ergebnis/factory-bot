@@ -21,7 +21,7 @@ final class EntityManagerFactory
     {
         $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
             [
-                __DIR__ . '/../../../Fixture/Entity',
+                __DIR__ . '/../../../Fixture/FixtureFactory/Entity',
             ],
             true,
             null,

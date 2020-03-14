@@ -35,7 +35,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
 
     public function testFakerThrowsBadMethodCallExceptionIfDefinitionHasNotBeenProvidedWithFaker(): void
     {
-        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\ExtendsAbstractDefinition\UserDefinition();
+        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
 
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -50,7 +50,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
     {
         $faker = new Generator();
 
-        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\ExtendsAbstractDefinition\UserDefinition();
+        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
 
         $definition->provideWith($faker);
 
