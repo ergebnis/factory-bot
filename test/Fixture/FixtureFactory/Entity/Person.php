@@ -25,11 +25,15 @@ class Person
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     *
+     * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column
+     *
+     * @var string
      */
     protected $name;
 
@@ -43,26 +47,28 @@ class Person
      *     referencedColumnName="id",
      *     nullable=true
      * )
+     *
+     * @var null|SpaceShip
      */
     protected $spaceship;
 
-    public function __construct($name, ?Spaceship $spaceship = null)
+    public function __construct(string $name, ?Spaceship $spaceship = null)
     {
         $this->name = $name;
         $this->spaceship = $spaceship;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getSpaceship()
+    public function getSpaceship(): ?Spaceship
     {
         return $this->spaceship;
     }

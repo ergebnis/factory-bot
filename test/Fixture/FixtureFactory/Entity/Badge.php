@@ -25,11 +25,15 @@ class Badge
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     *
+     * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column
+     *
+     * @var string
      */
     protected $label;
 
@@ -38,28 +42,30 @@ class Badge
      * @ORM\JoinColumn(
      *     name="person_id",
      *     referencedColumnName="id",
-     *     nullable=true
+     *     nullable=false
      * )
+     *
+     * @var Person
      */
     protected $owner;
 
-    public function __construct($label, Person $owner)
+    public function __construct(string $label, Person $owner)
     {
         $this->label = $label;
         $this->owner = $owner;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->label;
     }
 
-    public function getOwner()
+    public function getOwner(): Person
     {
         return $this->owner;
     }

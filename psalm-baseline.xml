@@ -141,15 +141,15 @@
       <code>getAssociationMapping</code>
     </MixedMethodCall>
   </file>
+  <file src="test/Fixture/FixtureFactory/Entity/Artist.php">
+    <MissingConstructor occurrences="1">
+      <code>$id</code>
+    </MissingConstructor>
+  </file>
   <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
-    <MissingParamType occurrences="1">
-      <code>$label</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>getId</code>
-      <code>getLabel</code>
-      <code>getOwner</code>
-    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$id</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Commander.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -157,36 +157,30 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Person.php">
-    <MissingParamType occurrences="1">
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="3">
-      <code>getId</code>
-      <code>getName</code>
-      <code>getSpaceship</code>
-    </MissingReturnType>
+    <InvalidClass occurrences="1">
+      <code>null|SpaceShip</code>
+    </InvalidClass>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$id</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/SpaceStation.php">
-    <MissingParamType occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="2">
-      <code>getId</code>
-      <code>getName</code>
-    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$id</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Spaceship.php">
-    <MissingParamType occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="4">
-      <code>getId</code>
-      <code>getName</code>
-      <code>getCrew</code>
-      <code>constructorWasCalled</code>
-    </MissingReturnType>
+    <InvalidTemplateParam occurrences="2">
+      <code>ArrayCollection&lt;Person&gt;</code>
+      <code>ArrayCollection&lt;Person&gt;</code>
+    </InvalidTemplateParam>
+    <MissingTemplateParam occurrences="2">
+      <code>ArrayCollection&lt;Person&gt;</code>
+      <code>ArrayCollection&lt;Person&gt;</code>
+    </MissingTemplateParam>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$id</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
     <MixedAssignment occurrences="2">
@@ -284,10 +278,12 @@
       <code>getName</code>
       <code>getName</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
-      <code>$ss-&gt;getName()</code>
+    <MixedOperand occurrences="2">
       <code>$fieldValues['name']</code>
       <code>$fieldValues['name']</code>
     </MixedOperand>
+    <PossiblyNullOperand occurrences="1">
+      <code>$ss-&gt;getName()</code>
+    </PossiblyNullOperand>
   </file>
 </files>

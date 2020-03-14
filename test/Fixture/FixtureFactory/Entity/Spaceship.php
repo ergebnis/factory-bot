@@ -26,11 +26,18 @@ class Spaceship
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     *
+     * @var int
      */
     protected $id;
 
     /**
-     * @ORM\Column
+     * @ORM\Column(
+     *     name="name",
+     *     nullable=true
+     * )
+     *
+     * @var null|string
      */
     protected $name;
 
@@ -39,6 +46,8 @@ class Spaceship
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person",
      *     mappedBy="spaceship"
      * )
+     *
+     * @var ArrayCollection<Person>
      */
     protected $crew;
 
@@ -47,34 +56,37 @@ class Spaceship
      */
     protected $constructorWasCalled = false;
 
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
         $this->crew = new ArrayCollection();
         $this->constructorWasCalled = true;
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    public function getCrew()
+    /**
+     * @return ArrayCollection<Person>
+     */
+    public function getCrew(): ArrayCollection
     {
         return $this->crew;
     }
 
-    public function constructorWasCalled()
+    public function constructorWasCalled(): bool
     {
         return $this->constructorWasCalled;
     }
