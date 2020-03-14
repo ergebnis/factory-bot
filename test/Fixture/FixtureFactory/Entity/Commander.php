@@ -29,7 +29,7 @@ class Commander
      *     type="integer"
      * )
      *
-     * @var string
+     * @var int
      */
     private $id;
 
@@ -48,7 +48,7 @@ class Commander
         $this->name = new Name();
     }
 
-    public function id(): string
+    public function id(): int
     {
         return $this->id;
     }
