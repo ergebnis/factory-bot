@@ -46,11 +46,8 @@ final class FixtureFactory
     public function __construct(ORM\EntityManagerInterface $em)
     {
         $this->em = $em;
-
         $this->entityDefs = [];
-
         $this->singletons = [];
-
         $this->persist = false;
     }
 
@@ -88,6 +85,7 @@ final class FixtureFactory
         $entityMetadata = $def->getEntityMetadata();
 
         $ent = $entityMetadata->newInstance();
+
         $fieldValues = [];
 
         foreach ($def->getFieldDefs() as $fieldName => $fieldDef) {
@@ -167,6 +165,7 @@ final class FixtureFactory
         if (isset($this->singletons[$name])) {
             throw new \Exception("Already a singleton: {$name}");
         }
+
         $this->singletons[$name] = $this->get($name, $fieldOverrides);
 
         return $this->singletons[$name];
@@ -275,6 +274,7 @@ final class FixtureFactory
     private function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value): void
     {
         $assoc = $metadata->getAssociationMapping($fieldName);
+
         $inverse = $assoc['inversedBy'];
 
         if ($inverse) {
