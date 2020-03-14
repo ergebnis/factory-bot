@@ -31,11 +31,14 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, ['name' => 'Zeta']);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
+            'name' => 'Zeta',
+        ]);
 
         $fixtureFactory->persistOnGet();
 
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
         $entityManager->flush();
 
         self::assertNotNull($ss->getId());
@@ -48,18 +51,21 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, ['name' => 'Zeta']);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
+            'name' => 'Zeta',
+        ]);
 
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $entityManager->flush();
 
         self::assertNull($ss->getId());
-        $q = $entityManager
-            ->createQueryBuilder()
+
+        $q = $entityManager->createQueryBuilder()
             ->select('ss')
             ->from(Fixture\FixtureFactory\Entity\Spaceship::class, 'ss')
             ->getQuery();
+
         self::assertEmpty($q->getResult());
     }
 
