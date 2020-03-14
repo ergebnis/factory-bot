@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="space_ship")
  */
-class SpaceShip
+class Spaceship
 {
     /**
      * @ORM\Id
@@ -37,7 +37,7 @@ class SpaceShip
     /**
      * @ORM\OneToMany(
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person",
-     *     mappedBy="spaceShip"
+     *     mappedBy="spaceship"
      * )
      */
     protected $crew;

@@ -35,21 +35,21 @@ class Person
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\SpaceShip",
+     *     targetEntity="Spaceship",
      *     inversedBy="crew"
      * )
      * @ORM\JoinColumn(
-     *     name="spaceShip_id",
+     *     name="spaceship_id",
      *     referencedColumnName="id",
      *     nullable=true
      * )
      */
-    protected $spaceShip;
+    protected $spaceship;
 
-    public function __construct($name, ?SpaceShip $spaceShip = null)
+    public function __construct($name, ?Spaceship $spaceship = null)
     {
         $this->name = $name;
-        $this->spaceShip = $spaceShip;
+        $this->spaceship = $spaceship;
     }
 
     public function getId()
@@ -62,8 +62,8 @@ class Person
         return $this->name;
     }
 
-    public function getSpaceShip()
+    public function getSpaceship()
     {
-        return $this->spaceShip;
+        return $this->spaceship;
     }
 }
