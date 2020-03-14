@@ -163,19 +163,7 @@
     <MissingReturnType occurrences="3">
       <code>getId</code>
       <code>getName</code>
-      <code>getSpaceShip</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/FixtureFactory/Entity/SpaceShip.php">
-    <MissingParamType occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="4">
-      <code>getId</code>
-      <code>getName</code>
-      <code>getCrew</code>
-      <code>constructorWasCalled</code>
+      <code>getSpaceship</code>
     </MissingReturnType>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/SpaceStation.php">
@@ -186,6 +174,18 @@
     <MissingReturnType occurrences="2">
       <code>getId</code>
       <code>getName</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/FixtureFactory/Entity/Spaceship.php">
+    <MissingParamType occurrences="2">
+      <code>$name</code>
+      <code>$name</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="4">
+      <code>getId</code>
+      <code>getName</code>
+      <code>getCrew</code>
+      <code>constructorWasCalled</code>
     </MissingReturnType>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
@@ -207,8 +207,8 @@
       <code>$n</code>
     </MissingClosureParamType>
     <MixedArgument occurrences="2">
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\SpaceShip::class)</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\SpaceShip::class, [], 5)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class, [], 5)</code>
     </MixedArgument>
     <MixedAssignment occurrences="23">
       <code>$ss</code>
