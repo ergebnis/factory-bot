@@ -227,7 +227,6 @@ final class FixtureFactory
 
         $this->entityDefs[$name] = new EntityDef(
             $metadata,
-            $name,
             $type,
             $fieldDefs,
             $config
