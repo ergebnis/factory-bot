@@ -20,14 +20,14 @@ use Doctrine\ORM;
  */
 final class EntityDef
 {
-    private $name;
-
-    private $entityType;
-
     /**
      * @var ORM\Mapping\ClassMetadata
      */
     private $metadata;
+
+    private $name;
+
+    private $entityType;
 
     private $fieldDefs;
 
@@ -35,9 +35,9 @@ final class EntityDef
 
     public function __construct(ORM\Mapping\ClassMetadata $metadata, $name, $type, array $fieldDefs, array $config)
     {
+        $this->metadata = $metadata;
         $this->name = $name;
         $this->entityType = $type;
-        $this->metadata = $metadata;
         $this->fieldDefs = [];
         $this->config = $config;
 
