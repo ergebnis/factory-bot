@@ -33,11 +33,11 @@ final class EntityDef
 
     private $config;
 
-    public function __construct(ORM\EntityManagerInterface $em, $name, $type, array $fieldDefs, array $config)
+    public function __construct(ORM\Mapping\ClassMetadata $metadata, $name, $type, array $fieldDefs, array $config)
     {
         $this->name = $name;
         $this->entityType = $type;
-        $this->metadata = $em->getClassMetadata($type);
+        $this->metadata = $metadata;
         $this->fieldDefs = [];
         $this->config = $config;
 

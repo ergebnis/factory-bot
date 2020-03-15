@@ -225,7 +225,13 @@ final class FixtureFactory
             throw new \Exception("Unknown entity type: {$type}");
         }
 
-        $this->entityDefs[$name] = new EntityDef($this->em, $name, $type, $fieldDefs, $config);
+        $this->entityDefs[$name] = new EntityDef(
+            $metadata,
+            $name,
+            $type,
+            $fieldDefs,
+            $config
+        );
 
         return $this;
     }
