@@ -37,13 +37,13 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->persistOnGet();
 
-        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
-        $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $entityManager->flush();
 
-        self::assertNotNull($ss->getId());
-        self::assertSame($ss, $entityManager->find(Fixture\FixtureFactory\Entity\Spaceship::class, $ss->getId()));
+        self::assertNotNull($spaceship->getId());
+        self::assertSame($spaceship, $entityManager->find(Fixture\FixtureFactory\Entity\Spaceship::class, $spaceship->getId()));
     }
 
     public function testDoesNotPersistByDefault(): void
@@ -56,19 +56,19 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => 'Zeta',
         ]);
 
-        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
-        $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $entityManager->flush();
 
-        self::assertNull($ss->getId());
+        self::assertNull($spaceship->getId());
 
-        $q = $entityManager->createQueryBuilder()
-            ->select('ss')
-            ->from(Fixture\FixtureFactory\Entity\Spaceship::class, 'ss')
+        $query = $entityManager->createQueryBuilder()
+            ->select('spaceship')
+            ->from(Fixture\FixtureFactory\Entity\Spaceship::class, 'spaceship')
             ->getQuery();
 
-        self::assertEmpty($q->getResult());
+        self::assertEmpty($query->getResult());
     }
 
     public function testDoesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn(): void
