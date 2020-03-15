@@ -22,6 +22,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `QueryBuilder` ([#16]), by [@localheinz]
 * Used `Doctrine\ORM\EntityManagerInterface` instead of `Doctrine\ORM\EntityManager` in type and return type declarations ([#24]), by [@localheinz]
 * Marked all classes as `final` ([#33]), by [@localheinz]
+* Marked `EntityDef` as internal ([#49]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -34,5 +35,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#16]: https://github.com/ergebnis/factory-bot/pull/16
 [#24]: https://github.com/ergebnis/factory-bot/pull/24
 [#33]: https://github.com/ergebnis/factory-bot/pull/33
+[#49]: https://github.com/ergebnis/factory-bot/pull/49
 
 [@localheinz]: https://github.com/localheinz

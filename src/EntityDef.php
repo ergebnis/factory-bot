@@ -16,7 +16,7 @@ namespace Ergebnis\FactoryBot;
 use Doctrine\ORM;
 
 /**
- * An internal class that `FixtureFactory` uses to normalize and store entity definitions in.
+ * @internal
  */
 final class EntityDef
 {
