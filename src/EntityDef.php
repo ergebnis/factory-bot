@@ -25,34 +25,21 @@ final class EntityDef
      */
     private $metadata;
 
-    private $name;
-
     private $entityType;
 
     private $fieldDefs;
 
     private $config;
 
-    public function __construct(ORM\Mapping\ClassMetadata $metadata, $name, $type, array $fieldDefs, array $config)
+    public function __construct(ORM\Mapping\ClassMetadata $metadata, $type, array $fieldDefs, array $config)
     {
         $this->metadata = $metadata;
-        $this->name = $name;
         $this->entityType = $type;
         $this->fieldDefs = [];
         $this->config = $config;
 
         $this->readFieldDefs($fieldDefs);
         $this->defaultDefsFromMetadata();
-    }
-
-    /**
-     * Returns the name of the entity definition.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
