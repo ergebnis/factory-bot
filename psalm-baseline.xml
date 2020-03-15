@@ -203,7 +203,7 @@
       <code>$fieldValues['name']</code>
     </MixedOperand>
     <PossiblyNullOperand occurrences="1">
-      <code>$ss-&gt;getName()</code>
+      <code>$spaceship-&gt;getName()</code>
     </PossiblyNullOperand>
   </file>
 </files>
