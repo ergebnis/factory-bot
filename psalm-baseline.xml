@@ -147,9 +147,9 @@
     </MissingConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
-    <PropertyNotSetInConstructor occurrences="1">
+    <MissingConstructor occurrences="1">
       <code>$id</code>
-    </PropertyNotSetInConstructor>
+    </MissingConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Commander.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -183,15 +183,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
-    <MixedAssignment occurrences="2">
-      <code>$ss</code>
-      <code>$ss</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="3">
-      <code>getId</code>
-      <code>getId</code>
-      <code>getId</code>
-    </MixedMethodCall>
+    <InternalMethod occurrences="1">
+      <code>addToAssertionCount</code>
+    </InternalMethod>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <DocblockTypeContradiction occurrences="1">
@@ -204,80 +198,6 @@
       <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class)</code>
       <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class, [], 5)</code>
     </MixedArgument>
-    <MixedAssignment occurrences="23">
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$p1</code>
-      <code>$p2</code>
-      <code>$ship</code>
-      <code>$person</code>
-      <code>$ship</code>
-      <code>$person</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ship</code>
-      <code>$p1</code>
-      <code>$p2</code>
-      <code>$ss</code>
-      <code>$ss</code>
-      <code>$ss1</code>
-      <code>$ss2</code>
-      <code>$badge</code>
-      <code>$badge1</code>
-      <code>$badge2</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="47">
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>constructorWasCalled</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getCrew</code>
-      <code>contains</code>
-      <code>getName</code>
-      <code>getSpaceShip</code>
-      <code>getCrew</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getCrew</code>
-      <code>getCrew</code>
-      <code>getName</code>
-      <code>constructorWasCalled</code>
-      <code>getName</code>
-      <code>getSpaceShip</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getOwner</code>
-      <code>getSpaceShip</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-      <code>getName</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="2">
       <code>$fieldValues['name']</code>
       <code>$fieldValues['name']</code>

@@ -311,7 +311,9 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Person $person */
         $person = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
 
-        $ship = $person->getSpaceShip();
+        $ship = $person->getSpaceship();
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Spaceship::class, $ship);
 
         self::assertContains($person, $ship->getCrew());
     }
@@ -401,8 +403,6 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $crew = $spaceShip->getCrew();
 
-        self::assertInstanceOf(Common\Collections\ArrayCollection::class, $crew);
-
         self::assertEmpty($crew);
     }
 
@@ -422,7 +422,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => null,
         ]);
 
-        self::assertNull($person->getSpaceShip());
+        self::assertNull($person->getSpaceship());
     }
 
     public function testAfterGettingAnEntityAsASingletonGettingTheEntityAgainReturnsTheSameObject(): void
@@ -536,8 +536,6 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $crew = $spaceShip->getCrew();
 
-        self::assertInstanceOf(Common\Collections\ArrayCollection::class, $crew);
-
         self::assertContains($person, $crew);
         self::assertCount(1, $crew);
     }
@@ -629,8 +627,8 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Person $personTwo */
         $personTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
 
-        $ss1 = $personOne->getSpaceShip();
-        $ss2 = $personTwo->getSpaceShip();
+        $ss1 = $personOne->getSpaceship();
+        $ss2 = $personTwo->getSpaceship();
 
         self::assertNotNull($ss1);
         self::assertNotNull($ss2);
@@ -654,7 +652,11 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Badge $badge */
         $badge = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
 
-        self::assertNotNull($badge->getOwner()->getSpaceShip());
+        $owner = $badge->getOwner();
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person::class, $owner);
+
+        self::assertNotNull($owner->getSpaceship());
     }
 
     public function testTransitiveReferencesWorkWithSingletons(): void
@@ -679,8 +681,16 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Badge $badge2 */
         $badge2 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
 
-        self::assertNotSame($badge1->getOwner(), $badge2->getOwner());
-        self::assertSame($badge1->getOwner()->getSpaceShip(), $badge2->getOwner()->getSpaceShip());
+        $ownerOne = $badge1->getOwner();
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person::class, $ownerOne);
+
+        $ownerTwo = $badge2->getOwner();
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person::class, $ownerTwo);
+
+        self::assertNotSame($ownerOne, $ownerTwo);
+        self::assertSame($ownerOne->getSpaceship(), $ownerTwo->getSpaceship());
     }
 
     public function testSequenceGeneratorCallsAFunctionWithAnIncrementingArgument(): void

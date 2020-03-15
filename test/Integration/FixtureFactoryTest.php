@@ -118,9 +118,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Commander $commander */
         $commander = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class);
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Commander::class, $commander);
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Name::class, $commander->name());
 
         $entityManager->flush();
+
+        $this->addToAssertionCount(1);
     }
 }
