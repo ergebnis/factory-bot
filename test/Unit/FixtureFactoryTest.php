@@ -47,6 +47,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory($entityManager);
 
         $this->expectException(Exception\EntityDefinitionUnavailable::class);
+        $this->expectExceptionMessage('foo');
 
         $fixtureFactory->get('foo');
     }
@@ -58,17 +59,27 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Entity \'%s\' already defined in fixture factory',
+            Fixture\FixtureFactory\Entity\Spaceship::class
+        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
     }
 
     public function testThrowsWhenTryingToDefineEntitiesThatAreNotEvenClasses(): void
     {
+        $name = 'NotAClass';
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Not a class: %s',
+            $name
+        ));
 
-        $fixtureFactory->defineEntity('NotAClass');
+        $fixtureFactory->defineEntity($name);
     }
 
     public function testThrowsWhenTryingToDefineEntitiesThatAreNotEntities(): void
@@ -78,23 +89,36 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertTrue(\class_exists(Fixture\FixtureFactory\NotAnEntity\User::class, true));
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Class "%s" is not a valid entity or mapped super class.',
+            Fixture\FixtureFactory\NotAnEntity\User::class
+        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\NotAnEntity\User::class);
     }
 
     public function testThrowsWhenTryingToDefineNonexistentFields(): void
     {
+        $fieldName = 'pieType';
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'No such field in %s: %s',
+            Fixture\FixtureFactory\Entity\Spaceship::class,
+            $fieldName
+        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            'pieType' => 'blueberry',
+            $fieldName => 'blueberry',
         ]);
     }
 
     public function testThrowsWhenTryingToGiveNonexistentFieldsWhileConstructing(): void
     {
+        $fieldName = 'pieType';
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
@@ -102,9 +126,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Field(s) not in %s: \'%s\'',
+            Fixture\FixtureFactory\Entity\Spaceship::class,
+            $fieldName
+        ));
 
         $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            'pieType' => 'blueberry',
+            $fieldName => 'blueberry',
         ]);
     }
 
@@ -115,6 +144,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Can only get >= 1 instances');
 
         $fixtureFactory->getList(Fixture\FixtureFactory\Entity\Spaceship::class, [], 0);
     }
@@ -468,6 +498,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Already a singleton: %s',
+            Fixture\FixtureFactory\Entity\Spaceship::class
+        ));
 
         $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class);
     }
