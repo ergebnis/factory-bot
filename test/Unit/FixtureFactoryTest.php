@@ -127,6 +127,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => 'My BattleCruiser',
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         self::assertSame('My BattleCruiser', $ss->getName());
@@ -144,11 +145,16 @@ final class FixtureFactoryTest extends AbstractTestCase
             },
         ]);
 
-        self::assertSame('M/S Star', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipOne */
+        $spaceshipOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $name = 'Superstar';
 
-        self::assertSame('M/S Superstar', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipTwo */
+        $spaceshipTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertSame('M/S Star', $spaceshipOne->getName());
+        self::assertSame('M/S Superstar', $spaceshipTwo->getName());
     }
 
     public function testValuesCanBeOverriddenAtCreationTime(): void
@@ -159,6 +165,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => 'My BattleCruiser',
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class, [
             'name' => 'My CattleBruiser',
         ]);
@@ -172,6 +179,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\SpaceStation::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\SpaceStation::class);
 
         self::assertSame('Babylon5', $ss->getName());
@@ -183,6 +191,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, []);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         self::assertFalse($ss->constructorWasCalled());
@@ -196,6 +205,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => 'Battlestar Galaxy',
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         self::assertInstanceOf(Common\Collections\ArrayCollection::class, $ss->getCrew());
@@ -212,9 +222,13 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => FieldDef::reference(Fixture\FixtureFactory\Entity\Spaceship::class),
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Person $p1 */
         $p1 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Person $p2 */
         $p2 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ship */
         $ship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class, [
             'name' => 'Battlestar Galaxy',
             'crew' => [
@@ -235,7 +249,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
-        self::assertNull($fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertNull($spaceship->getName());
     }
 
     public function testEntityIsDefinedToDefaultNamespace(): void
@@ -245,8 +262,11 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Person\User::class);
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Spaceship::class, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class));
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person\User::class, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person\User::class));
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+        $user = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person\User::class);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Spaceship::class, $spaceship);
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person\User::class, $user);
     }
 
     public function testEntityCanBeDefinedToAnotherNamespace(): void
@@ -255,7 +275,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Artist::class);
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Artist::class, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Artist::class));
+        $artist = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Artist::class);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Artist::class, $artist);
     }
 
     public function testReturnsListOfEntities(): void
@@ -286,6 +308,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => FieldDef::reference(Fixture\FixtureFactory\Entity\Spaceship::class),
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Person $person */
         $person = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
 
         $ship = $person->getSpaceShip();
@@ -303,7 +326,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person::class, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class)->getOwner());
+        /** @var Fixture\FixtureFactory\Entity\Badge $badge */
+        $badge = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person::class, $badge->getOwner());
     }
 
     public function testReferencedObjectsShouldBeCreatedAutomatically(): void
@@ -391,6 +417,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => FieldDef::reference(Fixture\FixtureFactory\Entity\Spaceship::class),
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Person $person */
         $person = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class, [
             'spaceship' => null,
         ]);
@@ -404,6 +431,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         self::assertSame($ss, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class));
@@ -416,12 +444,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class, [
             'name' => 'Beta',
         ]);
 
         self::assertSame('Beta', $ss->getName());
-        self::assertSame('Beta', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertSame('Beta', $spaceship->getName());
     }
 
     public function testThrowsAnErrorWhenCallingGetSingletonTwiceOnTheSameEntity(): void
@@ -519,9 +552,13 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => FieldDef::reference(Fixture\FixtureFactory\Entity\Spaceship::class),
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ship */
         $ship = $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Person $p1 */
         $p1 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Person $p2 */
         $p2 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
 
         self::assertContains($p1, $ship->getCrew());
@@ -544,6 +581,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             ]
         );
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         self::assertSame('Foo-Foo', $ss->getName());
@@ -565,6 +603,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             ]
         );
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class, [
             'name' => 'Xoo',
         ]);
@@ -584,8 +623,14 @@ final class FixtureFactoryTest extends AbstractTestCase
             'spaceship' => FieldDef::reference(Fixture\FixtureFactory\Entity\Spaceship::class),
         ]);
 
-        $ss1 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class)->getSpaceShip();
-        $ss2 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class)->getSpaceShip();
+        /** @var Fixture\FixtureFactory\Entity\Person $personOne */
+        $personOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Person $personTwo */
+        $personTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person::class);
+
+        $ss1 = $personOne->getSpaceShip();
+        $ss2 = $personTwo->getSpaceShip();
 
         self::assertNotNull($ss1);
         self::assertNotNull($ss2);
@@ -606,6 +651,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Badge $badge */
         $badge = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
 
         self::assertNotNull($badge->getOwner()->getSpaceShip());
@@ -627,7 +673,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Spaceship::class);
 
+        /** @var Fixture\FixtureFactory\Entity\Badge $badge1 */
         $badge1 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Badge $badge2 */
         $badge2 = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Badge::class);
 
         self::assertNotSame($badge1->getOwner(), $badge2->getOwner());
@@ -644,10 +693,22 @@ final class FixtureFactoryTest extends AbstractTestCase
             }),
         ]);
 
-        self::assertSame('Alpha 1', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Alpha 2', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Alpha 3', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Alpha 4', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipOne */
+        $spaceshipOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipTwo */
+        $spaceshipTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipThree */
+        $spaceshipThree = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipFour */
+        $spaceshipFour = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertSame('Alpha 1', $spaceshipOne->getName());
+        self::assertSame('Alpha 2', $spaceshipTwo->getName());
+        self::assertSame('Alpha 3', $spaceshipThree->getName());
+        self::assertSame('Alpha 4', $spaceshipFour->getName());
     }
 
     public function testSequenceGeneratorCanTakeAPlaceholderString(): void
@@ -658,10 +719,22 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => FieldDef::sequence('Beta %d'),
         ]);
 
-        self::assertSame('Beta 1', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Beta 2', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Beta 3', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Beta 4', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipOne */
+        $spaceshipOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipTwo */
+        $spaceshipTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipThree */
+        $spaceshipThree = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipFour */
+        $spaceshipFour = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertSame('Beta 1', $spaceshipOne->getName());
+        self::assertSame('Beta 2', $spaceshipTwo->getName());
+        self::assertSame('Beta 3', $spaceshipThree->getName());
+        self::assertSame('Beta 4', $spaceshipFour->getName());
     }
 
     public function testSequenceGeneratorCanTakeAStringToAppendTo(): void
@@ -672,9 +745,21 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => FieldDef::sequence('Gamma '),
         ]);
 
-        self::assertSame('Gamma 1', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Gamma 2', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Gamma 3', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
-        self::assertSame('Gamma 4', $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class)->getName());
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipOne */
+        $spaceshipOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipTwo */
+        $spaceshipTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipThree */
+        $spaceshipThree = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceshipFour */
+        $spaceshipFour = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        self::assertSame('Gamma 1', $spaceshipOne->getName());
+        self::assertSame('Gamma 2', $spaceshipTwo->getName());
+        self::assertSame('Gamma 3', $spaceshipThree->getName());
+        self::assertSame('Gamma 4', $spaceshipFour->getName());
     }
 }

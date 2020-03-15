@@ -37,6 +37,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->persistOnGet();
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $entityManager->flush();
@@ -55,6 +56,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => 'Zeta',
         ]);
 
+        /** @var Fixture\FixtureFactory\Entity\Spaceship $ss */
         $ss = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         $entityManager->flush();
@@ -113,6 +115,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->persistOnGet();
 
+        /** @var Fixture\FixtureFactory\Entity\Commander $commander */
         $commander = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Commander::class, $commander);
