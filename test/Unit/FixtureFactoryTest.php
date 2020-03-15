@@ -23,11 +23,11 @@ use Ergebnis\FactoryBot\Test\Fixture;
 /**
  * @internal
  *
+ * @covers \Ergebnis\FactoryBot\EntityDef
+ * @covers \Ergebnis\FactoryBot\FieldDef
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
- * @uses \Ergebnis\FactoryBot\EntityDef
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
- * @uses \Ergebnis\FactoryBot\FieldDef
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
