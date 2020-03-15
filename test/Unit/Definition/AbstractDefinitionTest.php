@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\Definition;
 
 use Ergebnis\FactoryBot\Definition\AbstractDefinition;
 use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
+use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\Test\Util\Helper;
 use Faker\Generator;
 use PHPUnit\Framework;
@@ -35,7 +36,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
 
     public function testFakerThrowsBadMethodCallExceptionIfDefinitionHasNotBeenProvidedWithFaker(): void
     {
-        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
+        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
 
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -50,7 +51,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
     {
         $faker = new Generator();
 
-        $definition = new \Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
+        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\UserDefinition();
 
         $definition->provideWith($faker);
 
