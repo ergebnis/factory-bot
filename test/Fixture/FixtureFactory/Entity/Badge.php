@@ -49,23 +49,17 @@ class Badge
      */
     protected $owner;
 
-    public function __construct(string $label, Person $owner)
-    {
-        $this->label = $label;
-        $this->owner = $owner;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLabel(): string
+    public function getLabel(): ?string
     {
         return $this->label;
     }
 
-    public function getOwner(): Person
+    public function getOwner(): ?Person
     {
         return $this->owner;
     }

@@ -53,7 +53,7 @@ class Commander
         return $this->id;
     }
 
-    public function name(): Name
+    public function name(): ?Name
     {
         return $this->name;
     }

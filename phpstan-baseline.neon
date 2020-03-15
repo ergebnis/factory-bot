@@ -151,6 +151,21 @@ parameters:
 			path: test/Fixture/FixtureFactory/Entity/Badge.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getLabel\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getOwner\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Fixture/FixtureFactory/Entity/Badge.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Commander\\:\\:name\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: test/Fixture/FixtureFactory/Entity/Commander.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: test/Fixture/FixtureFactory/Entity/Name.php
@@ -214,11 +229,6 @@ parameters:
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:getCrew\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: test/Fixture/FixtureFactory/Entity/Spaceship.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name will always evaluate to true\\.$#"
-			count: 1
-			path: test/Integration/FixtureFactoryTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
