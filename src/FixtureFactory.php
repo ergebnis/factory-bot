@@ -52,6 +52,53 @@ final class FixtureFactory
     }
 
     /**
+     * Defines how to create a default entity of type `$name`.
+     *
+     * See the readme for a tutorial.
+     *
+     * @param mixed $name
+     * @param array $fieldDefs
+     * @param array $config
+     *
+     * @return FixtureFactory
+     */
+    public function defineEntity($name, array $fieldDefs = [], array $config = [])
+    {
+        if (isset($this->entityDefs[$name])) {
+            throw new \Exception(\sprintf(
+                "Entity '%s' already defined in fixture factory",
+                $name
+            ));
+        }
+
+        $type = $name;
+
+        if (!\class_exists($type, true)) {
+            throw new \Exception(\sprintf(
+                'Not a class: %s',
+                $type
+            ));
+        }
+
+        $metadata = $this->em->getClassMetadata($type);
+
+        if (!isset($metadata)) {
+            throw new \Exception(\sprintf(
+                'Unknown entity type: %s',
+                $type
+            ));
+        }
+
+        $this->entityDefs[$name] = new EntityDef(
+            $metadata,
+            $fieldDefs,
+            $config
+        );
+
+        return $this;
+    }
+
+    /**
      * Get an entity and its dependencies.
      *
      * Whether the entity is new or not depends on whether you've created
@@ -197,53 +244,6 @@ final class FixtureFactory
     public function unsetSingleton($name): void
     {
         unset($this->singletons[$name]);
-    }
-
-    /**
-     * Defines how to create a default entity of type `$name`.
-     *
-     * See the readme for a tutorial.
-     *
-     * @param mixed $name
-     * @param array $fieldDefs
-     * @param array $config
-     *
-     * @return FixtureFactory
-     */
-    public function defineEntity($name, array $fieldDefs = [], array $config = [])
-    {
-        if (isset($this->entityDefs[$name])) {
-            throw new \Exception(\sprintf(
-                "Entity '%s' already defined in fixture factory",
-                $name
-            ));
-        }
-
-        $type = $name;
-
-        if (!\class_exists($type, true)) {
-            throw new \Exception(\sprintf(
-                'Not a class: %s',
-                $type
-            ));
-        }
-
-        $metadata = $this->em->getClassMetadata($type);
-
-        if (!isset($metadata)) {
-            throw new \Exception(\sprintf(
-                'Unknown entity type: %s',
-                $type
-            ));
-        }
-
-        $this->entityDefs[$name] = new EntityDef(
-            $metadata,
-            $fieldDefs,
-            $config
-        );
-
-        return $this;
     }
 
     /**

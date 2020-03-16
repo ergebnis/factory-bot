@@ -31,7 +31,70 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testDefineReturnsFixtureFactory(): void
+    public function testDefineEntityThrowsExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
+    {
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Entity \'%s\' already defined in fixture factory',
+            Fixture\FixtureFactory\Entity\Spaceship::class
+        ));
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
+    }
+
+    public function testDefineEntityThrowsExceptionWhenClassDoesNotExist(): void
+    {
+        $className = 'NotAClass';
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Not a class: %s',
+            $className
+        ));
+
+        $fixtureFactory->defineEntity($className);
+    }
+
+    public function testDefineEntityThrowsExceptionWhenClassNameDoesNotReferenceAnEntity(): void
+    {
+        $className = Fixture\FixtureFactory\NotAnEntity\User::class;
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Class "%s" is not a valid entity or mapped super class.',
+            $className
+        ));
+
+        $fixtureFactory->defineEntity($className);
+    }
+
+    public function testDefineEntityThrowsExceptionWhenUsingFieldNameThatDoesNotExistInEntity(): void
+    {
+        $fieldName = 'pieType';
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'No such field in %s: %s',
+            Fixture\FixtureFactory\Entity\Spaceship::class,
+            $fieldName
+        ));
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
+            $fieldName => 'blueberry',
+        ]);
+    }
+
+    public function testDefineEntityReturnsFixtureFactory(): void
     {
         $entityManager = self::createEntityManager();
 
@@ -50,69 +113,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectExceptionMessage('foo');
 
         $fixtureFactory->get('foo');
-    }
-
-    public function testThrowsWhenTryingToDefineTheSameEntityTwice(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
-
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Entity \'%s\' already defined in fixture factory',
-            Fixture\FixtureFactory\Entity\Spaceship::class
-        ));
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
-    }
-
-    public function testThrowsWhenTryingToDefineEntitiesThatAreNotEvenClasses(): void
-    {
-        $name = 'NotAClass';
-
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Not a class: %s',
-            $name
-        ));
-
-        $fixtureFactory->defineEntity($name);
-    }
-
-    public function testThrowsWhenTryingToDefineEntitiesThatAreNotEntities(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        self::assertTrue(\class_exists(Fixture\FixtureFactory\NotAnEntity\User::class, true));
-
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Class "%s" is not a valid entity or mapped super class.',
-            Fixture\FixtureFactory\NotAnEntity\User::class
-        ));
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\NotAnEntity\User::class);
-    }
-
-    public function testThrowsWhenTryingToDefineNonexistentFields(): void
-    {
-        $fieldName = 'pieType';
-
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage(\sprintf(
-            'No such field in %s: %s',
-            Fixture\FixtureFactory\Entity\Spaceship::class,
-            $fieldName
-        ));
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            $fieldName => 'blueberry',
-        ]);
     }
 
     public function testThrowsWhenTryingToGiveNonexistentFieldsWhileConstructing(): void
