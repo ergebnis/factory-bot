@@ -51,7 +51,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Variable \\$metadata in isset\\(\\) always exists and is not nullable\\.$#"
+			message: "#^Variable \\$classMetadata in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -81,7 +81,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$ent with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$entity with no typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -106,7 +106,12 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$entityBeingCreated with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$classMetadata with no typehint specified\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$entity with no typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -116,12 +121,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$metadata with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

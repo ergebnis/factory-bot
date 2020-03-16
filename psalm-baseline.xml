@@ -59,17 +59,17 @@
   </file>
   <file src="src/FixtureFactory.php">
     <DocblockTypeContradiction occurrences="1">
-      <code>isset($metadata)</code>
+      <code>isset($classMetadata)</code>
     </DocblockTypeContradiction>
     <MissingParamType occurrences="8">
-      <code>$ent</code>
+      <code>$entity</code>
       <code>$fieldName</code>
       <code>$fieldValue</code>
       <code>$array</code>
-      <code>$entityBeingCreated</code>
-      <code>$metadata</code>
+      <code>$entity</code>
+      <code>$classMetadata</code>
       <code>$fieldName</code>
-      <code>$value</code>
+      <code>$fieldValue</code>
     </MissingParamType>
     <MissingReturnType occurrences="4">
       <code>get</code>
@@ -86,23 +86,23 @@
       <code>$fieldName</code>
       <code>$name</code>
       <code>$name</code>
-      <code>$def-&gt;getFieldDefinitions()</code>
+      <code>$entityDefinition-&gt;getFieldDefinitions()</code>
       <code>$fieldName</code>
-      <code>$ent</code>
+      <code>$entity</code>
       <code>$fieldName</code>
-      <code>$ent</code>
+      <code>$entity</code>
       <code>$fieldName</code>
       <code>$fieldName</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$inverse</code>
+      <code>$fieldValue</code>
+      <code>$fieldValue</code>
+      <code>$inversedBy</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
-      <code>$assoc['inversedBy']</code>
+      <code>$association['inversedBy']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="11">
-      <code>$this-&gt;entityDefs[$name]</code>
-      <code>$this-&gt;entityDefs[$name]</code>
+      <code>$this-&gt;entityDefinitions[$name]</code>
+      <code>$this-&gt;entityDefinitions[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$fieldOverrides[$fieldName]</code>
@@ -115,18 +115,18 @@
     </MixedArrayOffset>
     <MixedAssignment occurrences="9">
       <code>$type</code>
-      <code>$fieldDef</code>
+      <code>$fieldDefinition</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$instances[]</code>
       <code>$this-&gt;persist</code>
-      <code>$assoc</code>
-      <code>$inverse</code>
+      <code>$association</code>
+      <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
     <MixedFunctionCall occurrences="2">
-      <code>$fieldDef($this)</code>
-      <code>$config['afterCreate']($ent, $fieldValues)</code>
+      <code>$fieldDefinition($this)</code>
+      <code>$configuration['afterCreate']($entity, $fieldValues)</code>
     </MixedFunctionCall>
     <MixedMethodCall occurrences="1">
       <code>getAssociationMapping</code>
