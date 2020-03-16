@@ -4,41 +4,41 @@
     <MissingClosureReturnType occurrences="4">
       <code>static function () use ($defaultFieldValue) {</code>
       <code>static function () {</code>
-      <code>static function () use ($def) {</code>
-      <code>static function () use ($f) {</code>
+      <code>static function () use ($fieldDefinition) {</code>
+      <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="2">
-      <code>$def</code>
-      <code>$f</code>
+      <code>$fieldDefinition</code>
+      <code>$fieldDefinition</code>
     </MissingParamType>
     <MissingPropertyType occurrences="2">
-      <code>$fieldDefs</code>
-      <code>$config</code>
+      <code>$fieldDefinitions</code>
+      <code>$configuration</code>
     </MissingPropertyType>
     <MissingReturnType occurrences="3">
-      <code>getFieldDefs</code>
-      <code>normalizeFieldDef</code>
+      <code>getFieldDefinitions</code>
+      <code>normalizeFieldDefinition</code>
       <code>ensureInvokable</code>
     </MissingReturnType>
     <MixedArgument occurrences="1">
-      <code>$f</code>
+      <code>$fieldDefinition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
-      <code>$key</code>
-      <code>$key</code>
+      <code>$fieldName</code>
+      <code>$fieldName</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
-      <code>$def</code>
+      <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
     </MixedAssignment>
     <MixedFunctionCall occurrences="1">
-      <code>\call_user_func_array($f, \func_get_args())</code>
+      <code>\call_user_func_array($fieldDefinition, \func_get_args())</code>
     </MixedFunctionCall>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="1">
-      <code>$this-&gt;config</code>
+      <code>$this-&gt;configuration</code>
     </MixedReturnStatement>
   </file>
   <file src="src/FieldDef.php">
@@ -86,7 +86,7 @@
       <code>$name</code>
       <code>$type</code>
       <code>$type</code>
-      <code>$def-&gt;getFieldDefs()</code>
+      <code>$def-&gt;getFieldDefinitions()</code>
       <code>$fieldName</code>
       <code>$ent</code>
       <code>$fieldName</code>
