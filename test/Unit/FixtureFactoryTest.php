@@ -285,31 +285,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($spaceship->getName());
     }
 
-    public function testEntityIsDefinedToDefaultNamespace(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Person\User::class);
-
-        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
-        $user = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Person\User::class);
-
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Spaceship::class, $spaceship);
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Person\User::class, $user);
-    }
-
-    public function testEntityCanBeDefinedToAnotherNamespace(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Artist::class);
-
-        $artist = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Artist::class);
-
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Artist::class, $artist);
-    }
-
     public function testReturnsListOfEntities(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
