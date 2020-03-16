@@ -84,7 +84,11 @@ final class EntityDef
     {
         foreach ($params as $key => $def) {
             if (!$this->metadata->hasField($key) && !$this->metadata->hasAssociation($key)) {
-                throw new \Exception('No such field in ' . $this->entityType . ': ' . $key);
+                throw new \Exception(\sprintf(
+                    'No such field in %s: %s',
+                    $this->entityType,
+                    $key
+                ));
             }
 
             $this->fieldDefs[$key] = $this->normalizeFieldDef($def);
