@@ -11,16 +11,24 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\FakerAware;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ThrowsExceptionDuringConstruction;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-final class UserDefinition implements Definition
+/**
+ * Is not acceptable as it throws an exception during construction.
+ */
+final class PersonDefinition implements Definition
 {
+    public function __construct()
+    {
+        throw new \RuntimeException();
+    }
+
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Group::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
     }
 }

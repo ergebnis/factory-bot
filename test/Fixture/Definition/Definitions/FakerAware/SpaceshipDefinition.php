@@ -18,7 +18,7 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Faker\Generator;
 
-final class GroupDefinition implements FakerAwareDefinition
+final class SpaceshipDefinition implements FakerAwareDefinition
 {
     /**
      * @var null|Generator
@@ -27,7 +27,7 @@ final class GroupDefinition implements FakerAwareDefinition
 
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Group::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
     }
 
     public function provideWith(Generator $faker): void

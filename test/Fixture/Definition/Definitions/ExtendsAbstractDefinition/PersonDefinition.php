@@ -11,23 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\PrivateConstructor;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition;
 
-use Ergebnis\FactoryBot\Definition\Definition;
+use Ergebnis\FactoryBot\Definition\AbstractDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is not acceptable as it has a private constructor.
- */
-final class UserDefinition implements Definition
+final class PersonDefinition extends AbstractDefinition
 {
-    private function __construct()
-    {
-    }
-
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
     }
 }
