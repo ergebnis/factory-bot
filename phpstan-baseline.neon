@@ -46,13 +46,18 @@ parameters:
 			path: src/FieldDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 5
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Variable \\$metadata in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
-			count: 5
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
+			count: 1
 			path: src/FixtureFactory.php
 
 		-
@@ -62,11 +67,6 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:getAsSingleton\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Variable \\$metadata in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

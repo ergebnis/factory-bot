@@ -31,27 +31,6 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testDefineReturnsFixtureFactory(): void
-    {
-        $entityManager = self::createEntityManager();
-
-        $fixtureFactory = new FixtureFactory($entityManager);
-
-        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class));
-    }
-
-    public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
-    {
-        $entityManager = $this->prophesize(ORM\EntityManagerInterface::class)->reveal();
-
-        $fixtureFactory = new FixtureFactory($entityManager);
-
-        $this->expectException(Exception\EntityDefinitionUnavailable::class);
-        $this->expectExceptionMessage('foo');
-
-        $fixtureFactory->get('foo');
-    }
-
     public function testThrowsWhenTryingToDefineTheSameEntityTwice(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
@@ -113,6 +92,27 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
             $fieldName => 'blueberry',
         ]);
+    }
+
+    public function testDefineReturnsFixtureFactory(): void
+    {
+        $entityManager = self::createEntityManager();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
+
+        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class));
+    }
+
+    public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
+    {
+        $entityManager = $this->prophesize(ORM\EntityManagerInterface::class)->reveal();
+
+        $fixtureFactory = new FixtureFactory($entityManager);
+
+        $this->expectException(Exception\EntityDefinitionUnavailable::class);
+        $this->expectExceptionMessage('foo');
+
+        $fixtureFactory->get('foo');
     }
 
     public function testThrowsWhenTryingToGiveNonexistentFieldsWhileConstructing(): void

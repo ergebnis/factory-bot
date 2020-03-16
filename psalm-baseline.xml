@@ -79,13 +79,13 @@
     </MissingReturnType>
     <MixedArgument occurrences="18">
       <code>$name</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$name</code>
       <code>$name</code>
       <code>$fieldName</code>
       <code>$name</code>
       <code>$name</code>
-      <code>$name</code>
-      <code>$type</code>
-      <code>$type</code>
       <code>$def-&gt;getFieldDefinitions()</code>
       <code>$fieldName</code>
       <code>$ent</code>
@@ -101,6 +101,8 @@
       <code>$assoc['inversedBy']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="11">
+      <code>$this-&gt;entityDefs[$name]</code>
+      <code>$this-&gt;entityDefs[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$fieldOverrides[$fieldName]</code>
@@ -110,16 +112,14 @@
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
-      <code>$this-&gt;entityDefs[$name]</code>
-      <code>$this-&gt;entityDefs[$name]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="9">
+      <code>$type</code>
       <code>$fieldDef</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$instances[]</code>
       <code>$this-&gt;persist</code>
-      <code>$type</code>
       <code>$assoc</code>
       <code>$inverse</code>
       <code>$collection</code>
