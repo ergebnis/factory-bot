@@ -83,12 +83,11 @@ final class EntityDef
     private function readFieldDefs(array $params): void
     {
         foreach ($params as $key => $def) {
-            if ($this->metadata->hasField($key) ||
-                $this->metadata->hasAssociation($key)) {
-                $this->fieldDefs[$key] = $this->normalizeFieldDef($def);
-            } else {
+            if (!$this->metadata->hasField($key) && !$this->metadata->hasAssociation($key)) {
                 throw new \Exception('No such field in ' . $this->entityType . ': ' . $key);
             }
+
+            $this->fieldDefs[$key] = $this->normalizeFieldDef($def);
         }
     }
 
