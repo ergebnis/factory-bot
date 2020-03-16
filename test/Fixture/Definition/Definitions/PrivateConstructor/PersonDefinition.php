@@ -11,24 +11,23 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ThrowsExceptionDuringConstruction;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\PrivateConstructor;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
- * Is not acceptable as it throws an exception during construction.
+ * Is not acceptable as it has a private constructor.
  */
-final class UserDefinition implements Definition
+final class PersonDefinition implements Definition
 {
-    public function __construct()
+    private function __construct()
     {
-        throw new \RuntimeException();
     }
 
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
     }
 }

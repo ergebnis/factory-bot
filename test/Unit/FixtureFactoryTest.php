@@ -100,7 +100,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class));
+        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Person::class));
     }
 
     public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
