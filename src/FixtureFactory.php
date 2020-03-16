@@ -77,18 +77,18 @@ final class FixtureFactory
         /** @var EntityDef $def */
         $def = $this->entityDefs[$name];
 
-        $config = $def->getConfig();
+        $config = $def->getConfiguration();
 
         $this->checkFieldOverrides($def, $fieldOverrides);
 
         /** @var ORM\Mapping\ClassMetadata $entityMetadata */
-        $entityMetadata = $def->getEntityMetadata();
+        $entityMetadata = $def->getClassMetadata();
 
         $ent = $entityMetadata->newInstance();
 
         $fieldValues = [];
 
-        foreach ($def->getFieldDefs() as $fieldName => $fieldDef) {
+        foreach ($def->getFieldDefinitions() as $fieldName => $fieldDef) {
             $fieldValues[$fieldName] = \array_key_exists($fieldName, $fieldOverrides)
                 ? $fieldOverrides[$fieldName]
                 : $fieldDef($this);
@@ -256,12 +256,12 @@ final class FixtureFactory
 
     private function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
     {
-        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefs()));
+        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefinitions()));
 
         if (!empty($extraFields)) {
             throw new \Exception(\sprintf(
                 'Field(s) not in %s: \'%s\'',
-                $def->getEntityType(),
+                $def->getClassName(),
                 \implode("', '", $extraFields)
             ));
         }
@@ -269,7 +269,7 @@ final class FixtureFactory
 
     private function setField($ent, EntityDef $def, $fieldName, $fieldValue): void
     {
-        $metadata = $def->getEntityMetadata();
+        $metadata = $def->getClassMetadata();
 
         if ($metadata->isCollectionValuedAssociation($fieldName)) {
             $metadata->setFieldValue($ent, $fieldName, $this->createCollectionFrom($fieldValue));

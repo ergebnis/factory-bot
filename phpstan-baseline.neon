@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefs\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
@@ -11,12 +11,12 @@ parameters:
 			path: src/EntityDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDef\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDefinition\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDef\\(\\) has parameter \\$def with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDefinition\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
@@ -26,7 +26,7 @@ parameters:
 			path: src/EntityDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:ensureInvokable\\(\\) has parameter \\$f with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:ensureInvokable\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 

@@ -23,20 +23,20 @@ final class EntityDef
     /**
      * @var ORM\Mapping\ClassMetadata
      */
-    private $metadata;
+    private $classMetadata;
 
-    private $fieldDefs;
+    private $fieldDefinitions;
 
-    private $config;
+    private $configuration;
 
-    public function __construct(ORM\Mapping\ClassMetadata $metadata, array $fieldDefs, array $config)
+    public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, array $configuration)
     {
-        $this->metadata = $metadata;
-        $this->fieldDefs = [];
-        $this->config = $config;
+        $this->classMetadata = $classMetadata;
+        $this->fieldDefinitions = [];
+        $this->configuration = $configuration;
 
-        $this->readFieldDefs($fieldDefs);
-        $this->defaultDefsFromMetadata();
+        $this->normalizeFieldDefinitions($fieldDefinitions);
+        $this->collectDefaultFieldDefinitionsFromClassMetadata();
     }
 
     /**
@@ -44,17 +44,17 @@ final class EntityDef
      *
      * @return string
      */
-    public function getEntityType()
+    public function getClassName()
     {
-        return $this->metadata->getName();
+        return $this->classMetadata->getName();
     }
 
     /**
      * Returns the fielde definition callbacks.
      */
-    public function getFieldDefs()
+    public function getFieldDefinitions()
     {
-        return $this->fieldDefs;
+        return $this->fieldDefinitions;
     }
 
     /**
@@ -62,9 +62,9 @@ final class EntityDef
      *
      * @return ORM\Mapping\ClassMetadata
      */
-    public function getEntityMetadata()
+    public function getClassMetadata()
     {
-        return $this->metadata;
+        return $this->classMetadata;
     }
 
     /**
@@ -72,42 +72,45 @@ final class EntityDef
      *
      * @return array
      */
-    public function getConfig()
+    public function getConfiguration()
     {
-        return $this->config;
+        return $this->configuration;
     }
 
-    private function readFieldDefs(array $params): void
+    private function normalizeFieldDefinitions(array $fieldDefinitions): void
     {
-        foreach ($params as $key => $def) {
-            if (!$this->metadata->hasField($key) && !$this->metadata->hasAssociation($key)) {
+        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
+            if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
                 throw new \Exception(\sprintf(
                     'No such field in %s: %s',
-                    $this->getEntityType(),
-                    $key
+                    $this->getClassName(),
+                    $fieldName
                 ));
             }
 
-            $this->fieldDefs[$key] = $this->normalizeFieldDef($def);
+            $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
         }
     }
 
-    private function defaultDefsFromMetadata(): void
+    private function collectDefaultFieldDefinitionsFromClassMetadata(): void
     {
-        $defaultEntity = $this->getEntityMetadata()->newInstance();
+        $defaultEntity = $this->getClassMetadata()->newInstance();
 
-        $allFields = \array_merge($this->metadata->getFieldNames(), $this->metadata->getAssociationNames());
+        $fieldNames = \array_merge(
+            $this->classMetadata->getFieldNames(),
+            $this->classMetadata->getAssociationNames()
+        );
 
-        foreach ($allFields as $fieldName) {
-            if (!isset($this->fieldDefs[$fieldName])) {
-                $defaultFieldValue = $this->metadata->getFieldValue($defaultEntity, $fieldName);
+        foreach ($fieldNames as $fieldName) {
+            if (!isset($this->fieldDefinitions[$fieldName])) {
+                $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
 
                 if (null !== $defaultFieldValue) {
-                    $this->fieldDefs[$fieldName] = static function () use ($defaultFieldValue) {
+                    $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
                         return $defaultFieldValue;
                     };
                 } else {
-                    $this->fieldDefs[$fieldName] = static function () {
+                    $this->fieldDefinitions[$fieldName] = static function () {
                         return null;
                     };
                 }
@@ -115,25 +118,25 @@ final class EntityDef
         }
     }
 
-    private function normalizeFieldDef($def)
+    private function normalizeFieldDefinition($fieldDefinition)
     {
-        if (\is_callable($def)) {
-            return $this->ensureInvokable($def);
+        if (\is_callable($fieldDefinition)) {
+            return $this->ensureInvokable($fieldDefinition);
         }
 
-        return static function () use ($def) {
-            return $def;
+        return static function () use ($fieldDefinition) {
+            return $fieldDefinition;
         };
     }
 
-    private function ensureInvokable($f)
+    private function ensureInvokable($fieldDefinition)
     {
-        if (\method_exists($f, '__invoke')) {
-            return $f;
+        if (\method_exists($fieldDefinition, '__invoke')) {
+            return $fieldDefinition;
         }
 
-        return static function () use ($f) {
-            return \call_user_func_array($f, \func_get_args());
+        return static function () use ($fieldDefinition) {
+            return \call_user_func_array($fieldDefinition, \func_get_args());
         };
     }
 }
