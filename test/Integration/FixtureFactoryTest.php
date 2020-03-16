@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Integration;
 
-use Doctrine\ORM\Mapping;
 use Ergebnis\FactoryBot\FieldDef;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
@@ -73,17 +72,6 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testDoesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn(): void
     {
-        $mappingClasses = [
-            Mapping\Embeddable::class,
-            Mapping\Embedded::class,
-        ];
-
-        foreach ($mappingClasses as $mappingClass) {
-            if (!\class_exists($mappingClass)) {
-                self::markTestSkipped('Doctrine Embeddable feature not available');
-            }
-        }
-
         $entityManager = self::createEntityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
