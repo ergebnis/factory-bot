@@ -25,16 +25,13 @@ final class EntityDef
      */
     private $metadata;
 
-    private $entityType;
-
     private $fieldDefs;
 
     private $config;
 
-    public function __construct(ORM\Mapping\ClassMetadata $metadata, $type, array $fieldDefs, array $config)
+    public function __construct(ORM\Mapping\ClassMetadata $metadata, array $fieldDefs, array $config)
     {
         $this->metadata = $metadata;
-        $this->entityType = $type;
         $this->fieldDefs = [];
         $this->config = $config;
 
@@ -49,7 +46,7 @@ final class EntityDef
      */
     public function getEntityType()
     {
-        return $this->entityType;
+        return $this->metadata->getName();
     }
 
     /**
@@ -86,7 +83,7 @@ final class EntityDef
             if (!$this->metadata->hasField($key) && !$this->metadata->hasAssociation($key)) {
                 throw new \Exception(\sprintf(
                     'No such field in %s: %s',
-                    $this->entityType,
+                    $this->getEntityType(),
                     $key
                 ));
             }

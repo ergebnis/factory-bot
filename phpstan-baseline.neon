@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:\\$entityType has no typehint specified\\.$#"
-			count: 1
-			path: src/EntityDef.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:__construct\\(\\) has parameter \\$type with no typehint specified\\.$#"
-			count: 1
-			path: src/EntityDef.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefs\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php

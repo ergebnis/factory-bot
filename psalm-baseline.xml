@@ -7,13 +7,11 @@
       <code>static function () use ($def) {</code>
       <code>static function () use ($f) {</code>
     </MissingClosureReturnType>
-    <MissingParamType occurrences="3">
-      <code>$type</code>
+    <MissingParamType occurrences="2">
       <code>$def</code>
       <code>$f</code>
     </MissingParamType>
-    <MissingPropertyType occurrences="3">
-      <code>$entityType</code>
+    <MissingPropertyType occurrences="2">
       <code>$fieldDefs</code>
       <code>$config</code>
     </MissingPropertyType>
@@ -22,8 +20,7 @@
       <code>normalizeFieldDef</code>
       <code>ensureInvokable</code>
     </MissingReturnType>
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;entityType</code>
+    <MixedArgument occurrences="1">
       <code>$f</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
@@ -37,12 +34,10 @@
     <MixedFunctionCall occurrences="1">
       <code>\call_user_func_array($f, \func_get_args())</code>
     </MixedFunctionCall>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="2">
-      <code>$this-&gt;entityType</code>
+    <MixedReturnStatement occurrences="1">
       <code>$this-&gt;config</code>
     </MixedReturnStatement>
   </file>
