@@ -163,7 +163,10 @@ final class FixtureFactory
     public function getAsSingleton($name, array $fieldOverrides = [])
     {
         if (isset($this->singletons[$name])) {
-            throw new \Exception("Already a singleton: {$name}");
+            throw new \Exception(\sprintf(
+                'Already a singleton: %s',
+                $name
+            ));
         }
 
         $this->singletons[$name] = $this->get($name, $fieldOverrides);
@@ -210,19 +213,28 @@ final class FixtureFactory
     public function defineEntity($name, array $fieldDefs = [], array $config = [])
     {
         if (isset($this->entityDefs[$name])) {
-            throw new \Exception("Entity '{$name}' already defined in fixture factory");
+            throw new \Exception(\sprintf(
+                "Entity '%s' already defined in fixture factory",
+                $name
+            ));
         }
 
         $type = $name;
 
         if (!\class_exists($type, true)) {
-            throw new \Exception("Not a class: {$type}");
+            throw new \Exception(\sprintf(
+                'Not a class: %s',
+                $type
+            ));
         }
 
         $metadata = $this->em->getClassMetadata($type);
 
         if (!isset($metadata)) {
-            throw new \Exception("Unknown entity type: {$type}");
+            throw new \Exception(\sprintf(
+                'Unknown entity type: %s',
+                $type
+            ));
         }
 
         $this->entityDefs[$name] = new EntityDef(
@@ -248,7 +260,11 @@ final class FixtureFactory
         $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefs()));
 
         if (!empty($extraFields)) {
-            throw new \Exception('Field(s) not in ' . $def->getEntityType() . ": '" . \implode("', '", $extraFields) . "'");
+            throw new \Exception(\sprintf(
+                'Field(s) not in %s: \'%s\'',
+                $def->getEntityType(),
+                \implode("', '", $extraFields)
+            ));
         }
     }
 

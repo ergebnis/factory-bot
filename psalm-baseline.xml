@@ -22,7 +22,8 @@
       <code>normalizeFieldDef</code>
       <code>ensureInvokable</code>
     </MissingReturnType>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;entityType</code>
       <code>$f</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
@@ -40,9 +41,6 @@
       <code>string</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$this-&gt;entityType</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$this-&gt;entityType</code>
       <code>$this-&gt;config</code>
@@ -84,11 +82,14 @@
       <code>getAsSingleton</code>
       <code>createCollectionFrom</code>
     </MissingReturnType>
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="18">
       <code>$name</code>
       <code>$name</code>
       <code>$fieldName</code>
       <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$type</code>
       <code>$type</code>
       <code>$def-&gt;getFieldDefs()</code>
       <code>$fieldName</code>
