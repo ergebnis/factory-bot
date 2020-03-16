@@ -26,12 +26,12 @@ final class FixtureFactory
     /**
      * @var ORM\EntityManagerInterface
      */
-    private $em;
+    private $entityManager;
 
     /**
      * @var array<EntityDef>
      */
-    private $entityDefs;
+    private $entityDefinitions;
 
     /**
      * @var array
@@ -43,10 +43,10 @@ final class FixtureFactory
      */
     private $persist;
 
-    public function __construct(ORM\EntityManagerInterface $em)
+    public function __construct(ORM\EntityManagerInterface $entityManager)
     {
-        $this->em = $em;
-        $this->entityDefs = [];
+        $this->entityManager = $entityManager;
+        $this->entityDefinitions = [];
         $this->singletons = [];
         $this->persist = false;
     }
@@ -57,14 +57,14 @@ final class FixtureFactory
      * See the readme for a tutorial.
      *
      * @param mixed $name
-     * @param array $fieldDefs
-     * @param array $config
+     * @param array $fieldDefinitions
+     * @param array $configuration
      *
      * @return FixtureFactory
      */
-    public function defineEntity($name, array $fieldDefs = [], array $config = [])
+    public function defineEntity($name, array $fieldDefinitions = [], array $configuration = [])
     {
-        if (isset($this->entityDefs[$name])) {
+        if (isset($this->entityDefinitions[$name])) {
             throw new \Exception(\sprintf(
                 "Entity '%s' already defined in fixture factory",
                 $name
@@ -80,19 +80,19 @@ final class FixtureFactory
             ));
         }
 
-        $metadata = $this->em->getClassMetadata($type);
+        $classMetadata = $this->entityManager->getClassMetadata($type);
 
-        if (!isset($metadata)) {
+        if (!isset($classMetadata)) {
             throw new \Exception(\sprintf(
                 'Unknown entity type: %s',
                 $type
             ));
         }
 
-        $this->entityDefs[$name] = new EntityDef(
-            $metadata,
-            $fieldDefs,
-            $config
+        $this->entityDefinitions[$name] = new EntityDef(
+            $classMetadata,
+            $fieldDefinitions,
+            $configuration
         );
 
         return $this;
@@ -117,43 +117,43 @@ final class FixtureFactory
             return $this->singletons[$name];
         }
 
-        if (!\array_key_exists($name, $this->entityDefs)) {
+        if (!\array_key_exists($name, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionUnavailable::for($name);
         }
 
-        /** @var EntityDef $def */
-        $def = $this->entityDefs[$name];
+        /** @var EntityDef $entityDefinition */
+        $entityDefinition = $this->entityDefinitions[$name];
 
-        $config = $def->getConfiguration();
+        $configuration = $entityDefinition->getConfiguration();
 
-        $this->checkFieldOverrides($def, $fieldOverrides);
+        $this->checkFieldOverrides($entityDefinition, $fieldOverrides);
 
-        /** @var ORM\Mapping\ClassMetadata $entityMetadata */
-        $entityMetadata = $def->getClassMetadata();
+        /** @var ORM\Mapping\ClassMetadata $classMetadata */
+        $classMetadata = $entityDefinition->getClassMetadata();
 
-        $ent = $entityMetadata->newInstance();
+        $entity = $classMetadata->newInstance();
 
         $fieldValues = [];
 
-        foreach ($def->getFieldDefinitions() as $fieldName => $fieldDef) {
+        foreach ($entityDefinition->getFieldDefinitions() as $fieldName => $fieldDefinition) {
             $fieldValues[$fieldName] = \array_key_exists($fieldName, $fieldOverrides)
                 ? $fieldOverrides[$fieldName]
-                : $fieldDef($this);
+                : $fieldDefinition($this);
         }
 
         foreach ($fieldValues as $fieldName => $fieldValue) {
-            $this->setField($ent, $def, $fieldName, $fieldValue);
+            $this->setField($entity, $entityDefinition, $fieldName, $fieldValue);
         }
 
-        if (isset($config['afterCreate'])) {
-            $config['afterCreate']($ent, $fieldValues);
+        if (isset($configuration['afterCreate'])) {
+            $configuration['afterCreate']($entity, $fieldValues);
         }
 
-        if ($this->persist && false === $entityMetadata->isEmbeddedClass) {
-            $this->em->persist($ent);
+        if ($this->persist && false === $classMetadata->isEmbeddedClass) {
+            $this->entityManager->persist($entity);
         }
 
-        return $ent;
+        return $entity;
     }
 
     /**
@@ -251,33 +251,33 @@ final class FixtureFactory
      */
     public function definitions(): array
     {
-        return $this->entityDefs;
+        return $this->entityDefinitions;
     }
 
-    private function checkFieldOverrides(EntityDef $def, array $fieldOverrides): void
+    private function checkFieldOverrides(EntityDef $entityDefinition, array $fieldOverrides): void
     {
-        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($def->getFieldDefinitions()));
+        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($entityDefinition->getFieldDefinitions()));
 
         if (!empty($extraFields)) {
             throw new \Exception(\sprintf(
                 'Field(s) not in %s: \'%s\'',
-                $def->getClassName(),
+                $entityDefinition->getClassName(),
                 \implode("', '", $extraFields)
             ));
         }
     }
 
-    private function setField($ent, EntityDef $def, $fieldName, $fieldValue): void
+    private function setField($entity, EntityDef $entityDefinition, $fieldName, $fieldValue): void
     {
-        $metadata = $def->getClassMetadata();
+        $classMetadata = $entityDefinition->getClassMetadata();
 
-        if ($metadata->isCollectionValuedAssociation($fieldName)) {
-            $metadata->setFieldValue($ent, $fieldName, $this->createCollectionFrom($fieldValue));
+        if ($classMetadata->isCollectionValuedAssociation($fieldName)) {
+            $classMetadata->setFieldValue($entity, $fieldName, $this->createCollectionFrom($fieldValue));
         } else {
-            $metadata->setFieldValue($ent, $fieldName, $fieldValue);
+            $classMetadata->setFieldValue($entity, $fieldName, $fieldValue);
 
-            if (\is_object($fieldValue) && $metadata->isSingleValuedAssociation($fieldName)) {
-                $this->updateCollectionSideOfAssocation($ent, $metadata, $fieldName, $fieldValue);
+            if (\is_object($fieldValue) && $classMetadata->isSingleValuedAssociation($fieldName)) {
+                $this->updateCollectionSideOfAssocation($entity, $classMetadata, $fieldName, $fieldValue);
             }
         }
     }
@@ -291,18 +291,18 @@ final class FixtureFactory
         return new Common\Collections\ArrayCollection();
     }
 
-    private function updateCollectionSideOfAssocation($entityBeingCreated, $metadata, $fieldName, $value): void
+    private function updateCollectionSideOfAssocation($entity, $classMetadata, $fieldName, $fieldValue): void
     {
-        $assoc = $metadata->getAssociationMapping($fieldName);
+        $association = $classMetadata->getAssociationMapping($fieldName);
 
-        $inverse = $assoc['inversedBy'];
+        $inversedBy = $association['inversedBy'];
 
-        if ($inverse) {
-            $valueMetadata = $this->em->getClassMetadata(\get_class($value));
-            $collection = $valueMetadata->getFieldValue($value, $inverse);
+        if ($inversedBy) {
+            $classMetadataOfFieldValue = $this->entityManager->getClassMetadata(\get_class($fieldValue));
+            $collection = $classMetadataOfFieldValue->getFieldValue($fieldValue, $inversedBy);
 
             if ($collection instanceof Common\Collections\Collection) {
-                $collection->add($entityBeingCreated);
+                $collection->add($entity);
             }
         }
     }
