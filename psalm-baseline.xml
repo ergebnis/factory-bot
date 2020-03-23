@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
+<files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
   <file src="src/EntityDef.php">
+    <InvalidArgument occurrences="1">
+      <code>$fieldDefinition</code>
+    </InvalidArgument>
     <MissingClosureReturnType occurrences="4">
       <code>static function () use ($defaultFieldValue) {</code>
       <code>static function () {</code>
       <code>static function () use ($fieldDefinition) {</code>
       <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MissingParamType occurrences="2">
-      <code>$fieldDefinition</code>
+    <MissingParamType occurrences="1">
       <code>$fieldDefinition</code>
     </MissingParamType>
     <MissingPropertyType occurrences="2">
       <code>$fieldDefinitions</code>
       <code>$configuration</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="3">
+    <MissingReturnType occurrences="2">
       <code>getFieldDefinitions</code>
       <code>normalizeFieldDefinition</code>
-      <code>ensureInvokable</code>
     </MissingReturnType>
-    <MixedArgument occurrences="1">
-      <code>$fieldDefinition</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$fieldName</code>
       <code>$fieldName</code>
@@ -31,15 +29,15 @@
       <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
     </MixedAssignment>
-    <MixedFunctionCall occurrences="1">
-      <code>\call_user_func_array($fieldDefinition, \func_get_args())</code>
-    </MixedFunctionCall>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="1">
       <code>$this-&gt;configuration</code>
     </MixedReturnStatement>
+    <TypeDoesNotContainType occurrences="1">
+      <code>\method_exists($fieldDefinition, '__invoke')</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/FieldDef.php">
     <MissingClosureReturnType occurrences="3">
@@ -131,11 +129,6 @@
     <MixedMethodCall occurrences="1">
       <code>getAssociationMapping</code>
     </MixedMethodCall>
-  </file>
-  <file src="test/Fixture/FixtureFactory/Entity/Artist.php">
-    <MissingConstructor occurrences="1">
-      <code>$id</code>
-    </MissingConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
     <MissingConstructor occurrences="1">

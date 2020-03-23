@@ -1,12 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
@@ -21,12 +21,7 @@ parameters:
 			path: src/EntityDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:ensureInvokable\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/EntityDef.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:ensureInvokable\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
 			count: 1
 			path: src/EntityDef.php
 
