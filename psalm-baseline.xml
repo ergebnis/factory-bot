@@ -98,9 +98,8 @@
     <MixedArrayAccess occurrences="1">
       <code>$association['inversedBy']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="8">
+    <MixedArrayOffset occurrences="7">
       <code>$this-&gt;entityDefinitions[$name]</code>
-      <code>$this-&gt;singletons[$name]</code>
       <code>$fieldOverrides[$fieldName]</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$this-&gt;singletons[$name]</code>
@@ -126,6 +125,11 @@
     <MixedMethodCall occurrences="1">
       <code>getAssociationMapping</code>
     </MixedMethodCall>
+    <MixedPropertyTypeCoercion occurrences="3">
+      <code>$this-&gt;entityDefinitions</code>
+      <code>$this-&gt;singletons</code>
+      <code>$this-&gt;singletons</code>
+    </MixedPropertyTypeCoercion>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
     <MissingConstructor occurrences="1">

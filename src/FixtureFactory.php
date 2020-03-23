@@ -23,32 +23,26 @@ use Doctrine\ORM;
  */
 final class FixtureFactory
 {
-    /**
-     * @var ORM\EntityManagerInterface
-     */
     private $entityManager;
 
     /**
-     * @var array<EntityDef>
+     * @var array<string, EntityDef>
      */
-    private $entityDefinitions;
+    private $entityDefinitions = [];
 
     /**
-     * @var array
+     * @var array<string, object>
      */
-    private $singletons;
+    private $singletons = [];
 
     /**
      * @var bool
      */
-    private $persist;
+    private $persist = false;
 
     public function __construct(ORM\EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->entityDefinitions = [];
-        $this->singletons = [];
-        $this->persist = false;
     }
 
     /**
