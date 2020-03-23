@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
-			count: 1
-			path: src/EntityDef.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
@@ -39,16 +34,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
 			count: 1
 			path: src/FieldDef.php
-
-		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
-			count: 5
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Variable \\$classMetadata in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"

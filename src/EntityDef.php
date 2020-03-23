@@ -62,7 +62,7 @@ final class EntityDef
         );
 
         foreach ($fieldNames as $fieldName) {
-            if (isset($this->fieldDefinitions[$fieldName])) {
+            if (\array_key_exists($fieldName, $this->fieldDefinitions)) {
                 continue;
             }
 
