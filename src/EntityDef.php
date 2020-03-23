@@ -119,22 +119,17 @@ final class EntityDef
     private function normalizeFieldDefinition($fieldDefinition)
     {
         if (\is_callable($fieldDefinition)) {
-            return $this->ensureInvokable($fieldDefinition);
+            if (\method_exists($fieldDefinition, '__invoke')) {
+                return $fieldDefinition;
+            }
+
+            return static function () use ($fieldDefinition) {
+                return \call_user_func_array($fieldDefinition, \func_get_args());
+            };
         }
 
         return static function () use ($fieldDefinition) {
             return $fieldDefinition;
-        };
-    }
-
-    private function ensureInvokable($fieldDefinition)
-    {
-        if (\method_exists($fieldDefinition, '__invoke')) {
-            return $fieldDefinition;
-        }
-
-        return static function () use ($fieldDefinition) {
-            return \call_user_func_array($fieldDefinition, \func_get_args());
         };
     }
 }
