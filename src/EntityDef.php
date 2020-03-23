@@ -54,7 +54,28 @@ final class EntityDef
             $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
         }
 
-        $this->collectDefaultFieldDefinitionsFromClassMetadata();
+        $defaultEntity = $this->classMetadata->newInstance();
+
+        $fieldNames = \array_merge(
+            $this->classMetadata->getFieldNames(),
+            $this->classMetadata->getAssociationNames()
+        );
+
+        foreach ($fieldNames as $fieldName) {
+            if (!isset($this->fieldDefinitions[$fieldName])) {
+                $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
+
+                if (null !== $defaultFieldValue) {
+                    $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
+                        return $defaultFieldValue;
+                    };
+                } else {
+                    $this->fieldDefinitions[$fieldName] = static function () {
+                        return null;
+                    };
+                }
+            }
+        }
     }
 
     /**
@@ -93,32 +114,6 @@ final class EntityDef
     public function getConfiguration()
     {
         return $this->configuration;
-    }
-
-    private function collectDefaultFieldDefinitionsFromClassMetadata(): void
-    {
-        $defaultEntity = $this->getClassMetadata()->newInstance();
-
-        $fieldNames = \array_merge(
-            $this->classMetadata->getFieldNames(),
-            $this->classMetadata->getAssociationNames()
-        );
-
-        foreach ($fieldNames as $fieldName) {
-            if (!isset($this->fieldDefinitions[$fieldName])) {
-                $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
-
-                if (null !== $defaultFieldValue) {
-                    $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
-                        return $defaultFieldValue;
-                    };
-                } else {
-                    $this->fieldDefinitions[$fieldName] = static function () {
-                        return null;
-                    };
-                }
-            }
-        }
     }
 
     private function normalizeFieldDefinition($fieldDefinition)
