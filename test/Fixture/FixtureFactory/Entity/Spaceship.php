@@ -33,6 +33,16 @@ class Spaceship
 
     /**
      * @ORM\Column(
+     *     name="type",
+     *     nullable=false
+     * )
+     *
+     * @var string
+     */
+    protected $type = 'cruiser';
+
+    /**
+     * @ORM\Column(
      *     name="name",
      *     nullable=true
      * )
@@ -66,6 +76,16 @@ class Spaceship
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 
     public function getName(): ?string

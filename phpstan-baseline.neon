@@ -166,11 +166,6 @@ parameters:
 			path: test/Fixture/FixtureFactory/Entity/Person.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceStation\\:\\:getId\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/SpaceStation.php
-
-		-
 			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:\\$crew with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: test/Fixture/FixtureFactory/Entity/Spaceship.php

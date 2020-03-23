@@ -149,11 +149,6 @@
       <code>$id</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="test/Fixture/FixtureFactory/Entity/SpaceStation.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="test/Fixture/FixtureFactory/Entity/Spaceship.php">
     <InvalidTemplateParam occurrences="2">
       <code>ArrayCollection&lt;Person&gt;</code>
