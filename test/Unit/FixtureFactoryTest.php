@@ -207,12 +207,12 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\SpaceStation::class);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
 
         /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
-        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\SpaceStation::class);
+        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
 
-        self::assertSame('Babylon5', $spaceship->getName());
+        self::assertSame('cruiser', $spaceship->getType());
     }
 
     public function testDoesNotCallTheConstructorOfTheEntity(): void
