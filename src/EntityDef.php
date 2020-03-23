@@ -29,13 +29,31 @@ final class EntityDef
 
     private $configuration;
 
+    /**
+     * @param ORM\Mapping\ClassMetadata $classMetadata
+     * @param array                     $fieldDefinitions
+     * @param array                     $configuration
+     *
+     * @throws \Exception
+     */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, array $configuration)
     {
         $this->classMetadata = $classMetadata;
         $this->fieldDefinitions = [];
         $this->configuration = $configuration;
 
-        $this->normalizeFieldDefinitions($fieldDefinitions);
+        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
+            if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
+                throw new \Exception(\sprintf(
+                    'No such field in %s: %s',
+                    $this->getClassName(),
+                    $fieldName
+                ));
+            }
+
+            $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
+        }
+
         $this->collectDefaultFieldDefinitionsFromClassMetadata();
     }
 
@@ -75,21 +93,6 @@ final class EntityDef
     public function getConfiguration()
     {
         return $this->configuration;
-    }
-
-    private function normalizeFieldDefinitions(array $fieldDefinitions): void
-    {
-        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-            if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
-                throw new \Exception(\sprintf(
-                    'No such field in %s: %s',
-                    $this->getClassName(),
-                    $fieldName
-                ));
-            }
-
-            $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
-        }
     }
 
     private function collectDefaultFieldDefinitionsFromClassMetadata(): void
