@@ -64,7 +64,7 @@ final class FixtureFactory
      */
     public function defineEntity($name, array $fieldDefinitions = [], array $configuration = [])
     {
-        if (isset($this->entityDefinitions[$name])) {
+        if (\array_key_exists($name, $this->entityDefinitions)) {
             throw new \Exception(\sprintf(
                 "Entity '%s' already defined in fixture factory",
                 $name
@@ -80,9 +80,10 @@ final class FixtureFactory
             ));
         }
 
+        /** @var null|ORM\Mapping\ClassMetadata $classMetadata */
         $classMetadata = $this->entityManager->getClassMetadata($type);
 
-        if (!isset($classMetadata)) {
+        if (null === $classMetadata) {
             throw new \Exception(\sprintf(
                 'Unknown entity type: %s',
                 $type
@@ -113,7 +114,7 @@ final class FixtureFactory
      */
     public function get($name, array $fieldOverrides = [])
     {
-        if (isset($this->singletons[$name])) {
+        if (\array_key_exists($name, $this->singletons)) {
             return $this->singletons[$name];
         }
 
@@ -145,7 +146,7 @@ final class FixtureFactory
             $this->setField($entity, $entityDefinition, $fieldName, $fieldValue);
         }
 
-        if (isset($configuration['afterCreate'])) {
+        if (\array_key_exists('afterCreate', $configuration)) {
             $configuration['afterCreate']($entity, $fieldValues);
         }
 
@@ -209,7 +210,7 @@ final class FixtureFactory
      */
     public function getAsSingleton($name, array $fieldOverrides = [])
     {
-        if (isset($this->singletons[$name])) {
+        if (\array_key_exists($name, $this->singletons)) {
             throw new \Exception(\sprintf(
                 'Already a singleton: %s',
                 $name

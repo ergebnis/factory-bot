@@ -5,8 +5,8 @@
       <code>$fieldDefinition</code>
     </InvalidArgument>
     <MissingClosureReturnType occurrences="4">
-      <code>static function () use ($defaultFieldValue) {</code>
       <code>static function () {</code>
+      <code>static function () use ($defaultFieldValue) {</code>
       <code>static function () use ($fieldDefinition) {</code>
       <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
@@ -56,9 +56,6 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($classMetadata)</code>
-    </DocblockTypeContradiction>
     <MissingParamType occurrences="8">
       <code>$entity</code>
       <code>$fieldName</code>
@@ -75,13 +72,16 @@
       <code>getAsSingleton</code>
       <code>createCollectionFrom</code>
     </MissingReturnType>
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="21">
+      <code>$name</code>
       <code>$name</code>
       <code>$type</code>
       <code>$type</code>
+      <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$fieldName</code>
+      <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$entityDefinition-&gt;getFieldDefinitions()</code>
@@ -98,14 +98,11 @@
     <MixedArrayAccess occurrences="1">
       <code>$association['inversedBy']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="11">
+    <MixedArrayOffset occurrences="8">
       <code>$this-&gt;entityDefinitions[$name]</code>
-      <code>$this-&gt;entityDefinitions[$name]</code>
-      <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$fieldOverrides[$fieldName]</code>
       <code>$fieldValues[$fieldName]</code>
-      <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
       <code>$this-&gt;singletons[$name]</code>
