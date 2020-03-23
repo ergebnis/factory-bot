@@ -62,19 +62,23 @@ final class EntityDef
         );
 
         foreach ($fieldNames as $fieldName) {
-            if (!isset($this->fieldDefinitions[$fieldName])) {
-                $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
-
-                if (null !== $defaultFieldValue) {
-                    $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
-                        return $defaultFieldValue;
-                    };
-                } else {
-                    $this->fieldDefinitions[$fieldName] = static function () {
-                        return null;
-                    };
-                }
+            if (isset($this->fieldDefinitions[$fieldName])) {
+                continue;
             }
+
+            $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
+
+            if (null === $defaultFieldValue) {
+                $this->fieldDefinitions[$fieldName] = static function () {
+                    return null;
+                };
+
+                continue;
+            }
+
+            $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
+                return $defaultFieldValue;
+            };
         }
     }
 
