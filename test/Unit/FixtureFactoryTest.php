@@ -19,6 +19,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDef;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
+use Ergebnis\Test\Util\Helper;
 
 /**
  * @internal
@@ -31,6 +32,8 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
+    use Helper;
+
     public function testDefineEntityThrowsExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
@@ -137,6 +140,36 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class, [
             $fieldName => 'blueberry',
         ]);
+    }
+
+    public function testDefineEntityAllowsDefiningAndReferencingEmbeddables(): void
+    {
+        $faker = self::faker()->unique();
+
+        $firstName = $faker->firstName;
+        $lastName = $faker->lastName;
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Name::class, [
+            'first' => $firstName,
+            'last' => $lastName,
+        ]);
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Commander::class, [
+            'name' => FieldDef::reference(Fixture\FixtureFactory\Entity\Name::class),
+        ]);
+
+        $commander = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Commander::class, $commander);
+
+        $name = $commander->name();
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Name::class, $name);
+
+        self::assertSame($firstName, $name->first());
+        self::assertSame($lastName, $name->last());
     }
 
     public function testThrowsWhenTryingToGetLessThanOneInstance(): void
