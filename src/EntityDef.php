@@ -42,6 +42,11 @@ final class EntityDef
         $this->fieldDefinitions = [];
         $this->configuration = $configuration;
 
+        $fieldNames = \array_merge(
+            $this->classMetadata->getFieldNames(),
+            $this->classMetadata->getAssociationNames()
+        );
+
         foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
             if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
                 throw new \Exception(\sprintf(
@@ -55,11 +60,6 @@ final class EntityDef
         }
 
         $defaultEntity = $this->classMetadata->newInstance();
-
-        $fieldNames = \array_merge(
-            $this->classMetadata->getFieldNames(),
-            $this->classMetadata->getAssociationNames()
-        );
 
         foreach ($fieldNames as $fieldName) {
             if (\array_key_exists($fieldName, $this->fieldDefinitions)) {
