@@ -82,12 +82,15 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(\sprintf(
-            'No such fields in %s: "diameter", "pieType"',
+            'No such fields in %s: "diameter", "foo1", "foo3", "foo20", "pieType"',
             Fixture\FixtureFactory\Entity\Commander::class
         ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Commander::class, [
             'diameter' => '30cm',
+            'foo1' => 'bar',
+            'foo20' => 'baz',
+            'foo3' => 'qux',
             'name' => new Fixture\FixtureFactory\Entity\Name(),
             'pieType' => 'blueberry',
         ]);

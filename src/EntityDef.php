@@ -54,6 +54,8 @@ final class EntityDef
         );
 
         if ([] !== $extraFieldNames) {
+            \natsort($extraFieldNames);
+
             throw new \Exception(\sprintf(
                 'No such fields in %s: "%s"',
                 $this->getClassName(),
