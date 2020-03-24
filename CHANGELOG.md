@@ -24,6 +24,10 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Marked all classes as `final` ([#33]), by [@localheinz]
 * Marked `EntityDef` as internal ([#49]), by [@localheinz]
 
+### Fixed
+
+* Populated embeddables and disallowed referencing fields using dot notation ([#79]), by [@localheinz]
+
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
@@ -36,5 +40,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#24]: https://github.com/ergebnis/factory-bot/pull/24
 [#33]: https://github.com/ergebnis/factory-bot/pull/33
 [#49]: https://github.com/ergebnis/factory-bot/pull/49
+[#79]: https://github.com/ergebnis/factory-bot/pull/79
 
 [@localheinz]: https://github.com/localheinz

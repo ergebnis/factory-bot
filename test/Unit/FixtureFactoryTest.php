@@ -172,6 +172,44 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($lastName, $name->last());
     }
 
+    public function testDefineEntityThrowsExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    {
+        $faker = self::faker()->unique();
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'No such fields in %s: "name.first", "name.last"',
+            Fixture\FixtureFactory\Entity\Commander::class
+        ));
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Commander::class, [
+            'name.first' => $faker->firstName,
+            'name.last' => $faker->lastName,
+        ]);
+    }
+
+    public function testGetEntityThrowsExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    {
+        $faker = self::faker()->unique();
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Commander::class);
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Field(s) not in %s: \'name.first\', \'name.last\'',
+            Fixture\FixtureFactory\Entity\Commander::class
+        ));
+
+        $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class, [
+            'name.first' => $faker->firstName,
+            'name.last' => $faker->lastName,
+        ]);
+    }
+
     public function testThrowsWhenTryingToGetLessThanOneInstance(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
