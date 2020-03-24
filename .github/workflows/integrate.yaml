@@ -136,8 +136,6 @@ jobs:
 
       - name: "Run maglnet/composer-require-checker"
         uses: "docker://webfactory/composer-require-checker:2.1.0"
-        with:
-          args: "check --config-file=composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
