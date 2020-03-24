@@ -43,8 +43,8 @@ final class EntityDef
         $this->configuration = $configuration;
 
         $fieldNames = \array_merge(
-            $this->classMetadata->getFieldNames(),
-            $this->classMetadata->getAssociationNames(),
+            \array_keys($this->classMetadata->fieldMappings),
+            \array_keys($this->classMetadata->associationMappings),
             \array_keys($this->classMetadata->embeddedClasses)
         );
 
