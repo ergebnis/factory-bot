@@ -42,24 +42,32 @@ final class EntityDef
         $this->fieldDefinitions = [];
         $this->configuration = $configuration;
 
-        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-            if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
-                throw new \Exception(\sprintf(
-                    'No such field in %s: %s',
-                    $this->getClassName(),
-                    $fieldName
-                ));
-            }
+        $fieldNames = \array_merge(
+            \array_keys($this->classMetadata->fieldMappings),
+            \array_keys($this->classMetadata->associationMappings),
+            \array_keys($this->classMetadata->embeddedClasses)
+        );
 
+        $extraFieldNames = \array_diff(
+            \array_keys($fieldDefinitions),
+            $fieldNames
+        );
+
+        if ([] !== $extraFieldNames) {
+            \natsort($extraFieldNames);
+
+            throw new \Exception(\sprintf(
+                'No such fields in %s: "%s"',
+                $this->getClassName(),
+                \implode('", "', $extraFieldNames)
+            ));
+        }
+
+        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
             $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
         }
 
         $defaultEntity = $this->classMetadata->newInstance();
-
-        $fieldNames = \array_merge(
-            $this->classMetadata->getFieldNames(),
-            $this->classMetadata->getAssociationNames()
-        );
 
         foreach ($fieldNames as $fieldName) {
             if (\array_key_exists($fieldName, $this->fieldDefinitions)) {
