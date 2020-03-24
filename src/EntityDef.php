@@ -44,7 +44,8 @@ final class EntityDef
 
         $fieldNames = \array_merge(
             $this->classMetadata->getFieldNames(),
-            $this->classMetadata->getAssociationNames()
+            $this->classMetadata->getAssociationNames(),
+            \array_keys($this->classMetadata->embeddedClasses)
         );
 
         $extraFieldNames = \array_diff(
