@@ -76,21 +76,19 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity($className);
     }
 
-    public function testDefineEntityThrowsExceptionWhenUsingFieldNameThatDoesNotExistInEntity(): void
+    public function testDefineEntityThrowsExceptionWhenUsingFieldNamesThatDoNotExistInEntity(): void
     {
-        $fieldName = 'pieType';
-
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(\sprintf(
-            'No such field in %s: %s',
-            Fixture\FixtureFactory\Entity\Spaceship::class,
-            $fieldName
+            'No such fields in %s: "diameter", "pieType"',
+            Fixture\FixtureFactory\Entity\Spaceship::class
         ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            $fieldName => 'blueberry',
+            'diameter' => '30cm',
+            'pieType' => 'blueberry',
         ]);
     }
 

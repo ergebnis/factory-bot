@@ -47,15 +47,20 @@ final class EntityDef
             $this->classMetadata->getAssociationNames()
         );
 
-        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-            if (!$this->classMetadata->hasField($fieldName) && !$this->classMetadata->hasAssociation($fieldName)) {
-                throw new \Exception(\sprintf(
-                    'No such field in %s: %s',
-                    $this->getClassName(),
-                    $fieldName
-                ));
-            }
+        $extraFieldNames = \array_diff(
+            \array_keys($fieldDefinitions),
+            $fieldNames
+        );
 
+        if ([] !== $extraFieldNames) {
+            throw new \Exception(\sprintf(
+                'No such fields in %s: "%s"',
+                $this->getClassName(),
+                \implode('", "', $extraFieldNames)
+            ));
+        }
+
+        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
             $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
         }
 
