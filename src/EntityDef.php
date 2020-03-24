@@ -42,11 +42,16 @@ final class EntityDef
         $this->fieldDefinitions = [];
         $this->configuration = $configuration;
 
-        $fieldNames = \array_merge(
+        /** @var string[] $allFieldNames */
+        $allFieldNames = \array_merge(
             \array_keys($this->classMetadata->fieldMappings),
             \array_keys($this->classMetadata->associationMappings),
             \array_keys($this->classMetadata->embeddedClasses)
         );
+
+        $fieldNames = \array_filter($allFieldNames, static function (string $fieldName): bool {
+            return false === \strpos($fieldName, '.');
+        });
 
         $extraFieldNames = \array_diff(
             \array_keys($fieldDefinitions),
