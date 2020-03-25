@@ -21,6 +21,6 @@ final class PersonDefinition implements Definition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
     }
 }
