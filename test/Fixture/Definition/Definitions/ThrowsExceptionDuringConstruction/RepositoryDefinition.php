@@ -20,7 +20,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
 /**
  * Is not acceptable as it throws an exception during construction.
  */
-final class PersonDefinition implements Definition
+final class RepositoryDefinition implements Definition
 {
     public function __construct()
     {
@@ -29,6 +29,6 @@ final class PersonDefinition implements Definition
 
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }

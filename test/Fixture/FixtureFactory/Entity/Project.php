@@ -17,9 +17,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="badge")
+ * @ORM\Table(name="project")
  */
-class Badge
+class Project
 {
     /**
      * @ORM\Id
@@ -28,39 +28,48 @@ class Badge
      *
      * @var int
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column
+     * @ORM\Column(
+     *     name="name",
+     *     type="string"
+     * )
      *
      * @var string
      */
-    protected $label;
+    private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Person")
+     * @ORM\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
      * @ORM\JoinColumn(
-     *     name="person_id",
+     *     name="repository_id",
      *     referencedColumnName="id",
      *     nullable=false
      * )
      *
-     * @var Person
+     * @var Repository
      */
-    protected $owner;
+    private $repository;
 
-    public function getId(): ?int
+    public function __construct(string $name, Repository $repository)
+    {
+        $this->name = $name;
+        $this->repository = $repository;
+    }
+
+    public function id(): ?int
     {
         return $this->id;
     }
 
-    public function getLabel(): ?string
+    public function name(): string
     {
-        return $this->label;
+        return $this->name;
     }
 
-    public function getOwner(): ?Person
+    public function repository(): Repository
     {
-        return $this->owner;
+        return $this->repository;
     }
 }

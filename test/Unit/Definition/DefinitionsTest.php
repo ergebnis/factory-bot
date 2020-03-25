@@ -85,7 +85,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $definitions->registerWith($fixtureFactory);
 
-        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Person::class, $fixtureFactory->definitions());
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $fixtureFactory->definitions());
     }
 
     public function testFluentInterface(): void
@@ -125,7 +125,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fakerAwareDefinition = \array_shift($fakerAwareDefinitions);
 
-        self::assertInstanceOf(Fixture\Definition\Definitions\FakerAware\SpaceshipDefinition::class, $fakerAwareDefinition);
+        self::assertInstanceOf(Fixture\Definition\Definitions\FakerAware\OrganizationDefinition::class, $fakerAwareDefinition);
         self::assertSame($faker->reveal(), $fakerAwareDefinition->faker());
     }
 

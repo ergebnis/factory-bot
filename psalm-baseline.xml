@@ -127,35 +127,25 @@
       <code>$this-&gt;singletons</code>
     </MixedPropertyTypeCoercion>
   </file>
-  <file src="test/Fixture/FixtureFactory/Entity/Badge.php">
-    <MissingConstructor occurrences="1">
-      <code>$id</code>
-    </MissingConstructor>
-  </file>
-  <file src="test/Fixture/FixtureFactory/Entity/Commander.php">
+  <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="test/Fixture/FixtureFactory/Entity/Person.php">
-    <InvalidClass occurrences="1">
-      <code>null|SpaceShip</code>
-    </InvalidClass>
+  <file src="test/Fixture/FixtureFactory/Entity/Project.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
     </PropertyNotSetInConstructor>
   </file>
-  <file src="test/Fixture/FixtureFactory/Entity/Spaceship.php">
-    <InvalidTemplateParam occurrences="2">
-      <code>ArrayCollection&lt;Person&gt;</code>
-      <code>ArrayCollection&lt;Person&gt;</code>
-    </InvalidTemplateParam>
-    <MissingTemplateParam occurrences="2">
-      <code>ArrayCollection&lt;Person&gt;</code>
-      <code>ArrayCollection&lt;Person&gt;</code>
-    </MissingTemplateParam>
+  <file src="test/Fixture/FixtureFactory/Entity/Repository.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="test/Fixture/FixtureFactory/Entity/User.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$id</code>
+      <code>$organizations</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
@@ -164,22 +154,21 @@
     </InternalMethod>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>assertEmpty</code>
-    </DocblockTypeContradiction>
-    <MissingClosureParamType occurrences="1">
-      <code>$n</code>
-    </MissingClosureParamType>
-    <MixedArgument occurrences="2">
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class)</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Spaceship::class, [], 5)</code>
+    <MixedArgument occurrences="5">
+      <code>$name</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Organization::class)</code>
+      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Organization::class, [], 5)</code>
+      <code>$fieldValues['name']</code>
+      <code>$fieldValues['name']</code>
     </MixedArgument>
-    <MixedOperand occurrences="2">
-      <code>$fieldValues['name']</code>
-      <code>$fieldValues['name']</code>
-    </MixedOperand>
-    <PossiblyNullOperand occurrences="1">
-      <code>$spaceship-&gt;getName()</code>
-    </PossiblyNullOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$organization-&gt;name()</code>
+    </PossiblyNullArgument>
+    <RedundantCondition occurrences="4">
+      <code>assertNotNull</code>
+      <code>assertNotNull</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
   </file>
 </files>

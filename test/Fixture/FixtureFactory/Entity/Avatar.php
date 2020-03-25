@@ -16,45 +16,52 @@ namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="commander")
+ * @ORM\Embeddable
  */
-class Commander
+final class Avatar
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(
-     *     name="id",
+     *     name="url",
+     *     type="string"
+     * )
+     *
+     * @var string
+     */
+    private $url = '';
+
+    /**
+     * @ORM\Column(
+     *     name="width",
      *     type="integer"
      * )
      *
      * @var int
      */
-    private $id;
+    private $width = 0;
 
     /**
-     * @ORM\Embedded(
-     *     class="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Name",
-     *     columnPrefix=false
+     * @ORM\Column(
+     *     name="height",
+     *     type="integer"
      * )
      *
-     * @var Name
+     * @var int
      */
-    private $name;
+    private $height = 0;
 
-    public function __construct()
+    public function url(): string
     {
-        $this->name = new Name();
+        return $this->url;
     }
 
-    public function id(): int
+    public function width(): int
     {
-        return $this->id;
+        return $this->width;
     }
 
-    public function name(): ?Name
+    public function height(): int
     {
-        return $this->name;
+        return $this->height;
     }
 }

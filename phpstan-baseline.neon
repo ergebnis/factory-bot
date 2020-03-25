@@ -96,84 +96,49 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getId\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Organization.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getLabel\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization\\:\\:name\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Organization.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Badge\\:\\:getOwner\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Project\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Badge.php
+			path: test/Fixture/FixtureFactory/Entity/Project.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Commander\\:\\:name\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository has parameter \\$template with default value\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Commander.php
+			path: test/Fixture/FixtureFactory/Entity/Repository.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name\\:\\:first\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with a nullable type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Name.php
+			path: test/Fixture/FixtureFactory/Entity/Repository.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Name\\:\\:last\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with null as default value\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Name.php
+			path: test/Fixture/FixtureFactory/Entity/Repository.php
 
 		-
-			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship referenced with incorrect case\\: Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\SpaceShip\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Repository.php
 
 		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person has parameter \\$spaceship with default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
+			path: test/Fixture/FixtureFactory/Entity/Repository.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceship with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:__construct\\(\\) has parameter \\$spaceship with null as default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:getId\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\:\\:getSpaceship\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Person.php
-
-		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:\\$crew with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Spaceship.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:getId\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Spaceship.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:getName\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Spaceship.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Spaceship\\:\\:getCrew\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Spaceship.php
+			path: test/Fixture/FixtureFactory/Entity/User.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
@@ -181,12 +146,17 @@ parameters:
 			path: test/Unit/Exception/EntityDefinitionUnavailableTest.php
 
 		-
-			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Doctrine\\\\\\\\Common…' and Doctrine\\\\Common\\\\Collections\\\\ArrayCollection&iterable\\<Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Person\\> will always evaluate to true\\.$#"
-			count: 4
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
+			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 

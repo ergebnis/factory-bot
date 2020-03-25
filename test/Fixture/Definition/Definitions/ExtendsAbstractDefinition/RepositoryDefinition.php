@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\FakerAware;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ExtendsAbstractDefinition;
 
-use Ergebnis\FactoryBot\Definition\Definition;
+use Ergebnis\FactoryBot\Definition\AbstractDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-final class PersonDefinition implements Definition
+final class RepositoryDefinition extends AbstractDefinition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }
