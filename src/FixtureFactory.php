@@ -253,6 +253,8 @@ final class FixtureFactory
     {
         $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($entityDefinition->getFieldDefinitions()));
 
+        \natsort($extraFields);
+
         if (!empty($extraFields)) {
             throw new \Exception(\sprintf(
                 'Field(s) not in %s: \'%s\'',
