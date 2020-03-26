@@ -205,8 +205,8 @@ final class FixtureFactoryTest extends AbstractTestCase
         ));
 
         $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class, [
-            'name.first' => $faker->firstName,
             'name.last' => $faker->lastName,
+            'name.first' => $faker->firstName,
         ]);
     }
 
