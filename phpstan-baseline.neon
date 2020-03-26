@@ -41,16 +41,6 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Language construct empty\\(\\) should not be used\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:getList\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
