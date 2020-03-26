@@ -21,10 +21,6 @@
       <code>getFieldDefinitions</code>
       <code>normalizeFieldDefinition</code>
     </MissingReturnType>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$fieldName</code>
-      <code>$fieldName</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
@@ -80,11 +76,11 @@
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
+      <code>$entityDefinition-&gt;getFieldDefinitions()</code>
       <code>$fieldName</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
-      <code>$entityDefinition-&gt;getFieldDefinitions()</code>
       <code>$fieldName</code>
       <code>$entity</code>
       <code>$fieldName</code>
