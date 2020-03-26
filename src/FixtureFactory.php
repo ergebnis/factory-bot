@@ -125,7 +125,7 @@ final class FixtureFactory
 
         \natsort($extraFields);
 
-        if (!empty($extraFields)) {
+        if ([] !== $extraFields) {
             throw new \Exception(\sprintf(
                 'Field(s) not in %s: \'%s\'',
                 $entityDefinition->getClassName(),
