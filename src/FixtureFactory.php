@@ -121,7 +121,17 @@ final class FixtureFactory
 
         $configuration = $entityDefinition->getConfiguration();
 
-        $this->checkFieldOverrides($entityDefinition, $fieldOverrides);
+        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($entityDefinition->getFieldDefinitions()));
+
+        \natsort($extraFields);
+
+        if (!empty($extraFields)) {
+            throw new \Exception(\sprintf(
+                'Field(s) not in %s: \'%s\'',
+                $entityDefinition->getClassName(),
+                \implode("', '", $extraFields)
+            ));
+        }
 
         /** @var ORM\Mapping\ClassMetadata $classMetadata */
         $classMetadata = $entityDefinition->getClassMetadata();
@@ -247,21 +257,6 @@ final class FixtureFactory
     public function definitions(): array
     {
         return $this->entityDefinitions;
-    }
-
-    private function checkFieldOverrides(EntityDef $entityDefinition, array $fieldOverrides): void
-    {
-        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($entityDefinition->getFieldDefinitions()));
-
-        \natsort($extraFields);
-
-        if (!empty($extraFields)) {
-            throw new \Exception(\sprintf(
-                'Field(s) not in %s: \'%s\'',
-                $entityDefinition->getClassName(),
-                \implode("', '", $extraFields)
-            ));
-        }
     }
 
     private function setField($entity, EntityDef $entityDefinition, $fieldName, $fieldValue): void
