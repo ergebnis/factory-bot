@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
+			count: 1
+			path: src/EntityDef.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
@@ -37,6 +42,11 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

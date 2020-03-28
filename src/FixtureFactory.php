@@ -105,6 +105,7 @@ final class FixtureFactory
      * @param array $fieldOverrides
      *
      * @throws Exception\EntityDefinitionUnavailable
+     * @throws Exception\InvalidFieldNames
      */
     public function get($name, array $fieldOverrides = [])
     {
@@ -121,16 +122,16 @@ final class FixtureFactory
 
         $configuration = $entityDefinition->getConfiguration();
 
-        $extraFields = \array_diff(\array_keys($fieldOverrides), \array_keys($entityDefinition->getFieldDefinitions()));
+        $extraFieldNames = \array_diff(
+            \array_keys($fieldOverrides),
+            \array_keys($entityDefinition->getFieldDefinitions())
+        );
 
-        \natsort($extraFields);
-
-        if ([] !== $extraFields) {
-            throw new \Exception(\sprintf(
-                'Field(s) not in %s: \'%s\'',
+        if ([] !== $extraFieldNames) {
+            throw Exception\InvalidFieldNames::notFoundIn(
                 $entityDefinition->getClassName(),
-                \implode("', '", $extraFields)
-            ));
+                ...$extraFieldNames
+            );
         }
 
         /** @var ORM\Mapping\ClassMetadata $classMetadata */

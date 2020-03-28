@@ -34,6 +34,7 @@ final class EntityDef
      * @param array                     $fieldDefinitions
      * @param array                     $configuration
      *
+     * @throws Exception\InvalidFieldNames
      * @throws \Exception
      */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, array $configuration)
@@ -59,13 +60,10 @@ final class EntityDef
         );
 
         if ([] !== $extraFieldNames) {
-            \natsort($extraFieldNames);
-
-            throw new \Exception(\sprintf(
-                'No such fields in %s: "%s"',
-                $this->getClassName(),
-                \implode('", "', $extraFieldNames)
-            ));
+            throw Exception\InvalidFieldNames::notFoundIn(
+                $classMetadata->getName(),
+                ...$extraFieldNames
+            );
         }
 
         foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {

@@ -23,6 +23,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Used `Doctrine\ORM\EntityManagerInterface` instead of `Doctrine\ORM\EntityManager` in type and return type declarations ([#24]), by [@localheinz]
 * Marked all classes as `final` ([#33]), by [@localheinz]
 * Marked `EntityDef` as internal ([#49]), by [@localheinz]
+* Started throwing an `InvalidFieldNames` exception instead of a generic `Exception` when fields are referenced that are not present in the corresponding entity ([#87]), by [@localheinz]
 
 ### Fixed
 
@@ -41,5 +42,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#33]: https://github.com/ergebnis/factory-bot/pull/33
 [#49]: https://github.com/ergebnis/factory-bot/pull/49
 [#79]: https://github.com/ergebnis/factory-bot/pull/79
+[#87]: https://github.com/ergebnis/factory-bot/pull/87
 
 [@localheinz]: https://github.com/localheinz

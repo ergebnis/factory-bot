@@ -21,6 +21,9 @@
       <code>getFieldDefinitions</code>
       <code>normalizeFieldDefinition</code>
     </MissingReturnType>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$extraFieldNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
@@ -91,6 +94,9 @@
       <code>$fieldValue</code>
       <code>$inversedBy</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$extraFieldNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$association['inversedBy']</code>
     </MixedArrayAccess>
