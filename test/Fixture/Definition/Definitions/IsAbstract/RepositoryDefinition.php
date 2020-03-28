@@ -11,18 +11,19 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\DoesNotImplementInterface;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\IsAbstract;
 
+use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
- * Is not acceptable as it does not implement the DefinitionInterface.
+ * Is not acceptable as it is abstract.
  */
-final class PersonDefinition
+abstract class RepositoryDefinition implements Definition
 {
-    public function accept(FixtureFactory $factory): void
+    final public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }

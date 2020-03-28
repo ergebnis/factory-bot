@@ -16,6 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Integration;
 use Ergebnis\FactoryBot\FieldDef;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
+use Ergebnis\Test\Util\Helper;
 
 /**
  * @internal
@@ -24,25 +25,27 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
+    use Helper;
+
     public function testAutomaticPersistCanBeTurnedOn(): void
     {
         $entityManager = self::createEntityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            'name' => 'Zeta',
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => self::faker()->word,
         ]);
 
         $fixtureFactory->persistOnGet();
 
-        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
-        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
+        $organization = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
-        self::assertNotNull($spaceship->getId());
-        self::assertSame($spaceship, $entityManager->find(Fixture\FixtureFactory\Entity\Spaceship::class, $spaceship->getId()));
+        self::assertNotNull($organization->id());
+        self::assertSame($organization, $entityManager->find(Fixture\FixtureFactory\Entity\Organization::class, $organization->id()));
     }
 
     public function testDoesNotPersistByDefault(): void
@@ -51,20 +54,20 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Spaceship::class, [
-            'name' => 'Zeta',
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => self::faker()->word,
         ]);
 
-        /** @var Fixture\FixtureFactory\Entity\Spaceship $spaceship */
-        $spaceship = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Spaceship::class);
+        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
+        $organization = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
-        self::assertNull($spaceship->getId());
+        self::assertNull($organization->id());
 
         $query = $entityManager->createQueryBuilder()
-            ->select('spaceship')
-            ->from(Fixture\FixtureFactory\Entity\Spaceship::class, 'spaceship')
+            ->select('organization')
+            ->from(Fixture\FixtureFactory\Entity\Organization::class, 'organization')
             ->getQuery();
 
         self::assertEmpty($query->getResult());
@@ -72,41 +75,26 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testDoesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn(): void
     {
+        $faker = self::faker();
+
         $entityManager = self::createEntityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Name::class, [
-            'first' => FieldDef::sequence(static function () {
-                $values = [
-                    null,
-                    'Doe',
-                    'Smith',
-                ];
-
-                return $values[\array_rand($values)];
-            }),
-            'last' => FieldDef::sequence(static function () {
-                $values = [
-                    null,
-                    'Jane',
-                    'John',
-                ];
-
-                return $values[\array_rand($values)];
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Avatar::class, [
+            'url' => FieldDef::sequence(static function () use ($faker): string {
+                return $faker->imageUrl();
             }),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Commander::class, [
-            'name' => FieldDef::reference(Fixture\FixtureFactory\Entity\Name::class),
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+            'avatar' => FieldDef::reference(Fixture\FixtureFactory\Entity\Avatar::class),
+            'login' => $faker->userName,
         ]);
 
         $fixtureFactory->persistOnGet();
 
-        /** @var Fixture\FixtureFactory\Entity\Commander $commander */
-        $commander = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Commander::class);
-
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Name::class, $commander->name());
+        $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class);
 
         $entityManager->flush();
 

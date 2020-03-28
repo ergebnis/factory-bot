@@ -11,19 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\Acceptable;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\FakerAware;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is acceptable as it implements the interface.
- */
-final class PersonDefinition implements Definition
+final class RepositoryDefinition implements Definition
 {
     public function accept(FixtureFactory $factory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Person::class);
+        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }

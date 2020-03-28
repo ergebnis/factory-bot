@@ -36,7 +36,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
 
     public function testFakerThrowsBadMethodCallExceptionIfDefinitionHasNotBeenProvidedWithFaker(): void
     {
-        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\PersonDefinition();
+        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\RepositoryDefinition();
 
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -51,7 +51,7 @@ final class AbstractDefinitionTest extends Framework\TestCase
     {
         $faker = new Generator();
 
-        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\PersonDefinition();
+        $definition = new Fixture\Definition\Definitions\ExtendsAbstractDefinition\RepositoryDefinition();
 
         $definition->provideWith($faker);
 
