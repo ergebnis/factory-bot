@@ -25,14 +25,20 @@ final class EntityDefinition
      */
     private $classMetadata;
 
+    /**
+     * @var array<string, \Closure>
+     */
     private $fieldDefinitions;
 
+    /**
+     * @var array<string, callable>
+     */
     private $configuration;
 
     /**
      * @param ORM\Mapping\ClassMetadata $classMetadata
-     * @param array                     $fieldDefinitions
-     * @param array                     $configuration
+     * @param array<string, mixed>      $fieldDefinitions
+     * @param array<string, callable>   $configuration
      *
      * @throws Exception\InvalidFieldNames
      * @throws \Exception
@@ -126,7 +132,7 @@ final class EntityDefinition
     /**
      * Returns the extra configuration array of the entity definition.
      *
-     * @return array
+     * @return array<string, callable>
      */
     public function configuration(): array
     {
