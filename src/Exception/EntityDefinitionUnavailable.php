@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-final class EntityDefinitionUnavailable extends \OutOfRangeException implements Exception
+final class EntityDefinitionUnavailable extends \RuntimeException implements Exception
 {
     public static function for(string $className): self
     {

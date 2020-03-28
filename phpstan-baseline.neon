@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Class \"Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"
-			count: 1
-			path: src/Exception/EntityDefinitionUnavailable.php
-
-		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
 			count: 2
 			path: src/FieldDefinition.php
@@ -99,11 +94,6 @@ parameters:
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: test/Fixture/FixtureFactory/Entity/User.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'OutOfRangeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/EntityDefinitionUnavailableTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository will always evaluate to true\\.$#"
