@@ -20,83 +20,22 @@ use Doctrine\ORM;
  */
 final class EntityDefinition
 {
-    /**
-     * @var ORM\Mapping\ClassMetadata
-     */
     private $classMetadata;
 
-    /**
-     * @var array<string, \Closure>
-     */
     private $fieldDefinitions;
 
-    /**
-     * @var array<string, callable>
-     */
     private $configuration;
 
     /**
      * @param ORM\Mapping\ClassMetadata $classMetadata
-     * @param array<string, mixed>      $fieldDefinitions
+     * @param array<string, callable>   $fieldDefinitions
      * @param array<string, callable>   $configuration
-     *
-     * @throws Exception\InvalidFieldNames
-     * @throws \Exception
      */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, array $configuration)
     {
         $this->classMetadata = $classMetadata;
-        $this->fieldDefinitions = [];
+        $this->fieldDefinitions = $fieldDefinitions;
         $this->configuration = $configuration;
-
-        /** @var string[] $allFieldNames */
-        $allFieldNames = \array_merge(
-            \array_keys($this->classMetadata->fieldMappings),
-            \array_keys($this->classMetadata->associationMappings),
-            \array_keys($this->classMetadata->embeddedClasses)
-        );
-
-        $fieldNames = \array_filter($allFieldNames, static function (string $fieldName): bool {
-            return false === \strpos($fieldName, '.');
-        });
-
-        $extraFieldNames = \array_diff(
-            \array_keys($fieldDefinitions),
-            $fieldNames
-        );
-
-        if ([] !== $extraFieldNames) {
-            throw Exception\InvalidFieldNames::notFoundIn(
-                $classMetadata->getName(),
-                ...$extraFieldNames
-            );
-        }
-
-        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-            $this->fieldDefinitions[$fieldName] = self::normalizeFieldDefinition($fieldDefinition);
-        }
-
-        $defaultEntity = $this->classMetadata->newInstance();
-
-        foreach ($fieldNames as $fieldName) {
-            if (\array_key_exists($fieldName, $this->fieldDefinitions)) {
-                continue;
-            }
-
-            $defaultFieldValue = $this->classMetadata->getFieldValue($defaultEntity, $fieldName);
-
-            if (null === $defaultFieldValue) {
-                $this->fieldDefinitions[$fieldName] = static function () {
-                    return null;
-                };
-
-                continue;
-            }
-
-            $this->fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
-                return $defaultFieldValue;
-            };
-        }
     }
 
     /**
@@ -112,7 +51,7 @@ final class EntityDefinition
     /**
      * Returns the fielde definition callbacks.
      *
-     * @return array<string, \Closure>
+     * @return array<string, callable>
      */
     public function fieldDefinitions(): array
     {
@@ -137,27 +76,5 @@ final class EntityDefinition
     public function configuration(): array
     {
         return $this->configuration;
-    }
-
-    /**
-     * @param callable|\Closure|mixed $fieldDefinition
-     *
-     * @return \Closure
-     */
-    private static function normalizeFieldDefinition($fieldDefinition): \Closure
-    {
-        if (\is_callable($fieldDefinition)) {
-            if (\method_exists($fieldDefinition, '__invoke')) {
-                return $fieldDefinition;
-            }
-
-            return static function () use ($fieldDefinition) {
-                return \call_user_func_array($fieldDefinition, \func_get_args());
-            };
-        }
-
-        return static function () use ($fieldDefinition) {
-            return $fieldDefinition;
-        };
     }
 }

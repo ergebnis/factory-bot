@@ -33,7 +33,6 @@ final class SrcCodeTest extends Framework\TestCase
             'Ergebnis\\FactoryBot\\',
             'Ergebnis\\FactoryBot\\Test\\Unit',
             [
-                FactoryBot\EntityDefinition::class,
                 FactoryBot\FieldDefinition::class,
             ]
         );

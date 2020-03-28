@@ -54,6 +54,9 @@ final class FixtureFactory
      * @param array  $fieldDefinitions
      * @param array  $configuration
      *
+     * @throws \Exception
+     * @throws Exception\InvalidFieldNames
+     *
      * @return FixtureFactory
      */
     public function defineEntity(string $name, array $fieldDefinitions = [], array $configuration = [])
@@ -82,6 +85,56 @@ final class FixtureFactory
                 'Unknown entity type: %s',
                 $type
             ));
+        }
+
+        /** @var string[] $allFieldNames */
+        $allFieldNames = \array_merge(
+            \array_keys($classMetadata->fieldMappings),
+            \array_keys($classMetadata->associationMappings),
+            \array_keys($classMetadata->embeddedClasses)
+        );
+
+        $fieldNames = \array_filter($allFieldNames, static function (string $fieldName): bool {
+            return false === \strpos($fieldName, '.');
+        });
+
+        /** @var array<int, string> $extraFieldNames */
+        $extraFieldNames = \array_diff(
+            \array_keys($fieldDefinitions),
+            $fieldNames
+        );
+
+        if ([] !== $extraFieldNames) {
+            throw Exception\InvalidFieldNames::notFoundIn(
+                $classMetadata->getName(),
+                ...$extraFieldNames
+            );
+        }
+
+        $fieldDefinitions = \array_map(static function ($fieldDefinition): callable {
+            return self::normalizeFieldDefinition($fieldDefinition);
+        }, $fieldDefinitions);
+
+        $defaultEntity = $classMetadata->newInstance();
+
+        foreach ($fieldNames as $fieldName) {
+            if (\array_key_exists($fieldName, $fieldDefinitions)) {
+                continue;
+            }
+
+            $defaultFieldValue = $classMetadata->getFieldValue($defaultEntity, $fieldName);
+
+            if (null === $defaultFieldValue) {
+                $fieldDefinitions[$fieldName] = static function () {
+                    return null;
+                };
+
+                continue;
+            }
+
+            $fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
+                return $defaultFieldValue;
+            };
         }
 
         $this->entityDefinitions[$name] = new EntityDefinition(
@@ -310,5 +363,27 @@ final class FixtureFactory
                 $collection->add($entity);
             }
         }
+    }
+
+    /**
+     * @param callable|\Closure|mixed|object $fieldDefinition
+     *
+     * @return callable
+     */
+    private static function normalizeFieldDefinition($fieldDefinition): callable
+    {
+        if (\is_callable($fieldDefinition)) {
+            if (\method_exists($fieldDefinition, '__invoke')) {
+                return $fieldDefinition;
+            }
+
+            return static function () use ($fieldDefinition) {
+                return \call_user_func_array($fieldDefinition, \func_get_args());
+            };
+        }
+
+        return static function () use ($fieldDefinition) {
+            return $fieldDefinition;
+        };
     }
 }

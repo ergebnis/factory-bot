@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) should return Closure but returns object\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
 			message: "#^Class \"Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"
 			count: 1
 			path: src/Exception/EntityDefinitionUnavailable.php
@@ -42,6 +32,16 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:normalizeFieldDefinition\\(\\) should return callable\\(\\)\\: mixed but returns object\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
