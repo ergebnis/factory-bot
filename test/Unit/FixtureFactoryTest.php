@@ -28,6 +28,7 @@ use Ergebnis\Test\Util\Helper;
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
@@ -84,9 +85,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\InvalidFieldNames::class);
         $this->expectExceptionMessage(\sprintf(
-            'No such fields in %s: "email", "phone"',
+            'Entity "%s" does not have fields with the names "email", "phone".',
             Fixture\FixtureFactory\Entity\User::class
         ));
 
@@ -120,17 +121,19 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testThrowsWhenTryingToGiveNonexistentFieldsWhileConstructing(): void
     {
-        $fieldName = 'pieType';
+        $faker = self::faker()->unique();
+
+        $fieldName = $faker->word;
 
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => self::faker()->word,
+            'name' => $faker->word,
         ]);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\InvalidFieldNames::class);
         $this->expectExceptionMessage(\sprintf(
-            'Field(s) not in %s: \'%s\'',
+            'Entity "%s" does not have a field with the name "%s".',
             Fixture\FixtureFactory\Entity\Organization::class,
             $fieldName
         ));
@@ -170,11 +173,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage(\sprintf(
-            'No such fields in %s: "avatar.height", "avatar.url", "avatar.width',
-            Fixture\FixtureFactory\Entity\User::class
-        ));
+        $this->expectException(Exception\InvalidFieldNames::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
@@ -192,9 +191,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\InvalidFieldNames::class);
         $this->expectExceptionMessage(\sprintf(
-            'Field(s) not in %s: \'avatar.height\', \'avatar.url\', \'avatar.width\'',
+            'Entity "%s" does not have fields with the names "avatar.height", "avatar.url", "avatar.width".',
             Fixture\FixtureFactory\Entity\User::class
         ));
 
