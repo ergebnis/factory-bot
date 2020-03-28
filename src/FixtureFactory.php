@@ -50,13 +50,13 @@ final class FixtureFactory
      *
      * See the readme for a tutorial.
      *
-     * @param mixed $name
-     * @param array $fieldDefinitions
-     * @param array $configuration
+     * @param string $name
+     * @param array  $fieldDefinitions
+     * @param array  $configuration
      *
      * @return FixtureFactory
      */
-    public function defineEntity($name, array $fieldDefinitions = [], array $configuration = [])
+    public function defineEntity(string $name, array $fieldDefinitions = [], array $configuration = [])
     {
         if (\array_key_exists($name, $this->entityDefinitions)) {
             throw new \Exception(\sprintf(
