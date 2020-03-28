@@ -39,16 +39,6 @@ final class EntityDefinition
     }
 
     /**
-     * Returns the fully qualified name of the entity class.
-     *
-     * @return string
-     */
-    public function className(): string
-    {
-        return $this->classMetadata->getName();
-    }
-
-    /**
      * Returns the fielde definition callbacks.
      *
      * @return array<string, callable>
