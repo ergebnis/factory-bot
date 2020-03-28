@@ -89,23 +89,28 @@ final class FieldDefinition
      * entity. If a singleton has been defined, a collection with a single instance will be returned.
      *
      * @param string $className
-     * @param int    $numberOfInstances
+     * @param int    $count
      *
-     * @throws \InvalidArgumentException
+     * @throws Exception\InvalidCount
      *
      * @return \Closure
      */
-    public static function references(string $className, int $numberOfInstances = 1): \Closure
+    public static function references(string $className, int $count = 1): \Closure
     {
-        if (1 > $numberOfInstances) {
-            throw new \InvalidArgumentException('Can only get >= 1 instances');
+        $minimumCount = 1;
+
+        if ($minimumCount > $count) {
+            throw Exception\InvalidCount::notGreaterThanorEqualTo(
+                $minimumCount,
+                $count
+            );
         }
 
-        return static function (FixtureFactory $factory) use ($className, $numberOfInstances): array {
+        return static function (FixtureFactory $factory) use ($className, $count): array {
             return $factory->getList(
                 $className,
                 [],
-                $numberOfInstances
+                $count
             );
         };
     }
