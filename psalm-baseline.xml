@@ -87,9 +87,8 @@
     </MissingClosureParamType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$name</code>
-      <code>$fieldValues['name']</code>
       <code>$fieldValues['name']</code>
     </MixedArgument>
     <PossiblyNullArgument occurrences="1">

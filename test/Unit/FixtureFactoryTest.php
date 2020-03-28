@@ -661,42 +661,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($expectedName, $organization->name());
     }
 
-    public function testTheAfterCreateCallbackCanBeUsedToCallTheConstructor(): void
-    {
-        $faker = self::faker()->unique();
-
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $fixtureFactory->defineEntity(
-            Fixture\FixtureFactory\Entity\Organization::class,
-            [
-                'name' => $faker->word,
-            ],
-            static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
-                $organization->__construct(\sprintf(
-                    '%s-advanced',
-                    $fieldValues['name']
-                ));
-            }
-        );
-
-        $name = $faker->word;
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => $name,
-        ]);
-
-        self::assertTrue($organization->constructorWasCalled());
-
-        $expectedName = \sprintf(
-            '%s-advanced',
-            $name
-        );
-
-        self::assertSame($expectedName, $organization->name());
-    }
-
     public function testReferencedObjectShouldBeCreatedAutomatically(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
