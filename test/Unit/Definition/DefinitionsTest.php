@@ -28,7 +28,7 @@ use Faker\Generator;
  *
  * @covers \Ergebnis\FactoryBot\Definition\Definitions
  *
- * @uses \Ergebnis\FactoryBot\EntityDef
+ * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDirectory
  * @uses \Ergebnis\FactoryBot\FixtureFactory

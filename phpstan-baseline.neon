@@ -3,27 +3,27 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
 			count: 1
-			path: src/EntityDef.php
+			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:fieldDefinitions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:fieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/EntityDef.php
+			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDefinition\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: src/EntityDef.php
+			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:normalizeFieldDefinition\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
 			count: 1
-			path: src/EntityDef.php
+			path: src/EntityDefinition.php
 
 		-
 			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
 			count: 1
-			path: src/EntityDef.php
+			path: src/EntityDefinition.php
 
 		-
 			message: "#^Class \"Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionUnavailable\" is not allowed to extend \"OutOfRangeException\"\\.$#"

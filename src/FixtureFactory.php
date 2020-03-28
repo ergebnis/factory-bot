@@ -26,7 +26,7 @@ final class FixtureFactory
     private $entityManager;
 
     /**
-     * @var array<string, EntityDef>
+     * @var array<string, EntityDefinition>
      */
     private $entityDefinitions = [];
 
@@ -84,7 +84,7 @@ final class FixtureFactory
             ));
         }
 
-        $this->entityDefinitions[$name] = new EntityDef(
+        $this->entityDefinitions[$name] = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
             $configuration
@@ -117,7 +117,7 @@ final class FixtureFactory
             throw Exception\EntityDefinitionUnavailable::for($name);
         }
 
-        /** @var EntityDef $entityDefinition */
+        /** @var EntityDefinition $entityDefinition */
         $entityDefinition = $this->entityDefinitions[$name];
 
         $configuration = $entityDefinition->configuration();
@@ -253,14 +253,14 @@ final class FixtureFactory
     }
 
     /**
-     * @return EntityDef[]
+     * @return EntityDefinition[]
      */
     public function definitions(): array
     {
         return $this->entityDefinitions;
     }
 
-    private function setField($entity, EntityDef $entityDefinition, $fieldName, $fieldValue): void
+    private function setField($entity, EntityDefinition $entityDefinition, $fieldName, $fieldValue): void
     {
         $classMetadata = $entityDefinition->classMetadata();
 
