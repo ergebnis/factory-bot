@@ -46,11 +46,11 @@ final class FixtureFactory
     }
 
     /**
-     * Defines how to create a default entity of type `$name`.
+     * Defines how to create a default entity of type `$className`.
      *
      * See the readme for a tutorial.
      *
-     * @param string   $name
+     * @param string   $className
      * @param array    $fieldDefinitions
      * @param \Closure $afterCreate
      *
@@ -59,31 +59,29 @@ final class FixtureFactory
      *
      * @return FixtureFactory
      */
-    public function defineEntity(string $name, array $fieldDefinitions = [], ?\Closure $afterCreate = null)
+    public function defineEntity(string $className, array $fieldDefinitions = [], ?\Closure $afterCreate = null)
     {
-        if (\array_key_exists($name, $this->entityDefinitions)) {
+        if (\array_key_exists($className, $this->entityDefinitions)) {
             throw new \Exception(\sprintf(
                 "Entity '%s' already defined in fixture factory",
-                $name
+                $className
             ));
         }
 
-        $type = $name;
-
-        if (!\class_exists($type, true)) {
+        if (!\class_exists($className, true)) {
             throw new \Exception(\sprintf(
                 'Not a class: %s',
-                $type
+                $className
             ));
         }
 
         /** @var null|ORM\Mapping\ClassMetadata $classMetadata */
-        $classMetadata = $this->entityManager->getClassMetadata($type);
+        $classMetadata = $this->entityManager->getClassMetadata($className);
 
         if (null === $classMetadata) {
             throw new \Exception(\sprintf(
                 'Unknown entity type: %s',
-                $type
+                $className
             ));
         }
 
@@ -143,7 +141,7 @@ final class FixtureFactory
             };
         }
 
-        $this->entityDefinitions[$name] = new EntityDefinition(
+        $this->entityDefinitions[$className] = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
             $afterCreate
@@ -160,24 +158,24 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
-     * @param string               $name
+     * @param string               $className
      * @param array<string, mixed> $fieldOverrides
      *
      * @throws Exception\EntityDefinitionUnavailable
      * @throws Exception\InvalidFieldNames
      */
-    public function get(string $name, array $fieldOverrides = []): object
+    public function get(string $className, array $fieldOverrides = []): object
     {
-        if (\array_key_exists($name, $this->singletons)) {
-            return $this->singletons[$name];
+        if (\array_key_exists($className, $this->singletons)) {
+            return $this->singletons[$className];
         }
 
-        if (!\array_key_exists($name, $this->entityDefinitions)) {
-            throw Exception\EntityDefinitionUnavailable::for($name);
+        if (!\array_key_exists($className, $this->entityDefinitions)) {
+            throw Exception\EntityDefinitionUnavailable::for($className);
         }
 
         /** @var EntityDefinition $entityDefinition */
-        $entityDefinition = $this->entityDefinitions[$name];
+        $entityDefinition = $this->entityDefinitions[$className];
 
         $extraFieldNames = \array_diff(
             \array_keys($fieldOverrides),
@@ -230,7 +228,7 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entities are also persisted.
      *
-     * @param string $name
+     * @param string $className
      * @param array  $fieldOverrides
      * @param int    $numberOfInstances
      *
@@ -238,20 +236,20 @@ final class FixtureFactory
      *
      * @return object[]
      */
-    public function getList(string $name, array $fieldOverrides = [], int $numberOfInstances = 1): array
+    public function getList(string $className, array $fieldOverrides = [], int $numberOfInstances = 1): array
     {
         if (1 > $numberOfInstances) {
             throw new \InvalidArgumentException('Can only get >= 1 instances');
         }
 
-        if (1 < $numberOfInstances && \array_key_exists($name, $this->singletons)) {
+        if (1 < $numberOfInstances && \array_key_exists($className, $this->singletons)) {
             $numberOfInstances = 1;
         }
 
         $instances = [];
 
         for ($i = 0; $i < $numberOfInstances; ++$i) {
-            $instances[] = $this->get($name, $fieldOverrides);
+            $instances[] = $this->get($className, $fieldOverrides);
         }
 
         return $instances;
@@ -272,52 +270,52 @@ final class FixtureFactory
     /**
      * A shorthand combining `get()` and `setSingleton()`.
      *
-     * It's illegal to call this if `$name` already has a singleton.
+     * It's illegal to call this if `$className` already has a singleton.
      *
-     * @param string               $name
+     * @param string               $className
      * @param array<string, mixed> $fieldOverrides
      *
      * @throws \Exception
      *
      * @return object
      */
-    public function getAsSingleton(string $name, array $fieldOverrides = []): object
+    public function getAsSingleton(string $className, array $fieldOverrides = []): object
     {
-        if (\array_key_exists($name, $this->singletons)) {
+        if (\array_key_exists($className, $this->singletons)) {
             throw new \Exception(\sprintf(
                 'Already a singleton: %s',
-                $name
+                $className
             ));
         }
 
-        $this->singletons[$name] = $this->get($name, $fieldOverrides);
+        $this->singletons[$className] = $this->get($className, $fieldOverrides);
 
-        return $this->singletons[$name];
+        return $this->singletons[$className];
     }
 
     /**
-     * Sets `$entity` to be the singleton for `$name`.
+     * Sets `$entity` to be the singleton for `$className`.
      *
      * This causes `get($name)` to return `$entity`.
      *
-     * @param string $name
+     * @param string $className
      * @param object $entity
      */
-    public function setSingleton(string $name, object $entity): void
+    public function setSingleton(string $className, object $entity): void
     {
-        $this->singletons[$name] = $entity;
+        $this->singletons[$className] = $entity;
     }
 
     /**
-     * Unsets the singleton for `$name`.
+     * Unsets the singleton for `$className`.
      *
-     * This causes `get($name)` to return new entities again.
+     * This causes `get($className)` to return new entities again.
      *
-     * @param string $name
+     * @param string $className
      */
-    public function unsetSingleton(string $name): void
+    public function unsetSingleton(string $className): void
     {
-        unset($this->singletons[$name]);
+        unset($this->singletons[$className]);
     }
 
     /**

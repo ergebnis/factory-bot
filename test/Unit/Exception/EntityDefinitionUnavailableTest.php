@@ -25,15 +25,15 @@ final class EntityDefinitionUnavailableTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
     {
-        $name = 'foo';
+        $className = 'foo';
 
-        $exception = Exception\EntityDefinitionUnavailable::for($name);
+        $exception = Exception\EntityDefinitionUnavailable::for($className);
 
         self::assertInstanceOf(\OutOfRangeException::class, $exception);
 
         $message = \sprintf(
-            'An entity definition for name "%s" is not available.',
-            $name
+            'An entity definition for class name "%s" is not available.',
+            $className
         );
 
         self::assertSame($message, $exception->getMessage());

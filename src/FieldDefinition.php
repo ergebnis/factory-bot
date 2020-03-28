@@ -69,14 +69,14 @@ final class FieldDefinition
      * Normally this means that the field gets a fresh instance of the named
      * entity. If a singleton has been defined, `get()` will return that.
      *
-     * @param string $name the name of the entity to get
+     * @param string $className
      *
      * @return \Closure
      */
-    public static function reference(string $name): \Closure
+    public static function reference(string $className): \Closure
     {
-        return static function (FixtureFactory $factory) use ($name): object {
-            return $factory->get($name);
+        return static function (FixtureFactory $factory) use ($className): object {
+            return $factory->get($className);
         };
     }
 
@@ -88,22 +88,22 @@ final class FieldDefinition
      * Normally this means that the field gets a fresh instance of the named
      * entity. If a singleton has been defined, a collection with a single instance will be returned.
      *
-     * @param string $name
+     * @param string $className
      * @param int    $numberOfInstances
      *
      * @throws \InvalidArgumentException
      *
      * @return \Closure
      */
-    public static function references(string $name, int $numberOfInstances = 1): \Closure
+    public static function references(string $className, int $numberOfInstances = 1): \Closure
     {
         if (1 > $numberOfInstances) {
             throw new \InvalidArgumentException('Can only get >= 1 instances');
         }
 
-        return static function (FixtureFactory $factory) use ($name, $numberOfInstances): array {
+        return static function (FixtureFactory $factory) use ($className, $numberOfInstances): array {
             return $factory->getList(
-                $name,
+                $className,
                 [],
                 $numberOfInstances
             );

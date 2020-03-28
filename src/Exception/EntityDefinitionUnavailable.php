@@ -15,11 +15,11 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class EntityDefinitionUnavailable extends \OutOfRangeException implements Exception
 {
-    public static function for(string $name): self
+    public static function for(string $className): self
     {
         return new self(\sprintf(
-            'An entity definition for name "%s" is not available.',
-            $name
+            'An entity definition for class name "%s" is not available.',
+            $className
         ));
     }
 }
