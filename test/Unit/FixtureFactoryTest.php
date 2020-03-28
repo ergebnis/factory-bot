@@ -174,6 +174,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(Exception\InvalidFieldNames::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Entity "%s" does not have fields with the names "avatar.height", "avatar.url", "avatar.width".',
+            Fixture\FixtureFactory\Entity\User::class
+        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
