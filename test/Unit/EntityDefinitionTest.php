@@ -29,13 +29,7 @@ final class EntityDefinitionTest extends Framework\TestCase
 
     public function testConstructorSetsValues(): void
     {
-        $className = self::faker()->word;
-
         $classMetadata = $this->prophesize(ORM\Mapping\ClassMetadata::class);
-
-        $classMetadata
-            ->getName()
-            ->willReturn($className);
 
         $fieldDefinitions = [
             'foo' => static function (): string {
@@ -61,6 +55,5 @@ final class EntityDefinitionTest extends Framework\TestCase
         self::assertSame($classMetadata->reveal(), $entityDefiniton->classMetadata());
         self::assertSame($configuration, $entityDefiniton->configuration());
         self::assertSame($fieldDefinitions, $entityDefiniton->fieldDefinitions());
-        self::assertSame($className, $entityDefiniton->className());
     }
 }

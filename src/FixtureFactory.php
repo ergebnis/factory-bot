@@ -182,7 +182,7 @@ final class FixtureFactory
 
         if ([] !== $extraFieldNames) {
             throw Exception\InvalidFieldNames::notFoundIn(
-                $entityDefinition->className(),
+                $entityDefinition->classMetadata()->getName(),
                 ...$extraFieldNames
             );
         }
