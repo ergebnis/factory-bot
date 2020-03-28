@@ -101,8 +101,8 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
-     * @param string $name
-     * @param array  $fieldOverrides
+     * @param string               $name
+     * @param array<string, mixed> $fieldOverrides
      *
      * @throws Exception\EntityDefinitionUnavailable
      * @throws Exception\InvalidFieldNames
@@ -174,6 +174,8 @@ final class FixtureFactory
      * @param array  $fieldOverrides
      * @param int    $numberOfInstances
      *
+     * @throws \InvalidArgumentException
+     *
      * @return object[]
      */
     public function getList(string $name, array $fieldOverrides = [], int $numberOfInstances = 1): array
@@ -212,8 +214,10 @@ final class FixtureFactory
      *
      * It's illegal to call this if `$name` already has a singleton.
      *
-     * @param string $name
-     * @param array  $fieldOverrides
+     * @param string               $name
+     * @param array<string, mixed> $fieldOverrides
+     *
+     * @throws \Exception
      *
      * @return object
      */

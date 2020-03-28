@@ -10,25 +10,14 @@
       <code>static function () use ($fieldDefinition) {</code>
       <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MissingPropertyType occurrences="2">
-      <code>$fieldDefinitions</code>
-      <code>$configuration</code>
-    </MissingPropertyType>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$extraFieldNames</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>array&lt;string, \Closure&gt;</code>
-      <code>array</code>
+    <MixedInferredReturnType occurrences="1">
       <code>\Closure</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="3">
-      <code>$this-&gt;fieldDefinitions</code>
-      <code>$this-&gt;configuration</code>
+    <MixedReturnStatement occurrences="1">
       <code>$fieldDefinition</code>
     </MixedReturnStatement>
     <TypeDoesNotContainType occurrences="1">
@@ -60,8 +49,10 @@
       <code>$fieldValue</code>
       <code>$inversedBy</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$extraFieldNames</code>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$fieldDefinitions</code>
+      <code>$configuration</code>
+      <code>$fieldOverrides</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="4">
       <code>$fieldValues[$fieldName]</code>
@@ -69,9 +60,6 @@
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
-    <MixedFunctionCall occurrences="1">
-      <code>$configuration['afterCreate']($entity, $fieldValues)</code>
-    </MixedFunctionCall>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">

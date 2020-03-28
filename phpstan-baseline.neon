@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
 			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
@@ -29,11 +24,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
 			count: 1
 			path: src/FieldDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
