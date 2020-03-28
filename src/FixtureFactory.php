@@ -214,8 +214,10 @@ final class FixtureFactory
      *
      * @param string $name
      * @param array  $fieldOverrides
+     *
+     * @return object
      */
-    public function getAsSingleton(string $name, array $fieldOverrides = [])
+    public function getAsSingleton(string $name, array $fieldOverrides = []): object
     {
         if (\array_key_exists($name, $this->singletons)) {
             throw new \Exception(\sprintf(
