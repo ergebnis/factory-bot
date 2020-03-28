@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
-  <file src="src/EntityDefinition.php">
-    <InvalidArgument occurrences="1">
-      <code>$fieldDefinition</code>
-    </InvalidArgument>
-    <MissingClosureReturnType occurrences="4">
-      <code>static function () {</code>
-      <code>static function () use ($defaultFieldValue) {</code>
-      <code>static function () use ($fieldDefinition) {</code>
-      <code>static function () use ($fieldDefinition) {</code>
-    </MissingClosureReturnType>
-    <MixedAssignment occurrences="2">
-      <code>$fieldDefinition</code>
-      <code>$defaultFieldValue</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>\Closure</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$fieldDefinition</code>
-    </MixedReturnStatement>
-    <TypeDoesNotContainType occurrences="1">
-      <code>\method_exists($fieldDefinition, '__invoke')</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/FieldDefinition.php">
     <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
@@ -39,6 +15,15 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
+    <InvalidArgument occurrences="1">
+      <code>$fieldDefinition</code>
+    </InvalidArgument>
+    <MissingClosureReturnType occurrences="4">
+      <code>static function () {</code>
+      <code>static function () use ($defaultFieldValue) {</code>
+      <code>static function () use ($fieldDefinition) {</code>
+      <code>static function () use ($fieldDefinition) {</code>
+    </MissingClosureReturnType>
     <MissingParamType occurrences="3">
       <code>$fieldValue</code>
       <code>$array</code>
@@ -54,12 +39,22 @@
       <code>$configuration</code>
       <code>$fieldOverrides</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="5">
+      <code>$defaultFieldValue</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>callable</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$fieldDefinition</code>
+    </MixedReturnStatement>
+    <TypeDoesNotContainType occurrences="1">
+      <code>\method_exists($fieldDefinition, '__invoke')</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -86,6 +81,11 @@
     <InternalMethod occurrences="1">
       <code>addToAssertionCount</code>
     </InternalMethod>
+  </file>
+  <file src="test/Unit/EntityDefinitionTest.php">
+    <MissingClosureParamType occurrences="1">
+      <code>$entity</code>
+    </MissingClosureParamType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <MixedArgument occurrences="3">

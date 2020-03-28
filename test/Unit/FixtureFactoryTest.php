@@ -23,10 +23,10 @@ use Ergebnis\Test\Util\Helper;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\EntityDefinition
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
+ * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  */
