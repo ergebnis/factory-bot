@@ -33,9 +33,9 @@ final class FieldDefinition
      * @param callable|string $funcOrString the function or pattern to generate a value from
      * @param int             $firstNum     the first number to use
      *
-     * @return callable
+     * @return \Closure
      */
-    public static function sequence($funcOrString, $firstNum = 1)
+    public static function sequence($funcOrString, int $firstNum = 1): \Closure
     {
         $n = $firstNum - 1;
 
@@ -71,11 +71,11 @@ final class FieldDefinition
      *
      * @param string $name the name of the entity to get
      *
-     * @return callable
+     * @return \Closure
      */
-    public static function reference($name)
+    public static function reference(string $name): \Closure
     {
-        return static function (FixtureFactory $factory) use ($name) {
+        return static function (FixtureFactory $factory) use ($name): object {
             return $factory->get($name);
         };
     }
@@ -93,15 +93,15 @@ final class FieldDefinition
      *
      * @throws \InvalidArgumentException
      *
-     * @return callable
+     * @return \Closure
      */
-    public static function references($name, $numberOfInstances = 1)
+    public static function references(string $name, int $numberOfInstances = 1): \Closure
     {
         if (1 > $numberOfInstances) {
             throw new \InvalidArgumentException('Can only get >= 1 instances');
         }
 
-        return static function (FixtureFactory $factory) use ($name, $numberOfInstances) {
+        return static function (FixtureFactory $factory) use ($name, $numberOfInstances): array {
             return $factory->getList(
                 $name,
                 [],
