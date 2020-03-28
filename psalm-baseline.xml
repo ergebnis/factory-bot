@@ -55,9 +55,6 @@
       <code>$array</code>
       <code>$fieldValue</code>
     </MissingParamType>
-    <MissingReturnType occurrences="1">
-      <code>getAsSingleton</code>
-    </MissingReturnType>
     <MixedArgument occurrences="7">
       <code>$name</code>
       <code>$name</code>
