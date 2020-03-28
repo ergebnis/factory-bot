@@ -27,6 +27,7 @@ use Ergebnis\Test\Util\Helper;
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
+ * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
@@ -41,9 +42,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\EntityDefinitionAlreadyRegistered::class);
         $this->expectExceptionMessage(\sprintf(
-            'Entity \'%s\' already defined in fixture factory',
+            'An entity definition for class name "%s" has already been registered.',
             Fixture\FixtureFactory\Entity\Organization::class
         ));
 
