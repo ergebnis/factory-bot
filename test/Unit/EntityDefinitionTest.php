@@ -40,20 +40,18 @@ final class EntityDefinitionTest extends Framework\TestCase
             },
         ];
 
-        $configuration = [
-            'afterCreate' => static function ($entity, array $fieldValues): void {
-                // intentionally left blank
-            },
-        ];
+        $afterCreate = static function ($entity, array $fieldValues): void {
+            // intentionally left blank
+        };
 
         $entityDefiniton = new EntityDefinition(
             $classMetadata->reveal(),
             $fieldDefinitions,
-            $configuration
+            $afterCreate
         );
 
         self::assertSame($classMetadata->reveal(), $entityDefiniton->classMetadata());
-        self::assertSame($configuration, $entityDefiniton->configuration());
         self::assertSame($fieldDefinitions, $entityDefiniton->fieldDefinitions());
+        self::assertSame($afterCreate, $entityDefiniton->afterCreate());
     }
 }

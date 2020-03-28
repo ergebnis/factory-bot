@@ -26,6 +26,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Started throwing an `InvalidFieldNames` exception instead of a generic `Exception` when fields are referenced that are not present in the corresponding entity ([#87]), by [@localheinz]
 * Renamed `EntityDef` to `EntityDefinition` ([#91]), by [@localheinz]
 * Renamed `FieldDef` to `FieldDefinition` ([#92]), by [@localheinz]
+* Turned `$configuration` parameter of `FixtureFactory::defineEntity()` into `$afterCreate`, a `Closure` that will be invoked after object construction ([#101]), by [@localheinz]
 
 ### Fixed
 
@@ -47,5 +48,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#87]: https://github.com/ergebnis/factory-bot/pull/87
 [#91]: https://github.com/ergebnis/factory-bot/pull/91
 [#92]: https://github.com/ergebnis/factory-bot/pull/92
+[#101]: https://github.com/ergebnis/factory-bot/pull/101
 
 [@localheinz]: https://github.com/localheinz
