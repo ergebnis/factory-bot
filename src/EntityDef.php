@@ -98,7 +98,7 @@ final class EntityDef
      *
      * @return string
      */
-    public function getClassName()
+    public function className()
     {
         return $this->classMetadata->getName();
     }
@@ -106,7 +106,7 @@ final class EntityDef
     /**
      * Returns the fielde definition callbacks.
      */
-    public function getFieldDefinitions()
+    public function fieldDefinitions()
     {
         return $this->fieldDefinitions;
     }
@@ -116,7 +116,7 @@ final class EntityDef
      *
      * @return ORM\Mapping\ClassMetadata
      */
-    public function getClassMetadata()
+    public function classMetadata()
     {
         return $this->classMetadata;
     }
@@ -126,7 +126,7 @@ final class EntityDef
      *
      * @return array
      */
-    public function getConfiguration()
+    public function configuration()
     {
         return $this->configuration;
     }

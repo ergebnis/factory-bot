@@ -6,7 +6,7 @@ parameters:
 			path: src/EntityDef.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:getFieldDefinitions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDef\\:\\:fieldDefinitions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/EntityDef.php
 

@@ -120,28 +120,28 @@ final class FixtureFactory
         /** @var EntityDef $entityDefinition */
         $entityDefinition = $this->entityDefinitions[$name];
 
-        $configuration = $entityDefinition->getConfiguration();
+        $configuration = $entityDefinition->configuration();
 
         $extraFieldNames = \array_diff(
             \array_keys($fieldOverrides),
-            \array_keys($entityDefinition->getFieldDefinitions())
+            \array_keys($entityDefinition->fieldDefinitions())
         );
 
         if ([] !== $extraFieldNames) {
             throw Exception\InvalidFieldNames::notFoundIn(
-                $entityDefinition->getClassName(),
+                $entityDefinition->className(),
                 ...$extraFieldNames
             );
         }
 
         /** @var ORM\Mapping\ClassMetadata $classMetadata */
-        $classMetadata = $entityDefinition->getClassMetadata();
+        $classMetadata = $entityDefinition->classMetadata();
 
         $entity = $classMetadata->newInstance();
 
         $fieldValues = [];
 
-        foreach ($entityDefinition->getFieldDefinitions() as $fieldName => $fieldDefinition) {
+        foreach ($entityDefinition->fieldDefinitions() as $fieldName => $fieldDefinition) {
             $fieldValues[$fieldName] = \array_key_exists($fieldName, $fieldOverrides)
                 ? $fieldOverrides[$fieldName]
                 : $fieldDefinition($this);
@@ -262,7 +262,7 @@ final class FixtureFactory
 
     private function setField($entity, EntityDef $entityDefinition, $fieldName, $fieldValue): void
     {
-        $classMetadata = $entityDefinition->getClassMetadata();
+        $classMetadata = $entityDefinition->classMetadata();
 
         if ($classMetadata->isCollectionValuedAssociation($fieldName)) {
             $classMetadata->setFieldValue($entity, $fieldName, $this->createCollectionFrom($fieldValue));
