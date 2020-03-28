@@ -79,7 +79,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity($className);
     }
 
-    public function testDefineEntityThrowsExceptionWhenUsingFieldNamesThatDoNotExistInEntity(): void
+    public function testDefineEntityThrowsInvalidFieldNamesExceptionWhenUsingFieldNamesThatDoNotExistInEntity(): void
     {
         $faker = self::faker();
 
@@ -119,7 +119,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->get('foo');
     }
 
-    public function testThrowsWhenTryingToGiveNonexistentFieldsWhileConstructing(): void
+    public function testGetThrowsInvalidFieldNamesExceptionWhenReferencingFieldsThatDoNotExistInEntity(): void
     {
         $faker = self::faker()->unique();
 
@@ -167,7 +167,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($url, $avatar->url());
     }
 
-    public function testDefineEntityThrowsExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    public function testDefineEntityThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
     {
         $faker = self::faker();
 
@@ -183,7 +183,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testGetEntityThrowsExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    public function testGetThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
     {
         $faker = self::faker()->unique();
 
