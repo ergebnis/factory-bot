@@ -67,7 +67,7 @@ final class EntityDefinition
         }
 
         foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-            $this->fieldDefinitions[$fieldName] = $this->normalizeFieldDefinition($fieldDefinition);
+            $this->fieldDefinitions[$fieldName] = self::normalizeFieldDefinition($fieldDefinition);
         }
 
         $defaultEntity = $this->classMetadata->newInstance();
@@ -138,7 +138,7 @@ final class EntityDefinition
      *
      * @return \Closure
      */
-    private function normalizeFieldDefinition($fieldDefinition): \Closure
+    private static function normalizeFieldDefinition($fieldDefinition): \Closure
     {
         if (\is_callable($fieldDefinition)) {
             if (\method_exists($fieldDefinition, '__invoke')) {

@@ -267,7 +267,7 @@ final class FixtureFactory
         $classMetadata = $entityDefinition->classMetadata();
 
         if ($classMetadata->isCollectionValuedAssociation($fieldName)) {
-            $classMetadata->setFieldValue($entity, $fieldName, $this->createCollectionFrom($fieldValue));
+            $classMetadata->setFieldValue($entity, $fieldName, self::createCollectionFrom($fieldValue));
         } else {
             $classMetadata->setFieldValue($entity, $fieldName, $fieldValue);
 
@@ -277,7 +277,7 @@ final class FixtureFactory
         }
     }
 
-    private function createCollectionFrom($array = []): Common\Collections\ArrayCollection
+    private static function createCollectionFrom($array = []): Common\Collections\ArrayCollection
     {
         if (\is_array($array)) {
             return new Common\Collections\ArrayCollection($array);
