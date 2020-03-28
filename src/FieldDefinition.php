@@ -16,7 +16,7 @@ namespace Ergebnis\FactoryBot;
 /**
  * Contains static methods to define fields as sequences, references etc.
  */
-final class FieldDef
+final class FieldDefinition
 {
     /**
      * Defines a field to be a string based on an incrementing integer.

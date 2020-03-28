@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDef;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\Test\Util\Helper;
@@ -24,7 +24,7 @@ use Ergebnis\Test\Util\Helper;
  * @internal
  *
  * @covers \Ergebnis\FactoryBot\EntityDefinition
- * @covers \Ergebnis\FactoryBot\FieldDef
+ * @covers \Ergebnis\FactoryBot\FieldDefinition
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
@@ -154,7 +154,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
-            'avatar' => FieldDef::reference(Fixture\FixtureFactory\Entity\Avatar::class),
+            'avatar' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Avatar::class),
         ]);
 
         $user = $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class);
@@ -329,7 +329,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryOne */
@@ -388,7 +388,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
@@ -404,7 +404,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Project::class, [
-            'repository' => FieldDef::reference(Fixture\FixtureFactory\Entity\Repository::class),
+            'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
@@ -420,7 +420,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDef::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -443,7 +443,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDef::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -466,7 +466,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'template' => FieldDef::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'template' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
@@ -585,7 +585,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDef::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -611,7 +611,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
@@ -709,7 +709,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
             'name' => self::faker()->word,
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryOne */
@@ -733,11 +733,11 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Project::class, [
-            'repository' => FieldDef::reference(Fixture\FixtureFactory\Entity\Repository::class),
+            'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $project = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Project::class);
@@ -761,11 +761,11 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
-            'organization' => FieldDef::reference(Fixture\FixtureFactory\Entity\Organization::class),
+            'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Project::class, [
-            'repository' => FieldDef::reference(Fixture\FixtureFactory\Entity\Repository::class),
+            'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
         $fixtureFactory->getAsSingleton(Fixture\FixtureFactory\Entity\Organization::class);
@@ -792,7 +792,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDef::sequence(static function (int $i): string {
+            'name' => FieldDefinition::sequence(static function (int $i): string {
                 return \sprintf(
                     'alpha-%d',
                     $i
@@ -823,7 +823,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDef::sequence('beta-%d'),
+            'name' => FieldDefinition::sequence('beta-%d'),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
@@ -849,7 +849,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDef::sequence('gamma-'),
+            'name' => FieldDefinition::sequence('gamma-'),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */

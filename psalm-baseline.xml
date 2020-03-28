@@ -38,7 +38,7 @@
       <code>\method_exists($fieldDefinition, '__invoke')</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/FieldDef.php">
+  <file src="src/FieldDefinition.php">
     <MissingClosureReturnType occurrences="3">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
       <code>static function (FixtureFactory $factory) use ($name) {</code>
