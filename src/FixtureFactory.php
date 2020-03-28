@@ -50,16 +50,16 @@ final class FixtureFactory
      *
      * See the readme for a tutorial.
      *
-     * @param string $name
-     * @param array  $fieldDefinitions
-     * @param array  $configuration
+     * @param string   $name
+     * @param array    $fieldDefinitions
+     * @param \Closure $afterCreate
      *
-     * @throws \Exception
      * @throws Exception\InvalidFieldNames
+     * @throws \Exception
      *
      * @return FixtureFactory
      */
-    public function defineEntity(string $name, array $fieldDefinitions = [], array $configuration = [])
+    public function defineEntity(string $name, array $fieldDefinitions = [], ?\Closure $afterCreate = null)
     {
         if (\array_key_exists($name, $this->entityDefinitions)) {
             throw new \Exception(\sprintf(
@@ -137,10 +137,16 @@ final class FixtureFactory
             };
         }
 
+        if (null === $afterCreate) {
+            $afterCreate = static function (): void {
+                // nothing to do here
+            };
+        }
+
         $this->entityDefinitions[$name] = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
-            $configuration
+            $afterCreate
         );
 
         return $this;
@@ -173,8 +179,6 @@ final class FixtureFactory
         /** @var EntityDefinition $entityDefinition */
         $entityDefinition = $this->entityDefinitions[$name];
 
-        $configuration = $entityDefinition->configuration();
-
         $extraFieldNames = \array_diff(
             \array_keys($fieldOverrides),
             \array_keys($entityDefinition->fieldDefinitions())
@@ -204,9 +208,12 @@ final class FixtureFactory
             $this->setField($entity, $entityDefinition, $fieldName, $fieldValue);
         }
 
-        if (\array_key_exists('afterCreate', $configuration)) {
-            $configuration['afterCreate']($entity, $fieldValues);
-        }
+        $afterCreate = $entityDefinition->afterCreate();
+
+        $afterCreate(
+            $entity,
+            $fieldValues
+        );
 
         if ($this->persist && false === $classMetadata->isEmbeddedClass) {
             $this->entityManager->persist($entity);

@@ -24,18 +24,18 @@ final class EntityDefinition
 
     private $fieldDefinitions;
 
-    private $configuration;
+    private $afterCreate;
 
     /**
      * @param ORM\Mapping\ClassMetadata $classMetadata
      * @param array<string, callable>   $fieldDefinitions
-     * @param array<string, callable>   $configuration
+     * @param \Closure                  $afterCreate
      */
-    public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, array $configuration)
+    public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, \Closure $afterCreate)
     {
         $this->classMetadata = $classMetadata;
         $this->fieldDefinitions = $fieldDefinitions;
-        $this->configuration = $configuration;
+        $this->afterCreate = $afterCreate;
     }
 
     /**
@@ -58,13 +58,8 @@ final class EntityDefinition
         return $this->fieldDefinitions;
     }
 
-    /**
-     * Returns the extra configuration array of the entity definition.
-     *
-     * @return array<string, callable>
-     */
-    public function configuration(): array
+    public function afterCreate(): \Closure
     {
-        return $this->configuration;
+        return $this->afterCreate;
     }
 }

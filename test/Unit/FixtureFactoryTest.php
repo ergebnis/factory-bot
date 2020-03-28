@@ -627,7 +627,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertContains($repositoryTwo, $organization->repositories());
     }
 
-    public function testCanInvokeACallbackAfterObjectConstruction(): void
+    public function testDefineEntityAcceptsClosureThatWillBeInvokedAfterEntityCreation(): void
     {
         $name = self::faker()->word;
 
@@ -638,17 +638,15 @@ final class FixtureFactoryTest extends AbstractTestCase
             [
                 'name' => $name,
             ],
-            [
-                'afterCreate' => static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
-                    $name = \sprintf(
-                        '%s-%s',
-                        $organization->name(),
-                        $fieldValues['name']
-                    );
+            static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
+                $name = \sprintf(
+                    '%s-%s',
+                    $organization->name(),
+                    $fieldValues['name']
+                );
 
-                    $organization->renameTo($name);
-                },
-            ]
+                $organization->renameTo($name);
+            }
         );
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
@@ -674,14 +672,12 @@ final class FixtureFactoryTest extends AbstractTestCase
             [
                 'name' => $faker->word,
             ],
-            [
-                'afterCreate' => static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
-                    $organization->__construct(\sprintf(
-                        '%s-advanced',
-                        $fieldValues['name']
-                    ));
-                },
-            ]
+            static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
+                $organization->__construct(\sprintf(
+                    '%s-advanced',
+                    $fieldValues['name']
+                ));
+            }
         );
 
         $name = $faker->word;
