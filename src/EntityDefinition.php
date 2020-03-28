@@ -39,16 +39,6 @@ final class EntityDefinition
     }
 
     /**
-     * Returns the fielde definition callbacks.
-     *
-     * @return array<string, callable>
-     */
-    public function fieldDefinitions(): array
-    {
-        return $this->fieldDefinitions;
-    }
-
-    /**
      * Returns the Doctrine metadata for the entity to be created.
      *
      * @return ORM\Mapping\ClassMetadata
@@ -56,6 +46,16 @@ final class EntityDefinition
     public function classMetadata(): ORM\Mapping\ClassMetadata
     {
         return $this->classMetadata;
+    }
+
+    /**
+     * Returns the fielde definition callbacks.
+     *
+     * @return array<string, callable>
+     */
+    public function fieldDefinitions(): array
+    {
+        return $this->fieldDefinitions;
     }
 
     /**
