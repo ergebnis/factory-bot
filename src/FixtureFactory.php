@@ -230,25 +230,30 @@ final class FixtureFactory
      *
      * @param string $className
      * @param array  $fieldOverrides
-     * @param int    $numberOfInstances
+     * @param int    $count
      *
-     * @throws \InvalidArgumentException
+     * @throws Exception\InvalidCount
      *
      * @return object[]
      */
-    public function getList(string $className, array $fieldOverrides = [], int $numberOfInstances = 1): array
+    public function getList(string $className, array $fieldOverrides = [], int $count = 1): array
     {
-        if (1 > $numberOfInstances) {
-            throw new \InvalidArgumentException('Can only get >= 1 instances');
+        $minimumCount = 1;
+
+        if ($minimumCount > $count) {
+            throw Exception\InvalidCount::notGreaterThanorEqualTo(
+                $minimumCount,
+                $count
+            );
         }
 
-        if (1 < $numberOfInstances && \array_key_exists($className, $this->singletons)) {
-            $numberOfInstances = 1;
+        if (1 < $count && \array_key_exists($className, $this->singletons)) {
+            $count = 1;
         }
 
         $instances = [];
 
-        for ($i = 0; $i < $numberOfInstances; ++$i) {
+        for ($i = 0; $i < $count; ++$i) {
             $instances[] = $this->get($className, $fieldOverrides);
         }
 

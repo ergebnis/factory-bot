@@ -28,6 +28,7 @@ use Ergebnis\Test\Util\Helper;
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  */
 final class FixtureFactoryTest extends AbstractTestCase
@@ -214,16 +215,28 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testThrowsWhenTryingToGetLessThanOneInstance(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
+     *
+     * @param int $count
+     */
+    public function testGetListThrowsInvalidCountExceptionWhenCountIsLessThanOne(int $count): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Can only get >= 1 instances');
+        $this->expectException(Exception\InvalidCount::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Count needs to be greater than or equal to 1, but %d is not.',
+            $count
+        ));
 
-        $fixtureFactory->getList(Fixture\FixtureFactory\Entity\Organization::class, [], 0);
+        $fixtureFactory->getList(
+            Fixture\FixtureFactory\Entity\Organization::class,
+            [],
+            $count
+        );
     }
 
     public function testAcceptsConstantValuesInEntityDefinitions(): void
@@ -420,12 +433,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Repository::class, $project->repository());
     }
 
-    public function testReferencedObjectsShouldBeCreatedAutomatically(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $count
+     */
+    public function testReferencedObjectsShouldBeCreatedAutomatically(int $count): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                $count
+            ),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -438,13 +459,16 @@ final class FixtureFactoryTest extends AbstractTestCase
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount(1, $repositories);
+        self::assertCount($count, $repositories);
     }
 
-    public function testReferencedObjectsShouldBeOverrideable(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $count
+     */
+    public function testReferencedObjectsShouldBeOverrideable(int $count): void
     {
-        $count = 5;
-
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
@@ -585,7 +609,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($organizationTwo, $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class));
     }
 
-    public function testReferencedObjectsCanBeSingletons(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $count
+     */
+    public function testReferencedObjectsCanBeSingletons(int $count): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
