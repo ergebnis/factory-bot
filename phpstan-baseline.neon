@@ -33,12 +33,12 @@ parameters:
 		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
 			count: 2
-			path: src/FieldDef.php
+			path: src/FieldDefinition.php
 
 		-
 			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
 			count: 1
-			path: src/FieldDef.php
+			path: src/FieldDefinition.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"

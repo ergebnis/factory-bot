@@ -25,6 +25,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Marked `EntityDef` as internal ([#49]), by [@localheinz]
 * Started throwing an `InvalidFieldNames` exception instead of a generic `Exception` when fields are referenced that are not present in the corresponding entity ([#87]), by [@localheinz]
 * Renamed `EntityDef` to `EntityDefinition` ([#91]), by [@localheinz]
+* Renamed `FieldDef` to `FieldDefinition` ([#92]), by [@localheinz]
 
 ### Fixed
 
@@ -45,5 +46,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#79]: https://github.com/ergebnis/factory-bot/pull/79
 [#87]: https://github.com/ergebnis/factory-bot/pull/87
 [#91]: https://github.com/ergebnis/factory-bot/pull/91
+[#92]: https://github.com/ergebnis/factory-bot/pull/92
 
 [@localheinz]: https://github.com/localheinz

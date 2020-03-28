@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Integration;
 
-use Ergebnis\FactoryBot\FieldDef;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\Test\Util\Helper;
@@ -82,13 +82,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory($entityManager);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Avatar::class, [
-            'url' => FieldDef::sequence(static function () use ($faker): string {
+            'url' => FieldDefinition::sequence(static function () use ($faker): string {
                 return $faker->imageUrl();
             }),
         ]);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
-            'avatar' => FieldDef::reference(Fixture\FixtureFactory\Entity\Avatar::class),
+            'avatar' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Avatar::class),
             'login' => $faker->userName,
         ]);
 
