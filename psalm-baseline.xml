@@ -18,7 +18,7 @@
       <code>$configuration</code>
     </MissingPropertyType>
     <MissingReturnType occurrences="2">
-      <code>getFieldDefinitions</code>
+      <code>fieldDefinitions</code>
       <code>normalizeFieldDefinition</code>
     </MissingReturnType>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -79,7 +79,7 @@
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
-      <code>$entityDefinition-&gt;getFieldDefinitions()</code>
+      <code>$entityDefinition-&gt;fieldDefinitions()</code>
       <code>$fieldName</code>
       <code>$name</code>
       <code>$name</code>
