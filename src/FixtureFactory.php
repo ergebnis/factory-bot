@@ -101,13 +101,13 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
-     * @param mixed $name
-     * @param array $fieldOverrides
+     * @param string $name
+     * @param array  $fieldOverrides
      *
      * @throws Exception\EntityDefinitionUnavailable
      * @throws Exception\InvalidFieldNames
      */
-    public function get($name, array $fieldOverrides = [])
+    public function get(string $name, array $fieldOverrides = []): object
     {
         if (\array_key_exists($name, $this->singletons)) {
             return $this->singletons[$name];
@@ -170,11 +170,13 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entities are also persisted.
      *
-     * @param mixed $name
-     * @param array $fieldOverrides
-     * @param mixed $numberOfInstances
+     * @param string $name
+     * @param array  $fieldOverrides
+     * @param int    $numberOfInstances
+     *
+     * @return object[]
      */
-    public function getList($name, array $fieldOverrides = [], $numberOfInstances = 1)
+    public function getList(string $name, array $fieldOverrides = [], int $numberOfInstances = 1): array
     {
         if (1 > $numberOfInstances) {
             throw new \InvalidArgumentException('Can only get >= 1 instances');
@@ -198,9 +200,9 @@ final class FixtureFactory
      * By default it does not. In any case, you still need to call
      * flush() yourself.
      *
-     * @param mixed $enabled
+     * @param bool $enabled
      */
-    public function persistOnGet($enabled = true): void
+    public function persistOnGet(bool $enabled = true): void
     {
         $this->persist = $enabled;
     }
@@ -210,10 +212,10 @@ final class FixtureFactory
      *
      * It's illegal to call this if `$name` already has a singleton.
      *
-     * @param mixed $name
-     * @param array $fieldOverrides
+     * @param string $name
+     * @param array  $fieldOverrides
      */
-    public function getAsSingleton($name, array $fieldOverrides = [])
+    public function getAsSingleton(string $name, array $fieldOverrides = [])
     {
         if (\array_key_exists($name, $this->singletons)) {
             throw new \Exception(\sprintf(
@@ -232,10 +234,10 @@ final class FixtureFactory
      *
      * This causes `get($name)` to return `$entity`.
      *
-     * @param mixed $name
-     * @param mixed $entity
+     * @param string $name
+     * @param object $entity
      */
-    public function setSingleton($name, $entity): void
+    public function setSingleton(string $name, object $entity): void
     {
         $this->singletons[$name] = $entity;
     }
@@ -245,9 +247,9 @@ final class FixtureFactory
      *
      * This causes `get($name)` to return new entities again.
      *
-     * @param mixed $name
+     * @param string $name
      */
-    public function unsetSingleton($name): void
+    public function unsetSingleton(string $name): void
     {
         unset($this->singletons[$name]);
     }
@@ -260,7 +262,7 @@ final class FixtureFactory
         return $this->entityDefinitions;
     }
 
-    private function setField($entity, EntityDefinition $entityDefinition, $fieldName, $fieldValue): void
+    private function setField(object $entity, EntityDefinition $entityDefinition, string $fieldName, $fieldValue): void
     {
         $classMetadata = $entityDefinition->classMetadata();
 
@@ -275,7 +277,7 @@ final class FixtureFactory
         }
     }
 
-    private function createCollectionFrom($array = [])
+    private function createCollectionFrom($array = []): Common\Collections\ArrayCollection
     {
         if (\is_array($array)) {
             return new Common\Collections\ArrayCollection($array);
@@ -284,8 +286,12 @@ final class FixtureFactory
         return new Common\Collections\ArrayCollection();
     }
 
-    private function updateCollectionSideOfAssocation($entity, $classMetadata, $fieldName, $fieldValue): void
-    {
+    private function updateCollectionSideOfAssocation(
+        object $entity,
+        ORM\Mapping\ClassMetadata $classMetadata,
+        string $fieldName,
+        $fieldValue
+    ): void {
         $association = $classMetadata->getAssociationMapping($fieldName);
 
         $inversedBy = $association['inversedBy'];

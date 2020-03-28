@@ -10,17 +10,10 @@
       <code>static function () use ($fieldDefinition) {</code>
       <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MissingParamType occurrences="1">
-      <code>$fieldDefinition</code>
-    </MissingParamType>
     <MissingPropertyType occurrences="2">
       <code>$fieldDefinitions</code>
       <code>$configuration</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="2">
-      <code>fieldDefinitions</code>
-      <code>normalizeFieldDefinition</code>
-    </MissingReturnType>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$extraFieldNames</code>
     </MixedArgumentTypeCoercion>
@@ -28,21 +21,23 @@
       <code>$fieldDefinition</code>
       <code>$defaultFieldValue</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="3">
+      <code>array&lt;string, \Closure&gt;</code>
       <code>array</code>
+      <code>\Closure</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement occurrences="3">
+      <code>$this-&gt;fieldDefinitions</code>
       <code>$this-&gt;configuration</code>
+      <code>$fieldDefinition</code>
     </MixedReturnStatement>
     <TypeDoesNotContainType occurrences="1">
       <code>\method_exists($fieldDefinition, '__invoke')</code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/FieldDefinition.php">
-    <MissingClosureReturnType occurrences="3">
+    <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
-      <code>static function (FixtureFactory $factory) use ($name) {</code>
-      <code>static function (FixtureFactory $factory) use ($name, $numberOfInstances) {</code>
     </MissingClosureReturnType>
     <MixedArgument occurrences="1">
       <code>$n</code>
@@ -55,41 +50,19 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
-    <MissingParamType occurrences="8">
-      <code>$entity</code>
-      <code>$fieldName</code>
+    <MissingParamType occurrences="3">
       <code>$fieldValue</code>
       <code>$array</code>
-      <code>$entity</code>
-      <code>$classMetadata</code>
-      <code>$fieldName</code>
       <code>$fieldValue</code>
     </MissingParamType>
-    <MissingReturnType occurrences="4">
-      <code>get</code>
-      <code>getList</code>
+    <MissingReturnType occurrences="1">
       <code>getAsSingleton</code>
-      <code>createCollectionFrom</code>
     </MissingReturnType>
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="7">
       <code>$name</code>
       <code>$name</code>
       <code>$type</code>
       <code>$type</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$entityDefinition-&gt;fieldDefinitions()</code>
-      <code>$fieldName</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$fieldName</code>
-      <code>$entity</code>
-      <code>$fieldName</code>
-      <code>$entity</code>
-      <code>$fieldName</code>
-      <code>$fieldName</code>
       <code>$fieldValue</code>
       <code>$fieldValue</code>
       <code>$inversedBy</code>
@@ -97,40 +70,21 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$extraFieldNames</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$association['inversedBy']</code>
-    </MixedArrayAccess>
-    <MixedArrayOffset occurrences="7">
+    <MixedArrayOffset occurrences="1">
       <code>$this-&gt;entityDefinitions[$name]</code>
-      <code>$fieldOverrides[$fieldName]</code>
-      <code>$fieldValues[$fieldName]</code>
-      <code>$this-&gt;singletons[$name]</code>
-      <code>$this-&gt;singletons[$name]</code>
-      <code>$this-&gt;singletons[$name]</code>
-      <code>$this-&gt;singletons[$name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="5">
       <code>$type</code>
-      <code>$fieldDefinition</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
-      <code>$instances[]</code>
-      <code>$this-&gt;persist</code>
-      <code>$association</code>
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
-    <MixedFunctionCall occurrences="2">
-      <code>$fieldDefinition($this)</code>
+    <MixedFunctionCall occurrences="1">
       <code>$configuration['afterCreate']($entity, $fieldValues)</code>
     </MixedFunctionCall>
-    <MixedMethodCall occurrences="1">
-      <code>getAssociationMapping</code>
-    </MixedMethodCall>
-    <MixedPropertyTypeCoercion occurrences="3">
+    <MixedPropertyTypeCoercion occurrences="1">
       <code>$this-&gt;entityDefinitions</code>
-      <code>$this-&gt;singletons</code>
-      <code>$this-&gt;singletons</code>
     </MixedPropertyTypeCoercion>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
@@ -160,10 +114,8 @@
     </InternalMethod>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="3">
       <code>$name</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Organization::class)</code>
-      <code>$fixtureFactory-&gt;getList(Fixture\FixtureFactory\Entity\Organization::class, [], 5)</code>
       <code>$fieldValues['name']</code>
       <code>$fieldValues['name']</code>
     </MixedArgument>

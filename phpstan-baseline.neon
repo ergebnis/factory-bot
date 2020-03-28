@@ -6,22 +6,12 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:fieldDefinitions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) has parameter \\$fieldDefinition with no typehint specified\\.$#"
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
 			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
+			count: 1
+			path: src/EntityDefinition.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:normalizeFieldDefinition\\(\\) should return Closure but returns object\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
 
@@ -41,17 +31,7 @@ parameters:
 			path: src/FieldDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:get\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$fieldNames of static method Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames\\:\\:notFoundIn\\(\\) expects array\\<int, string\\>, array\\<int, \\(int\\|string\\)\\> given\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:getList\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -61,22 +41,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$entity with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldName with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -86,17 +51,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$classMetadata with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$entity with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldName with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: src/FixtureFactory.php
 

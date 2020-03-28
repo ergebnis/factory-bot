@@ -98,15 +98,17 @@ final class EntityDefinition
      *
      * @return string
      */
-    public function className()
+    public function className(): string
     {
         return $this->classMetadata->getName();
     }
 
     /**
      * Returns the fielde definition callbacks.
+     *
+     * @return array<string, \Closure>
      */
-    public function fieldDefinitions()
+    public function fieldDefinitions(): array
     {
         return $this->fieldDefinitions;
     }
@@ -116,7 +118,7 @@ final class EntityDefinition
      *
      * @return ORM\Mapping\ClassMetadata
      */
-    public function classMetadata()
+    public function classMetadata(): ORM\Mapping\ClassMetadata
     {
         return $this->classMetadata;
     }
@@ -126,12 +128,17 @@ final class EntityDefinition
      *
      * @return array
      */
-    public function configuration()
+    public function configuration(): array
     {
         return $this->configuration;
     }
 
-    private function normalizeFieldDefinition($fieldDefinition)
+    /**
+     * @param callable|\Closure|mixed $fieldDefinition
+     *
+     * @return \Closure
+     */
+    private function normalizeFieldDefinition($fieldDefinition): \Closure
     {
         if (\is_callable($fieldDefinition)) {
             if (\method_exists($fieldDefinition, '__invoke')) {
