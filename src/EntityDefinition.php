@@ -18,7 +18,7 @@ use Doctrine\ORM;
 /**
  * @internal
  */
-final class EntityDef
+final class EntityDefinition
 {
     /**
      * @var ORM\Mapping\ClassMetadata

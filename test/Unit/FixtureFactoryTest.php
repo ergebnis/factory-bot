@@ -23,7 +23,7 @@ use Ergebnis\Test\Util\Helper;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\EntityDef
+ * @covers \Ergebnis\FactoryBot\EntityDefinition
  * @covers \Ergebnis\FactoryBot\FieldDef
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
