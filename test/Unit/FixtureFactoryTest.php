@@ -109,14 +109,19 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
     {
+        $className = self::class;
+
         $entityManager = $this->prophesize(ORM\EntityManagerInterface::class)->reveal();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
         $this->expectException(Exception\EntityDefinitionUnavailable::class);
-        $this->expectExceptionMessage('foo');
+        $this->expectExceptionMessage(\sprintf(
+            'An entity definition for class name "%s" is not available.',
+            $className
+        ));
 
-        $fixtureFactory->get('foo');
+        $fixtureFactory->get($className);
     }
 
     public function testGetThrowsInvalidFieldNamesExceptionWhenReferencingFieldsThatDoNotExistInEntity(): void
