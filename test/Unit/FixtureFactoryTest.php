@@ -28,7 +28,7 @@ use Ergebnis\Test\Util\Helper;
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
- * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
+ * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  */
@@ -117,9 +117,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $this->expectException(Exception\EntityDefinitionUnavailable::class);
+        $this->expectException(Exception\EntityDefinitionNotRegistered::class);
         $this->expectExceptionMessage(\sprintf(
-            'An entity definition for class name "%s" is not available.',
+            'An entity definition for class name "%s" has not been registered.',
             $className
         ));
 

@@ -159,7 +159,7 @@ final class FixtureFactory
      * @param string               $className
      * @param array<string, mixed> $fieldOverrides
      *
-     * @throws Exception\EntityDefinitionUnavailable
+     * @throws Exception\EntityDefinitionNotRegistered
      * @throws Exception\InvalidFieldNames
      */
     public function get(string $className, array $fieldOverrides = []): object
@@ -169,7 +169,7 @@ final class FixtureFactory
         }
 
         if (!\array_key_exists($className, $this->entityDefinitions)) {
-            throw Exception\EntityDefinitionUnavailable::for($className);
+            throw Exception\EntityDefinitionNotRegistered::for($className);
         }
 
         /** @var EntityDefinition $entityDefinition */
