@@ -11,15 +11,13 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\DoesNotImplementInterface;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsFakerAwareDefinition;
 
+use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is not acceptable as it does not implement the DefinitionInterface.
- */
-final class RepositoryDefinition
+final class RepositoryDefinition implements Definition
 {
     public function accept(FixtureFactory $factory): void
     {

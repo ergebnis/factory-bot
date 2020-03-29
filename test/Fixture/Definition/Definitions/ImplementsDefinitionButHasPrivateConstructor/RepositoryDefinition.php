@@ -11,18 +11,19 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\IsAbstract;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsDefinitionButHasPrivateConstructor;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is not acceptable as it is abstract.
- */
-abstract class RepositoryDefinition implements Definition
+final class RepositoryDefinition implements Definition
 {
-    final public function accept(FixtureFactory $factory): void
+    private function __construct()
+    {
+    }
+
+    public function accept(FixtureFactory $factory): void
     {
         $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }

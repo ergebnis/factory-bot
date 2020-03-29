@@ -48,40 +48,47 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/DoesNotImplementInterface');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/DoesNotImplementDefinition');
 
         $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
-    public function testInIgnoresClassesWhichAreAbstract(): void
+    public function testInIgnoresDefinitionsThatAreAbstract(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/IsAbstract');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButIsAbstract');
 
         $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
-    public function testInIgnoresClassesWhichHavePrivateConstructors(): void
+    public function testInIgnoresDefinitionsThatHavePrivateConstructors(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/PrivateConstructor');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButHasPrivateConstructor');
 
         $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
-    public function testInAcceptsClassesWhichAreAcceptable(): void
+    public function testInThrowsInvalidDefinitionExceptionWhenExceptionIsThrownDuringInstantiationOfDefinition(): void
+    {
+        $this->expectException(Exception\InvalidDefinition::class);
+
+        Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButThrowsExceptionDuringConstruction');
+    }
+
+    public function testInAcceptsDefinitionsThatHaveNoIssues(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/Acceptable');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
 
         $definitions->registerWith($fixtureFactory);
 
@@ -92,17 +99,17 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/Acceptable');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
 
         self::assertSame($definitions, $definitions->registerWith($fixtureFactory));
         self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
     }
 
-    public function testInAcceptsClassesWhichAreAcceptableAndFakerAwareAndProvidesThemWithFaker(): void
+    public function testInAcceptsFakerAwareDefinitionsAndProvidesThemWithFaker(): void
     {
         $faker = $this->prophesize(Generator::class);
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/FakerAware');
+        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsFakerAwareDefinition');
 
         $definitions->provideWith($faker->reveal());
 
@@ -125,14 +132,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fakerAwareDefinition = \array_shift($fakerAwareDefinitions);
 
-        self::assertInstanceOf(Fixture\Definition\Definitions\FakerAware\OrganizationDefinition::class, $fakerAwareDefinition);
+        self::assertInstanceOf(Fixture\Definition\Definitions\ImplementsFakerAwareDefinition\OrganizationDefinition::class, $fakerAwareDefinition);
         self::assertSame($faker->reveal(), $fakerAwareDefinition->faker());
-    }
-
-    public function testThrowsInvalidDefinitionExceptionIfInstantiatingDefinitionsThrowsException(): void
-    {
-        $this->expectException(Exception\InvalidDefinition::class);
-
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ThrowsExceptionDuringConstruction');
     }
 }
