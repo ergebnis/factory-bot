@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\FakerAware;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsDefinition;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;

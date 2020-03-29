@@ -11,19 +11,17 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\PrivateConstructor;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsDefinitionButThrowsExceptionDuringConstruction;
 
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is not acceptable as it has a private constructor.
- */
 final class RepositoryDefinition implements Definition
 {
-    private function __construct()
+    public function __construct()
     {
+        throw new \RuntimeException();
     }
 
     public function accept(FixtureFactory $factory): void

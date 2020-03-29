@@ -11,16 +11,12 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\Acceptable;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\DoesNotImplementDefinition;
 
-use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-/**
- * Is acceptable as it implements the interface.
- */
-final class RepositoryDefinition implements Definition
+final class RepositoryDefinition
 {
     public function accept(FixtureFactory $factory): void
     {
