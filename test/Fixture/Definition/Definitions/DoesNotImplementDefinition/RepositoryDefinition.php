@@ -18,8 +18,8 @@ use Ergebnis\FactoryBot\Test\Fixture;
 
 final class RepositoryDefinition
 {
-    public function accept(FixtureFactory $factory): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }
