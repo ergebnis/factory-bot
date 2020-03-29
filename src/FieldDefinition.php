@@ -75,8 +75,8 @@ final class FieldDefinition
      */
     public static function reference(string $className): \Closure
     {
-        return static function (FixtureFactory $factory) use ($className): object {
-            return $factory->get($className);
+        return static function (FixtureFactory $fixtureFactory) use ($className): object {
+            return $fixtureFactory->get($className);
         };
     }
 
@@ -106,8 +106,8 @@ final class FieldDefinition
             );
         }
 
-        return static function (FixtureFactory $factory) use ($className, $count): array {
-            return $factory->getList(
+        return static function (FixtureFactory $fixtureFactory) use ($className, $count): array {
+            return $fixtureFactory->getList(
                 $className,
                 [],
                 $count

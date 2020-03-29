@@ -25,8 +25,8 @@ final class RepositoryDefinition implements Definition
         throw new \RuntimeException();
     }
 
-    public function accept(FixtureFactory $factory, Generator $faker): void
+    public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }

@@ -20,8 +20,8 @@ use Faker\Generator;
 
 abstract class RepositoryDefinition implements Definition
 {
-    final public function accept(FixtureFactory $factory, Generator $faker): void
+    final public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
     {
-        $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }
