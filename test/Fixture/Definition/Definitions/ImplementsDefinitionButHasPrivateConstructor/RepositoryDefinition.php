@@ -16,6 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsDefi
 use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
+use Faker\Generator;
 
 final class RepositoryDefinition implements Definition
 {
@@ -23,7 +24,7 @@ final class RepositoryDefinition implements Definition
     {
     }
 
-    public function accept(FixtureFactory $factory): void
+    public function accept(FixtureFactory $factory, Generator $faker): void
     {
         $factory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }

@@ -46,33 +46,48 @@ final class DefinitionsTest extends AbstractTestCase
 
     public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/DoesNotImplementDefinition');
 
-        $definitions->registerWith($fixtureFactory);
+        $definitions->registerWith(
+            $fixtureFactory,
+            $faker
+        );
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresDefinitionsThatAreAbstract(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButIsAbstract');
 
-        $definitions->registerWith($fixtureFactory);
+        $definitions->registerWith(
+            $fixtureFactory,
+            $faker
+        );
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresDefinitionsThatHavePrivateConstructors(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButHasPrivateConstructor');
 
-        $definitions->registerWith($fixtureFactory);
+        $definitions->registerWith(
+            $fixtureFactory,
+            $faker
+        );
 
         self::assertSame([], $fixtureFactory->definitions());
     }
@@ -86,22 +101,29 @@ final class DefinitionsTest extends AbstractTestCase
 
     public function testInAcceptsDefinitionsThatHaveNoIssues(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
 
-        $definitions->registerWith($fixtureFactory);
+        $definitions->registerWith(
+            $fixtureFactory,
+            $faker
+        );
 
         self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $fixtureFactory->definitions());
     }
 
     public function testFluentInterface(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
 
-        self::assertSame($definitions, $definitions->registerWith($fixtureFactory));
+        self::assertSame($definitions, $definitions->registerWith($fixtureFactory, $faker));
         self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
     }
 
@@ -130,6 +152,7 @@ final class DefinitionsTest extends AbstractTestCase
         self::assertCount(1, $fakerAwareDefinitions);
         self::assertContainsOnlyInstancesOf(FakerAwareDefinition::class, $fakerAwareDefinitions);
 
+        /** @var FakerAwareDefinition $fakerAwareDefinition */
         $fakerAwareDefinition = \array_shift($fakerAwareDefinitions);
 
         self::assertInstanceOf(Fixture\Definition\Definitions\ImplementsFakerAwareDefinition\OrganizationDefinition::class, $fakerAwareDefinition);

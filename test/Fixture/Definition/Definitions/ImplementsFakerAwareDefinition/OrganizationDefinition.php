@@ -25,7 +25,7 @@ final class OrganizationDefinition implements FakerAwareDefinition
      */
     private $faker;
 
-    public function accept(FixtureFactory $factory): void
+    public function accept(FixtureFactory $factory, Generator $faker): void
     {
         $factory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
     }
