@@ -15,11 +15,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 
 ### Changed
 
-* Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
-* Removed `StatusArrayType` ([#13]), by [@localheinz]
-* Removed `FieldDef::past()`, `FieldDef::future()`, and `DateIntervalHelper` ([#14]), by [@localheinz]
-* Removed `Repository` along with locking capabilities ([#15]), by [@localheinz]
-* Removed `QueryBuilder` ([#16]), by [@localheinz]
 * Used `Doctrine\ORM\EntityManagerInterface` instead of `Doctrine\ORM\EntityManager` in type and return type declarations ([#24]), by [@localheinz]
 * Marked all classes as `final` ([#33]), by [@localheinz]
 * Marked `EntityDef` as internal ([#49]), by [@localheinz]
@@ -33,6 +28,14 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 ### Fixed
 
 * Populated embeddables and disallowed referencing fields using dot notation ([#79]), by [@localheinz]
+
+### Removed
+
+* Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
+* Removed `StatusArrayType` ([#13]), by [@localheinz]
+* Removed `FieldDef::past()`, `FieldDef::future()`, and `DateIntervalHelper` ([#14]), by [@localheinz]
+* Removed `Repository` along with locking capabilities ([#15]), by [@localheinz]
+* Removed `QueryBuilder` ([#16]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
