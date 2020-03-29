@@ -18,12 +18,12 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Used `Doctrine\ORM\EntityManagerInterface` instead of `Doctrine\ORM\EntityManager` in type and return type declarations ([#24]), by [@localheinz]
 * Marked all classes as `final` ([#33]), by [@localheinz]
 * Marked `EntityDef` as internal ([#49]), by [@localheinz]
-* Started throwing an `InvalidFieldNames` exception instead of a generic `Exception` when fields are referenced that are not present in the corresponding entity ([#87]), by [@localheinz]
+* Started throwing an `Exception\InvalidFieldNames` exception instead of a generic `Exception` when fields are referenced that are not present in the corresponding entity ([#87]), by [@localheinz]
 * Renamed `EntityDef` to `EntityDefinition` ([#91]), by [@localheinz]
 * Renamed `FieldDef` to `FieldDefinition` ([#92]), by [@localheinz]
 * Turned `$configuration` parameter of `FixtureFactory::defineEntity()` into `$afterCreate`, a `Closure` that will be invoked after object construction ([#101]), by [@localheinz]
-* Started throwing an `InvalidCount` exception instead of a generic `Exception` when an invalid number of entities are requested ([#105]), by [@localheinz]
-* Started throwing an `EntityDefinitionAlreadyRegistered` exception instead of a generic `Exception` when an entity definition for a class name has already been registered ([#106]), by [@localheinz]
+* Started throwing an `Exception\InvalidCount` exception instead of a generic `Exception` when an invalid number of entities are requested ([#105]), by [@localheinz]
+* Started throwing an `Exception\EntityDefinitionAlreadyRegistered` exception instead of a generic `Exception` when an entity definition for a class name has already been registered ([#106]), by [@localheinz]
 
 ### Fixed
 
@@ -32,10 +32,10 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 ### Removed
 
 * Removed possibility to set the entity namespace on the `FixtureFactory` ([#3]), by [@localheinz]
-* Removed `StatusArrayType` ([#13]), by [@localheinz]
-* Removed `FieldDef::past()`, `FieldDef::future()`, and `DateIntervalHelper` ([#14]), by [@localheinz]
-* Removed `Repository` along with locking capabilities ([#15]), by [@localheinz]
-* Removed `QueryBuilder` ([#16]), by [@localheinz]
+* Removed `Provider\Doctrine\DBAL\Types\StatusArrayType` ([#13]), by [@localheinz]
+* Removed `Doctrine\FieldDef::past()`, `Doctrine\FieldDef::future()`, and `Doctrine\DateIntervalHelper` ([#14]), by [@localheinz]
+* Removed `Doctrine\ORM\Repository` along with locking capabilities ([#15]), by [@localheinz]
+* Removed `Doctrine\ORM\QueryBuilder` ([#16]), by [@localheinz]
 * Removed `Definition\AbstractDefinition` ([#114]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
