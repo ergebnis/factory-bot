@@ -38,6 +38,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `Doctrine\ORM\Repository` along with locking capabilities ([#15]), by [@localheinz]
 * Removed `Doctrine\ORM\QueryBuilder` ([#16]), by [@localheinz]
 * Removed `Definition\AbstractDefinition` ([#114] and [#116]), by [@localheinz]
+* Removed `Definition\FakerAwareDefinition` ([#120]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -61,5 +62,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#114]: https://github.com/ergebnis/factory-bot/pull/114
 [#116]: https://github.com/ergebnis/factory-bot/pull/116
 [#117]: https://github.com/ergebnis/factory-bot/pull/117
+[#120]: https://github.com/ergebnis/factory-bot/pull/120
 
 [@localheinz]: https://github.com/localheinz
