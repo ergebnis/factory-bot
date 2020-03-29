@@ -19,18 +19,18 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Exception\EntityDefinitionUnavailable
+ * @covers \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  */
-final class EntityDefinitionUnavailableTest extends Framework\TestCase
+final class EntityDefinitionNotRegisteredTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
     {
         $className = 'foo';
 
-        $exception = Exception\EntityDefinitionUnavailable::for($className);
+        $exception = Exception\EntityDefinitionNotRegistered::for($className);
 
         $message = \sprintf(
-            'An entity definition for class name "%s" is not available.',
+            'An entity definition for class name "%s" has not been registered.',
             $className
         );
 

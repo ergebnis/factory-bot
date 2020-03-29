@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-final class EntityDefinitionUnavailable extends \RuntimeException implements Exception
+final class EntityDefinitionNotRegistered extends \RuntimeException implements Exception
 {
     public static function for(string $className): self
     {
         return new self(\sprintf(
-            'An entity definition for class name "%s" is not available.',
+            'An entity definition for class name "%s" has not been registered.',
             $className
         ));
     }
