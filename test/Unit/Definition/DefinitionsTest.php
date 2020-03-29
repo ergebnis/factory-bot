@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Definition;
 
-use Ergebnis\FactoryBot\Definition\Definition;
 use Ergebnis\FactoryBot\Definition\Definitions;
-use Ergebnis\FactoryBot\Definition\FakerAwareDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
@@ -125,37 +123,5 @@ final class DefinitionsTest extends AbstractTestCase
 
         self::assertSame($definitions, $definitions->registerWith($fixtureFactory, $faker));
         self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
-    }
-
-    public function testInAcceptsFakerAwareDefinitionsAndProvidesThemWithFaker(): void
-    {
-        $faker = $this->prophesize(Generator::class);
-
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsFakerAwareDefinition');
-
-        $definitions->provideWith($faker->reveal());
-
-        $reflection = new \ReflectionClass(Definitions::class);
-
-        $property = $reflection->getProperty('definitions');
-
-        $property->setAccessible(true);
-
-        $foundDefinitions = $property->getValue($definitions);
-
-        self::assertIsArray($foundDefinitions);
-
-        $fakerAwareDefinitions = \array_filter($foundDefinitions, static function (Definition $definition): bool {
-            return $definition instanceof FakerAwareDefinition;
-        });
-
-        self::assertCount(1, $fakerAwareDefinitions);
-        self::assertContainsOnlyInstancesOf(FakerAwareDefinition::class, $fakerAwareDefinitions);
-
-        /** @var FakerAwareDefinition $fakerAwareDefinition */
-        $fakerAwareDefinition = \array_shift($fakerAwareDefinitions);
-
-        self::assertInstanceOf(Fixture\Definition\Definitions\ImplementsFakerAwareDefinition\OrganizationDefinition::class, $fakerAwareDefinition);
-        self::assertSame($faker->reveal(), $fakerAwareDefinition->faker());
     }
 }

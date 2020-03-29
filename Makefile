@@ -1,5 +1,5 @@
-MIN_COVERED_MSI:=94
-MIN_MSI:=87
+MIN_COVERED_MSI:=93
+MIN_MSI:=86
 
 .PHONY: it
 it: coding-standards static-code-analysis tests ## Runs the coding-standards, static-code-analysis, and tests targets
