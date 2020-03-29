@@ -36,7 +36,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `Doctrine\FieldDef::past()`, `Doctrine\FieldDef::future()`, and `Doctrine\DateIntervalHelper` ([#14]), by [@localheinz]
 * Removed `Doctrine\ORM\Repository` along with locking capabilities ([#15]), by [@localheinz]
 * Removed `Doctrine\ORM\QueryBuilder` ([#16]), by [@localheinz]
-* Removed `Definition\AbstractDefinition` ([#114]), by [@localheinz]
+* Removed `Definition\AbstractDefinition` ([#114] and [#116]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -58,5 +58,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#105]: https://github.com/ergebnis/factory-bot/pull/105
 [#106]: https://github.com/ergebnis/factory-bot/pull/106
 [#114]: https://github.com/ergebnis/factory-bot/pull/114
+[#116]: https://github.com/ergebnis/factory-bot/pull/116
 
 [@localheinz]: https://github.com/localheinz
