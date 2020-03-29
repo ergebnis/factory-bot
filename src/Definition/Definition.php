@@ -18,5 +18,5 @@ use Faker\Generator;
 
 interface Definition
 {
-    public function accept(FixtureFactory $fixturefactory, Generator $faker): void;
+    public function accept(FixtureFactory $fixtureFactory, Generator $faker): void;
 }
