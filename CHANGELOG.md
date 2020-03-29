@@ -24,6 +24,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Turned `$configuration` parameter of `FixtureFactory::defineEntity()` into `$afterCreate`, a `Closure` that will be invoked after object construction ([#101]), by [@localheinz]
 * Started throwing an `Exception\InvalidCount` exception instead of a generic `Exception` when an invalid number of entities are requested ([#105]), by [@localheinz]
 * Started throwing an `Exception\EntityDefinitionAlreadyRegistered` exception instead of a generic `Exception` when an entity definition for a class name has already been registered ([#106]), by [@localheinz]
+* Added `$faker` parameter to `Definition\Definition::accept()` and `Definition\Definitions::registerWith()`, providing and requiring to pass in an instance of `Faker\Generator` ([#117]), by [@localheinz]
 
 ### Fixed
 
@@ -59,5 +60,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#106]: https://github.com/ergebnis/factory-bot/pull/106
 [#114]: https://github.com/ergebnis/factory-bot/pull/114
 [#116]: https://github.com/ergebnis/factory-bot/pull/116
+[#117]: https://github.com/ergebnis/factory-bot/pull/117
 
 [@localheinz]: https://github.com/localheinz

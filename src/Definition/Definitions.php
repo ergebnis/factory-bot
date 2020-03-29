@@ -83,13 +83,17 @@ final class Definitions
      * Registers all found definitions with the specified fixture factory.
      *
      * @param FixtureFactory $fixtureFactory
+     * @param Generator      $faker
      *
      * @return self
      */
-    public function registerWith(FixtureFactory $fixtureFactory): self
+    public function registerWith(FixtureFactory $fixtureFactory, Generator $faker): self
     {
         foreach ($this->definitions as $definition) {
-            $definition->accept($fixtureFactory);
+            $definition->accept(
+                $fixtureFactory,
+                $faker
+            );
         }
 
         return $this;
