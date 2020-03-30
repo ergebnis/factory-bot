@@ -67,15 +67,15 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity($className);
     }
 
-    public function testDefineEntityThrowsExceptionWhenClassNameDoesNotReferenceAnEntity(): void
+    public function testDefineEntityThrowsClassMetadataNotFoundExceptionWhenClassNameDoesNotReferenceAnEntity(): void
     {
         $className = Fixture\FixtureFactory\NotAnEntity\User::class;
 
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\ClassMetadataNotFound::class);
         $this->expectExceptionMessage(\sprintf(
-            'Class "%s" is not a valid entity or mapped super class.',
+            'Class metadata for a class with the name "%s" could not be found.',
             $className
         ));
 
