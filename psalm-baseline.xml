@@ -38,8 +38,9 @@
       <code>$fieldDefinitions</code>
       <code>$fieldOverrides</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="6">
       <code>$defaultFieldValue</code>
+      <code>$fieldValues[$fieldName]</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$inversedBy</code>
