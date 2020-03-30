@@ -15,11 +15,7 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
-    <InvalidArgument occurrences="1">
-      <code>$fieldDefinition</code>
-    </InvalidArgument>
-    <MissingClosureReturnType occurrences="4">
-      <code>static function () use ($fieldDefinition) {</code>
+    <MissingClosureReturnType occurrences="3">
       <code>static function () use ($fieldDefinition) {</code>
       <code>static function () {</code>
       <code>static function () use ($defaultFieldValue) {</code>
@@ -34,8 +30,7 @@
       <code>$fieldValue</code>
       <code>$inversedBy</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$fieldDefinitions</code>
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>$fieldOverrides</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="6">
@@ -46,15 +41,6 @@
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>callable</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$fieldDefinition</code>
-    </MixedReturnStatement>
-    <TypeDoesNotContainType occurrences="1">
-      <code>\method_exists($fieldDefinition, '__invoke')</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
