@@ -67,7 +67,9 @@ final class FieldDefinition
      *
      * The normal semantics of `get()` apply.
      *
-     * @param string $className
+     * @template T
+     *
+     * @param class-string<T> $className
      *
      * @return \Closure
      */
@@ -83,8 +85,10 @@ final class FieldDefinition
      *
      * The normal semantics of `get()` apply.
      *
-     * @param string $className
-     * @param int    $count
+     * @template T
+     *
+     * @param class-string<T> $className
+     * @param int             $count
      *
      * @throws Exception\InvalidCount
      *

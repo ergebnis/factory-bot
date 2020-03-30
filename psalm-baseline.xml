@@ -87,6 +87,9 @@
     </MissingClosureParamType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$className</code>
+    </ArgumentTypeCoercion>
     <MixedArgument occurrences="2">
       <code>$name</code>
       <code>$fieldValues['name']</code>
@@ -100,5 +103,9 @@
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
   </file>
 </files>
