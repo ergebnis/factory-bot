@@ -84,10 +84,8 @@ final class Definitions
      *
      * @param FixtureFactory $fixtureFactory
      * @param Generator      $faker
-     *
-     * @return self
      */
-    public function registerWith(FixtureFactory $fixtureFactory, Generator $faker): self
+    public function registerWith(FixtureFactory $fixtureFactory, Generator $faker): void
     {
         foreach ($this->definitions as $definition) {
             $definition->accept(
@@ -95,25 +93,5 @@ final class Definitions
                 $faker
             );
         }
-
-        return $this;
-    }
-
-    /**
-     * Provides all found definitions with the specified faker generator if they desire it.
-     *
-     * @param Generator $faker
-     *
-     * @return self
-     */
-    public function provideWith(Generator $faker): self
-    {
-        foreach ($this->definitions as $definition) {
-            if ($definition instanceof FakerAwareDefinition) {
-                $definition->provideWith($faker);
-            }
-        }
-
-        return $this;
     }
 }
