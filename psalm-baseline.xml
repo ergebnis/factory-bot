@@ -19,10 +19,10 @@
       <code>$fieldDefinition</code>
     </InvalidArgument>
     <MissingClosureReturnType occurrences="4">
+      <code>static function () use ($fieldDefinition) {</code>
+      <code>static function () use ($fieldDefinition) {</code>
       <code>static function () {</code>
       <code>static function () use ($defaultFieldValue) {</code>
-      <code>static function () use ($fieldDefinition) {</code>
-      <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="3">
       <code>$fieldValue</code>

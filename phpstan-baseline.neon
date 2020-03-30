@@ -21,6 +21,16 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
+			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Anonymous function should return callable\\(\\)\\: mixed but returns object\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
@@ -37,16 +47,6 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Parameter \\#1 \\$object of function method_exists expects object\\|string, callable given\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:normalizeFieldDefinition\\(\\) should return callable\\(\\)\\: mixed but returns object\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

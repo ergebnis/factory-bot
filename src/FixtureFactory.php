@@ -97,7 +97,19 @@ final class FixtureFactory
         }
 
         $fieldDefinitions = \array_map(static function ($fieldDefinition): callable {
-            return self::normalizeFieldDefinition($fieldDefinition);
+            if (\is_callable($fieldDefinition)) {
+                if (\method_exists($fieldDefinition, '__invoke')) {
+                    return $fieldDefinition;
+                }
+
+                return static function () use ($fieldDefinition) {
+                    return \call_user_func_array($fieldDefinition, \func_get_args());
+                };
+            }
+
+            return static function () use ($fieldDefinition) {
+                return $fieldDefinition;
+            };
         }, $fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
@@ -304,27 +316,5 @@ final class FixtureFactory
                 $collection->add($entity);
             }
         }
-    }
-
-    /**
-     * @param callable|\Closure|mixed|object $fieldDefinition
-     *
-     * @return callable
-     */
-    private static function normalizeFieldDefinition($fieldDefinition): callable
-    {
-        if (\is_callable($fieldDefinition)) {
-            if (\method_exists($fieldDefinition, '__invoke')) {
-                return $fieldDefinition;
-            }
-
-            return static function () use ($fieldDefinition) {
-                return \call_user_func_array($fieldDefinition, \func_get_args());
-            };
-        }
-
-        return static function () use ($fieldDefinition) {
-            return $fieldDefinition;
-        };
     }
 }
