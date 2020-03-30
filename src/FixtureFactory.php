@@ -45,9 +45,11 @@ final class FixtureFactory
      *
      * See the readme for a tutorial.
      *
-     * @param string   $className
-     * @param array    $fieldDefinitions
-     * @param \Closure $afterCreate
+     * @template T
+     *
+     * @param class-string<T> $className
+     * @param array           $fieldDefinitions
+     * @param \Closure        $afterCreate
      *
      * @throws Exception\ClassMetadataNotFound
      * @throws Exception\ClassNotFound
@@ -142,13 +144,17 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
-     * @param string               $className
+     * @template T
+     *
+     * @param class-string<T>      $className
      * @param array<string, mixed> $fieldOverrides
      *
      * @throws Exception\EntityDefinitionNotRegistered
      * @throws Exception\InvalidFieldNames
+     *
+     * @return T
      */
-    public function get(string $className, array $fieldOverrides = []): object
+    public function get(string $className, array $fieldOverrides = [])
     {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
@@ -172,6 +178,7 @@ final class FixtureFactory
         /** @var ORM\Mapping\ClassMetadata $classMetadata */
         $classMetadata = $entityDefinition->classMetadata();
 
+        /** @var T $entity */
         $entity = $classMetadata->newInstance();
 
         $fieldValues = [];
@@ -205,13 +212,15 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entities are also persisted.
      *
-     * @param string $className
-     * @param array  $fieldOverrides
-     * @param int    $count
+     * @template T
+     *
+     * @param class-string<T> $className
+     * @param array           $fieldOverrides
+     * @param int             $count
      *
      * @throws Exception\InvalidCount
      *
-     * @return object[]
+     * @return array<int, T>
      */
     public function getList(string $className, array $fieldOverrides = [], int $count = 1): array
     {

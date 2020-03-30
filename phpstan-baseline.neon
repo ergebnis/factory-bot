@@ -96,6 +96,16 @@ parameters:
 			path: test/Fixture/FixtureFactory/Entity/User.php
 
 		-
+			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
@@ -103,6 +113,11 @@ parameters:
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 2
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Project will always evaluate to true\\.$#"
+			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
