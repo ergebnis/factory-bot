@@ -66,8 +66,6 @@ final class FieldDefinition
      * Defines a field to `get()` a named entity from the factory.
      *
      * The normal semantics of `get()` apply.
-     * Normally this means that the field gets a fresh instance of the named
-     * entity. If a singleton has been defined, `get()` will return that.
      *
      * @param string $className
      *
@@ -84,9 +82,6 @@ final class FieldDefinition
      * Defines a field to `get()` a collection of named entities from the factory.
      *
      * The normal semantics of `get()` apply.
-     *
-     * Normally this means that the field gets a fresh instance of the named
-     * entity. If a singleton has been defined, a collection with a single instance will be returned.
      *
      * @param string $className
      * @param int    $count

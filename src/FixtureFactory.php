@@ -31,11 +31,6 @@ final class FixtureFactory
     private $entityDefinitions = [];
 
     /**
-     * @var array<string, object>
-     */
-    private $singletons = [];
-
-    /**
      * @var bool
      */
     private $persist = false;
@@ -151,9 +146,6 @@ final class FixtureFactory
     /**
      * Get an entity and its dependencies.
      *
-     * Whether the entity is new or not depends on whether you've created
-     * a singleton with the entity name. See `getAsSingleton()`.
-     *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
      * @param string               $className
@@ -164,10 +156,6 @@ final class FixtureFactory
      */
     public function get(string $className, array $fieldOverrides = []): object
     {
-        if (\array_key_exists($className, $this->singletons)) {
-            return $this->singletons[$className];
-        }
-
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
         }
@@ -221,9 +209,6 @@ final class FixtureFactory
     /**
      * Get an array of entities and their dependencies.
      *
-     * Whether the entities are new or not depends on whether you've created
-     * a singleton with the entity name. See `getAsSingleton()`.
-     *
      * If you've called `persistOnGet()` then the entities are also persisted.
      *
      * @param string $className
@@ -245,10 +230,6 @@ final class FixtureFactory
             );
         }
 
-        if (1 < $count && \array_key_exists($className, $this->singletons)) {
-            $count = 1;
-        }
-
         $instances = [];
 
         for ($i = 0; $i < $count; ++$i) {
@@ -268,57 +249,6 @@ final class FixtureFactory
     public function persistOnGet(bool $enabled = true): void
     {
         $this->persist = $enabled;
-    }
-
-    /**
-     * A shorthand combining `get()` and `setSingleton()`.
-     *
-     * It's illegal to call this if `$className` already has a singleton.
-     *
-     * @param string               $className
-     * @param array<string, mixed> $fieldOverrides
-     *
-     * @throws \Exception
-     *
-     * @return object
-     */
-    public function getAsSingleton(string $className, array $fieldOverrides = []): object
-    {
-        if (\array_key_exists($className, $this->singletons)) {
-            throw new \Exception(\sprintf(
-                'Already a singleton: %s',
-                $className
-            ));
-        }
-
-        $this->singletons[$className] = $this->get($className, $fieldOverrides);
-
-        return $this->singletons[$className];
-    }
-
-    /**
-     * Sets `$entity` to be the singleton for `$className`.
-     *
-     * This causes `get($name)` to return `$entity`.
-     *
-     * @param string $className
-     * @param object $entity
-     */
-    public function setSingleton(string $className, object $entity): void
-    {
-        $this->singletons[$className] = $entity;
-    }
-
-    /**
-     * Unsets the singleton for `$className`.
-     *
-     * This causes `get($className)` to return new entities again.
-     *
-     * @param string $className
-     */
-    public function unsetSingleton(string $className): void
-    {
-        unset($this->singletons[$className]);
     }
 
     /**
