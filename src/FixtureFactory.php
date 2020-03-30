@@ -184,9 +184,13 @@ final class FixtureFactory
         $fieldValues = [];
 
         foreach ($entityDefinition->fieldDefinitions() as $fieldName => $fieldDefinition) {
-            $fieldValues[$fieldName] = \array_key_exists($fieldName, $fieldOverrides)
-                ? $fieldOverrides[$fieldName]
-                : $fieldDefinition($this);
+            if (\array_key_exists($fieldName, $fieldOverrides)) {
+                $fieldValues[$fieldName] = $fieldOverrides[$fieldName];
+
+                continue;
+            }
+
+            $fieldValues[$fieldName] = $fieldDefinition($this);
         }
 
         foreach ($fieldValues as $fieldName => $fieldValue) {
