@@ -38,7 +38,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 {
     use Helper;
 
-    public function testDefineEntityThrowsExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
+    public function testDefineEntityThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
     {
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
@@ -102,7 +102,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
+    public function testGetThrowsEntityDefinitionNotRegisteredWhenEntityDefinitionHasNotBeenRegistered(): void
     {
         $className = self::class;
 
