@@ -27,6 +27,7 @@ use Ergebnis\Test\Util\Helper;
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
+ * @uses \Ergebnis\FactoryBot\Exception\ClassNotFound
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
@@ -51,15 +52,15 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
     }
 
-    public function testDefineEntityThrowsExceptionWhenClassDoesNotExist(): void
+    public function testDefineEntityThrowsClassNotFoundExceptionWhenClassDoesNotExist(): void
     {
         $className = 'NotAClass';
 
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception\ClassNotFound::class);
         $this->expectExceptionMessage(\sprintf(
-            'Not a class: %s',
+            'A class with the name "%s" could not be found.',
             $className
         ));
 

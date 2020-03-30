@@ -49,6 +49,7 @@ final class FixtureFactory
      * @param array    $fieldDefinitions
      * @param \Closure $afterCreate
      *
+     * @throws Exception\ClassNotFound
      * @throws Exception\EntityDefinitionAlreadyRegistered
      * @throws Exception\InvalidFieldNames
      * @throws \Exception
@@ -62,10 +63,7 @@ final class FixtureFactory
         }
 
         if (!\class_exists($className, true)) {
-            throw new \Exception(\sprintf(
-                'Not a class: %s',
-                $className
-            ));
+            throw Exception\ClassNotFound::name($className);
         }
 
         /** @var null|ORM\Mapping\ClassMetadata $classMetadata */

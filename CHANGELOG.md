@@ -25,6 +25,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Started throwing an `Exception\InvalidCount` exception instead of a generic `Exception` when an invalid number of entities are requested ([#105]), by [@localheinz]
 * Started throwing an `Exception\EntityDefinitionAlreadyRegistered` exception instead of a generic `Exception` when an entity definition for a class name has already been registered ([#106]), by [@localheinz]
 * Added `$faker` parameter to `Definition\Definition::accept()` and `Definition\Definitions::registerWith()`, providing and requiring to pass in an instance of `Faker\Generator` ([#117]), by [@localheinz]
+* Started throwing an `Exception\ClassNotFound` exception instead of a generic `Exception` when a class was not found ([#125]), by [@localheinz]
 
 ### Fixed
 
@@ -38,7 +39,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `Doctrine\ORM\Repository` along with locking capabilities ([#15]), by [@localheinz]
 * Removed `Doctrine\ORM\QueryBuilder` ([#16]), by [@localheinz]
 * Removed `Definition\AbstractDefinition` ([#114] and [#116]), by [@localheinz]
-* Removed `Definition\FakerAwareDefinition` ([#120]), by [@localheinz]
+* Removed `Definition\FakerAwareDefinition` ([#120] and [#123]), by [@localheinz]
 * Removed `FixtureFactory::provideWith()` ([#122]), by [@localheinz]
 * Removed `FixtureFactory::getAsSingleton()`, `FixtureFactory::setSingleton()`, and `FixtureFactory::unsetSingleton()` ([#124]), by [@localheinz]
 
@@ -68,5 +69,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#122]: https://github.com/ergebnis/factory-bot/pull/122
 [#123]: https://github.com/ergebnis/factory-bot/pull/123
 [#124]: https://github.com/ergebnis/factory-bot/pull/124
+[#125]: https://github.com/ergebnis/factory-bot/pull/125
 
 [@localheinz]: https://github.com/localheinz
