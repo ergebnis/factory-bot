@@ -19,7 +19,6 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 use Ergebnis\Test\Util\Helper;
-use Faker\Generator;
 
 /**
  * @internal
@@ -111,17 +110,5 @@ final class DefinitionsTest extends AbstractTestCase
         );
 
         self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $fixtureFactory->definitions());
-    }
-
-    public function testFluentInterface(): void
-    {
-        $faker = self::faker();
-
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
-
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
-
-        self::assertSame($definitions, $definitions->registerWith($fixtureFactory, $faker));
-        self::assertSame($definitions, $definitions->provideWith($this->prophesize(Generator::class)->reveal()));
     }
 }
