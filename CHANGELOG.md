@@ -30,6 +30,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 ### Fixed
 
 * Populated embeddables and disallowed referencing fields using dot notation ([#79]), by [@localheinz]
+* Started throwing an `Exception\ClassMetadataNotFound` exception instead of bubbling up `Doctrine\ORM\Mapping\MappingException` when a class is not an entity ([#126]), by [@localheinz]
 
 ### Removed
 
@@ -70,5 +71,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#123]: https://github.com/ergebnis/factory-bot/pull/123
 [#124]: https://github.com/ergebnis/factory-bot/pull/124
 [#125]: https://github.com/ergebnis/factory-bot/pull/125
+[#126]: https://github.com/ergebnis/factory-bot/pull/126
 
 [@localheinz]: https://github.com/localheinz

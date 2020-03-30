@@ -49,10 +49,10 @@ final class FixtureFactory
      * @param array    $fieldDefinitions
      * @param \Closure $afterCreate
      *
+     * @throws Exception\ClassMetadataNotFound
      * @throws Exception\ClassNotFound
      * @throws Exception\EntityDefinitionAlreadyRegistered
      * @throws Exception\InvalidFieldNames
-     * @throws \Exception
      *
      * @return FixtureFactory
      */
@@ -66,14 +66,10 @@ final class FixtureFactory
             throw Exception\ClassNotFound::name($className);
         }
 
-        /** @var null|ORM\Mapping\ClassMetadata $classMetadata */
-        $classMetadata = $this->entityManager->getClassMetadata($className);
-
-        if (null === $classMetadata) {
-            throw new \Exception(\sprintf(
-                'Unknown entity type: %s',
-                $className
-            ));
+        try {
+            $classMetadata = $this->entityManager->getClassMetadata($className);
+        } catch (ORM\Mapping\MappingException $exception) {
+            throw Exception\ClassMetadataNotFound::for($className);
         }
 
         /** @var string[] $allFieldNames */
