@@ -55,10 +55,8 @@ final class FixtureFactory
      * @throws Exception\ClassNotFound
      * @throws Exception\EntityDefinitionAlreadyRegistered
      * @throws Exception\InvalidFieldNames
-     *
-     * @return FixtureFactory
      */
-    public function defineEntity(string $className, array $fieldDefinitions = [], ?\Closure $afterCreate = null)
+    public function defineEntity(string $className, array $fieldDefinitions = [], ?\Closure $afterCreate = null): void
     {
         if (\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionAlreadyRegistered::for($className);
@@ -135,8 +133,6 @@ final class FixtureFactory
             $fieldDefinitions,
             $afterCreate
         );
-
-        return $this;
     }
 
     /**

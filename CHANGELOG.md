@@ -27,6 +27,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Added `$faker` parameter to `Definition\Definition::accept()` and `Definition\Definitions::registerWith()`, providing and requiring to pass in an instance of `Faker\Generator` ([#117]), by [@localheinz]
 * Started throwing an `Exception\ClassNotFound` exception instead of a generic `Exception` when a class was not found ([#125]), by [@localheinz]
 * Added `@template` annotations to assist with static code analysis ([#128]), by [@localheinz]
+* Removed the fluent interface from `FixtureFactory::defineEntity()` ([#131]), by [@localheinz]
 
 ### Fixed
 
@@ -74,5 +75,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#125]: https://github.com/ergebnis/factory-bot/pull/125
 [#126]: https://github.com/ergebnis/factory-bot/pull/126
 [#128]: https://github.com/ergebnis/factory-bot/pull/128
+[#131]: https://github.com/ergebnis/factory-bot/pull/131
 
 [@localheinz]: https://github.com/localheinz

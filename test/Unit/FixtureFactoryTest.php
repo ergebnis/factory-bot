@@ -102,15 +102,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testDefineEntityReturnsFixtureFactory(): void
-    {
-        $entityManager = self::createEntityManager();
-
-        $fixtureFactory = new FixtureFactory($entityManager);
-
-        self::assertSame($fixtureFactory, $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class));
-    }
-
     public function testGetThrowsEntityDefinitionUnavailableWhenDefinitionIsUnavailable(): void
     {
         $className = self::class;
