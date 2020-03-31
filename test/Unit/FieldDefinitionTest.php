@@ -78,7 +78,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $count
      */
@@ -126,7 +126,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $firstNumber
      */
@@ -187,7 +187,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $firstNumber
      */
@@ -245,7 +245,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $firstNumber
      */
@@ -298,7 +298,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $firstNumber
      */
