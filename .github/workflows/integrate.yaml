@@ -457,6 +457,9 @@ jobs:
               repo: repository.repo,
             })
 
+      - name: "Wait"
+        run: "sleep 5"
+
       - name: "Merge pull request"
         uses: "actions/github-script@0.8.0"
         with:
