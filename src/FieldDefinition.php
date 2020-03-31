@@ -18,6 +18,20 @@ namespace Ergebnis\FactoryBot;
  */
 final class FieldDefinition
 {
+    private $closure;
+
+    private function __construct(\Closure $closure)
+    {
+        $this->closure = $closure;
+    }
+
+    public function __invoke(FixtureFactory $fixtureFactory)
+    {
+        $closure = $this->closure;
+
+        return $closure($fixtureFactory);
+    }
+
     /**
      * Defines a field to be a string based on an incrementing integer.
      *
@@ -33,33 +47,33 @@ final class FieldDefinition
      * @param callable|string $funcOrString the function or pattern to generate a value from
      * @param int             $firstNum     the first number to use
      *
-     * @return \Closure
+     * @return self
      */
-    public static function sequence($funcOrString, int $firstNum = 1): \Closure
+    public static function sequence($funcOrString, int $firstNum = 1): self
     {
         $n = $firstNum - 1;
 
         if (\is_callable($funcOrString)) {
-            return static function () use (&$n, $funcOrString) {
+            return new self(static function () use (&$n, $funcOrString) {
                 ++$n;
 
                 return \call_user_func($funcOrString, $n);
-            };
+            });
         }
 
         if (false !== \strpos($funcOrString, '%d')) {
-            return static function () use (&$n, $funcOrString) {
+            return new self(static function () use (&$n, $funcOrString) {
                 ++$n;
 
                 return \str_replace('%d', $n, $funcOrString);
-            };
+            });
         }
 
-        return static function () use (&$n, $funcOrString) {
+        return new self(static function () use (&$n, $funcOrString) {
             ++$n;
 
             return $funcOrString . $n;
-        };
+        });
     }
 
     /**
@@ -71,13 +85,13 @@ final class FieldDefinition
      *
      * @param class-string<T> $className
      *
-     * @return \Closure
+     * @return self
      */
-    public static function reference(string $className): \Closure
+    public static function reference(string $className): self
     {
-        return static function (FixtureFactory $fixtureFactory) use ($className): object {
+        return new self(static function (FixtureFactory $fixtureFactory) use ($className): object {
             return $fixtureFactory->get($className);
-        };
+        });
     }
 
     /**
@@ -92,9 +106,9 @@ final class FieldDefinition
      *
      * @throws Exception\InvalidCount
      *
-     * @return \Closure
+     * @return self
      */
-    public static function references(string $className, int $count = 1): \Closure
+    public static function references(string $className, int $count = 1): self
     {
         $minimumCount = 1;
 
@@ -105,12 +119,12 @@ final class FieldDefinition
             );
         }
 
-        return static function (FixtureFactory $fixtureFactory) use ($className, $count): array {
+        return new self(static function (FixtureFactory $fixtureFactory) use ($className, $count): array {
             return $fixtureFactory->getList(
                 $className,
                 [],
                 $count
             );
-        };
+        });
     }
 }
