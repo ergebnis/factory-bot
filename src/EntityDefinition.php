@@ -30,9 +30,19 @@ final class EntityDefinition
      * @param ORM\Mapping\ClassMetadata      $classMetadata
      * @param array<string, FieldDefinition> $fieldDefinitions
      * @param \Closure                       $afterCreate
+     *
+     * @throws Exception\InvalidFieldDefinitions
      */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, \Closure $afterCreate)
     {
+        $invalidFieldDefinitions = \array_filter($fieldDefinitions, static function ($fieldDefinition): bool {
+            return !$fieldDefinition instanceof FieldDefinition;
+        });
+
+        if ([] !== $invalidFieldDefinitions) {
+            throw Exception\InvalidFieldDefinitions::values();
+        }
+
         $this->classMetadata = $classMetadata;
         $this->fieldDefinitions = $fieldDefinitions;
         $this->afterCreate = $afterCreate;

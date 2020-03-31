@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
+  <file src="src/EntityDefinition.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>return !$fieldDefinition instanceof FieldDefinition;</code>
+    </DocblockTypeContradiction>
+    <MissingPropertyType occurrences="3">
+      <code>$classMetadata</code>
+      <code>$fieldDefinitions</code>
+      <code>$afterCreate</code>
+    </MissingPropertyType>
+    <MixedInferredReturnType occurrences="3">
+      <code>ORM\Mapping\ClassMetadata</code>
+      <code>array&lt;string, FieldDefinition&gt;</code>
+      <code>\Closure</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="3">
+      <code>$this-&gt;classMetadata</code>
+      <code>$this-&gt;fieldDefinitions</code>
+      <code>$this-&gt;afterCreate</code>
+    </MixedReturnStatement>
+  </file>
   <file src="src/FieldDefinition.php">
     <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
@@ -71,9 +91,16 @@
     </InternalMethod>
   </file>
   <file src="test/Unit/EntityDefinitionTest.php">
-    <MissingClosureParamType occurrences="1">
+    <MissingClosureParamType occurrences="2">
+      <code>$entity</code>
       <code>$entity</code>
     </MissingClosureParamType>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$fieldDefinitions</code>
+    </MixedArgumentTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>\Generator</code>
+    </MixedInferredReturnType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">

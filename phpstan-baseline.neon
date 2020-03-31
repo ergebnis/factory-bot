@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition and Ergebnis\\\\FactoryBot\\\\FieldDefinition will always evaluate to true\\.$#"
+			count: 1
+			path: src/EntityDefinition.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/FieldDefinition.php
