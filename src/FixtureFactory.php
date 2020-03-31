@@ -96,14 +96,18 @@ final class FixtureFactory
             );
         }
 
-        $fieldDefinitions = \array_map(static function ($fieldDefinition): \Closure {
-            if (!$fieldDefinition instanceof \Closure) {
-                return static function () use ($fieldDefinition) {
-                    return $fieldDefinition;
-                };
+        $fieldDefinitions = \array_map(static function ($fieldDefinition): FieldDefinition {
+            if ($fieldDefinition instanceof FieldDefinition) {
+                return $fieldDefinition;
             }
 
-            return $fieldDefinition;
+            if ($fieldDefinition instanceof \Closure) {
+                return FieldDefinition::sequence($fieldDefinition);
+            }
+
+            return FieldDefinition::sequence(static function () use ($fieldDefinition) {
+                return $fieldDefinition;
+            });
         }, $fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
@@ -116,16 +120,16 @@ final class FixtureFactory
             $defaultFieldValue = $classMetadata->getFieldValue($defaultEntity, $fieldName);
 
             if (null === $defaultFieldValue) {
-                $fieldDefinitions[$fieldName] = static function () {
+                $fieldDefinitions[$fieldName] = FieldDefinition::sequence(static function () {
                     return null;
-                };
+                });
 
                 continue;
             }
 
-            $fieldDefinitions[$fieldName] = static function () use ($defaultFieldValue) {
+            $fieldDefinitions[$fieldName] = FieldDefinition::sequence(static function () use ($defaultFieldValue) {
                 return $defaultFieldValue;
-            };
+            });
         }
 
         if (null === $afterCreate) {

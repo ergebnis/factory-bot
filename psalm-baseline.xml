@@ -15,9 +15,8 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
-    <MissingClosureReturnType occurrences="3">
+    <MissingClosureReturnType occurrences="2">
       <code>static function () use ($fieldDefinition) {</code>
-      <code>static function () {</code>
       <code>static function () use ($defaultFieldValue) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="3">

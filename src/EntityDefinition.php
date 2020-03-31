@@ -27,9 +27,9 @@ final class EntityDefinition
     private $afterCreate;
 
     /**
-     * @param ORM\Mapping\ClassMetadata $classMetadata
-     * @param array<string, \Closure>   $fieldDefinitions
-     * @param \Closure                  $afterCreate
+     * @param ORM\Mapping\ClassMetadata      $classMetadata
+     * @param array<string, FieldDefinition> $fieldDefinitions
+     * @param \Closure                       $afterCreate
      */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, \Closure $afterCreate)
     {
@@ -51,7 +51,7 @@ final class EntityDefinition
     /**
      * Returns the fielde definition callbacks.
      *
-     * @return array<string, \Closure>
+     * @return array<string, FieldDefinition>
      */
     public function fieldDefinitions(): array
     {

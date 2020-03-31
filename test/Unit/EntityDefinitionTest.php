@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -22,6 +23,8 @@ use PHPUnit\Framework;
  * @internal
  *
  * @covers \Ergebnis\FactoryBot\EntityDefinition
+ *
+ * @uses \Ergebnis\FactoryBot\FieldDefinition
  */
 final class EntityDefinitionTest extends Framework\TestCase
 {
@@ -32,12 +35,12 @@ final class EntityDefinitionTest extends Framework\TestCase
         $classMetadata = $this->prophesize(ORM\Mapping\ClassMetadata::class);
 
         $fieldDefinitions = [
-            'foo' => static function (): string {
+            'foo' => FieldDefinition::sequence(static function (): string {
                 return 'bar';
-            },
-            'bar' => static function (): string {
+            }),
+            'bar' => FieldDefinition::sequence(static function (): string {
                 return 'baz';
-            },
+            }),
         ];
 
         $afterCreate = static function ($entity, array $fieldValues): void {
