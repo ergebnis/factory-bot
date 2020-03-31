@@ -102,6 +102,13 @@
       <code>\Generator</code>
     </MixedInferredReturnType>
   </file>
+  <file src="test/Unit/FieldDefinitionTest.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2"/>
+  </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$className</code>
