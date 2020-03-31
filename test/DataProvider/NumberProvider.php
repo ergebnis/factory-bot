@@ -40,10 +40,16 @@ final class NumberProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function intBetweenOneAndFive(): \Generator
+    public function intGreaterThanOne(): \Generator
     {
-        foreach (\range(1, 5) as $value) {
-            yield (string) $value => [
+        $values = [
+            'int-one' => 1,
+            'int-two' => 2,
+            'int-greater-than-two' => self::faker()->numberBetween(3, 10),
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
                 $value,
             ];
         }
