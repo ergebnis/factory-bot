@@ -100,7 +100,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\User::class, $resolved);
     }
 
-    public function testSequenceResolvesToReturnValueOfCallableInvokedWithSequentialNumberWhenSequenceIsCallable(): void
+    public function testSequenceResolvesToReturnValueOfCallableInvokedWithSequentialNumberWhenSequenceIsCallableAndFirstNumberIsNotSpecified(): void
     {
         $callable = [
             self::class,
@@ -118,6 +118,32 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertSame('number-3-is-an-integer', $fieldDefinition($fixtureFactory));
     }
 
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $firstNumber
+     */
+    public function testSequenceResolvesToReturnValueOfCallableInvokedWithSequentialNumberWhenSequenceIsCallableAndFirstNumberIsSpecified(int $firstNumber): void
+    {
+        $callable = [
+            self::class,
+            'exampleCallable',
+        ];
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+
+        $fieldDefinition = FieldDefinition::sequence(
+            $callable,
+            $firstNumber
+        );
+
+        self::assertSame('number-' . $firstNumber . '-is-an-integer', $fieldDefinition($fixtureFactory));
+        self::assertSame('number-' . ($firstNumber + 1) . '-is-an-integer', $fieldDefinition($fixtureFactory));
+        self::assertSame('number-' . ($firstNumber + 2) . '-is-an-integer', $fieldDefinition($fixtureFactory));
+    }
+
     public static function exampleCallable(int $number): string
     {
         return \sprintf(
@@ -126,7 +152,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         );
     }
 
-    public function testSequenceResolvesToTheReturnValueOfClosureInvokedWithSequentialNumberWhenSequenceIsClosure(): void
+    public function testSequenceResolvesToTheReturnValueOfClosureInvokedWithSequentialNumberWhenSequenceIsClosureAndFirstNumberIsNotSpecified(): void
     {
         $closure = static function (int $number): string {
             return \sprintf(
@@ -146,7 +172,35 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertSame('number-3-is-ok', $fieldDefinition($fixtureFactory));
     }
 
-    public function testSequenceResolvesToAStringWithPlaceholderReplacedWithSequentialNumberWhenSequenceIsStringThatContainsPlaceholder(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $firstNumber
+     */
+    public function testSequenceResolvesToTheReturnValueOfClosureInvokedWithSequentialNumberWhenSequenceIsClosureAndFirstNumberIsSpecified(int $firstNumber): void
+    {
+        $closure = static function (int $number): string {
+            return \sprintf(
+                'number-%d-is-ok',
+                $number
+            );
+        };
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+
+        $fieldDefinition = FieldDefinition::sequence(
+            $closure,
+            $firstNumber
+        );
+
+        self::assertSame('number-' . $firstNumber . '-is-ok', $fieldDefinition($fixtureFactory));
+        self::assertSame('number-' . ($firstNumber + 1) . '-is-ok', $fieldDefinition($fixtureFactory));
+        self::assertSame('number-' . ($firstNumber + 2) . '-is-ok', $fieldDefinition($fixtureFactory));
+    }
+
+    public function testSequenceResolvesToAStringWithPlaceholderReplacedWithSequentialNumberWhenSequenceIsStringThatContainsPlaceholderAndFirstNumberIsNotSpecified(): void
     {
         $string = 'there-is-no-difference-between-%d-and-%d';
 
@@ -161,7 +215,30 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertSame('there-is-no-difference-between-3-and-3', $fieldDefinition($fixtureFactory));
     }
 
-    public function testSequenceResolvesToAStringSuffixedWithSequentialNumberSequenceIsStringThatDoesNotContainPlaceholder(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $firstNumber
+     */
+    public function testSequenceResolvesToAStringWithPlaceholderReplacedWithSequentialNumberWhenSequenceIsStringThatContainsPlaceholderAndFirstNumberIsSpecified(int $firstNumber): void
+    {
+        $string = 'there-is-no-difference-between-%d-and-%d';
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+
+        $fieldDefinition = FieldDefinition::sequence(
+            $string,
+            $firstNumber
+        );
+
+        self::assertSame('there-is-no-difference-between-' . $firstNumber . '-and-' . $firstNumber, $fieldDefinition($fixtureFactory));
+        self::assertSame('there-is-no-difference-between-' . ($firstNumber + 1) . '-and-' . ($firstNumber + 1), $fieldDefinition($fixtureFactory));
+        self::assertSame('there-is-no-difference-between-' . ($firstNumber + 2) . '-and-' . ($firstNumber + 2), $fieldDefinition($fixtureFactory));
+    }
+
+    public function testSequenceResolvesToAStringSuffixedWithSequentialNumberSequenceIsStringThatDoesNotContainPlaceholderWhenFirstNumberIsNotSpecified(): void
     {
         $string = 'user-';
 
@@ -174,5 +251,28 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertSame('user-1', $fieldDefinition($fixtureFactory));
         self::assertSame('user-2', $fieldDefinition($fixtureFactory));
         self::assertSame('user-3', $fieldDefinition($fixtureFactory));
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intBetweenOneAndFive()
+     *
+     * @param int $firstNumber
+     */
+    public function testSequenceResolvesToAStringSuffixedWithSequentialNumberSequenceIsStringThatDoesNotContainPlaceholderWhenFirstNumberIsSpecified(int $firstNumber): void
+    {
+        $string = 'user-';
+
+        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+
+        $fieldDefinition = FieldDefinition::sequence(
+            $string,
+            $firstNumber
+        );
+
+        self::assertSame('user-' . $firstNumber, $fieldDefinition($fixtureFactory));
+        self::assertSame('user-' . ($firstNumber + 1), $fieldDefinition($fixtureFactory));
+        self::assertSame('user-' . ($firstNumber + 2), $fieldDefinition($fixtureFactory));
     }
 }
