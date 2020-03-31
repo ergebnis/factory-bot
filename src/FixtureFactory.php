@@ -117,7 +117,10 @@ final class FixtureFactory
                 continue;
             }
 
-            $defaultFieldValue = $classMetadata->getFieldValue($defaultEntity, $fieldName);
+            $defaultFieldValue = $classMetadata->getFieldValue(
+                $defaultEntity,
+                $fieldName
+            );
 
             if (null === $defaultFieldValue) {
                 $fieldDefinitions[$fieldName] = FieldDefinition::sequence(static function () {
@@ -201,7 +204,12 @@ final class FixtureFactory
         }
 
         foreach ($fieldValues as $fieldName => $fieldValue) {
-            $this->setField($entity, $entityDefinition, $fieldName, $fieldValue);
+            $this->setField(
+                $entity,
+                $entityDefinition,
+                $fieldName,
+                $fieldValue
+            );
         }
 
         $afterCreate = $entityDefinition->afterCreate();
@@ -247,7 +255,10 @@ final class FixtureFactory
         $instances = [];
 
         for ($i = 0; $i < $count; ++$i) {
-            $instances[] = $this->get($className, $fieldOverrides);
+            $instances[] = $this->get(
+                $className,
+                $fieldOverrides
+            );
         }
 
         return $instances;
@@ -278,12 +289,25 @@ final class FixtureFactory
         $classMetadata = $entityDefinition->classMetadata();
 
         if ($classMetadata->isCollectionValuedAssociation($fieldName)) {
-            $classMetadata->setFieldValue($entity, $fieldName, self::createCollectionFrom($fieldValue));
+            $classMetadata->setFieldValue(
+                $entity,
+                $fieldName,
+                self::createCollectionFrom($fieldValue)
+            );
         } else {
-            $classMetadata->setFieldValue($entity, $fieldName, $fieldValue);
+            $classMetadata->setFieldValue(
+                $entity,
+                $fieldName,
+                $fieldValue
+            );
 
             if (\is_object($fieldValue) && $classMetadata->isSingleValuedAssociation($fieldName)) {
-                $this->updateCollectionSideOfAssocation($entity, $classMetadata, $fieldName, $fieldValue);
+                $this->updateCollectionSideOfAssocation(
+                    $entity,
+                    $classMetadata,
+                    $fieldName,
+                    $fieldValue
+                );
             }
         }
     }
@@ -309,7 +333,11 @@ final class FixtureFactory
 
         if ($inversedBy) {
             $classMetadataOfFieldValue = $this->entityManager->getClassMetadata(\get_class($fieldValue));
-            $collection = $classMetadataOfFieldValue->getFieldValue($fieldValue, $inversedBy);
+
+            $collection = $classMetadataOfFieldValue->getFieldValue(
+                $fieldValue,
+                $inversedBy
+            );
 
             if ($collection instanceof Common\Collections\Collection) {
                 $collection->add($entity);
