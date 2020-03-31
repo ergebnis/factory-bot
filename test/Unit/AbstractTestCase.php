@@ -22,7 +22,7 @@ use PHPUnit\Framework;
  */
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    final protected static function createEntityManager(): ORM\EntityManagerInterface
+    final protected static function entityManager(): ORM\EntityManagerInterface
     {
         return Util\Doctrine\ORM\EntityManagerFactory::create();
     }

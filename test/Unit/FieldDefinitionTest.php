@@ -34,7 +34,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testReferenceResolvesToInstanceOfReferencedClass(): void
     {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -64,7 +64,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testReferencesResolvesToAnArrayOfOneInstancesOfReferencedClassWhenCountIsNotSpecified(): void
     {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -84,7 +84,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      */
     public function testReferencesResolvesToAnArrayOfCountInstancesOfReferencedClassWhenCountIsSpecified(int $count): void
     {
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -107,7 +107,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             'exampleCallable',
         ];
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -137,7 +137,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             'exampleCallable',
         ];
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -175,7 +175,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             );
         };
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -200,7 +200,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             );
         };
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -225,7 +225,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $string = 'there-is-no-difference-between-%d-and-%d';
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -253,7 +253,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $string = 'there-is-no-difference-between-%d-and-%d';
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -279,7 +279,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $string = 'user-';
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
@@ -306,7 +306,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $string = 'user-';
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
