@@ -46,7 +46,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/DoesNotImplementDefinition');
 
@@ -62,7 +62,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButIsAbstract');
 
@@ -78,7 +78,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButHasPrivateConstructor');
 
@@ -101,7 +101,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(self::createEntityManager());
+        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
 

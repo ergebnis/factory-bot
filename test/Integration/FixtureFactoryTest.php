@@ -32,7 +32,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testAutomaticPersistCanBeTurnedOn(): void
     {
-        $entityManager = self::createEntityManager();
+        $entityManager = self::entityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
@@ -53,7 +53,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testDoesNotPersistByDefault(): void
     {
-        $entityManager = self::createEntityManager();
+        $entityManager = self::entityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
@@ -80,7 +80,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $entityManager = self::createEntityManager();
+        $entityManager = self::entityManager();
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
