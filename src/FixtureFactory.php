@@ -47,9 +47,9 @@ final class FixtureFactory
      *
      * @template T
      *
-     * @param class-string<T> $className
-     * @param array           $fieldDefinitions
-     * @param \Closure        $afterCreate
+     * @param class-string<T>               $className
+     * @param array<string, \Closure|mixed> $fieldDefinitions
+     * @param \Closure                      $afterCreate
      *
      * @throws Exception\ClassMetadataNotFound
      * @throws Exception\ClassNotFound
@@ -96,20 +96,14 @@ final class FixtureFactory
             );
         }
 
-        $fieldDefinitions = \array_map(static function ($fieldDefinition): callable {
-            if (\is_callable($fieldDefinition)) {
-                if (\method_exists($fieldDefinition, '__invoke')) {
-                    return $fieldDefinition;
-                }
-
+        $fieldDefinitions = \array_map(static function ($fieldDefinition): \Closure {
+            if (!$fieldDefinition instanceof \Closure) {
                 return static function () use ($fieldDefinition) {
-                    return \call_user_func_array($fieldDefinition, \func_get_args());
+                    return $fieldDefinition;
                 };
             }
 
-            return static function () use ($fieldDefinition) {
-                return $fieldDefinition;
-            };
+            return $fieldDefinition;
         }, $fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
