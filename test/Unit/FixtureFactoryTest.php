@@ -45,10 +45,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $this->expectException(Exception\EntityDefinitionAlreadyRegistered::class);
-        $this->expectExceptionMessage(\sprintf(
-            'An entity definition for class name "%s" has already been registered.',
-            Fixture\FixtureFactory\Entity\Organization::class
-        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
     }
@@ -60,10 +56,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(Exception\ClassNotFound::class);
-        $this->expectExceptionMessage(\sprintf(
-            'A class with the name "%s" could not be found.',
-            $className
-        ));
 
         $fixtureFactory->defineEntity($className);
     }
@@ -75,10 +67,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(Exception\ClassMetadataNotFound::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Class metadata for a class with the name "%s" could not be found.',
-            $className
-        ));
 
         $fixtureFactory->defineEntity($className);
     }
@@ -90,10 +78,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(Exception\InvalidFieldNames::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Entity "%s" does not have fields with the names "email", "phone".',
-            Fixture\FixtureFactory\Entity\User::class
-        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
             'avatar' => new Fixture\FixtureFactory\Entity\Avatar(),
@@ -111,10 +95,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory($entityManager);
 
         $this->expectException(Exception\EntityDefinitionNotRegistered::class);
-        $this->expectExceptionMessage(\sprintf(
-            'An entity definition for class name "%s" has not been registered.',
-            $className
-        ));
 
         $fixtureFactory->get($className);
     }
@@ -132,11 +112,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         $this->expectException(Exception\InvalidFieldNames::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Entity "%s" does not have a field with the name "%s".',
-            Fixture\FixtureFactory\Entity\Organization::class,
-            $fieldName
-        ));
 
         $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class, [
             $fieldName => 'blueberry',
@@ -174,10 +149,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory(self::createEntityManager());
 
         $this->expectException(Exception\InvalidFieldNames::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Entity "%s" does not have fields with the names "avatar.height", "avatar.url", "avatar.width".',
-            Fixture\FixtureFactory\Entity\User::class
-        ));
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
@@ -196,10 +167,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
         $this->expectException(Exception\InvalidFieldNames::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Entity "%s" does not have fields with the names "avatar.height", "avatar.url", "avatar.width".',
-            Fixture\FixtureFactory\Entity\User::class
-        ));
 
         $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
@@ -221,10 +188,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
 
         $this->expectException(Exception\InvalidCount::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Count needs to be greater than or equal to 1, but %d is not.',
-            $count
-        ));
 
         $fixtureFactory->getList(
             Fixture\FixtureFactory\Entity\Organization::class,

@@ -39,10 +39,6 @@ final class FieldDefinitionTest extends Framework\TestCase
         $className = self::class;
 
         $this->expectException(Exception\InvalidCount::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Count needs to be greater than or equal to 1, but %d is not.',
-            $count
-        ));
 
         FieldDefinition::references(
             $className,
