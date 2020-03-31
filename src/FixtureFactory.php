@@ -196,7 +196,8 @@ final class FixtureFactory
                 continue;
             }
 
-            $fieldValues[$fieldName] = $fieldDefinition($this);
+            /** @var FieldDefinition $fieldDefinition */
+            $fieldValues[$fieldName] = $fieldDefinition->resolve($this);
         }
 
         foreach ($fieldValues as $fieldName => $fieldValue) {

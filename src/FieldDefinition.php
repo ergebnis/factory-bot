@@ -25,7 +25,7 @@ final class FieldDefinition
         $this->closure = $closure;
     }
 
-    public function __invoke(FixtureFactory $fixtureFactory)
+    public function resolve(FixtureFactory $fixtureFactory)
     {
         $closure = $this->closure;
 

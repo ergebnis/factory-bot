@@ -4,6 +4,9 @@
     <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
     </MissingClosureReturnType>
+    <MissingReturnType occurrences="1">
+      <code>resolve</code>
+    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$n</code>
     </MixedArgument>
