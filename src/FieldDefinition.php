@@ -127,4 +127,11 @@ final class FieldDefinition
             );
         });
     }
+
+    public static function value($value): self
+    {
+        return new self(static function () use ($value) {
+            return $value;
+        });
+    }
 }

@@ -123,16 +123,10 @@ final class FixtureFactory
             );
 
             if (null === $defaultFieldValue) {
-                $fieldDefinitions[$fieldName] = FieldDefinition::sequence(static function () {
-                    return null;
-                });
-
-                continue;
+                $fieldDefinitions[$fieldName] = FieldDefinition::value(null);
             }
 
-            $fieldDefinitions[$fieldName] = FieldDefinition::sequence(static function () use ($defaultFieldValue) {
-                return $defaultFieldValue;
-            });
+            $fieldDefinitions[$fieldName] = FieldDefinition::value($defaultFieldValue);
         }
 
         if (null === $afterCreate) {
