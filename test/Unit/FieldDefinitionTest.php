@@ -113,9 +113,16 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($callable);
 
-        self::assertSame('number-1-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-2-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-3-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number) use ($callable): string {
+            return \call_user_func(
+                $callable,
+                $number
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     /**
@@ -139,9 +146,16 @@ final class FieldDefinitionTest extends AbstractTestCase
             $firstNumber
         );
 
-        self::assertSame('number-' . $firstNumber . '-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-' . ($firstNumber + 1) . '-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-' . ($firstNumber + 2) . '-is-an-integer', $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number) use ($callable, $firstNumber): string {
+            return \call_user_func(
+                $callable,
+                $number + $firstNumber - 1
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     public static function exampleCallable(int $number): string
@@ -167,9 +181,9 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($closure);
 
-        self::assertSame('number-1-is-ok', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-2-is-ok', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-3-is-ok', $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($closure(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($closure(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($closure(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     /**
@@ -195,9 +209,16 @@ final class FieldDefinitionTest extends AbstractTestCase
             $firstNumber
         );
 
-        self::assertSame('number-' . $firstNumber . '-is-ok', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-' . ($firstNumber + 1) . '-is-ok', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('number-' . ($firstNumber + 2) . '-is-ok', $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number) use ($firstNumber): string {
+            return \sprintf(
+                'number-%d-is-ok',
+                $number + $firstNumber - 1
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     public function testSequenceResolvesToAStringWithPlaceholderReplacedWithSequentialNumberWhenSequenceIsStringThatContainsPlaceholderAndFirstNumberIsNotSpecified(): void
@@ -210,9 +231,17 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($string);
 
-        self::assertSame('there-is-no-difference-between-1-and-1', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('there-is-no-difference-between-2-and-2', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('there-is-no-difference-between-3-and-3', $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number): string {
+            return \sprintf(
+                'there-is-no-difference-between-%d-and-%d',
+                $number,
+                $number
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     /**
@@ -233,9 +262,17 @@ final class FieldDefinitionTest extends AbstractTestCase
             $firstNumber
         );
 
-        self::assertSame('there-is-no-difference-between-' . $firstNumber . '-and-' . $firstNumber, $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('there-is-no-difference-between-' . ($firstNumber + 1) . '-and-' . ($firstNumber + 1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('there-is-no-difference-between-' . ($firstNumber + 2) . '-and-' . ($firstNumber + 2), $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number) use ($firstNumber): string {
+            return \sprintf(
+                'there-is-no-difference-between-%d-and-%d',
+                $number + $firstNumber - 1,
+                $number + $firstNumber - 1
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     public function testSequenceResolvesToAStringSuffixedWithSequentialNumberSequenceIsStringThatDoesNotContainPlaceholderWhenFirstNumberIsNotSpecified(): void
@@ -248,9 +285,16 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($string);
 
-        self::assertSame('user-1', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('user-2', $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('user-3', $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number): string {
+            return \sprintf(
+                'user-%d',
+                $number
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 
     /**
@@ -271,8 +315,15 @@ final class FieldDefinitionTest extends AbstractTestCase
             $firstNumber
         );
 
-        self::assertSame('user-' . $firstNumber, $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('user-' . ($firstNumber + 1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame('user-' . ($firstNumber + 2), $fieldDefinition->resolve($fixtureFactory));
+        $expected = static function (int $number) use ($firstNumber): string {
+            return \sprintf(
+                'user-%d',
+                $number + $firstNumber - 1
+            );
+        };
+
+        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
 }
