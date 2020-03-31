@@ -1,5 +1,5 @@
-MIN_COVERED_MSI:=95
-MIN_MSI:=91
+MIN_COVERED_MSI:=98
+MIN_MSI:=96
 
 .PHONY: it
 it: coding-standards static-code-analysis tests ## Runs the coding-standards, static-code-analysis, and tests targets
@@ -7,7 +7,7 @@ it: coding-standards static-code-analysis tests ## Runs the coding-standards, st
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit tests with phpunit/phpunit
 	mkdir -p .build/phpunit
-	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
+	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=unit,integration
 
 .PHONY: coding-standards
 coding-standards: vendor ## Fixes code style issues with friendsofphp/php-cs-fixer
@@ -51,9 +51,9 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 .PHONY: tests
 tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit
-	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
-	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=auto-review
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
 
 vendor: composer.json composer.lock
 	composer validate --strict
