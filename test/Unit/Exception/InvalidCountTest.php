@@ -33,7 +33,7 @@ final class InvalidCountTest extends Framework\TestCase
         $minimumCount = $faker->numberBetween(1, 1000);
         $count = $minimumCount - $faker->numberBetween(1);
 
-        $exception = Exception\InvalidCount::notGreaterThanorEqualTo(
+        $exception = Exception\InvalidCount::notGreaterThanOrEqualTo(
             $minimumCount,
             $count
         );

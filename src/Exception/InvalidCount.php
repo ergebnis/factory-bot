@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidCount extends \InvalidArgumentException implements Exception
 {
-    public static function notGreaterThanorEqualTo(int $minimumCount, int $count): self
+    public static function notGreaterThanOrEqualTo(int $minimumCount, int $count): self
     {
         return new self(\sprintf(
             'Count needs to be greater than or equal to %d, but %d is not.',

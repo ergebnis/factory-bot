@@ -246,7 +246,7 @@ final class FixtureFactory
         $minimumCount = 1;
 
         if ($minimumCount > $count) {
-            throw Exception\InvalidCount::notGreaterThanorEqualTo(
+            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
                 $minimumCount,
                 $count
             );
