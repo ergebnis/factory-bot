@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -24,11 +25,59 @@ use PHPUnit\Framework;
  *
  * @covers \Ergebnis\FactoryBot\EntityDefinition
  *
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  */
 final class EntityDefinitionTest extends Framework\TestCase
 {
     use Helper;
+
+    /**
+     * @dataProvider provideNotFieldDefinition
+     *
+     * @param mixed $fieldDefinition
+     */
+    public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions($fieldDefinition): void
+    {
+        $fieldDefinitions = [
+            'foo' => FieldDefinition::sequence(static function (): string {
+                return 'bar';
+            }),
+            'bar' => $fieldDefinition,
+        ];
+
+        $this->expectException(Exception\InvalidFieldDefinitions::class);
+
+        new EntityDefinition(
+            $this->prophesize(ORM\Mapping\ClassMetadata::class)->reveal(),
+            $fieldDefinitions,
+            static function ($entity, array $fieldValues): void {
+                // intentionally left blank
+            }
+        );
+    }
+
+    public function provideNotFieldDefinition(): \Generator
+    {
+        $faker = self::faker();
+
+        $values = [
+            'array' => $faker->words,
+            'bool-false' => false,
+            'bool-true' => true,
+            'float' => $faker->randomFloat(),
+            'int' => $faker->numberBetween(),
+            'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'rb'),
+            'string' => $faker->sentence,
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
 
     public function testConstructorSetsValues(): void
     {
