@@ -23,10 +23,10 @@ use Ergebnis\Test\Util\Helper;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\FieldDefinition
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
  * @uses \Ergebnis\FactoryBot\Exception\ClassNotFound
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
