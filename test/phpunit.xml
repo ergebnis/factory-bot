@@ -1,15 +1,15 @@
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="../vendor/phpunit/phpunit/phpunit.xsd"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutCoversAnnotation="true"
     beStrictAboutOutputDuringTests="true"
     beStrictAboutResourceUsageDuringSmallTests="true"
     beStrictAboutTestsThatDoNotTestAnything="true"
     beStrictAboutTodoAnnotatedTests="true"
-    bootstrap="../../vendor/autoload.php"
+    bootstrap="../vendor/autoload.php"
     cacheResult="true"
-    cacheResultFile="../../.build/phpunit/integration.cache"
+    cacheResultFile="../.build/phpunit/cache"
     colors="true"
     columns="max"
     convertErrorsToExceptions="true"
@@ -23,8 +23,19 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="Integration Tests">
-            <directory>.</directory>
+        <testsuite name="auto-review">
+            <directory>AutoReview/</directory>
+        </testsuite>
+        <testsuite name="integration">
+            <directory>Integration/</directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory>Unit/</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src/</directory>
+        </whitelist>
+    </filter>
 </phpunit>
