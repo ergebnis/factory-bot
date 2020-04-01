@@ -21,9 +21,13 @@
     </MixedReturnStatement>
   </file>
   <file src="src/FieldDefinition.php">
-    <MissingClosureReturnType occurrences="1">
+    <MissingClosureReturnType occurrences="2">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
+      <code>static function () use ($value) {</code>
     </MissingClosureReturnType>
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>resolve</code>
     </MissingReturnType>
@@ -38,9 +42,8 @@
     </MixedOperand>
   </file>
   <file src="src/FixtureFactory.php">
-    <MissingClosureReturnType occurrences="2">
+    <MissingClosureReturnType occurrences="1">
       <code>static function () use ($fieldDefinition) {</code>
-      <code>static function () use ($defaultFieldValue) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="3">
       <code>$fieldValue</code>
@@ -103,9 +106,13 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
-    <MixedInferredReturnType occurrences="2">
+    <MixedAssignment occurrences="1">
+      <code>$resolved</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="3">
       <code>string</code>
       <code>string</code>
+      <code>\Generator</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="2"/>
   </file>

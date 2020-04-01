@@ -326,4 +326,42 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
         self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
     }
+
+    /**
+     * @dataProvider provideArbitraryValue
+     *
+     * @param mixed $value
+     */
+    public function testValueResolvesToValue($value): void
+    {
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fieldDefinition = FieldDefinition::value($value);
+
+        $resolved = $fieldDefinition->resolve($fixtureFactory);
+
+        self::assertSame($value, $resolved);
+    }
+
+    public function provideArbitraryValue(): \Generator
+    {
+        $faker = self::faker();
+
+        $values = [
+            'array' => $faker->words,
+            'bool-false' => false,
+            'bool-true' => true,
+            'float' => $faker->randomFloat(),
+            'int' => $faker->numberBetween(),
+            'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'rb'),
+            'string' => $faker->sentence,
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
 }
