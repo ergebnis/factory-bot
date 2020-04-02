@@ -95,10 +95,6 @@ final class FieldDefinition implements FieldDefinition\Resolvable
     }
 
     /**
-     * Defines a field to `get()` a collection of named entities from the factory.
-     *
-     * The normal semantics of `get()` apply.
-     *
      * @template T
      *
      * @param class-string<T> $className
@@ -106,26 +102,14 @@ final class FieldDefinition implements FieldDefinition\Resolvable
      *
      * @throws Exception\InvalidCount
      *
-     * @return self
+     * @return FieldDefinition\References
      */
-    public static function references(string $className, int $count = 1): self
+    public static function references(string $className, int $count = 1): FieldDefinition\References
     {
-        $minimumCount = 1;
-
-        if ($minimumCount > $count) {
-            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
-                $minimumCount,
-                $count
-            );
-        }
-
-        return new self(static function (FixtureFactory $fixtureFactory) use ($className, $count): array {
-            return $fixtureFactory->getList(
-                $className,
-                [],
-                $count
-            );
-        });
+        return new FieldDefinition\References(
+            $className,
+            $count
+        );
     }
 
     public static function value($value): self
