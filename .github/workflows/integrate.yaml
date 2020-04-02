@@ -426,9 +426,6 @@ jobs:
               reviewers: reviewers,
             })
 
-      - name: "Wait"
-        run: "sleep 3"
-
       - name: "Assign @ergebnis-bot"
         uses: "actions/github-script@0.8.0"
         with:
@@ -448,9 +445,6 @@ jobs:
               repo: repository.repo,
             })
 
-      - name: "Wait"
-        run: "sleep 3"
-
       - name: "Approve pull request"
         uses: "actions/github-script@0.8.0"
         if: "github.actor != 'ergebnis-bot'"
@@ -467,9 +461,6 @@ jobs:
               repo: repository.repo,
             })
 
-      - name: "Wait"
-        run: "sleep 3"
-
       - name: "Merge pull request"
         uses: "actions/github-script@0.8.0"
         with:
@@ -478,9 +469,26 @@ jobs:
             const pullRequest = context.payload.pull_request
             const repository = context.repo
 
-            await github.pulls.merge({
-              merge_method: "merge",
-              owner: repository.owner,
-              pull_number: pullRequest.number,
-              repo: repository.repo,
-            })
+            let hasBeenMerged = false
+
+            let count = 0
+            let delay = 5000
+
+            do {
+              try {
+                await github.pulls.merge({
+                  merge_method: "merge",
+                  owner: repository.owner,
+                  pull_number: pullRequest.number,
+                  repo: repository.repo,
+                })
+              } catch (error) {
+                ++count;
+
+                delay *= 2
+
+                await new Promise(resolve => setTimeout(resolve, delay));
+              }
+
+              hasBeenMerged = true
+            } while (hasBeenMerged == false && count < 3)
