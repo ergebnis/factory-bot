@@ -34,6 +34,7 @@ use Ergebnis\Test\Util\Helper;
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {

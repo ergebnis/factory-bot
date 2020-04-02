@@ -41,6 +41,16 @@
       <code>$n</code>
     </MixedOperand>
   </file>
+  <file src="src/FieldDefinition/References.php">
+    <MissingPropertyType occurrences="2">
+      <code>$className</code>
+      <code>$count</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;className</code>
+      <code>$this-&gt;count</code>
+    </MixedArgument>
+  </file>
   <file src="src/FieldDefinition/Resolvable.php">
     <MissingReturnType occurrences="1">
       <code>resolve</code>
@@ -120,6 +130,10 @@
       <code>\Generator</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="2"/>
+    <RedundantCondition occurrences="2">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">
