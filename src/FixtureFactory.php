@@ -122,10 +122,6 @@ final class FixtureFactory
                 $fieldName
             );
 
-            if (null === $defaultFieldValue) {
-                $fieldDefinitions[$fieldName] = FieldDefinition::value(null);
-            }
-
             $fieldDefinitions[$fieldName] = FieldDefinition::value($defaultFieldValue);
         }
 
