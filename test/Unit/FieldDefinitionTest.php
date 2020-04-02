@@ -32,6 +32,26 @@ final class FieldDefinitionTest extends AbstractTestCase
 {
     use Helper;
 
+    public function testClosureResolvesToTheReturnValueOfClosureInvokedWithFixtureFactory(): void
+    {
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+
+        $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
+            /** @var Fixture\FixtureFactory\Entity\User $user */
+            $user = $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class);
+
+            $user->renameTo(self::faker()->userName);
+
+            return $user;
+        };
+
+        $fieldDefinition = FieldDefinition::closure($closure);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $fieldDefinition->resolve($fixtureFactory));
+    }
+
     public function testReferenceResolvesToInstanceOfReferencedClass(): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());

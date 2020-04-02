@@ -85,6 +85,11 @@ class User
         return $this->avatar;
     }
 
+    public function renameTo(string $login): void
+    {
+        $this->login = $login;
+    }
+
     /**
      * @return array<int, Organization>
      */

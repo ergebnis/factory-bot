@@ -13,6 +13,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Imported [`breerly/factory-girl-php@0e6f1b6`](https://github.com/unhashable/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) ([#1]), by [@localheinz]
 * Imported [`ergebnis/factory-girl-definition@23e57bc`](https://github.com/ergebnis/factory-girl-definition/tree/23e57bc2105ac7a32e3ec7103c866899fe6ad20c) ([#6]), by [@localheinz]
 * Added `FieldDefinition::value()` which allows resolving a field definition to a constant value ([#149]), by [@localheinz]
+* Added `FieldDefinition::closure()` which allows resolving a field definition to the return value of a closure that is invoked with the `FixtureFactory` ([#155]), by [@localheinz]
 
 ### Changed
 
@@ -80,5 +81,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#131]: https://github.com/ergebnis/factory-bot/pull/131
 [#133]: https://github.com/ergebnis/factory-bot/pull/133
 [#149]: https://github.com/ergebnis/factory-bot/pull/149
+[#155]: https://github.com/ergebnis/factory-bot/pull/155
 
 [@localheinz]: https://github.com/localheinz

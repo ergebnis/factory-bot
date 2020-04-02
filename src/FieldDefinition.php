@@ -32,6 +32,11 @@ final class FieldDefinition
         return $closure($fixtureFactory);
     }
 
+    public static function closure(\Closure $closure): self
+    {
+        return new self($closure);
+    }
+
     /**
      * Defines a field to be a string based on an incrementing integer.
      *
