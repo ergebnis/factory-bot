@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition and Ergebnis\\\\FactoryBot\\\\FieldDefinition will always evaluate to true\\.$#"
+			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
 
@@ -24,6 +24,11 @@ parameters:
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:value\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: src/FieldDefinition.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/FieldDefinition/Resolvable.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"

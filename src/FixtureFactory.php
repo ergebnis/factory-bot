@@ -96,8 +96,8 @@ final class FixtureFactory
             );
         }
 
-        $fieldDefinitions = \array_map(static function ($fieldDefinition): FieldDefinition {
-            if ($fieldDefinition instanceof FieldDefinition) {
+        $fieldDefinitions = \array_map(static function ($fieldDefinition): FieldDefinition\Resolvable {
+            if ($fieldDefinition instanceof FieldDefinition\Resolvable) {
                 return $fieldDefinition;
             }
 
