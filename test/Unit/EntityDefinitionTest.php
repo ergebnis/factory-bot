@@ -33,7 +33,7 @@ final class EntityDefinitionTest extends Framework\TestCase
     use Helper;
 
     /**
-     * @dataProvider provideNotFieldDefinition
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
      *
      * @param mixed $fieldDefinition
      */
@@ -55,28 +55,6 @@ final class EntityDefinitionTest extends Framework\TestCase
                 // intentionally left blank
             }
         );
-    }
-
-    public function provideNotFieldDefinition(): \Generator
-    {
-        $faker = self::faker();
-
-        $values = [
-            'array' => $faker->words,
-            'bool-false' => false,
-            'bool-true' => true,
-            'float' => $faker->randomFloat(),
-            'int' => $faker->numberBetween(),
-            'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'rb'),
-            'string' => $faker->sentence,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
     }
 
     public function testConstructorSetsValues(): void

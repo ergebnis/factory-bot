@@ -32,6 +32,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed the fluent interface from `FixtureFactory::defineEntity()` ([#131]), by [@localheinz]
 * Extracted `FieldDefinition\Reference` ([#157]), by [@localheinz]
 * Extracted `FieldDefinition\References` ([#159]), by [@localheinz]
+* Extracted `FieldDefinition\Value` ([#160]), by [@localheinz]
 
 ### Fixed
 
@@ -86,5 +87,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#155]: https://github.com/ergebnis/factory-bot/pull/155
 [#157]: https://github.com/ergebnis/factory-bot/pull/157
 [#159]: https://github.com/ergebnis/factory-bot/pull/159
+[#160]: https://github.com/ergebnis/factory-bot/pull/160
 
 [@localheinz]: https://github.com/localheinz

@@ -26,6 +26,7 @@ use Ergebnis\Test\Util\Helper;
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {

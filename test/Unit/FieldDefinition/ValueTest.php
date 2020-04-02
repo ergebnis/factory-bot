@@ -13,35 +13,34 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Reference;
+use Ergebnis\FactoryBot\FieldDefinition\Value;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\FieldDefinition\Reference
+ * @covers \Ergebnis\FactoryBot\FieldDefinition\Value
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class ReferenceTest extends AbstractTestCase
+final class ValueTest extends AbstractTestCase
 {
-    public function testResolveReturnsObjectFromFixtureFactory(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
+     *
+     * @param mixed $value
+     */
+    public function testResolveReturnsValue($value): void
     {
-        $className = Fixture\FixtureFactory\Entity\User::class;
-
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity($className);
-
-        $fieldDefinition = new Reference($className);
+        $fieldDefinition = new Value($value);
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 
-        self::assertInstanceOf($className, $resolved);
+        self::assertSame($value, $resolved);
     }
 }
