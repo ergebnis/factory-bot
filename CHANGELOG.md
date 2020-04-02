@@ -30,6 +30,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Started throwing an `Exception\ClassNotFound` exception instead of a generic `Exception` when a class was not found ([#125]), by [@localheinz]
 * Added `@template` annotations to assist with static code analysis ([#128]), by [@localheinz]
 * Removed the fluent interface from `FixtureFactory::defineEntity()` ([#131]), by [@localheinz]
+* Extracted `FieldDefinition\Reference` ([#157]), by [@localheinz]
 
 ### Fixed
 
@@ -82,5 +83,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#133]: https://github.com/ergebnis/factory-bot/pull/133
 [#149]: https://github.com/ergebnis/factory-bot/pull/149
 [#155]: https://github.com/ergebnis/factory-bot/pull/155
+[#157]: https://github.com/ergebnis/factory-bot/pull/157
 
 [@localheinz]: https://github.com/localheinz

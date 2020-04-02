@@ -27,16 +27,16 @@ final class EntityDefinition
     private $afterCreate;
 
     /**
-     * @param ORM\Mapping\ClassMetadata      $classMetadata
-     * @param array<string, FieldDefinition> $fieldDefinitions
-     * @param \Closure                       $afterCreate
+     * @param ORM\Mapping\ClassMetadata                 $classMetadata
+     * @param array<string, FieldDefinition\Resolvable> $fieldDefinitions
+     * @param \Closure                                  $afterCreate
      *
      * @throws Exception\InvalidFieldDefinitions
      */
     public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, \Closure $afterCreate)
     {
         $invalidFieldDefinitions = \array_filter($fieldDefinitions, static function ($fieldDefinition): bool {
-            return !$fieldDefinition instanceof FieldDefinition;
+            return !$fieldDefinition instanceof FieldDefinition\Resolvable;
         });
 
         if ([] !== $invalidFieldDefinitions) {
@@ -59,9 +59,7 @@ final class EntityDefinition
     }
 
     /**
-     * Returns the fielde definition callbacks.
-     *
-     * @return array<string, FieldDefinition>
+     * @return array<string, FieldDefinition\Resolvable>
      */
     public function fieldDefinitions(): array
     {

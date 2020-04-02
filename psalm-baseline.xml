@@ -2,7 +2,7 @@
 <files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
   <file src="src/EntityDefinition.php">
     <DocblockTypeContradiction occurrences="1">
-      <code>return !$fieldDefinition instanceof FieldDefinition;</code>
+      <code>return !$fieldDefinition instanceof FieldDefinition\Resolvable;</code>
     </DocblockTypeContradiction>
     <MissingPropertyType occurrences="3">
       <code>$classMetadata</code>
@@ -11,7 +11,7 @@
     </MissingPropertyType>
     <MixedInferredReturnType occurrences="3">
       <code>ORM\Mapping\ClassMetadata</code>
-      <code>array&lt;string, FieldDefinition&gt;</code>
+      <code>array&lt;string, FieldDefinition\Resolvable&gt;</code>
       <code>\Closure</code>
     </MixedInferredReturnType>
     <MixedReturnStatement occurrences="3">
@@ -40,6 +40,11 @@
       <code>$n</code>
       <code>$n</code>
     </MixedOperand>
+  </file>
+  <file src="src/FieldDefinition/Resolvable.php">
+    <MissingReturnType occurrences="1">
+      <code>resolve</code>
+    </MissingReturnType>
   </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType occurrences="1">

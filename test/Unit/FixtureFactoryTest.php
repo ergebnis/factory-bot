@@ -26,13 +26,14 @@ use Ergebnis\Test\Util\Helper;
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
- * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
  * @uses \Ergebnis\FactoryBot\Exception\ClassNotFound
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
+ * @uses \Ergebnis\FactoryBot\FieldDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {

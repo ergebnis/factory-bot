@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-/**
- * Contains static methods to define fields as sequences, references etc.
- */
-final class FieldDefinition
+final class FieldDefinition implements FieldDefinition\Resolvable
 {
     private $closure;
 
@@ -90,13 +87,11 @@ final class FieldDefinition
      *
      * @param class-string<T> $className
      *
-     * @return self
+     * @return FieldDefinition\Reference
      */
-    public static function reference(string $className): self
+    public static function reference(string $className): FieldDefinition\Reference
     {
-        return new self(static function (FixtureFactory $fixtureFactory) use ($className): object {
-            return $fixtureFactory->get($className);
-        });
+        return new FieldDefinition\Reference($className);
     }
 
     /**
