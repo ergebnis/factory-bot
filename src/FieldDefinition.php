@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-/**
- * Contains static methods to define fields as sequences, references etc.
- */
 final class FieldDefinition implements FieldDefinition\Resolvable
 {
     private $closure;

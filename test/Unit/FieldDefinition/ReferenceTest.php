@@ -23,6 +23,8 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\Reference
  *
+ * @uses \Ergebnis\FactoryBot\EntityDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
 final class ReferenceTest extends AbstractTestCase
