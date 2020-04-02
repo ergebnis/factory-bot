@@ -112,10 +112,8 @@ final class FieldDefinition implements FieldDefinition\Resolvable
         );
     }
 
-    public static function value($value): self
+    public static function value($value): FieldDefinition\Value
     {
-        return new self(static function () use ($value) {
-            return $value;
-        });
+        return new FieldDefinition\Value($value);
     }
 }

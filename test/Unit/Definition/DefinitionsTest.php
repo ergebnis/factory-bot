@@ -29,6 +29,7 @@ use Ergebnis\Test\Util\Helper;
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDirectory
  * @uses \Ergebnis\FactoryBot\FieldDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
 final class DefinitionsTest extends AbstractTestCase

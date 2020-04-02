@@ -21,9 +21,8 @@
     </MixedReturnStatement>
   </file>
   <file src="src/FieldDefinition.php">
-    <MissingClosureReturnType occurrences="2">
+    <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
-      <code>static function () use ($value) {</code>
     </MissingClosureReturnType>
     <MissingParamType occurrences="1">
       <code>$value</code>
@@ -56,6 +55,17 @@
       <code>resolve</code>
     </MissingReturnType>
   </file>
+  <file src="src/FieldDefinition/Value.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+    <MissingPropertyType occurrences="1">
+      <code>$value</code>
+    </MissingPropertyType>
+    <MissingReturnType occurrences="1">
+      <code>resolve</code>
+    </MissingReturnType>
+  </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType occurrences="1">
       <code>static function () use ($fieldDefinition) {</code>
@@ -81,6 +91,14 @@
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
+  </file>
+  <file src="test/DataProvider/ValueProvider.php">
+    <InvalidReturnType occurrences="1">
+      <code>\Generator&lt;string, array&lt;string[], bool, float, int, object, \stdClass, string&gt;&gt;</code>
+    </InvalidReturnType>
+    <TooManyTemplateParams occurrences="1">
+      <code>\Generator&lt;string, array&lt;string[], bool, float, int, object, \stdClass, string&gt;&gt;</code>
+    </TooManyTemplateParams>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -116,9 +134,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$fieldDefinitions</code>
     </MixedArgumentTypeCoercion>
-    <MixedInferredReturnType occurrences="1">
-      <code>\Generator</code>
-    </MixedInferredReturnType>
+  </file>
+  <file src="test/Unit/FieldDefinition/ValueTest.php">
+    <MixedAssignment occurrences="1">
+      <code>$resolved</code>
+    </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
     <MixedAssignment occurrences="1">

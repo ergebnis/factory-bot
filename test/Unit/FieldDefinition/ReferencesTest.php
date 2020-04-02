@@ -27,6 +27,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\FieldDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
 final class ReferencesTest extends AbstractTestCase
