@@ -10,9 +10,9 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 
 ### Added
 
-* Imported [`breerly/factory-girl-php@0e6f1b6`](https://github.com/unhashable/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856), ([#1]), by [@localheinz]
-* Imported [`ergebnis/factory-girl-definition@23e57bc`](https://github.com/ergebnis/factory-girl-definition/tree/23e57bc2105ac7a32e3ec7103c866899fe6ad20c), ([#6]), by [@localheinz]
-* Added `FieldDefinition::value()` which allows resolving a field definition to a constant value, ([#149]), by [@localheinz]
+* Imported [`breerly/factory-girl-php@0e6f1b6`](https://github.com/unhashable/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) ([#1]), by [@localheinz]
+* Imported [`ergebnis/factory-girl-definition@23e57bc`](https://github.com/ergebnis/factory-girl-definition/tree/23e57bc2105ac7a32e3ec7103c866899fe6ad20c) ([#6]), by [@localheinz]
+* Added `FieldDefinition::value()` which allows resolving a field definition to a constant value ([#149]), by [@localheinz]
 
 ### Changed
 
