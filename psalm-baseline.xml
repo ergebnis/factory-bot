@@ -33,9 +33,7 @@
     <MixedArgument occurrences="1">
       <code>$n</code>
     </MixedArgument>
-    <MixedOperand occurrences="4">
-      <code>$n</code>
-      <code>$n</code>
+    <MixedOperand occurrences="2">
       <code>$n</code>
       <code>$n</code>
     </MixedOperand>

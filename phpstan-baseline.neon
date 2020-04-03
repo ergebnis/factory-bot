@@ -12,7 +12,7 @@ parameters:
 
 		-
 			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
-			count: 2
+			count: 1
 			path: src/FieldDefinition.php
 
 		-

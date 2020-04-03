@@ -63,18 +63,18 @@ final class FieldDefinition implements FieldDefinition\Resolvable
             });
         }
 
-        if (false !== \strpos($funcOrString, '%d')) {
-            return new self(static function () use (&$n, $funcOrString) {
-                ++$n;
-
-                return \str_replace('%d', $n, $funcOrString);
-            });
+        if (false === \strpos($funcOrString, '%d')) {
+            $funcOrString .= '%d';
         }
 
         return new self(static function () use (&$n, $funcOrString) {
             ++$n;
 
-            return $funcOrString . $n;
+            return \str_replace(
+                '%d',
+                $n,
+                $funcOrString
+            );
         });
     }
 
