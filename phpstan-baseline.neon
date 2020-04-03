@@ -11,16 +11,6 @@ parameters:
 			path: src/FieldDefinition.php
 
 		-
-			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
-			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, int given\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:value\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: src/FieldDefinition.php

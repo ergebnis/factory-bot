@@ -34,6 +34,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Extracted `FieldDefinition\References` ([#159]), by [@localheinz]
 * Extracted `FieldDefinition\Value` ([#160]), by [@localheinz]
 * Extracted `FieldDefinition\Closure` ([#161]), by [@localheinz]
+* Extracted `FieldDefinition\Sequence` ([#164]), by [@localheinz]
 
 ### Fixed
 
@@ -90,5 +91,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#159]: https://github.com/ergebnis/factory-bot/pull/159
 [#160]: https://github.com/ergebnis/factory-bot/pull/160
 [#161]: https://github.com/ergebnis/factory-bot/pull/161
+[#164]: https://github.com/ergebnis/factory-bot/pull/164
 
 [@localheinz]: https://github.com/localheinz

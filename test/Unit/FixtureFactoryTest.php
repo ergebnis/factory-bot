@@ -34,6 +34,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  */
 final class FixtureFactoryTest extends AbstractTestCase

@@ -30,11 +30,7 @@
     <MissingReturnType occurrences="1">
       <code>resolve</code>
     </MissingReturnType>
-    <MixedArgument occurrences="1">
-      <code>$n</code>
-    </MixedArgument>
-    <MixedOperand occurrences="2">
-      <code>$n</code>
+    <MixedOperand occurrences="1">
       <code>$n</code>
     </MixedOperand>
   </file>
@@ -57,6 +53,18 @@
     <MissingReturnType occurrences="1">
       <code>resolve</code>
     </MissingReturnType>
+  </file>
+  <file src="src/FieldDefinition/Sequence.php">
+    <MissingPropertyType occurrences="2">
+      <code>$value</code>
+      <code>$sequentialNumber</code>
+    </MissingPropertyType>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;value</code>
+    </MixedArgument>
+    <MixedOperand occurrences="1">
+      <code>$this-&gt;sequentialNumber</code>
+    </MixedOperand>
   </file>
   <file src="src/FieldDefinition/Value.php">
     <MissingParamType occurrences="1">
