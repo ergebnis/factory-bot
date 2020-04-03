@@ -49,9 +49,9 @@ final class FieldDefinition implements FieldDefinition\Resolvable
      * @param callable|string $funcOrString the function or pattern to generate a value from
      * @param int             $firstNum     the first number to use
      *
-     * @return self
+     * @return FieldDefinition\Sequence|self
      */
-    public static function sequence($funcOrString, int $firstNum = 1): self
+    public static function sequence($funcOrString, int $firstNum = 1)
     {
         $n = $firstNum - 1;
 
@@ -67,15 +67,10 @@ final class FieldDefinition implements FieldDefinition\Resolvable
             $funcOrString .= '%d';
         }
 
-        return new self(static function () use (&$n, $funcOrString) {
-            ++$n;
-
-            return \str_replace(
-                '%d',
-                $n,
-                $funcOrString
-            );
-        });
+        return new FieldDefinition\Sequence(
+            $funcOrString,
+            $firstNum
+        );
     }
 
     /**
