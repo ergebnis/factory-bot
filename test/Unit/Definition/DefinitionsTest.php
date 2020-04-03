@@ -18,7 +18,6 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
-use Ergebnis\Test\Util\Helper;
 
 /**
  * @internal
@@ -34,8 +33,6 @@ use Ergebnis\Test\Util\Helper;
  */
 final class DefinitionsTest extends AbstractTestCase
 {
-    use Helper;
-
     public function testInRejectsNonExistentDirectory(): void
     {
         $this->expectException(Exception\InvalidDirectory::class);

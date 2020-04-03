@@ -16,7 +16,6 @@ namespace Ergebnis\FactoryBot\Test\Integration;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
-use Ergebnis\Test\Util\Helper;
 
 /**
  * @internal
@@ -30,8 +29,6 @@ use Ergebnis\Test\Util\Helper;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    use Helper;
-
     public function testAutomaticPersistCanBeTurnedOn(): void
     {
         $entityManager = self::entityManager();

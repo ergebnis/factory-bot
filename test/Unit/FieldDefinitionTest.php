@@ -17,7 +17,6 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
-use Ergebnis\Test\Util\Helper;
 
 /**
  * @internal
@@ -34,8 +33,6 @@ use Ergebnis\Test\Util\Helper;
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
-    use Helper;
-
     public function testClosureResolvesToTheReturnValueOfClosureInvokedWithFixtureFactory(): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
