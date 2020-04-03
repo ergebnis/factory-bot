@@ -26,6 +26,7 @@ use Ergebnis\Test\Util\Helper;
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value

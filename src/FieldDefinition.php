@@ -29,9 +29,9 @@ final class FieldDefinition implements FieldDefinition\Resolvable
         return $closure($fixtureFactory);
     }
 
-    public static function closure(\Closure $closure): self
+    public static function closure(\Closure $closure): FieldDefinition\Closure
     {
-        return new self($closure);
+        return new FieldDefinition\Closure($closure);
     }
 
     /**
