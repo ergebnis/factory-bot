@@ -85,9 +85,6 @@
       <code>$fieldValue</code>
       <code>$array</code>
     </MissingParamType>
-    <MixedArgument occurrences="1">
-      <code>$inversedBy</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$fieldOverrides</code>
     </MixedArgumentTypeCoercion>
