@@ -4,92 +4,17 @@
     <DocblockTypeContradiction occurrences="1">
       <code>return !$fieldDefinition instanceof FieldDefinition\Resolvable;</code>
     </DocblockTypeContradiction>
-    <MissingPropertyType occurrences="3">
-      <code>$classMetadata</code>
-      <code>$fieldDefinitions</code>
-      <code>$afterCreate</code>
-    </MissingPropertyType>
-    <MixedInferredReturnType occurrences="3">
-      <code>ORM\Mapping\ClassMetadata</code>
-      <code>array&lt;string, FieldDefinition\Resolvable&gt;</code>
-      <code>\Closure</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="3">
-      <code>$this-&gt;classMetadata</code>
-      <code>$this-&gt;fieldDefinitions</code>
-      <code>$this-&gt;afterCreate</code>
-    </MixedReturnStatement>
   </file>
   <file src="src/FieldDefinition.php">
     <MissingClosureReturnType occurrences="1">
       <code>static function () use (&amp;$n, $funcOrString) {</code>
     </MissingClosureReturnType>
-    <MissingParamType occurrences="1">
-      <code>$value</code>
-    </MissingParamType>
-    <MissingReturnType occurrences="1">
-      <code>resolve</code>
-    </MissingReturnType>
     <MixedOperand occurrences="1">
       <code>$n</code>
     </MixedOperand>
   </file>
-  <file src="src/FieldDefinition/Closure.php">
-    <MissingReturnType occurrences="1">
-      <code>resolve</code>
-    </MissingReturnType>
-  </file>
-  <file src="src/FieldDefinition/References.php">
-    <MissingPropertyType occurrences="2">
-      <code>$className</code>
-      <code>$count</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;className</code>
-      <code>$this-&gt;count</code>
-    </MixedArgument>
-  </file>
-  <file src="src/FieldDefinition/Resolvable.php">
-    <MissingReturnType occurrences="1">
-      <code>resolve</code>
-    </MissingReturnType>
-  </file>
-  <file src="src/FieldDefinition/Sequence.php">
-    <MissingPropertyType occurrences="2">
-      <code>$value</code>
-      <code>$sequentialNumber</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;value</code>
-    </MixedArgument>
-    <MixedOperand occurrences="1">
-      <code>$this-&gt;sequentialNumber</code>
-    </MixedOperand>
-  </file>
-  <file src="src/FieldDefinition/Value.php">
-    <MissingParamType occurrences="1">
-      <code>$value</code>
-    </MissingParamType>
-    <MissingPropertyType occurrences="1">
-      <code>$value</code>
-    </MissingPropertyType>
-    <MissingReturnType occurrences="1">
-      <code>resolve</code>
-    </MissingReturnType>
-  </file>
   <file src="src/FixtureFactory.php">
-    <MissingClosureReturnType occurrences="1">
-      <code>static function () use ($fieldDefinition) {</code>
-    </MissingClosureReturnType>
-    <MissingParamType occurrences="2">
-      <code>$fieldValue</code>
-      <code>$array</code>
-    </MissingParamType>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$fieldOverrides</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="6">
-      <code>$defaultFieldValue</code>
+    <MixedAssignment occurrences="5">
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
@@ -140,6 +65,11 @@
       <code>$fieldDefinitions</code>
     </MixedArgumentTypeCoercion>
   </file>
+  <file src="test/Unit/FieldDefinition/ReferenceTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
     <MixedAssignment occurrences="1">
       <code>$resolved</code>
@@ -159,6 +89,9 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">

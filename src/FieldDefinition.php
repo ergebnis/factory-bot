@@ -15,6 +15,9 @@ namespace Ergebnis\FactoryBot;
 
 final class FieldDefinition implements FieldDefinition\Resolvable
 {
+    /**
+     * @var \Closure
+     */
     private $closure;
 
     private function __construct(\Closure $closure)
@@ -74,13 +77,15 @@ final class FieldDefinition implements FieldDefinition\Resolvable
     }
 
     /**
-     * Defines a field to `get()` a named entity from the factory.
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return FieldDefinition\Reference<T>
+     * @phpstan-template T
      *
-     * The normal semantics of `get()` apply.
+     * @psalm-param class-string<T> $className
+     * @psalm-return FieldDefinition\Reference<T>
+     * @psalm-template T
      *
-     * @template T
-     *
-     * @param class-string<T> $className
+     * @param string $className
      *
      * @return FieldDefinition\Reference
      */
@@ -90,10 +95,16 @@ final class FieldDefinition implements FieldDefinition\Resolvable
     }
 
     /**
-     * @template T
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return FieldDefinition\References<T>
+     * @phpstan-template T
      *
-     * @param class-string<T> $className
-     * @param int             $count
+     * @psalm-param class-string<T> $className
+     * @psalm-return FieldDefinition\References<T>
+     * @psalm-template T
+     *
+     * @param string $className
+     * @param int    $count
      *
      * @throws Exception\InvalidCount
      *
@@ -107,6 +118,19 @@ final class FieldDefinition implements FieldDefinition\Resolvable
         );
     }
 
+    /**
+     * @phpstan-param T $value
+     * @phpstan-return FieldDefinition\Value<T>
+     * @phpstan-template T
+     *
+     * @psalm-param T $value
+     * @psalm-return FieldDefinition\Value<T>
+     * @psalm-template T
+     *
+     * @param mixed $value
+     *
+     * @return FieldDefinition\Value
+     */
     public static function value($value): FieldDefinition\Value
     {
         return new FieldDefinition\Value($value);

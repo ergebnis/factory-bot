@@ -6,57 +6,12 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:value\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Closure\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition/Closure.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition/Resolvable.php
-
-		-
-			message: "#^Property Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Value\\:\\:\\$value has no typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition/Value.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Value\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition/Value.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Value\\:\\:resolve\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/FieldDefinition/Value.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) has parameter \\$array with no typehint specified\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -111,7 +66,17 @@ parameters:
 			path: test/Fixture/FixtureFactory/Entity/User.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferenceTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot…' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinitionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\> will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FieldDefinitionTest.php
 

@@ -45,9 +45,14 @@ final class FixtureFactory
      *
      * See the readme for a tutorial.
      *
-     * @template T
+     * @phpstan-param class-string<T> $className
+     * @phpstan-template T
      *
-     * @param class-string<T>               $className
+     * @psalm-param class-string<T> $className
+     * @psalm-param class-string<T> $className
+     * @psalm-template T
+     *
+     * @param string                        $className
      * @param array<string, \Closure|mixed> $fieldDefinitions
      * @param \Closure                      $afterCreate
      *
@@ -72,7 +77,7 @@ final class FixtureFactory
             throw Exception\ClassMetadataNotFound::for($className);
         }
 
-        /** @var string[] $allFieldNames */
+        /** @var array<int, string> $allFieldNames */
         $allFieldNames = \array_merge(
             \array_keys($classMetadata->fieldMappings),
             \array_keys($classMetadata->associationMappings),
@@ -105,9 +110,7 @@ final class FixtureFactory
                 return FieldDefinition::sequence($fieldDefinition);
             }
 
-            return FieldDefinition::sequence(static function () use ($fieldDefinition) {
-                return $fieldDefinition;
-            });
+            return FieldDefinition::value($fieldDefinition);
         }, $fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
@@ -117,6 +120,7 @@ final class FixtureFactory
                 continue;
             }
 
+            /** @var mixed $defaultFieldValue */
             $defaultFieldValue = $classMetadata->getFieldValue(
                 $defaultEntity,
                 $fieldName
@@ -143,15 +147,21 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entity is also persisted.
      *
-     * @template T
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return T
+     * @phpstan-template T
      *
-     * @param class-string<T>      $className
+     * @psalm-param class-string<T> $className
+     * @psalm-return T
+     * @psalm-template T
+     *
+     * @param string               $className
      * @param array<string, mixed> $fieldOverrides
      *
      * @throws Exception\EntityDefinitionNotRegistered
      * @throws Exception\InvalidFieldNames
      *
-     * @return T
+     * @return object
      */
     public function get(string $className, array $fieldOverrides = [])
     {
@@ -221,15 +231,21 @@ final class FixtureFactory
      *
      * If you've called `persistOnGet()` then the entities are also persisted.
      *
-     * @template T
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return array<int, T>
+     * @phpstan-template T
      *
-     * @param class-string<T> $className
-     * @param array           $fieldOverrides
-     * @param int             $count
+     * @psalm-param class-string<T> $className
+     * @psalm-return list<T>
+     * @psalm-template T
+     *
+     * @param string               $className
+     * @param array<string, mixed> $fieldOverrides
+     * @param int                  $count
      *
      * @throws Exception\InvalidCount
      *
-     * @return array<int, T>
+     * @return array<int, object>
      */
     public function getList(string $className, array $fieldOverrides = [], int $count = 1): array
     {
@@ -267,13 +283,19 @@ final class FixtureFactory
     }
 
     /**
-     * @return EntityDefinition[]
+     * @return array<string, EntityDefinition>
      */
     public function definitions(): array
     {
         return $this->entityDefinitions;
     }
 
+    /**
+     * @param object           $entity
+     * @param EntityDefinition $entityDefinition
+     * @param string           $fieldName
+     * @param mixed            $fieldValue
+     */
     private function setField(object $entity, EntityDefinition $entityDefinition, string $fieldName, $fieldValue): void
     {
         $classMetadata = $entityDefinition->classMetadata();
@@ -302,10 +324,15 @@ final class FixtureFactory
         }
     }
 
-    private static function createCollectionFrom($array = []): Common\Collections\ArrayCollection
+    /**
+     * @param mixed $value
+     *
+     * @return Common\Collections\ArrayCollection
+     */
+    private static function createCollectionFrom($value = []): Common\Collections\ArrayCollection
     {
-        if (\is_array($array)) {
-            return new Common\Collections\ArrayCollection($array);
+        if (\is_array($value)) {
+            return new Common\Collections\ArrayCollection($value);
         }
 
         return new Common\Collections\ArrayCollection();

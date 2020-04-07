@@ -20,6 +20,9 @@ use Ergebnis\FactoryBot\FixtureFactory;
  */
 final class Closure implements Resolvable
 {
+    /**
+     * @var \Closure
+     */
     private $closure;
 
     public function __construct(\Closure $closure)

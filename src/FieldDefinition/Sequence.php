@@ -21,8 +21,14 @@ use Ergebnis\FactoryBot\FixtureFactory;
  */
 final class Sequence implements Resolvable
 {
+    /**
+     * @var string
+     */
     private $value;
 
+    /**
+     * @var int
+     */
     private $sequentialNumber;
 
     /**

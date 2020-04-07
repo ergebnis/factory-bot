@@ -20,10 +20,19 @@ use Doctrine\ORM;
  */
 final class EntityDefinition
 {
+    /**
+     * @var ORM\Mapping\ClassMetadata
+     */
     private $classMetadata;
 
+    /**
+     * @var array<string, FieldDefinition\Resolvable>
+     */
     private $fieldDefinitions;
 
+    /**
+     * @var \Closure
+     */
     private $afterCreate;
 
     /**

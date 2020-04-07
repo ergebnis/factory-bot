@@ -18,16 +18,34 @@ use Ergebnis\FactoryBot\FixtureFactory;
 
 /**
  * @internal
+ *
+ * @phpstan-template T
+ *
+ * @psalm-template T
  */
 final class References implements Resolvable
 {
+    /**
+     * @phpstan-var class-string<T>
+     *
+     * @psalm-var class-string<T>
+     *
+     * @var string
+     */
     private $className;
 
+    /**
+     * @var int
+     */
     private $count;
 
     /**
-     * @param class-string $className
-     * @param int          $count
+     * @phpstan-param class-string<T> $className
+     *
+     * @psalm-param class-string<T> $className
+     *
+     * @param string $className
+     * @param int    $count
      *
      * @throws Exception\InvalidCount
      */
@@ -44,6 +62,15 @@ final class References implements Resolvable
         $this->count = $count;
     }
 
+    /**
+     * @phpstan-return array<int, T>
+     *
+     * @psalm-return list<T>
+     *
+     * @param FixtureFactory $fixtureFactory
+     *
+     * @return array<int, object>
+     */
     public function resolve(FixtureFactory $fixtureFactory): array
     {
         return $fixtureFactory->getList(

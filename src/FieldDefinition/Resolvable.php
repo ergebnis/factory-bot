@@ -17,5 +17,10 @@ use Ergebnis\FactoryBot\FixtureFactory;
 
 interface Resolvable
 {
+    /**
+     * @param FixtureFactory $fixtureFactory
+     *
+     * @return mixed
+     */
     public function resolve(FixtureFactory $fixtureFactory);
 }
