@@ -17,16 +17,43 @@ use Ergebnis\FactoryBot\FixtureFactory;
 
 /**
  * @internal
+ *
+ * @phpstan-template T
+ *
+ * @psalm-template T
  */
 final class Value implements Resolvable
 {
+    /**
+     * @phpstan-var T
+     *
+     * @psalm-var T
+     *
+     * @var mixed
+     */
     private $value;
 
+    /**
+     * @phpstan-param T $value
+     *
+     * @psalm-param T $value
+     *
+     * @param mixed $value
+     */
     public function __construct($value)
     {
         $this->value = $value;
     }
 
+    /**
+     * @phpstan-return T
+     *
+     * @psalm-return T
+     *
+     * @param FixtureFactory $fixtureFactory
+     *
+     * @return mixed
+     */
     public function resolve(FixtureFactory $fixtureFactory)
     {
         return $this->value;

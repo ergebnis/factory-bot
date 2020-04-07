@@ -17,20 +17,44 @@ use Ergebnis\FactoryBot\FixtureFactory;
 
 /**
  * @internal
+ *
+ * @phpstan-template T
+ *
+ * @psalm-template T
  */
 final class Reference implements Resolvable
 {
+    /**
+     * @phpstan-var class-string<T>
+     *
+     * @psalm-var class-string<T>
+     *
+     * @var string
+     */
     private $className;
 
     /**
-     * @param class-string $className
+     * @phpstan-param class-string<T> $className
+     *
+     * @psalm-param class-string<T> $className
+     *
+     * @param string $className
      */
     public function __construct(string $className)
     {
         $this->className = $className;
     }
 
-    public function resolve(FixtureFactory $fixtureFactory): object
+    /**
+     * @phpstan-return T
+     *
+     * @psalm-return T
+     *
+     * @param FixtureFactory $fixtureFactory
+     *
+     * @return object
+     */
+    public function resolve(FixtureFactory $fixtureFactory)
     {
         return $fixtureFactory->get($this->className);
     }

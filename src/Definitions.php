@@ -19,7 +19,9 @@ use Faker\Generator;
 final class Definitions
 {
     /**
-     * @var Definition[]
+     * @psalm-var list<Definition>
+     *
+     * @var array<int, Definition>
      */
     private $definitions = [];
 
