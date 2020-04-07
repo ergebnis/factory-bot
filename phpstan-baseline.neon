@@ -66,11 +66,6 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:updateCollectionSideOfAssocation\\(\\) has parameter \\$fieldValue with no typehint specified\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: test/Fixture/FixtureFactory/Entity/Organization.php

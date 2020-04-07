@@ -315,7 +315,7 @@ final class FixtureFactory
         object $entity,
         ORM\Mapping\ClassMetadata $classMetadata,
         string $fieldName,
-        $fieldValue
+        object $fieldValue
     ): void {
         $association = $classMetadata->getAssociationMapping($fieldName);
 
