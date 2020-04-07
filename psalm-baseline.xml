@@ -81,14 +81,11 @@
     <MissingClosureReturnType occurrences="1">
       <code>static function () use ($fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MissingParamType occurrences="3">
+    <MissingParamType occurrences="2">
       <code>$fieldValue</code>
       <code>$array</code>
-      <code>$fieldValue</code>
     </MissingParamType>
-    <MixedArgument occurrences="3">
-      <code>$fieldValue</code>
-      <code>$fieldValue</code>
+    <MixedArgument occurrences="1">
       <code>$inversedBy</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
