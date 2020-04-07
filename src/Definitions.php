@@ -11,11 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Definition;
+namespace Ergebnis\FactoryBot;
 
 use Ergebnis\Classy;
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
 
 final class Definitions
