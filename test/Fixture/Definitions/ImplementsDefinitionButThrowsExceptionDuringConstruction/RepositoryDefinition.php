@@ -11,14 +11,20 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\DoesNotImplementDefinition;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringConstruction;
 
+use Ergebnis\FactoryBot\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Faker\Generator;
 
-final class RepositoryDefinition
+final class RepositoryDefinition implements Definition
 {
+    public function __construct()
+    {
+        throw new \RuntimeException();
+    }
+
     public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
     {
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);

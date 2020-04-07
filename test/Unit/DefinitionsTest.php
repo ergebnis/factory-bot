@@ -11,18 +11,17 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\Definition;
+namespace Ergebnis\FactoryBot\Test\Unit;
 
-use Ergebnis\FactoryBot\Definition\Definitions;
+use Ergebnis\FactoryBot\Definitions;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Definition\Definitions
+ * @covers \Ergebnis\FactoryBot\Definitions
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
@@ -37,7 +36,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $this->expectException(Exception\InvalidDirectory::class);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/NonExistentDirectory');
+        Definitions::in(__DIR__ . '/../Fixture/Definitions/NonExistentDirectory');
     }
 
     public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
@@ -46,7 +45,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/DoesNotImplementDefinition');
+        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/DoesNotImplementDefinition');
 
         $definitions->registerWith(
             $fixtureFactory,
@@ -62,7 +61,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButIsAbstract');
+        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButIsAbstract');
 
         $definitions->registerWith(
             $fixtureFactory,
@@ -78,7 +77,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButHasPrivateConstructor');
+        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButHasPrivateConstructor');
 
         $definitions->registerWith(
             $fixtureFactory,
@@ -92,7 +91,7 @@ final class DefinitionsTest extends AbstractTestCase
     {
         $this->expectException(Exception\InvalidDefinition::class);
 
-        Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinitionButThrowsExceptionDuringConstruction');
+        Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButThrowsExceptionDuringConstruction');
     }
 
     public function testInAcceptsDefinitionsThatHaveNoIssues(): void
@@ -101,7 +100,7 @@ final class DefinitionsTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $definitions = Definitions::in(__DIR__ . '/../../Fixture/Definition/Definitions/ImplementsDefinition');
+        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinition');
 
         $definitions->registerWith(
             $fixtureFactory,

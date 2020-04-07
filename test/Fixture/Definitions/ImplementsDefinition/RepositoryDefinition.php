@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definition\Definitions\ImplementsDefinitionButIsAbstract;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinition;
 
-use Ergebnis\FactoryBot\Definition\Definition;
+use Ergebnis\FactoryBot\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Faker\Generator;
 
-abstract class RepositoryDefinition implements Definition
+final class RepositoryDefinition implements Definition
 {
-    final public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
+    public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
     {
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
     }
