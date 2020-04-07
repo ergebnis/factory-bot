@@ -319,19 +319,27 @@ final class FixtureFactory
     ): void {
         $association = $classMetadata->getAssociationMapping($fieldName);
 
+        if (!\array_key_exists('inversedBy', $association)) {
+            return;
+        }
+
         $inversedBy = $association['inversedBy'];
 
-        if ($inversedBy) {
-            $classMetadataOfFieldValue = $this->entityManager->getClassMetadata(\get_class($fieldValue));
-
-            $collection = $classMetadataOfFieldValue->getFieldValue(
-                $fieldValue,
-                $inversedBy
-            );
-
-            if ($collection instanceof Common\Collections\Collection) {
-                $collection->add($entity);
-            }
+        if (!\is_string($inversedBy) || '' === $inversedBy) {
+            return;
         }
+
+        $classMetadataOfFieldValue = $this->entityManager->getClassMetadata(\get_class($fieldValue));
+
+        $collection = $classMetadataOfFieldValue->getFieldValue(
+            $fieldValue,
+            $inversedBy
+        );
+
+        if (!$collection instanceof Common\Collections\Collection) {
+            return;
+        }
+
+        $collection->add($entity);
     }
 }
