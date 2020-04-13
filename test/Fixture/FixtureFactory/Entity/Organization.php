@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
-use Doctrine\Common\Collections;
+use Doctrine\Common;
 use Doctrine\ORM;
 
 /**
@@ -57,7 +57,7 @@ class Organization
      *     mappedBy="organization"
      * )
      *
-     * @var Collections\ArrayCollection<int, Repository>
+     * @var Common\Collections\ArrayCollection<int, Repository>
      */
     private $repositories;
 
@@ -67,7 +67,7 @@ class Organization
      *     inversedBy="organizations"
      * )
      *
-     * @var Collections\ArrayCollection<int, User>
+     * @var Common\Collections\ArrayCollection<int, User>
      */
     private $members;
 
@@ -79,8 +79,8 @@ class Organization
     public function __construct(string $name)
     {
         $this->name = $name;
-        $this->repositories = new Collections\ArrayCollection();
-        $this->members = new Collections\ArrayCollection();
+        $this->repositories = new Common\Collections\ArrayCollection();
+        $this->members = new Common\Collections\ArrayCollection();
         $this->constructorWasCalled = true;
     }
 
