@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
-use Doctrine\Common\Collections;
+use Doctrine\Common;
 use Doctrine\ORM;
 
 /**
@@ -60,7 +60,7 @@ class User
      *     mappedBy="members"
      * )
      *
-     * @var Collections\ArrayCollection<int, Organization>
+     * @var Common\Collections\ArrayCollection<int, Organization>
      */
     private $organizations;
 
