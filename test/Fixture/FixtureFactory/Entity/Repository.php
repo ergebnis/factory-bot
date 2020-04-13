@@ -13,18 +13,18 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="repository")
+ * @ORM\Mapping\Entity
+ * @ORM\Mapping\Table(name="repository")
  */
 class Repository
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(
      *     name="id",
      *     type="integer"
      * )
@@ -34,7 +34,7 @@ class Repository
     private $id;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
@@ -44,11 +44,11 @@ class Repository
     private $name;
 
     /**
-     * @ORM\ManyToOne(
+     * @ORM\Mapping\ManyToOne(
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Organization",
      *     inversedBy="repositories"
      * )
-     * @ORM\JoinColumn(
+     * @ORM\Mapping\JoinColumn(
      *     name="organization_id",
      *     referencedColumnName="id",
      *     nullable=false
@@ -59,8 +59,8 @@ class Repository
     private $organization;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
-     * @ORM\JoinColumn(
+     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
+     * @ORM\Mapping\JoinColumn(
      *     name="template_id",
      *     referencedColumnName="id"
      * )
