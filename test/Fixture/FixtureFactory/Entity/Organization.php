@@ -14,25 +14,25 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\Common\Collections;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="space_ship")
+ * @ORM\Mapping\Entity
+ * @ORM\Mapping\Table(name="space_ship")
  */
 class Organization
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(type="integer")
      *
      * @var int
      */
     private $id;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="is_verified",
      *     type="boolean"
      * )
@@ -42,7 +42,7 @@ class Organization
     private $isVerified = false;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
@@ -52,7 +52,7 @@ class Organization
     private $name;
 
     /**
-     * @ORM\OneToMany(
+     * @ORM\Mapping\OneToMany(
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository",
      *     mappedBy="organization"
      * )
@@ -62,7 +62,7 @@ class Organization
     private $repositories;
 
     /**
-     * @ORM\ManyToMany(
+     * @ORM\Mapping\ManyToMany(
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\User",
      *     inversedBy="organizations"
      * )

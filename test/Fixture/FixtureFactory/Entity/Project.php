@@ -13,25 +13,25 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="project")
+ * @ORM\Mapping\Entity
+ * @ORM\Mapping\Table(name="project")
  */
 class Project
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(type="integer")
      *
      * @var int
      */
     private $id;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
@@ -41,8 +41,8 @@ class Project
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
-     * @ORM\JoinColumn(
+     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
+     * @ORM\Mapping\JoinColumn(
      *     name="repository_id",
      *     referencedColumnName="id",
      *     nullable=false

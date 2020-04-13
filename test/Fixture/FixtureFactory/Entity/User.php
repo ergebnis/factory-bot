@@ -14,18 +14,18 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
 use Doctrine\Common\Collections;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Mapping\Entity
+ * @ORM\Mapping\Table(name="user")
  */
 class User
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(
+     * @ORM\Mapping\Id
+     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\Column(
      *     name="id",
      *     type="integer"
      * )
@@ -35,7 +35,7 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="login",
      *     type="string"
      * )
@@ -45,7 +45,7 @@ class User
     private $login;
 
     /**
-     * @ORM\Embedded(
+     * @ORM\Mapping\Embedded(
      *     class="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Avatar",
      *     columnPrefix="avatar"
      * )
@@ -55,7 +55,7 @@ class User
     private $avatar;
 
     /**
-     * @ORM\ManyToMany(
+     * @ORM\Mapping\ManyToMany(
      *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Organization",
      *     mappedBy="members"
      * )

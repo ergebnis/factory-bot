@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM;
 
 /**
- * @ORM\Embeddable
+ * @ORM\Mapping\Embeddable
  */
 final class Avatar
 {
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="url",
      *     type="string"
      * )
@@ -31,7 +31,7 @@ final class Avatar
     private $url = '';
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="width",
      *     type="integer"
      * )
@@ -41,7 +41,7 @@ final class Avatar
     private $width = 0;
 
     /**
-     * @ORM\Column(
+     * @ORM\Mapping\Column(
      *     name="height",
      *     type="integer"
      * )
