@@ -27,6 +27,7 @@ use PHPUnit\Framework;
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions
  * @uses \Ergebnis\FactoryBot\FieldDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  */
 final class EntityDefinitionTest extends Framework\TestCase
 {
@@ -40,9 +41,7 @@ final class EntityDefinitionTest extends Framework\TestCase
     public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions($fieldDefinition): void
     {
         $fieldDefinitions = [
-            'foo' => FieldDefinition::sequence(static function (): string {
-                return 'bar';
-            }),
+            'foo' => FieldDefinition::value('bar'),
             'bar' => $fieldDefinition,
         ];
 
@@ -62,12 +61,8 @@ final class EntityDefinitionTest extends Framework\TestCase
         $classMetadata = $this->prophesize(ORM\Mapping\ClassMetadata::class);
 
         $fieldDefinitions = [
-            'foo' => FieldDefinition::sequence(static function (): string {
-                return 'bar';
-            }),
-            'bar' => FieldDefinition::sequence(static function (): string {
-                return 'baz';
-            }),
+            'foo' => FieldDefinition::value('bar'),
+            'bar' => FieldDefinition::value('baz'),
         ];
 
         $afterCreate = static function ($entity, array $fieldValues): void {

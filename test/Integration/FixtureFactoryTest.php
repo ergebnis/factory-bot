@@ -25,6 +25,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  */
 final class FixtureFactoryTest extends AbstractTestCase
@@ -84,7 +85,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory = new FixtureFactory($entityManager);
 
         $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Avatar::class, [
-            'url' => FieldDefinition::sequence(static function () use ($faker): string {
+            'url' => FieldDefinition::closure(static function () use ($faker): string {
                 return $faker->imageUrl();
             }),
         ]);

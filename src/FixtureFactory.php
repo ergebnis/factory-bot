@@ -107,7 +107,7 @@ final class FixtureFactory
             }
 
             if ($fieldDefinition instanceof \Closure) {
-                return FieldDefinition::sequence($fieldDefinition);
+                return FieldDefinition::closure($fieldDefinition);
             }
 
             return FieldDefinition::value($fieldDefinition);
@@ -199,7 +199,7 @@ final class FixtureFactory
                 continue;
             }
 
-            /** @var FieldDefinition $fieldDefinition */
+            /** @var FieldDefinition\Resolvable $fieldDefinition */
             $fieldValues[$fieldName] = $fieldDefinition->resolve($this);
         }
 

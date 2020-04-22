@@ -32,6 +32,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  * @uses \Ergebnis\FactoryBot\FieldDefinition
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
@@ -549,37 +550,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $repository->organization();
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
-    }
-
-    public function testSequenceGeneratorCallsAFunctionWithAnIncrementingArgument(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDefinition::sequence(static function (int $i): string {
-                return \sprintf(
-                    'alpha-%d',
-                    $i
-                );
-            }),
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
-        $organizationOne = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
-        $organizationTwo = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
-        $organizationThree = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
-        $organizationFour = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertSame('alpha-1', $organizationOne->name());
-        self::assertSame('alpha-2', $organizationTwo->name());
-        self::assertSame('alpha-3', $organizationThree->name());
-        self::assertSame('alpha-4', $organizationFour->name());
     }
 
     public function testSequenceGeneratorCanTakeAPlaceholderString(): void
