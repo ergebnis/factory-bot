@@ -13,66 +13,28 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-final class FieldDefinition implements FieldDefinition\Resolvable
+final class FieldDefinition
 {
-    /**
-     * @var \Closure
-     */
-    private $closure;
-
-    private function __construct(\Closure $closure)
-    {
-        $this->closure = $closure;
-    }
-
-    public function resolve(FixtureFactory $fixtureFactory)
-    {
-        $closure = $this->closure;
-
-        return $closure($fixtureFactory);
-    }
-
     public static function closure(\Closure $closure): FieldDefinition\Closure
     {
         return new FieldDefinition\Closure($closure);
     }
 
     /**
-     * Defines a field to be a string based on an incrementing integer.
+     * @param string $value
+     * @param int    $initialNumber
      *
-     * This is typically used to generate unique names such as usernames.
-     *
-     * The parameter may be a function that receives a counter value
-     * each time the entity is created or it may be a string.
-     *
-     * If the parameter is a string string containing "%d" then it will be
-     * replaced by the counter value. If the string does not contain "%d"
-     * then the number is simply appended to the parameter.
-     *
-     * @param callable|string $funcOrString the function or pattern to generate a value from
-     * @param int             $firstNum     the first number to use
-     *
-     * @return FieldDefinition\Sequence|self
+     * @return FieldDefinition\Sequence
      */
-    public static function sequence($funcOrString, int $firstNum = 1)
+    public static function sequence($value, int $initialNumber = 1): FieldDefinition\Sequence
     {
-        $n = $firstNum - 1;
-
-        if (\is_callable($funcOrString)) {
-            return new self(static function () use (&$n, $funcOrString) {
-                ++$n;
-
-                return \call_user_func($funcOrString, $n);
-            });
-        }
-
-        if (false === \strpos($funcOrString, '%d')) {
-            $funcOrString .= '%d';
+        if (false === \strpos($value, '%d')) {
+            $value .= '%d';
         }
 
         return new FieldDefinition\Sequence(
-            $funcOrString,
-            $firstNum
+            $value,
+            $initialNumber
         );
     }
 

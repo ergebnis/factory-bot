@@ -52,7 +52,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `Definition\FakerAwareDefinition` ([#120] and [#123]), by [@localheinz]
 * Removed `FixtureFactory::provideWith()` ([#122]), by [@localheinz]
 * Removed `FixtureFactory::getAsSingleton()`, `FixtureFactory::setSingleton()`, and `FixtureFactory::unsetSingleton()` ([#124]), by [@localheinz]
-* Removed `callable` support for field definitions ([#133]), by [@localheinz]
+* Removed `callable` support for field definitions ([#133]) and ([#185]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 
@@ -92,5 +92,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#160]: https://github.com/ergebnis/factory-bot/pull/160
 [#161]: https://github.com/ergebnis/factory-bot/pull/161
 [#164]: https://github.com/ergebnis/factory-bot/pull/164
+[#185]: https://github.com/ergebnis/factory-bot/pull/185
 
 [@localheinz]: https://github.com/localheinz
