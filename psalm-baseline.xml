@@ -5,14 +5,6 @@
       <code>return !$fieldDefinition instanceof FieldDefinition\Resolvable;</code>
     </DocblockTypeContradiction>
   </file>
-  <file src="src/FieldDefinition.php">
-    <MissingClosureReturnType occurrences="1">
-      <code>static function () use (&amp;$n, $funcOrString) {</code>
-    </MissingClosureReturnType>
-    <MixedOperand occurrences="1">
-      <code>$n</code>
-    </MixedOperand>
-  </file>
   <file src="src/FixtureFactory.php">
     <MixedAssignment occurrences="5">
       <code>$fieldValues[$fieldName]</code>
@@ -74,24 +66,6 @@
     <MixedAssignment occurrences="1">
       <code>$resolved</code>
     </MixedAssignment>
-  </file>
-  <file src="test/Unit/FieldDefinitionTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$resolved</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
-      <code>string</code>
-      <code>string</code>
-      <code>\Generator</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="2"/>
-    <RedundantCondition occurrences="2">
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">

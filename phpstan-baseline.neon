@@ -71,16 +71,6 @@ parameters:
 			path: test/Unit/FieldDefinition/ReferenceTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\User' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/FieldDefinitionTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\> will always evaluate to true\\.$#"
-			count: 2
-			path: test/Unit/FieldDefinitionTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php

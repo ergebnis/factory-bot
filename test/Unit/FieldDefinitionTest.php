@@ -23,23 +23,17 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
- * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
-    public function testClosureResolvesToTheReturnValueOfClosureInvokedWithFixtureFactory(): void
+    public function testClosureReturnsClosure(): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
-
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             /** @var Fixture\FixtureFactory\Entity\User $user */
             $user = $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class);
@@ -51,20 +45,20 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::closure($closure);
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $fieldDefinition->resolve($fixtureFactory));
+        $expected = new FieldDefinition\Closure($closure);
+
+        self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testReferenceResolvesToInstanceOfReferencedClass(): void
+    public function testReferenceReturnsReference(): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $className = Fixture\FixtureFactory\Entity\User::class;
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $fieldDefinition = FieldDefinition::reference($className);
 
-        $fieldDefinition = FieldDefinition::reference(Fixture\FixtureFactory\Entity\User::class);
+        $expected = new FieldDefinition\Reference($className);
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
-
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $resolved);
+        self::assertEquals($expected, $fieldDefinition);
     }
 
     /**
@@ -84,19 +78,18 @@ final class FieldDefinitionTest extends AbstractTestCase
         );
     }
 
-    public function testReferencesResolvesToAnArrayOfOneInstancesOfReferencedClassWhenCountIsNotSpecified(): void
+    public function testReferencesReturnsReferencesWhenCountIsNotSpecified(): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $className = Fixture\FixtureFactory\Entity\User::class;
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $fieldDefinition = FieldDefinition::references($className);
 
-        $fieldDefinition = FieldDefinition::references(Fixture\FixtureFactory\Entity\User::class);
+        $expected = new FieldDefinition\References(
+            $className,
+            1
+        );
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
-
-        self::assertIsArray($resolved);
-        self::assertCount(1, $resolved);
-        self::assertContainsOnly(Fixture\FixtureFactory\Entity\User::class, $resolved);
+        self::assertEquals($expected, $fieldDefinition);
     }
 
     /**
@@ -104,45 +97,35 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $count
      */
-    public function testReferencesResolvesToAnArrayOfCountInstancesOfReferencedClassWhenCountIsSpecified(int $count): void
+    public function testReferencesReturnsReferencesWhenCountIsSpecified(int $count): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $className = Fixture\FixtureFactory\Entity\User::class;
 
         $fieldDefinition = FieldDefinition::references(
-            Fixture\FixtureFactory\Entity\User::class,
+            $className,
             $count
         );
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $expected = new FieldDefinition\References(
+            $className,
+            $count
+        );
 
-        self::assertIsArray($resolved);
-        self::assertCount($count, $resolved);
-        self::assertContainsOnly(Fixture\FixtureFactory\Entity\User::class, $resolved);
+        self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceResolvesToValueWithPlaceholderReplacedWithSequentialNumberWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
-
         $fieldDefinition = FieldDefinition::sequence($value);
 
-        $expected = static function (int $number): string {
-            return \sprintf(
-                'there-is-no-difference-between-%d-and-%d',
-                $number,
-                $number
-            );
-        };
+        $expected = new FieldDefinition\Sequence(
+            $value,
+            1
+        );
 
-        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
+        self::assertEquals($expected, $fieldDefinition);
     }
 
     /**
@@ -150,52 +133,35 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceResolvesToValueWithPlaceholderReplacedWithSequentialNumberWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
-
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
         $fieldDefinition = FieldDefinition::sequence(
             $value,
             $initialNumber
         );
 
-        $expected = static function (int $number) use ($initialNumber): string {
-            return \sprintf(
-                'there-is-no-difference-between-%d-and-%d',
-                $number + $initialNumber - 1,
-                $number + $initialNumber - 1
-            );
-        };
+        $expected = new FieldDefinition\Sequence(
+            $value,
+            $initialNumber
+        );
 
-        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
+        self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceResolvesToValueSuffixedWithSequentialNumberWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testSequenceReturnsSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'user-';
 
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
-
         $fieldDefinition = FieldDefinition::sequence($value);
 
-        $expected = static function (int $number): string {
-            return \sprintf(
-                'user-%d',
-                $number
-            );
-        };
+        $expected = new FieldDefinition\Sequence(
+            $value . '%d',
+            1
+        );
 
-        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
+        self::assertEquals($expected, $fieldDefinition);
     }
 
     /**
@@ -203,66 +169,34 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceResolvesToValueSuffixedWithSequentialNumberWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testSequenceReturnsSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'user-';
-
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
 
         $fieldDefinition = FieldDefinition::sequence(
             $value,
             $initialNumber
         );
 
-        $expected = static function (int $number) use ($initialNumber): string {
-            return \sprintf(
-                'user-%d',
-                $number + $initialNumber - 1
-            );
-        };
+        $expected = new FieldDefinition\Sequence(
+            $value . '%d',
+            $initialNumber
+        );
 
-        self::assertSame($expected(1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(2), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected(3), $fieldDefinition->resolve($fixtureFactory));
+        self::assertEquals($expected, $fieldDefinition);
     }
 
     /**
-     * @dataProvider provideArbitraryValue
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
      *
      * @param mixed $value
      */
-    public function testValueResolvesToValue($value): void
+    public function testValueReturnsValue($value): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
         $fieldDefinition = FieldDefinition::value($value);
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $expected = new FieldDefinition\Value($value);
 
-        self::assertSame($value, $resolved);
-    }
-
-    public function provideArbitraryValue(): \Generator
-    {
-        $faker = self::faker();
-
-        $values = [
-            'array' => $faker->words,
-            'bool-false' => false,
-            'bool-true' => true,
-            'float' => $faker->randomFloat(),
-            'int' => $faker->numberBetween(),
-            'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'rb'),
-            'string' => $faker->sentence,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
+        self::assertEquals($expected, $fieldDefinition);
     }
 }
