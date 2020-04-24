@@ -93,7 +93,7 @@ final class References implements Resolvable
      */
     public function resolve(FixtureFactory $fixtureFactory): array
     {
-        return $fixtureFactory->getList(
+        return $fixtureFactory->createMultiple(
             $this->className,
             [],
             $this->count

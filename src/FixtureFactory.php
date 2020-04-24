@@ -243,7 +243,7 @@ final class FixtureFactory
      *
      * @return array<int, object>
      */
-    public function getList(string $className, array $fieldOverrides = [], int $count = 1): array
+    public function createMultiple(string $className, array $fieldOverrides = [], int $count = 1): array
     {
         $minimumCount = 1;
 
