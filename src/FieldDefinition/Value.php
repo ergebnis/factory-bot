@@ -40,9 +40,25 @@ final class Value implements Resolvable
      *
      * @param mixed $value
      */
-    public function __construct($value)
+    private function __construct($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * @phpstan-param T $value
+     * @phpstan-return self<T>
+     *
+     * @psalm-param T $value
+     * @psalm-return self<T>
+     *
+     * @param mixed $value
+     *
+     * @return self
+     */
+    public static function required($value): self
+    {
+        return new self($value);
     }
 
     /**

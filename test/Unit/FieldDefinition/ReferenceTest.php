@@ -38,7 +38,7 @@ final class ReferenceTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity($className);
 
-        $fieldDefinition = new Reference($className);
+        $fieldDefinition = Reference::required($className);
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 

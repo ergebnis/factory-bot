@@ -37,7 +37,7 @@ final class ValueTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fieldDefinition = new Value($value);
+        $fieldDefinition = Value::required($value);
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 

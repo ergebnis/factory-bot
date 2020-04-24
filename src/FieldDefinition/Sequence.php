@@ -31,19 +31,30 @@ final class Sequence implements Resolvable
      */
     private $sequentialNumber;
 
+    private function __construct(string $value, int $initialNumber)
+    {
+        $this->value = $value;
+        $this->sequentialNumber = $initialNumber;
+    }
+
     /**
      * @param string $value
      * @param int    $initialNumber
      *
      * @throws Exception\InvalidSequence
+     *
+     * @return self
      */
-    public function __construct(string $value, int $initialNumber)
+    public static function required(string $value, int $initialNumber): self
     {
         if (false === \strpos($value, '%d')) {
             throw Exception\InvalidSequence::value($value);
         }
-        $this->value = $value;
-        $this->sequentialNumber = $initialNumber;
+
+        return new self(
+            $value,
+            $initialNumber
+        );
     }
 
     public function resolve(FixtureFactory $fixtureFactory): string

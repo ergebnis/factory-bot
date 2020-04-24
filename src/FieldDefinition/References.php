@@ -46,10 +46,28 @@ final class References implements Resolvable
      *
      * @param string $className
      * @param int    $count
+     */
+    private function __construct(string $className, int $count)
+    {
+        $this->className = $className;
+        $this->count = $count;
+    }
+
+    /**
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return self<T>
+     *
+     * @psalm-param class-string<T> $className
+     * @psalm-return self<T>
+     *
+     * @param string $className
+     * @param int    $count
      *
      * @throws Exception\InvalidCount
+     *
+     * @return self
      */
-    public function __construct(string $className, int $count)
+    public static function required(string $className, int $count): self
     {
         if (1 > $count) {
             throw Exception\InvalidCount::notGreaterThanOrEqualTo(
@@ -58,8 +76,10 @@ final class References implements Resolvable
             );
         }
 
-        $this->className = $className;
-        $this->count = $count;
+        return new self(
+            $className,
+            $count
+        );
     }
 
     /**

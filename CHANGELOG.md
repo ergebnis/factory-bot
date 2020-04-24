@@ -35,6 +35,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Extracted `FieldDefinition\Value` ([#160]), by [@localheinz]
 * Extracted `FieldDefinition\Closure` ([#161]), by [@localheinz]
 * Extracted `FieldDefinition\Sequence` ([#164]), by [@localheinz]
+* Introduced named constructors for field definitions and marked primary constructor as `private` ([#188]), by [@localheinz]
 
 ### Fixed
 
@@ -93,5 +94,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#161]: https://github.com/ergebnis/factory-bot/pull/161
 [#164]: https://github.com/ergebnis/factory-bot/pull/164
 [#185]: https://github.com/ergebnis/factory-bot/pull/185
+[#188]: https://github.com/ergebnis/factory-bot/pull/188
 
 [@localheinz]: https://github.com/localheinz
