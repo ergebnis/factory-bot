@@ -37,6 +37,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Extracted `FieldDefinition\Sequence` ([#164]), by [@localheinz]
 * Introduced named constructors for field definitions and marked primary constructor as `private` ([#188]), by [@localheinz]
 * Renamed `FixtureFactory::get()` to `FixtureFactory::create()` ([#189]), by [@localheinz]
+* Renamed `FixtureFactory::getList()` to `FixtureFactory::createMultiple()` ([#190]), by [@localheinz]
 
 ### Fixed
 
@@ -97,5 +98,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#185]: https://github.com/ergebnis/factory-bot/pull/185
 [#188]: https://github.com/ergebnis/factory-bot/pull/188
 [#189]: https://github.com/ergebnis/factory-bot/pull/189
+[#190]: https://github.com/ergebnis/factory-bot/pull/190
 
 [@localheinz]: https://github.com/localheinz
