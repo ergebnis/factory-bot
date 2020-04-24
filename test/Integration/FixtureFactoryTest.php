@@ -30,7 +30,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testAutomaticPersistCanBeTurnedOn(): void
+    public function testCreatePersistsEntityWhenPersistOnGetHasBeenTurnedOn(): void
     {
         $entityManager = self::entityManager();
 
@@ -43,7 +43,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->persistOnGet();
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
@@ -51,7 +51,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($organization, $entityManager->find(Fixture\FixtureFactory\Entity\Organization::class, $organization->id()));
     }
 
-    public function testDoesNotPersistByDefault(): void
+    public function testCreateDoesNotNotPersistEntityByDefault(): void
     {
         $entityManager = self::entityManager();
 
@@ -62,7 +62,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->get(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
@@ -76,7 +76,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertEmpty($query->getResult());
     }
 
-    public function testDoesNotPersistEmbeddableWhenAutomaticPersistingIsTurnedOn(): void
+    public function testCreateDoesNotPersistEmbeddablesWhenPersistOnGetHasBeenTurnedOn(): void
     {
         $faker = self::faker();
 
@@ -97,7 +97,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->persistOnGet();
 
-        $fixtureFactory->get(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
 
         $entityManager->flush();
 
