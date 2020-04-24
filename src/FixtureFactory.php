@@ -143,10 +143,6 @@ final class FixtureFactory
     }
 
     /**
-     * Get an entity and its dependencies.
-     *
-     * If you've called `persistOnGet()` then the entity is also persisted.
-     *
      * @phpstan-param class-string<T> $className
      * @phpstan-return T
      * @phpstan-template T
@@ -163,7 +159,7 @@ final class FixtureFactory
      *
      * @return object
      */
-    public function get(string $className, array $fieldOverrides = [])
+    public function create(string $className, array $fieldOverrides = [])
     {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
@@ -261,7 +257,7 @@ final class FixtureFactory
         $instances = [];
 
         for ($i = 0; $i < $count; ++$i) {
-            $instances[] = $this->get(
+            $instances[] = $this->create(
                 $className,
                 $fieldOverrides
             );

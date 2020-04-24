@@ -72,6 +72,6 @@ final class Reference implements Resolvable
      */
     public function resolve(FixtureFactory $fixtureFactory)
     {
-        return $fixtureFactory->get($this->className);
+        return $fixtureFactory->create($this->className);
     }
 }
