@@ -40,9 +40,25 @@ final class Reference implements Resolvable
      *
      * @param string $className
      */
-    public function __construct(string $className)
+    private function __construct(string $className)
     {
         $this->className = $className;
+    }
+
+    /**
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return self<T>
+     *
+     * @psalm-param class-string<T> $className
+     * @psalm-return self<T>
+     *
+     * @param string $className
+     *
+     * @return self
+     */
+    public static function required(string $className): self
+    {
+        return new self($className);
     }
 
     /**

@@ -25,9 +25,14 @@ final class Closure implements Resolvable
      */
     private $closure;
 
-    public function __construct(\Closure $closure)
+    private function __construct(\Closure $closure)
     {
         $this->closure = $closure;
+    }
+
+    public static function required(\Closure $closure): self
+    {
+        return new self($closure);
     }
 
     public function resolve(FixtureFactory $fixtureFactory)

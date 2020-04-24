@@ -17,7 +17,7 @@ final class FieldDefinition
 {
     public static function closure(\Closure $closure): FieldDefinition\Closure
     {
-        return new FieldDefinition\Closure($closure);
+        return FieldDefinition\Closure::required($closure);
     }
 
     /**
@@ -32,7 +32,7 @@ final class FieldDefinition
             $value .= '%d';
         }
 
-        return new FieldDefinition\Sequence(
+        return FieldDefinition\Sequence::required(
             $value,
             $initialNumber
         );
@@ -53,7 +53,7 @@ final class FieldDefinition
      */
     public static function reference(string $className): FieldDefinition\Reference
     {
-        return new FieldDefinition\Reference($className);
+        return FieldDefinition\Reference::required($className);
     }
 
     /**
@@ -74,7 +74,7 @@ final class FieldDefinition
      */
     public static function references(string $className, int $count = 1): FieldDefinition\References
     {
-        return new FieldDefinition\References(
+        return FieldDefinition\References::required(
             $className,
             $count
         );
@@ -95,6 +95,6 @@ final class FieldDefinition
      */
     public static function value($value): FieldDefinition\Value
     {
-        return new FieldDefinition\Value($value);
+        return FieldDefinition\Value::required($value);
     }
 }

@@ -5,6 +5,44 @@
       <code>return !$fieldDefinition instanceof FieldDefinition\Resolvable;</code>
     </DocblockTypeContradiction>
   </file>
+  <file src="src/FieldDefinition.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$className</code>
+      <code>$className</code>
+    </ArgumentTypeCoercion>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$value</code>
+    </MixedArgumentTypeCoercion>
+    <MixedReturnTypeCoercion occurrences="4">
+      <code>FieldDefinition\Reference::required($className)</code>
+      <code>FieldDefinition\Reference&lt;T&gt;</code>
+      <code>FieldDefinition\References&lt;T&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="src/FieldDefinition/Reference.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>self&lt;T&gt;</code>
+    </MixedInferredReturnType>
+    <UndefinedDocblockClass occurrences="1">
+      <code>class-string&lt;T&gt;</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/FieldDefinition/References.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>self&lt;T&gt;</code>
+    </MixedInferredReturnType>
+    <UndefinedDocblockClass occurrences="1">
+      <code>class-string&lt;T&gt;</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/FieldDefinition/Value.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>self&lt;T&gt;</code>
+    </MixedInferredReturnType>
+    <UndefinedClass occurrences="1">
+      <code>T</code>
+    </UndefinedClass>
+  </file>
   <file src="src/FixtureFactory.php">
     <MixedAssignment occurrences="5">
       <code>$fieldValues[$fieldName]</code>
@@ -58,14 +96,33 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="test/Unit/FieldDefinition/ReferenceTest.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
+    <InvalidArgument occurrences="1">
+      <code>$className</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/Unit/FieldDefinition/ReferencesTest.php">
+    <InvalidArgument occurrences="2">
+      <code>Fixture\FixtureFactory\Entity\User::class</code>
+      <code>$className</code>
+    </InvalidArgument>
   </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
+    <MixedArgument occurrences="1">
+      <code>$value</code>
+    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$resolved</code>
     </MixedAssignment>
+  </file>
+  <file src="test/Unit/FieldDefinitionTest.php">
+    <InvalidArgument occurrences="3">
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+    </InvalidArgument>
+    <MixedArgument occurrences="1">
+      <code>$value</code>
+    </MixedArgument>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion occurrences="1">

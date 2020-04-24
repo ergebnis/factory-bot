@@ -41,7 +41,7 @@ final class SequenceTest extends AbstractTestCase
             $value
         ));
 
-        new Sequence(
+        Sequence::required(
             $value,
             $initialNumber
         );
@@ -57,7 +57,7 @@ final class SequenceTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fieldDefinition = new Sequence(
+        $fieldDefinition = Sequence::required(
             $value,
             $initialNumber
         );

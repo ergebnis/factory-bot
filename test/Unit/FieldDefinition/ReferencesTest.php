@@ -45,7 +45,7 @@ final class ReferencesTest extends AbstractTestCase
             $count
         ));
 
-        new References(
+        References::required(
             Fixture\FixtureFactory\Entity\User::class,
             $count
         );
@@ -64,7 +64,7 @@ final class ReferencesTest extends AbstractTestCase
 
         $fixtureFactory->defineEntity($className);
 
-        $fieldDefinition = new References(
+        $fieldDefinition = References::required(
             $className,
             $count
         );

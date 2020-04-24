@@ -45,7 +45,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::closure($closure);
 
-        $expected = new FieldDefinition\Closure($closure);
+        $expected = FieldDefinition\Closure::required($closure);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -56,7 +56,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::reference($className);
 
-        $expected = new FieldDefinition\Reference($className);
+        $expected = FieldDefinition\Reference::required($className);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -84,7 +84,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::references($className);
 
-        $expected = new FieldDefinition\References(
+        $expected = FieldDefinition\References::required(
             $className,
             1
         );
@@ -106,7 +106,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             $count
         );
 
-        $expected = new FieldDefinition\References(
+        $expected = FieldDefinition\References::required(
             $className,
             $count
         );
@@ -120,7 +120,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($value);
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = FieldDefinition\Sequence::required(
             $value,
             1
         );
@@ -142,7 +142,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             $initialNumber
         );
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = FieldDefinition\Sequence::required(
             $value,
             $initialNumber
         );
@@ -156,7 +156,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($value);
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = FieldDefinition\Sequence::required(
             $value . '%d',
             1
         );
@@ -178,7 +178,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             $initialNumber
         );
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = FieldDefinition\Sequence::required(
             $value . '%d',
             $initialNumber
         );
@@ -195,7 +195,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $fieldDefinition = FieldDefinition::value($value);
 
-        $expected = new FieldDefinition\Value($value);
+        $expected = FieldDefinition\Value::required($value);
 
         self::assertEquals($expected, $fieldDefinition);
     }
