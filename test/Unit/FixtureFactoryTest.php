@@ -318,6 +318,33 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertContains($repository, $organization->repositories());
     }
 
+    public function testCreateResolvesClosureToResultOfClosureInvokedWithFixtureFactory(): void
+    {
+        $count = self::faker()->numberBetween(2, 5);
+
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+            'organizations' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory) use ($count): array {
+                return $fixtureFactory->createMultiple(
+                    Fixture\FixtureFactory\Entity\Organization::class,
+                    [],
+                    $count
+                );
+            }),
+        ]);
+
+        /** @var Fixture\FixtureFactory\Entity\User $user */
+        $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+
+        $organizations = $user->organizations();
+
+        self::assertCount($count, $organizations);
+        self::assertContainsOnly(Fixture\FixtureFactory\Entity\Organization::class, $organizations);
+    }
+
     public function testCreateResolvesReferenceToReferencedEntity(): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
@@ -339,7 +366,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $count
      */
-    public function testCreateResolvesReferenceToCollectionOfReferencedEntity(int $count): void
+    public function testCreateResolvesReferencesToCollectionOfReferencedEntity(int $count): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
@@ -361,6 +388,58 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
         self::assertCount($count, $repositories);
+    }
+
+    public function testCreateResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresent(): void
+    {
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => FieldDefinition::sequence('beta-%d'),
+        ]);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
+        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
+        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
+        $organizationThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
+        $organizationFour = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        self::assertSame('beta-1', $organizationOne->name());
+        self::assertSame('beta-2', $organizationTwo->name());
+        self::assertSame('beta-3', $organizationThree->name());
+        self::assertSame('beta-4', $organizationFour->name());
+    }
+
+    public function testCreateResolvesSequenceToStringValueWhenPercentDPlaceholderIsNotPresent(): void
+    {
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => FieldDefinition::sequence('gamma-'),
+        ]);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
+        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
+        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
+        $organizationThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
+        $organizationFour = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+
+        self::assertSame('gamma-1', $organizationOne->name());
+        self::assertSame('gamma-2', $organizationTwo->name());
+        self::assertSame('gamma-3', $organizationThree->name());
+        self::assertSame('gamma-4', $organizationFour->name());
     }
 
     public function testCreateAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionHasBeenSpecified(): void
@@ -514,58 +593,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
     }
 
-    public function testCreateResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresent(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDefinition::sequence('beta-%d'),
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
-        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
-        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
-        $organizationThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
-        $organizationFour = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertSame('beta-1', $organizationOne->name());
-        self::assertSame('beta-2', $organizationTwo->name());
-        self::assertSame('beta-3', $organizationThree->name());
-        self::assertSame('beta-4', $organizationFour->name());
-    }
-
-    public function testCreateResolvesSequenceToStringValueWhenPercentDPlaceholderIsNotPresent(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDefinition::sequence('gamma-'),
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
-        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
-        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
-        $organizationThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
-        $organizationFour = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertSame('gamma-1', $organizationOne->name());
-        self::assertSame('gamma-2', $organizationTwo->name());
-        self::assertSame('gamma-3', $organizationThree->name());
-        self::assertSame('gamma-4', $organizationFour->name());
-    }
-
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
      *
@@ -586,7 +613,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
     }
 
-    public function testCreateMultipleReturnsArrayOfEntitiesWhenCountIsNotSpecified(): void
+    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
@@ -602,7 +629,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $count
      */
-    public function testCreateMultipleReturnsArrayOfEntitiesWhenCountIsSpecified(int $count): void
+    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsSpecified(int $count): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
