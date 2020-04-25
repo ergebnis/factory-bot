@@ -21,24 +21,6 @@ final class FieldDefinition
     }
 
     /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
-     * @return FieldDefinition\Sequence
-     */
-    public static function sequence($value, int $initialNumber = 1): FieldDefinition\Sequence
-    {
-        if (false === \strpos($value, '%d')) {
-            $value .= '%d';
-        }
-
-        return FieldDefinition\Sequence::required(
-            $value,
-            $initialNumber
-        );
-    }
-
-    /**
      * @phpstan-param class-string<T> $className
      * @phpstan-return FieldDefinition\Reference<T>
      * @phpstan-template T
@@ -77,6 +59,24 @@ final class FieldDefinition
         return FieldDefinition\References::required(
             $className,
             $count
+        );
+    }
+
+    /**
+     * @param string $value
+     * @param int    $initialNumber
+     *
+     * @return FieldDefinition\Sequence
+     */
+    public static function sequence($value, int $initialNumber = 1): FieldDefinition\Sequence
+    {
+        if (false === \strpos($value, '%d')) {
+            $value .= '%d';
+        }
+
+        return FieldDefinition\Sequence::required(
+            $value,
+            $initialNumber
         );
     }
 
