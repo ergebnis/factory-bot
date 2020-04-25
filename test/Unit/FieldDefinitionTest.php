@@ -32,7 +32,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
-    public function testClosureReturnsClosure(): void
+    public function testClosureReturnsRequiredClosure(): void
     {
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             /** @var Fixture\FixtureFactory\Entity\User $user */
@@ -50,13 +50,42 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testReferenceReturnsReference(): void
+    public function testOptionalClosureReturnsOptionalClosure(): void
+    {
+        $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
+            /** @var Fixture\FixtureFactory\Entity\User $user */
+            $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+
+            $user->renameTo(self::faker()->userName);
+
+            return $user;
+        };
+
+        $fieldDefinition = FieldDefinition::optionalClosure($closure);
+
+        $expected = FieldDefinition\Closure::optional($closure);
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testReferenceReturnsRequiredReference(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
         $fieldDefinition = FieldDefinition::reference($className);
 
         $expected = FieldDefinition\Reference::required($className);
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testOptionalReferenceReturnsOptionalReference(): void
+    {
+        $className = Fixture\FixtureFactory\Entity\User::class;
+
+        $fieldDefinition = FieldDefinition::optionalReference($className);
+
+        $expected = FieldDefinition\Reference::optional($className);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -78,7 +107,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         );
     }
 
-    public function testReferencesReturnsReferencesWhenCountIsNotSpecified(): void
+    public function testReferencesReturnsRequiredReferencesWhenCountIsNotSpecified(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
@@ -97,7 +126,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $count
      */
-    public function testReferencesReturnsReferencesWhenCountIsSpecified(int $count): void
+    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $count): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
@@ -114,7 +143,60 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
+     *
+     * @param int $count
+     */
+    public function testOptionalReferencesThrowsInvalidCountExceptionWhenCountIsLessThanOne(int $count): void
+    {
+        $className = self::class;
+
+        $this->expectException(Exception\InvalidCount::class);
+
+        FieldDefinition::optionalReferences(
+            $className,
+            $count
+        );
+    }
+
+    public function testOptionalReferencesReturnsOptionalReferencesWhenCountIsNotSpecified(): void
+    {
+        $className = Fixture\FixtureFactory\Entity\User::class;
+
+        $fieldDefinition = FieldDefinition::optionalReferences($className);
+
+        $expected = FieldDefinition\References::optional(
+            $className,
+            1
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     *
+     * @param int $count
+     */
+    public function testOptionalReferencesReturnsOptionalReferencesWhenCountIsSpecified(int $count): void
+    {
+        $className = Fixture\FixtureFactory\Entity\User::class;
+
+        $fieldDefinition = FieldDefinition::optionalReferences(
+            $className,
+            $count
+        );
+
+        $expected = FieldDefinition\References::optional(
+            $className,
+            $count
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testSequenceReturnsRequiredSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -133,7 +215,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testSequenceReturnsRequiredSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -150,7 +232,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceReturnsSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testSequenceReturnsRequiredSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'user-';
 
@@ -169,7 +251,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceReturnsSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testSequenceReturnsRequiredSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'user-';
 
@@ -179,6 +261,78 @@ final class FieldDefinitionTest extends AbstractTestCase
         );
 
         $expected = FieldDefinition\Sequence::required(
+            $value . '%d',
+            $initialNumber
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
+    {
+        $value = 'there-is-no-difference-between-%d-and-%d';
+
+        $fieldDefinition = FieldDefinition::optionalSequence($value);
+
+        $expected = FieldDefinition\Sequence::optional(
+            $value,
+            1
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     *
+     * @param int $initialNumber
+     */
+    public function testSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    {
+        $value = 'there-is-no-difference-between-%d-and-%d';
+
+        $fieldDefinition = FieldDefinition::optionalSequence(
+            $value,
+            $initialNumber
+        );
+
+        $expected = FieldDefinition\Sequence::optional(
+            $value,
+            $initialNumber
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testSequenceReturnsOptionalSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
+    {
+        $value = 'user-';
+
+        $fieldDefinition = FieldDefinition::optionalSequence($value);
+
+        $expected = FieldDefinition\Sequence::optional(
+            $value . '%d',
+            1
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     *
+     * @param int $initialNumber
+     */
+    public function testSequenceReturnsOptionalSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    {
+        $value = 'user-';
+
+        $fieldDefinition = FieldDefinition::optionalSequence(
+            $value,
+            $initialNumber
+        );
+
+        $expected = FieldDefinition\Sequence::optional(
             $value . '%d',
             $initialNumber
         );
@@ -191,11 +345,25 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testValueReturnsValue($value): void
+    public function testValueReturnsRequiredValue($value): void
     {
         $fieldDefinition = FieldDefinition::value($value);
 
         $expected = FieldDefinition\Value::required($value);
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
+     *
+     * @param mixed $value
+     */
+    public function testOptionalValueReturnsOptionalValue($value): void
+    {
+        $fieldDefinition = FieldDefinition::optionalValue($value);
+
+        $expected = FieldDefinition\Value::optional($value);
 
         self::assertEquals($expected, $fieldDefinition);
     }

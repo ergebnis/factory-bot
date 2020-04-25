@@ -6,40 +6,52 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/FieldDefinition.php">
-    <ArgumentTypeCoercion occurrences="2">
+    <ArgumentTypeCoercion occurrences="4">
+      <code>$className</code>
+      <code>$className</code>
       <code>$className</code>
       <code>$className</code>
     </ArgumentTypeCoercion>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$value</code>
       <code>$value</code>
     </MixedArgumentTypeCoercion>
-    <MixedReturnTypeCoercion occurrences="4">
+    <MixedReturnTypeCoercion occurrences="8">
       <code>FieldDefinition\Reference::required($className)</code>
       <code>FieldDefinition\Reference&lt;T&gt;</code>
+      <code>FieldDefinition\Reference::optional($className)</code>
+      <code>FieldDefinition\Reference&lt;T&gt;</code>
+      <code>FieldDefinition\References&lt;T&gt;</code>
       <code>FieldDefinition\References&lt;T&gt;</code>
     </MixedReturnTypeCoercion>
   </file>
   <file src="src/FieldDefinition/Reference.php">
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="2">
+      <code>self&lt;T&gt;</code>
       <code>self&lt;T&gt;</code>
     </MixedInferredReturnType>
-    <UndefinedDocblockClass occurrences="1">
+    <UndefinedDocblockClass occurrences="2">
+      <code>class-string&lt;T&gt;</code>
       <code>class-string&lt;T&gt;</code>
     </UndefinedDocblockClass>
   </file>
   <file src="src/FieldDefinition/References.php">
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="2">
+      <code>self&lt;T&gt;</code>
       <code>self&lt;T&gt;</code>
     </MixedInferredReturnType>
-    <UndefinedDocblockClass occurrences="1">
+    <UndefinedDocblockClass occurrences="2">
+      <code>class-string&lt;T&gt;</code>
       <code>class-string&lt;T&gt;</code>
     </UndefinedDocblockClass>
   </file>
   <file src="src/FieldDefinition/Value.php">
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="2">
+      <code>self&lt;T&gt;</code>
       <code>self&lt;T&gt;</code>
     </MixedInferredReturnType>
-    <UndefinedClass occurrences="1">
+    <UndefinedClass occurrences="2">
+      <code>T</code>
       <code>T</code>
     </UndefinedClass>
   </file>
@@ -96,31 +108,44 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="test/Unit/FieldDefinition/ReferenceTest.php">
-    <InvalidArgument occurrences="1">
+    <InvalidArgument occurrences="2">
+      <code>$className</code>
       <code>$className</code>
     </InvalidArgument>
   </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
-    <InvalidArgument occurrences="2">
+    <InvalidArgument occurrences="4">
+      <code>Fixture\FixtureFactory\Entity\User::class</code>
+      <code>$className</code>
       <code>Fixture\FixtureFactory\Entity\User::class</code>
       <code>$className</code>
     </InvalidArgument>
+    <RedundantCondition occurrences="2">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
   </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$value</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
+      <code>$resolved</code>
       <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
-    <InvalidArgument occurrences="3">
+    <InvalidArgument occurrences="6">
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
       <code>$className</code>
       <code>$className</code>
       <code>$className</code>
     </InvalidArgument>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$value</code>
       <code>$value</code>
     </MixedArgument>
   </file>

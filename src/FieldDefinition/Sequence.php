@@ -31,10 +31,16 @@ final class Sequence implements Resolvable
      */
     private $sequentialNumber;
 
-    private function __construct(string $value, int $initialNumber)
+    /**
+     * @var bool
+     */
+    private $isRequired = false;
+
+    private function __construct(string $value, int $initialNumber, bool $isRequired)
     {
         $this->value = $value;
         $this->sequentialNumber = $initialNumber;
+        $this->isRequired = $isRequired;
     }
 
     /**
@@ -53,8 +59,35 @@ final class Sequence implements Resolvable
 
         return new self(
             $value,
-            $initialNumber
+            $initialNumber,
+            true
         );
+    }
+
+    /**
+     * @param string $value
+     * @param int    $initialNumber
+     *
+     * @throws Exception\InvalidSequence
+     *
+     * @return self
+     */
+    public static function optional(string $value, int $initialNumber): self
+    {
+        if (false === \strpos($value, '%d')) {
+            throw Exception\InvalidSequence::value($value);
+        }
+
+        return new self(
+            $value,
+            $initialNumber,
+            false
+        );
+    }
+
+    public function isRequired(): bool
+    {
+        return $this->isRequired;
     }
 
     public function resolve(FixtureFactory $fixtureFactory): string

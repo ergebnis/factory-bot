@@ -28,7 +28,56 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  */
 final class SequenceTest extends AbstractTestCase
 {
-    public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void
+    public function testOptionalRejectsValueWhenItIsMissingPercentDPlaceholder(): void
+    {
+        $faker = self::faker();
+
+        $value = $faker->sentence;
+        $initialNumber = $faker->randomNumber();
+
+        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Value needs to contain a placeholder "%%d", but "%s" does not',
+            $value
+        ));
+
+        Sequence::optional(
+            $value,
+            $initialNumber
+        );
+    }
+
+    public function testOptionalResolvesToValueWithPercentDReplacedWithSequentialNumber(): void
+    {
+        $faker = self::faker();
+
+        $value = '%d Why, hello - this is a nice thing, if you need it! %d';
+
+        $initialNumber = $faker->numberBetween();
+
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fieldDefinition = Sequence::optional(
+            $value,
+            $initialNumber
+        );
+
+        self::assertFalse($fieldDefinition->isRequired());
+
+        $expected = static function (int $sequentialNumber): string {
+            return \sprintf(
+                '%d Why, hello - this is a nice thing, if you need it! %d',
+                $sequentialNumber,
+                $sequentialNumber
+            );
+        };
+
+        self::assertSame($expected($initialNumber), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected($initialNumber + 1), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected($initialNumber + 2), $fieldDefinition->resolve($fixtureFactory));
+    }
+
+    public function testRequiredRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
         $faker = self::faker();
 
@@ -47,7 +96,7 @@ final class SequenceTest extends AbstractTestCase
         );
     }
 
-    public function testResolveReturnsValueWithPercentDReplacedWithSequentialNumber(): void
+    public function testRequiredResolvesToValueWithPercentDReplacedWithSequentialNumber(): void
     {
         $faker = self::faker();
 
@@ -61,6 +110,8 @@ final class SequenceTest extends AbstractTestCase
             $value,
             $initialNumber
         );
+
+        self::assertTrue($fieldDefinition->isRequired());
 
         $expected = static function (int $sequentialNumber): string {
             return \sprintf(

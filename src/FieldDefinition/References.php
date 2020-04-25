@@ -40,17 +40,24 @@ final class References implements Resolvable
     private $count;
 
     /**
+     * @var bool
+     */
+    private $isRequired;
+
+    /**
      * @phpstan-param class-string<T> $className
      *
      * @psalm-param class-string<T> $className
      *
      * @param string $className
      * @param int    $count
+     * @param bool   $isRequired
      */
-    private function __construct(string $className, int $count)
+    private function __construct(string $className, int $count, bool $isRequired)
     {
         $this->className = $className;
         $this->count = $count;
+        $this->isRequired = $isRequired;
     }
 
     /**
@@ -78,8 +85,44 @@ final class References implements Resolvable
 
         return new self(
             $className,
-            $count
+            $count,
+            true
         );
+    }
+
+    /**
+     * @phpstan-param class-string<T> $className
+     * @phpstan-return self<T>
+     *
+     * @psalm-param class-string<T> $className
+     * @psalm-return self<T>
+     *
+     * @param string $className
+     * @param int    $count
+     *
+     * @throws Exception\InvalidCount
+     *
+     * @return self
+     */
+    public static function optional(string $className, int $count): self
+    {
+        if (1 > $count) {
+            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
+                1,
+                $count
+            );
+        }
+
+        return new self(
+            $className,
+            $count,
+            false
+        );
+    }
+
+    public function isRequired(): bool
+    {
+        return $this->isRequired;
     }
 
     /**

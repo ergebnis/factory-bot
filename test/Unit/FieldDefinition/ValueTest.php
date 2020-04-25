@@ -33,11 +33,31 @@ final class ValueTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testResolveReturnsValue($value): void
+    public function testOptionalResolvesToValue($value): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fieldDefinition = Value::required($value);
+
+        self::assertTrue($fieldDefinition->isRequired());
+
+        $resolved = $fieldDefinition->resolve($fixtureFactory);
+
+        self::assertSame($value, $resolved);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
+     *
+     * @param mixed $value
+     */
+    public function testRequiredResolvesToValue($value): void
+    {
+        $fixtureFactory = new FixtureFactory(self::entityManager());
+
+        $fieldDefinition = Value::required($value);
+
+        self::assertTrue($fieldDefinition->isRequired());
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 
