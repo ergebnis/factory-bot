@@ -17,6 +17,8 @@ use Ergebnis\FactoryBot\FixtureFactory;
 
 interface Resolvable
 {
+    public function isRequired(): bool;
+
     /**
      * @param FixtureFactory $fixtureFactory
      *

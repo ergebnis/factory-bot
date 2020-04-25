@@ -25,14 +25,36 @@ final class Closure implements Resolvable
      */
     private $closure;
 
-    private function __construct(\Closure $closure)
+    /**
+     * @var bool
+     */
+    private $isRequired;
+
+    private function __construct(\Closure $closure, bool $isRequired)
     {
         $this->closure = $closure;
+        $this->isRequired = $isRequired;
     }
 
     public static function required(\Closure $closure): self
     {
-        return new self($closure);
+        return new self(
+            $closure,
+            true
+        );
+    }
+
+    public static function optional(\Closure $closure): self
+    {
+        return new self(
+            $closure,
+            false
+        );
+    }
+
+    public function isRequired(): bool
+    {
+        return $this->isRequired;
     }
 
     public function resolve(FixtureFactory $fixtureFactory)
