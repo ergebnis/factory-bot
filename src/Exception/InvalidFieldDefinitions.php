@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Exception;
 
 use Ergebnis\FactoryBot\FieldDefinition;
 
-final class InvalidFieldDefinitions extends \RuntimeException implements Exception
+final class InvalidFieldDefinitions extends \InvalidArgumentException implements Exception
 {
     public static function values(): self
     {

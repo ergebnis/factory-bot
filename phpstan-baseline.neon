@@ -176,7 +176,7 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
