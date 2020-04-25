@@ -18,7 +18,7 @@ use Doctrine\ORM;
 
 /**
  * @ORM\Mapping\Entity
- * @ORM\Mapping\Table(name="space_ship")
+ * @ORM\Mapping\Table(name="organization")
  */
 class Organization
 {
