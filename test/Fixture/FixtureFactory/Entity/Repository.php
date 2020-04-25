@@ -69,11 +69,27 @@ class Repository
      */
     private $template;
 
-    public function __construct(Organization $organization, string $name, ?self $template = null)
-    {
+    /**
+     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\CodeOfConduct")
+     * @ORM\Mapping\JoinColumn(
+     *     name="code_of_conduct_key",
+     *     referencedColumnName="key"
+     * )
+     *
+     * @var null|CodeOfConduct
+     */
+    private $codeOfConduct;
+
+    public function __construct(
+        Organization $organization,
+        string $name,
+        ?self $template = null,
+        ?CodeOfConduct $codeOfConduct = null
+    ) {
         $this->organization = $organization;
         $this->name = $name;
         $this->template = $template;
+        $this->codeOfConduct = $codeOfConduct;
     }
 
     public function id(): ?int
@@ -94,5 +110,10 @@ class Repository
     public function template(): ?self
     {
         return $this->template;
+    }
+
+    public function codeOfConduct(): ?CodeOfConduct
+    {
+        return $this->codeOfConduct;
     }
 }

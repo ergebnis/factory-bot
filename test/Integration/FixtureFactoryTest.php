@@ -33,11 +33,15 @@ final class FixtureFactoryTest extends AbstractTestCase
     public function testCreatePersistsEntityWhenPersistOnGetHasBeenTurnedOn(): void
     {
         $entityManager = self::entityManager();
+        $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory($entityManager);
+        $fixtureFactory = new FixtureFactory(
+            $entityManager,
+            $faker
+        );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => self::faker()->word,
+            'name' => $faker->word,
         ]);
 
         $fixtureFactory->persistOnGet();
@@ -54,11 +58,15 @@ final class FixtureFactoryTest extends AbstractTestCase
     public function testCreateDoesNotNotPersistEntityByDefault(): void
     {
         $entityManager = self::entityManager();
+        $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory($entityManager);
+        $fixtureFactory = new FixtureFactory(
+            $entityManager,
+            $faker
+        );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => self::faker()->word,
+            'name' => $faker->word,
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
@@ -78,11 +86,13 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testCreateDoesNotPersistEmbeddablesWhenPersistOnGetHasBeenTurnedOn(): void
     {
+        $entityManager = self::entityManager();
         $faker = self::faker();
 
-        $entityManager = self::entityManager();
-
-        $fixtureFactory = new FixtureFactory($entityManager);
+        $fixtureFactory = new FixtureFactory(
+            $entityManager,
+            $faker
+        );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Avatar::class, [
             'url' => FieldDefinition::closure(static function () use ($faker): string {

@@ -51,11 +51,14 @@ final class SequenceTest extends AbstractTestCase
     {
         $faker = self::faker();
 
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
         $value = '%d Why, hello - this is a nice thing, if you need it! %d';
 
         $initialNumber = $faker->numberBetween();
-
-        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fieldDefinition = Sequence::optional(
             $value,
@@ -100,11 +103,14 @@ final class SequenceTest extends AbstractTestCase
     {
         $faker = self::faker();
 
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
         $value = '%d Why, hello - this is a nice thing, if you need it! %d';
 
         $initialNumber = $faker->numberBetween();
-
-        $fixtureFactory = new FixtureFactory(self::entityManager());
 
         $fieldDefinition = Sequence::required(
             $value,
