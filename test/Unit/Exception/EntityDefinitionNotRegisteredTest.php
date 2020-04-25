@@ -34,6 +34,10 @@ final class EntityDefinitionNotRegisteredTest extends Framework\TestCase
             $className
         );
 
+        self::assertInstanceOf(Exception\EntityDefinitionNotRegistered::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
+
         self::assertSame($message, $exception->getMessage());
     }
 }

@@ -66,6 +66,156 @@ parameters:
 			path: test/Fixture/FixtureFactory/Entity/User.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassMetadataNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/ClassNotFoundTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\EntityDefinitionAlreadyRegistered' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\EntityDefinitionNotRegistered' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidCount' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidCountTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidCountTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidCountTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDefinition' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDefinitionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDefinitionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDefinitionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDirectory' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDirectoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDirectoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDirectoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldDefinitions' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldNames' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/Exception/InvalidFieldNamesTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/Exception/InvalidFieldNamesTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/Exception/InvalidFieldNamesTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidSequence' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidSequenceTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidSequenceTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidSequenceTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, mixed\\> will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FieldDefinition/ReferencesTest.php

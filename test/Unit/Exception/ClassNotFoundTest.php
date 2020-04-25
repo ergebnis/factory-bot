@@ -34,6 +34,9 @@ final class ClassNotFoundTest extends Framework\TestCase
             $className
         );
 
+        self::assertInstanceOf(Exception\ClassNotFound::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }
