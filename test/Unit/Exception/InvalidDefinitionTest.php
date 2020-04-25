@@ -41,6 +41,9 @@ final class InvalidDefinitionTest extends Framework\TestCase
             $className
         );
 
+        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
         self::assertSame($previousException, $exception->getPrevious());

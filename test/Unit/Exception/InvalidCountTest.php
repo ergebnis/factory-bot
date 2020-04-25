@@ -44,6 +44,9 @@ final class InvalidCountTest extends Framework\TestCase
             $count
         );
 
+        self::assertInstanceOf(Exception\InvalidCount::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }

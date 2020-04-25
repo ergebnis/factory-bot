@@ -44,6 +44,9 @@ final class InvalidFieldNamesTest extends Framework\TestCase
             $fieldName
         );
 
+        self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }
@@ -72,6 +75,9 @@ final class InvalidFieldNamesTest extends Framework\TestCase
             \implode('", "', $sortedFieldNames)
         );
 
+        self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }

@@ -37,6 +37,9 @@ final class InvalidSequenceTest extends Framework\TestCase
             $value
         );
 
+        self::assertInstanceOf(Exception\InvalidSequence::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }

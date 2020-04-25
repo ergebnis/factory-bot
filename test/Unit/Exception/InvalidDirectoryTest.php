@@ -37,6 +37,9 @@ final class InvalidDirectoryTest extends Framework\TestCase
             $directory
         );
 
+        self::assertInstanceOf(Exception\InvalidDirectory::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }
