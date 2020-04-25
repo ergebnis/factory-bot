@@ -37,7 +37,7 @@ final class InvalidFieldDefinitionsTest extends Framework\TestCase
         );
 
         self::assertInstanceOf(Exception\InvalidFieldDefinitions::class, $exception);
-        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
         self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
