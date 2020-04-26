@@ -113,14 +113,12 @@ final class FieldDefinition
      * @param string $value
      * @param int    $initialNumber
      *
+     * @throws Exception\InvalidSequence
+     *
      * @return FieldDefinition\Sequence
      */
     public static function sequence($value, int $initialNumber = 1): FieldDefinition\Sequence
     {
-        if (false === \strpos($value, '%d')) {
-            $value .= '%d';
-        }
-
         return FieldDefinition\Sequence::required(
             $value,
             $initialNumber
@@ -135,10 +133,6 @@ final class FieldDefinition
      */
     public static function optionalSequence($value, int $initialNumber = 1): FieldDefinition\Sequence
     {
-        if (false === \strpos($value, '%d')) {
-            $value .= '%d';
-        }
-
         return FieldDefinition\Sequence::optional(
             $value,
             $initialNumber

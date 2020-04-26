@@ -58,6 +58,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `FixtureFactory::provideWith()` ([#122]), by [@localheinz]
 * Removed `FixtureFactory::getAsSingleton()`, `FixtureFactory::setSingleton()`, and `FixtureFactory::unsetSingleton()` ([#124]), by [@localheinz]
 * Removed `callable` support for field definitions ([#133]) and ([#185]), by [@localheinz]
+* Removed support for `string` sequences that do not contain a `%d` placeholder ([#185]), by [@localheinz]
 
 [fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
 

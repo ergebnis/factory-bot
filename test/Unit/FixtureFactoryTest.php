@@ -416,32 +416,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame('beta-4', $organizationFour->name());
     }
 
-    public function testCreateResolvesSequenceToStringValueWhenPercentDPlaceholderIsNotPresent(): void
-    {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'name' => FieldDefinition::sequence('gamma-'),
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
-        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
-        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationThree */
-        $organizationThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organizationFour */
-        $organizationFour = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertSame('gamma-1', $organizationOne->name());
-        self::assertSame('gamma-2', $organizationTwo->name());
-        self::assertSame('gamma-3', $organizationThree->name());
-        self::assertSame('gamma-4', $organizationFour->name());
-    }
-
     public function testCreateAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionHasBeenSpecified(): void
     {
         $faker = self::faker()->unique();
