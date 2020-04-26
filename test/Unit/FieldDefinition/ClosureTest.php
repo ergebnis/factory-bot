@@ -34,7 +34,7 @@ final class ClosureTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
@@ -53,7 +53,7 @@ final class ClosureTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
