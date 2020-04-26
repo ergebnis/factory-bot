@@ -6,12 +6,12 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -221,7 +221,7 @@ parameters:
 			path: test/Unit/FieldDefinition/ReferencesTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:defineEntity\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
+			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 

@@ -36,7 +36,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => self::faker()->word,
         ]);
 
@@ -57,7 +57,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => self::faker()->word,
         ]);
 
@@ -84,13 +84,13 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory($entityManager);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Avatar::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Avatar::class, [
             'url' => FieldDefinition::closure(static function () use ($faker): string {
                 return $faker->imageUrl();
             }),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class, [
             'avatar' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Avatar::class),
             'login' => $faker->userName,
         ]);

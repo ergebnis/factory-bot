@@ -62,7 +62,7 @@ final class ReferencesTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity($className);
+        $fixtureFactory->define($className);
 
         $fieldDefinition = References::optional(
             $className,
@@ -108,7 +108,7 @@ final class ReferencesTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity($className);
+        $fixtureFactory->define($className);
 
         $fieldDefinition = References::required(
             $className,

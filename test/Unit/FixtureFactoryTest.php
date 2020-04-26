@@ -40,18 +40,18 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testDefineEntityThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
+    public function testDefineThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $this->expectException(Exception\EntityDefinitionAlreadyRegistered::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
     }
 
-    public function testDefineEntityThrowsClassNotFoundExceptionWhenClassDoesNotExist(): void
+    public function testDefineThrowsClassNotFoundExceptionWhenClassDoesNotExist(): void
     {
         $className = 'NotAClass';
 
@@ -59,10 +59,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\ClassNotFound::class);
 
-        $fixtureFactory->defineEntity($className);
+        $fixtureFactory->define($className);
     }
 
-    public function testDefineEntityThrowsClassMetadataNotFoundExceptionWhenClassNameDoesNotReferenceAnEntity(): void
+    public function testDefineThrowsClassMetadataNotFoundExceptionWhenClassNameDoesNotReferenceAnEntity(): void
     {
         $className = Fixture\FixtureFactory\NotAnEntity\User::class;
 
@@ -70,10 +70,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\ClassMetadataNotFound::class);
 
-        $fixtureFactory->defineEntity($className);
+        $fixtureFactory->define($className);
     }
 
-    public function testDefineEntityThrowsInvalidFieldNamesExceptionWhenUsingFieldNamesThatDoNotExistInEntity(): void
+    public function testDefineThrowsInvalidFieldNamesExceptionWhenUsingFieldNamesThatDoNotExistInEntity(): void
     {
         $faker = self::faker();
 
@@ -81,7 +81,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\InvalidFieldNames::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class, [
             'avatar' => new Fixture\FixtureFactory\Entity\Avatar(),
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
@@ -109,7 +109,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => $faker->word,
         ]);
 
@@ -120,17 +120,17 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testDefineEntityAllowsDefiningAndReferencingEmbeddables(): void
+    public function testDefineAllowsDefiningAndReferencingEmbeddables(): void
     {
         $url = self::faker()->imageUrl();
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Avatar::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Avatar::class, [
             'url' => $url,
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class, [
             'avatar' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Avatar::class),
         ]);
 
@@ -144,7 +144,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($url, $avatar->url());
     }
 
-    public function testDefineEntityThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    public function testDefineThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
     {
         $faker = self::faker();
 
@@ -152,7 +152,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\InvalidFieldNames::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
             'avatar.url' => $faker->imageUrl(),
             'avatar.width' => $faker->numberBetween(100, 250),
@@ -166,7 +166,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
         $this->expectException(Exception\InvalidFieldNames::class);
 
@@ -178,13 +178,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testDefineEntityAcceptsConstantValuesInEntityDefinitions(): void
+    public function testDefineAcceptsConstantValuesInEntityDefinitions(): void
     {
         $name = self::faker()->word;
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => $name,
         ]);
 
@@ -194,13 +194,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($name, $organization->name());
     }
 
-    public function testDefineEntityAcceptsClosureInEntityDefinitions(): void
+    public function testDefineAcceptsClosureInEntityDefinitions(): void
     {
         $name = 'foo';
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => static function () use (&$name): string {
                 return \sprintf(
                     'the-%s-organization',
@@ -225,7 +225,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
@@ -237,7 +237,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
@@ -249,7 +249,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, []);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, []);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
@@ -261,7 +261,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => self::faker()->word,
         ]);
 
@@ -275,9 +275,9 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
@@ -304,9 +304,9 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
@@ -324,9 +324,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class, [
             'organizations' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory) use ($count): array {
                 return $fixtureFactory->createMultiple(
                     Fixture\FixtureFactory\Entity\Organization::class,
@@ -349,11 +349,11 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Project::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Project::class, [
             'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
 
         /** @var Fixture\FixtureFactory\Entity\Project $project */
         $project = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Project::class);
@@ -370,14 +370,14 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Fixture\FixtureFactory\Entity\Repository::class,
                 $count
             ),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'name' => self::faker()->word,
         ]);
 
@@ -394,7 +394,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => FieldDefinition::sequence('beta-%d'),
         ]);
 
@@ -420,7 +420,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => FieldDefinition::sequence('gamma-'),
         ]);
 
@@ -448,7 +448,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => $faker->word,
         ]);
 
@@ -466,7 +466,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'template' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
@@ -487,11 +487,11 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'name' => self::faker()->word,
         ]);
 
@@ -506,13 +506,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($count, $repositories);
     }
 
-    public function testDefineEntityAcceptsClosureThatWillBeInvokedAfterEntityCreation(): void
+    public function testDefineAcceptsClosureThatWillBeInvokedAfterEntityCreation(): void
     {
         $name = self::faker()->word;
 
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(
+        $fixtureFactory->define(
             Fixture\FixtureFactory\Entity\Organization::class,
             [
                 'name' => $name,
@@ -544,9 +544,9 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'name' => self::faker()->word,
             'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
@@ -569,13 +569,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Project::class, [
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Project::class, [
             'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
@@ -602,7 +602,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $this->expectException(Exception\InvalidCount::class);
 
@@ -617,7 +617,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entities = $fixtureFactory->createMultiple(Fixture\FixtureFactory\Entity\Organization::class);
 
@@ -633,7 +633,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(self::entityManager());
 
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entities = $fixtureFactory->createMultiple(
             Fixture\FixtureFactory\Entity\Organization::class,

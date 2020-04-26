@@ -39,6 +39,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Introduced named constructors for field definitions and marked primary constructor as `private` ([#188]), by [@localheinz]
 * Renamed `FixtureFactory::get()` to `FixtureFactory::create()` ([#189]), by [@localheinz]
 * Renamed `FixtureFactory::getList()` to `FixtureFactory::createMultiple()` ([#190]), by [@localheinz]
+* Renamed `FixtureFactory::defineEntity()` to `FixtureFactory::define()` ([#197]), by [@localheinz]
 
 ### Fixed
 
@@ -101,5 +102,6 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#188]: https://github.com/ergebnis/factory-bot/pull/188
 [#189]: https://github.com/ergebnis/factory-bot/pull/189
 [#190]: https://github.com/ergebnis/factory-bot/pull/190
+[#197]: https://github.com/ergebnis/factory-bot/pull/197
 
 [@localheinz]: https://github.com/localheinz

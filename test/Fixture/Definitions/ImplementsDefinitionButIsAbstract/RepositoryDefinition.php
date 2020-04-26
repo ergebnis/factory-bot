@@ -22,6 +22,6 @@ abstract class RepositoryDefinition implements Definition
 {
     final public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
     {
-        $fixtureFactory->defineEntity(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }
