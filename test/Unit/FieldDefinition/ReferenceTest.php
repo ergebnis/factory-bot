@@ -34,7 +34,10 @@ final class ReferenceTest extends AbstractTestCase
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fixtureFactory->define($className);
 
@@ -51,7 +54,10 @@ final class ReferenceTest extends AbstractTestCase
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fixtureFactory->define($className);
 

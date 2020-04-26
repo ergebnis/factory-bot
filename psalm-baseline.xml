@@ -72,6 +72,16 @@
       <code>\Generator&lt;string, array&lt;string[], bool, float, int, object, \stdClass, string&gt;&gt;</code>
     </TooManyTemplateParams>
   </file>
+  <file src="test/Double/Faker/FalseGenerator.php">
+    <MissingParamType occurrences="1">
+      <code>$chanceOfGettingTrue</code>
+    </MissingParamType>
+  </file>
+  <file src="test/Double/Faker/TrueGenerator.php">
+    <MissingParamType occurrences="1">
+      <code>$chanceOfGettingTrue</code>
+    </MissingParamType>
+  </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
@@ -88,9 +98,8 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/User.php">
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$id</code>
-      <code>$organizations</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">

@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot;
 
 use Doctrine\Common;
 use Doctrine\ORM;
+use Faker\Generator;
 
 /**
  * Creates Doctrine entities for use in tests.
@@ -26,6 +27,11 @@ final class FixtureFactory
     private $entityManager;
 
     /**
+     * @var Generator
+     */
+    private $faker;
+
+    /**
      * @var array<string, EntityDefinition>
      */
     private $entityDefinitions = [];
@@ -35,9 +41,10 @@ final class FixtureFactory
      */
     private $persist = false;
 
-    public function __construct(ORM\EntityManagerInterface $entityManager)
+    public function __construct(ORM\EntityManagerInterface $entityManager, Generator $faker)
     {
         $this->entityManager = $entityManager;
+        $this->faker = $faker;
     }
 
     /**
@@ -196,6 +203,14 @@ final class FixtureFactory
             }
 
             /** @var FieldDefinition\Resolvable $fieldDefinition */
+            if (!$fieldDefinition->isRequired() && !$this->faker->boolean()) {
+                if ($fieldDefinition instanceof FieldDefinition\References) {
+                    $fieldValues[$fieldName] = new Common\Collections\ArrayCollection();
+                }
+
+                continue;
+            }
+
             $fieldValues[$fieldName] = $fieldDefinition->resolve($this);
         }
 

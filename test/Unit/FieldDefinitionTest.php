@@ -24,6 +24,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References

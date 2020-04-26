@@ -35,7 +35,10 @@ final class ValueTest extends AbstractTestCase
      */
     public function testOptionalResolvesToValue($value): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fieldDefinition = Value::required($value);
 
@@ -53,7 +56,10 @@ final class ValueTest extends AbstractTestCase
      */
     public function testRequiredResolvesToValue($value): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fieldDefinition = Value::required($value);
 

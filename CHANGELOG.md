@@ -14,7 +14,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Imported [`ergebnis/factory-girl-definition@23e57bc`](https://github.com/ergebnis/factory-girl-definition/tree/23e57bc2105ac7a32e3ec7103c866899fe6ad20c) ([#6]), by [@localheinz]
 * Added `FieldDefinition::value()` which allows resolving a field definition to a constant value ([#149]), by [@localheinz]
 * Added `FieldDefinition::closure()` which allows resolving a field definition to the return value of a closure that is invoked with the `FixtureFactory` ([#155]), by [@localheinz]
-* Allowed creation of optional field definitions ([#167]), by [@localheinz]
+* Allowed creation of optional field definitions ([#167]) and ([#196]), by [@localheinz]
 
 ### Changed
 
@@ -103,6 +103,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 [#188]: https://github.com/ergebnis/factory-bot/pull/188
 [#189]: https://github.com/ergebnis/factory-bot/pull/189
 [#190]: https://github.com/ergebnis/factory-bot/pull/190
+[#196]: https://github.com/ergebnis/factory-bot/pull/196
 [#197]: https://github.com/ergebnis/factory-bot/pull/197
 
 [@localheinz]: https://github.com/localheinz

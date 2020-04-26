@@ -45,6 +45,17 @@ class User
     private $login;
 
     /**
+     * @ORM\Mapping\Column(
+     *     name="location",
+     *     type="string",
+     *     nullable=true
+     * )
+     *
+     * @var null|string
+     */
+    private $location;
+
+    /**
      * @ORM\Mapping\Embedded(
      *     class="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Avatar",
      *     columnPrefix="avatar"
@@ -64,10 +75,12 @@ class User
      */
     private $organizations;
 
-    public function __construct(string $login, Avatar $avatar)
+    public function __construct(string $login, Avatar $avatar, ?string $location = null)
     {
         $this->login = $login;
         $this->avatar = $avatar;
+        $this->location = $location;
+        $this->organizations = new Common\Collections\ArrayCollection();
     }
 
     public function id(): ?int
@@ -88,6 +101,11 @@ class User
     public function renameTo(string $login): void
     {
         $this->login = $login;
+    }
+
+    public function location(): ?string
+    {
+        return $this->location;
     }
 
     /**

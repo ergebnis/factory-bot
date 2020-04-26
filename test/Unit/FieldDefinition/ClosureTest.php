@@ -32,7 +32,10 @@ final class ClosureTest extends AbstractTestCase
 {
     public function testRequiredResolvesToResultOfInvokingClosureWithFixtureFactory(): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
@@ -51,7 +54,10 @@ final class ClosureTest extends AbstractTestCase
 
     public function testOptionalResolvedToResultOfInvokingClosureWithFixtureFactory(): void
     {
-        $fixtureFactory = new FixtureFactory(self::entityManager());
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
