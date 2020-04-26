@@ -196,6 +196,25 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
+    public function testSequenceRejectsValueWhenItIsMissingPercentDPlaceholder(): void
+    {
+        $faker = self::faker();
+
+        $value = $faker->sentence;
+        $initialNumber = $faker->randomNumber();
+
+        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Value needs to contain a placeholder "%%d", but "%s" does not',
+            $value
+        ));
+
+        FieldDefinition::sequence(
+            $value,
+            $initialNumber
+        );
+    }
+
     public function testSequenceReturnsRequiredSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
@@ -232,43 +251,26 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceReturnsRequiredSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testOptionalSequenceRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
-        $value = 'user-';
+        $faker = self::faker();
 
-        $fieldDefinition = FieldDefinition::sequence($value);
+        $value = $faker->sentence;
+        $initialNumber = $faker->randomNumber();
 
-        $expected = FieldDefinition\Sequence::required(
-            $value . '%d',
-            1
-        );
+        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Value needs to contain a placeholder "%%d", but "%s" does not',
+            $value
+        ));
 
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
-     *
-     * @param int $initialNumber
-     */
-    public function testSequenceReturnsRequiredSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
-    {
-        $value = 'user-';
-
-        $fieldDefinition = FieldDefinition::sequence(
+        FieldDefinition::optionalSequence(
             $value,
             $initialNumber
         );
-
-        $expected = FieldDefinition\Sequence::required(
-            $value . '%d',
-            $initialNumber
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testOptionalSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -287,7 +289,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testOptionalSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -298,42 +300,6 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $expected = FieldDefinition\Sequence::optional(
             $value,
-            $initialNumber
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
-    public function testSequenceReturnsOptionalSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsNotSpecified(): void
-    {
-        $value = 'user-';
-
-        $fieldDefinition = FieldDefinition::optionalSequence($value);
-
-        $expected = FieldDefinition\Sequence::optional(
-            $value . '%d',
-            1
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
-     *
-     * @param int $initialNumber
-     */
-    public function testSequenceReturnsOptionalSequenceWhenValueDoesNotContainPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
-    {
-        $value = 'user-';
-
-        $fieldDefinition = FieldDefinition::optionalSequence(
-            $value,
-            $initialNumber
-        );
-
-        $expected = FieldDefinition\Sequence::optional(
-            $value . '%d',
             $initialNumber
         );
 
