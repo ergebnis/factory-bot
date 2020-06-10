@@ -1,11 +1,11 @@
 # factory-bot
 
-[![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/factory-bot/actions)
-[![Prune](https://github.com/ergebnis/factory-bot/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/factory-bot/actions)
-[![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/factory-bot/actions)
-[![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/factory-bot/actions)
+[![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
+[![Prune](https://github.com/ergebnis/factory-bot/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
+[![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
+[![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
 
-[![Code Coverage](https://codecov.io/gh/ergebnis/factory-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/factory-bot)
+[![Code Coverage](https://codecov.io/gh/ergebnis/factory-bot/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/factory-bot)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/factory-bot/coverage.svg)](https://shepherd.dev/github/ergebnis/factory-bot)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/factory-bot/v/stable)](https://packagist.org/packages/ergebnis/factory-bot)
@@ -35,7 +35,7 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/master/CODE_OF_CONDUCT.md).
+Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 

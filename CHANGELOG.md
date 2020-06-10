@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`fa9c564...master`][fa9c564...master].
+For a full diff see [`fa9c564...main`][fa9c564...main].
 
 ### Added
 
@@ -60,7 +60,7 @@ For a full diff see [`fa9c564...master`][fa9c564...master].
 * Removed `callable` support for field definitions ([#133]) and ([#185]), by [@localheinz]
 * Removed support for `string` sequences that do not contain a `%d` placeholder ([#185]), by [@localheinz]
 
-[fa9c564...master]: https://github.com/ergebnis/factory-bot/compare/fa9c564...master
+[fa9c564...main]: https://github.com/ergebnis/factory-bot/compare/fa9c564...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
