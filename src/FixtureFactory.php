@@ -56,7 +56,6 @@ final class FixtureFactory
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
-     * @psalm-param class-string<T> $className
      * @psalm-template T
      *
      * @param string                        $className
