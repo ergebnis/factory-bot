@@ -17,7 +17,7 @@ Provides an entity factory for [`doctrine/orm`](https://github.com/doctrine/orm)
 
 Run
 
-```
+```sh
 $ composer require ergebnis/factory-bot
 ```
 
