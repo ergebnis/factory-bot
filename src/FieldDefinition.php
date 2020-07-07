@@ -117,7 +117,7 @@ final class FieldDefinition
      *
      * @return FieldDefinition\Sequence
      */
-    public static function sequence($value, int $initialNumber = 1): FieldDefinition\Sequence
+    public static function sequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
     {
         return FieldDefinition\Sequence::required(
             $value,
@@ -131,7 +131,7 @@ final class FieldDefinition
      *
      * @return FieldDefinition\Sequence
      */
-    public static function optionalSequence($value, int $initialNumber = 1): FieldDefinition\Sequence
+    public static function optionalSequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
     {
         return FieldDefinition\Sequence::optional(
             $value,
