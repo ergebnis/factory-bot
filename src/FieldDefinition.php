@@ -15,14 +15,14 @@ namespace Ergebnis\FactoryBot;
 
 final class FieldDefinition
 {
-    public static function closure(\Closure $closure): FieldDefinition\Closure
+    public static function closure(\Closure $closure): FieldDefinition\Resolvable
     {
-        return FieldDefinition\Closure::required($closure);
+        return new FieldDefinition\Closure($closure);
     }
 
-    public static function optionalClosure(\Closure $closure): FieldDefinition\Closure
+    public static function optionalClosure(\Closure $closure): FieldDefinition\Optional
     {
-        return FieldDefinition\Closure::optional($closure);
+        return new FieldDefinition\Optional(new FieldDefinition\Closure($closure));
     }
 
     /**
@@ -40,25 +40,21 @@ final class FieldDefinition
      */
     public static function reference(string $className): FieldDefinition\Reference
     {
-        return FieldDefinition\Reference::required($className);
+        return new FieldDefinition\Reference($className);
     }
 
     /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-return FieldDefinition\Reference<T>
-     * @phpstan-template T
+     * @phpstan-param class-string $className
      *
-     * @psalm-param class-string<T> $className
-     * @psalm-return FieldDefinition\Reference<T>
-     * @psalm-template T
+     * @psalm-param class-string $className
      *
      * @param string $className
      *
-     * @return FieldDefinition\Reference
+     * @return FieldDefinition\Optional
      */
-    public static function optionalReference(string $className): FieldDefinition\Reference
+    public static function optionalReference(string $className): FieldDefinition\Optional
     {
-        return FieldDefinition\Reference::optional($className);
+        return new FieldDefinition\Optional(new FieldDefinition\Reference($className));
     }
 
     /**
@@ -79,31 +75,7 @@ final class FieldDefinition
      */
     public static function references(string $className, int $count = 1): FieldDefinition\References
     {
-        return FieldDefinition\References::required(
-            $className,
-            $count
-        );
-    }
-
-    /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-return FieldDefinition\References<T>
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-return FieldDefinition\References<T>
-     * @psalm-template T
-     *
-     * @param string $className
-     * @param int    $count
-     *
-     * @throws Exception\InvalidCount
-     *
-     * @return FieldDefinition\References
-     */
-    public static function optionalReferences(string $className, int $count = 1): FieldDefinition\References
-    {
-        return FieldDefinition\References::optional(
+        return new FieldDefinition\References(
             $className,
             $count
         );
@@ -119,24 +91,18 @@ final class FieldDefinition
      */
     public static function sequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
     {
-        return FieldDefinition\Sequence::required(
+        return new FieldDefinition\Sequence(
             $value,
             $initialNumber
         );
     }
 
-    /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
-     * @return FieldDefinition\Sequence
-     */
-    public static function optionalSequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
+    public static function optionalSequence(string $value, int $initialNumber = 1): FieldDefinition\Resolvable
     {
-        return FieldDefinition\Sequence::optional(
+        return new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
             $initialNumber
-        );
+        ));
     }
 
     /**
@@ -154,24 +120,16 @@ final class FieldDefinition
      */
     public static function value($value): FieldDefinition\Value
     {
-        return FieldDefinition\Value::required($value);
+        return new FieldDefinition\Value($value);
     }
 
     /**
-     * @phpstan-param T $value
-     * @phpstan-return FieldDefinition\Value<T>
-     * @phpstan-template T
-     *
-     * @psalm-param T $value
-     * @psalm-return FieldDefinition\Value<T>
-     * @psalm-template T
-     *
      * @param mixed $value
      *
-     * @return FieldDefinition\Value
+     * @return FieldDefinition\Optional
      */
-    public static function optionalValue($value): FieldDefinition\Value
+    public static function optionalValue($value): FieldDefinition\Optional
     {
-        return FieldDefinition\Value::optional($value);
+        return new FieldDefinition\Optional(new FieldDefinition\Value($value));
     }
 }

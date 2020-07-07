@@ -18,22 +18,25 @@ use Ergebnis\FactoryBot\FixtureFactory;
 /**
  * @internal
  */
-final class Closure implements Resolvable
+final class Optional implements Resolvable
 {
     /**
-     * @var \Closure
+     * @var Resolvable
      */
-    private $closure;
+    private $resolvable;
 
-    public function __construct(\Closure $closure)
+    public function __construct(Resolvable $resolvable)
     {
-        $this->closure = $closure;
+        $this->resolvable = $resolvable;
     }
 
+    /**
+     * @param FixtureFactory $fixtureFactory
+     *
+     * @return mixed
+     */
     public function resolve(FixtureFactory $fixtureFactory)
     {
-        $closure = $this->closure;
-
-        return $closure($fixtureFactory);
+        return $this->resolvable->resolve($fixtureFactory);
     }
 }

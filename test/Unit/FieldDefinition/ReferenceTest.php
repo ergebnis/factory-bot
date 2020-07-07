@@ -30,7 +30,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  */
 final class ReferenceTest extends AbstractTestCase
 {
-    public function testOptionalResolvesToObjectCreatedByFixtureFactory(): void
+    public function testResolvesToObjectCreatedByFixtureFactory(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
@@ -41,29 +41,7 @@ final class ReferenceTest extends AbstractTestCase
 
         $fixtureFactory->define($className);
 
-        $fieldDefinition = Reference::optional($className);
-
-        self::assertFalse($fieldDefinition->isRequired());
-
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
-
-        self::assertInstanceOf($className, $resolved);
-    }
-
-    public function testRequiredResolvesToObjectCreatedByFixtureFactory(): void
-    {
-        $className = Fixture\FixtureFactory\Entity\User::class;
-
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        $fixtureFactory->define($className);
-
-        $fieldDefinition = Reference::required($className);
-
-        self::assertTrue($fieldDefinition->isRequired());
+        $fieldDefinition = new Reference($className);
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 

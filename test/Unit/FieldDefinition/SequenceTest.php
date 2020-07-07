@@ -28,7 +28,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  */
 final class SequenceTest extends AbstractTestCase
 {
-    public function testOptionalRejectsValueWhenItIsMissingPercentDPlaceholder(): void
+    public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
         $faker = self::faker();
 
@@ -41,13 +41,13 @@ final class SequenceTest extends AbstractTestCase
             $value
         ));
 
-        Sequence::optional(
+        new Sequence(
             $value,
             $initialNumber
         );
     }
 
-    public function testOptionalResolvesToValueWithPercentDReplacedWithSequentialNumber(): void
+    public function testResolvesToValueWithPercentDReplacedWithSequentialNumber(): void
     {
         $faker = self::faker();
 
@@ -60,64 +60,10 @@ final class SequenceTest extends AbstractTestCase
 
         $initialNumber = $faker->numberBetween();
 
-        $fieldDefinition = Sequence::optional(
+        $fieldDefinition = new Sequence(
             $value,
             $initialNumber
         );
-
-        self::assertFalse($fieldDefinition->isRequired());
-
-        $expected = static function (int $sequentialNumber): string {
-            return \sprintf(
-                '%d Why, hello - this is a nice thing, if you need it! %d',
-                $sequentialNumber,
-                $sequentialNumber
-            );
-        };
-
-        self::assertSame($expected($initialNumber), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected($initialNumber + 1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected($initialNumber + 2), $fieldDefinition->resolve($fixtureFactory));
-    }
-
-    public function testRequiredRejectsValueWhenItIsMissingPercentDPlaceholder(): void
-    {
-        $faker = self::faker();
-
-        $value = $faker->sentence;
-        $initialNumber = $faker->randomNumber();
-
-        $this->expectException(Exception\InvalidSequence::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
-        ));
-
-        Sequence::required(
-            $value,
-            $initialNumber
-        );
-    }
-
-    public function testRequiredResolvesToValueWithPercentDReplacedWithSequentialNumber(): void
-    {
-        $faker = self::faker();
-
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            $faker
-        );
-
-        $value = '%d Why, hello - this is a nice thing, if you need it! %d';
-
-        $initialNumber = $faker->numberBetween();
-
-        $fieldDefinition = Sequence::required(
-            $value,
-            $initialNumber
-        );
-
-        self::assertTrue($fieldDefinition->isRequired());
 
         $expected = static function (int $sequentialNumber): string {
             return \sprintf(

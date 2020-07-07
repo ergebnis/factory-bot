@@ -201,8 +201,7 @@ final class FixtureFactory
                 continue;
             }
 
-            /** @var FieldDefinition\Resolvable $fieldDefinition */
-            if (!$fieldDefinition->isRequired() && !$this->faker->boolean()) {
+            if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
                 continue;
             }
 

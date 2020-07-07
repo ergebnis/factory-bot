@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Closure;
+use Ergebnis\FactoryBot\FieldDefinition\Optional;
+use Ergebnis\FactoryBot\FieldDefinition\Resolvable;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
@@ -21,16 +22,16 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\FieldDefinition\Closure
+ * @covers \Ergebnis\FactoryBot\FieldDefinition\Optional
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class ClosureTest extends AbstractTestCase
+final class OptionalTest extends AbstractTestCase
 {
-    public function testResolvesToResultOfInvokingClosureWithFixtureFactory(): void
+    public function testResolvesToResultOfResolvingResolvableWithFixtureFactory(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -39,11 +40,14 @@ final class ClosureTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
-        $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
-            return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $resolvable = new class() implements Resolvable {
+            public function resolve(FixtureFactory $fixtureFactory)
+            {
+                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+            }
         };
 
-        $fieldDefinition = new Closure($closure);
+        $fieldDefinition = new Optional($resolvable);
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 
