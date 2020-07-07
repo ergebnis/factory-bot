@@ -57,6 +57,7 @@ final class References implements Resolvable
                 $count
             );
         }
+
         $this->className = $className;
         $this->count = $count;
     }
