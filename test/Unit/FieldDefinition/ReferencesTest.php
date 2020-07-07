@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition\References;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
@@ -24,6 +24,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\References
  *
+ * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\FieldDefinition
@@ -33,32 +34,14 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 final class ReferencesTest extends AbstractTestCase
 {
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
-     *
-     * @param int $count
-     */
-    public function testConstructorRejectsInvalidCount(int $count): void
-    {
-        $this->expectException(Exception\InvalidCount::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Count needs to be greater than or equal to 1, but %d is not.',
-            $count
-        ));
-
-        new References(
-            Fixture\FixtureFactory\Entity\User::class,
-            $count
-        );
-    }
-
-    /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $count): void
+    public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
+        $count = new Count($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -75,7 +58,7 @@ final class ReferencesTest extends AbstractTestCase
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 
         self::assertIsArray($resolved);
-        self::assertCount($count, $resolved);
+        self::assertCount($count->value(), $resolved);
         self::assertContainsOnly($className, $resolved);
     }
 }

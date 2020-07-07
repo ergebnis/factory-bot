@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -24,6 +25,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
+ * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
  * @uses \Ergebnis\FactoryBot\Exception\ClassNotFound
@@ -537,10 +539,12 @@ final class FixtureFactoryTest extends AbstractTestCase
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $count): void
+    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $value): void
     {
+        $count = new Count($value);
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             new Double\Faker\FalseGenerator()
@@ -561,16 +565,18 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $organization->repositories());
-        self::assertCount($count, $organization->repositories());
+        self::assertCount($count->value(), $organization->repositories());
     }
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $count): void
+    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $value): void
     {
+        $count = new Count($value);
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             new Double\Faker\TrueGenerator()
@@ -593,7 +599,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount($count, $repositories);
+        self::assertCount($count->value(), $repositories);
     }
 
     public function testCreateResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
@@ -733,10 +739,12 @@ final class FixtureFactoryTest extends AbstractTestCase
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testCreateAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionHasBeenSpecified(int $count): void
+    public function testCreateAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionHasBeenSpecified(int $value): void
     {
+        $count = new Count($value);
+
         $faker = self::faker();
 
         $fixtureFactory = new FixtureFactory(
@@ -754,13 +762,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => $fixtureFactory->createMultiple(Fixture\FixtureFactory\Entity\Repository::class, [], $count),
+            'repositories' => $fixtureFactory->createMultiple(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                [],
+                $count
+            ),
         ]);
 
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount($count, $repositories);
+        self::assertCount($count->value(), $repositories);
     }
 
     public function testDefineAcceptsClosureThatWillBeInvokedAfterEntityCreation(): void
@@ -861,29 +873,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
-     *
-     * @param int $count
-     */
-    public function testCreateMultipleThrowsInvalidCountExceptionWhenCountIsLessThanOne(int $count): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
-
-        $this->expectException(Exception\InvalidCount::class);
-
-        $fixtureFactory->createMultiple(
-            Fixture\FixtureFactory\Entity\Organization::class,
-            [],
-            $count
-        );
-    }
-
     public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
@@ -901,10 +890,12 @@ final class FixtureFactoryTest extends AbstractTestCase
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsSpecified(int $count): void
+    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsSpecified(int $value): void
     {
+        $count = new Count($value);
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             self::faker()
@@ -918,6 +909,6 @@ final class FixtureFactoryTest extends AbstractTestCase
             $count
         );
 
-        self::assertCount($count, $entities);
+        self::assertCount($count->value(), $entities);
     }
 }
