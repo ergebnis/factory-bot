@@ -203,10 +203,6 @@ final class FixtureFactory
 
             /** @var FieldDefinition\Resolvable $fieldDefinition */
             if (!$fieldDefinition->isRequired() && !$this->faker->boolean()) {
-                if ($fieldDefinition instanceof FieldDefinition\References) {
-                    $fieldValues[$fieldName] = new Common\Collections\ArrayCollection();
-                }
-
                 continue;
             }
 

@@ -227,9 +227,7 @@
     </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
-    <InvalidArgument occurrences="6">
-      <code>$className</code>
-      <code>$className</code>
+    <InvalidArgument occurrences="4">
       <code>$className</code>
       <code>$className</code>
       <code>$className</code>
