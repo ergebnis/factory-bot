@@ -144,59 +144,6 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
-     *
-     * @param int $count
-     */
-    public function testOptionalReferencesThrowsInvalidCountExceptionWhenCountIsLessThanOne(int $count): void
-    {
-        $className = self::class;
-
-        $this->expectException(Exception\InvalidCount::class);
-
-        FieldDefinition::optionalReferences(
-            $className,
-            $count
-        );
-    }
-
-    public function testOptionalReferencesReturnsOptionalReferencesWhenCountIsNotSpecified(): void
-    {
-        $className = Fixture\FixtureFactory\Entity\User::class;
-
-        $fieldDefinition = FieldDefinition::optionalReferences($className);
-
-        $expected = FieldDefinition\References::optional(
-            $className,
-            1
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
-     *
-     * @param int $count
-     */
-    public function testOptionalReferencesReturnsOptionalReferencesWhenCountIsSpecified(int $count): void
-    {
-        $className = Fixture\FixtureFactory\Entity\User::class;
-
-        $fieldDefinition = FieldDefinition::optionalReferences(
-            $className,
-            $count
-        );
-
-        $expected = FieldDefinition\References::optional(
-            $className,
-            $count
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
     public function testSequenceRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
         $faker = self::faker();

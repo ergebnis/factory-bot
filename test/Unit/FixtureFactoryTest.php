@@ -538,65 +538,6 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $count
      */
-    public function testCreateResolvesOptionalReferencesToEmptyArrayCollectionWhenFakerReturnsFalse(int $count): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            new Double\Faker\FalseGenerator()
-        );
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDefinition::optionalReferences(
-                Fixture\FixtureFactory\Entity\Repository::class,
-                $count
-            ),
-        ]);
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'name' => self::faker()->word,
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertCount(0, $organization->repositories());
-    }
-
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
-     *
-     * @param int $count
-     */
-    public function testCreateResolvesOptionalReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $count): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            new Double\Faker\TrueGenerator()
-        );
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDefinition::optionalReferences(
-                Fixture\FixtureFactory\Entity\Repository::class,
-                $count
-            ),
-        ]);
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'name' => self::faker()->word,
-        ]);
-
-        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $organization->repositories());
-        self::assertCount($count, $organization->repositories());
-    }
-
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
-     *
-     * @param int $count
-     */
     public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $count): void
     {
         $fixtureFactory = new FixtureFactory(

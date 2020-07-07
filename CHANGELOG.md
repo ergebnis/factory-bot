@@ -59,6 +59,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Removed `FixtureFactory::getAsSingleton()`, `FixtureFactory::setSingleton()`, and `FixtureFactory::unsetSingleton()` ([#124]), by [@localheinz]
 * Removed `callable` support for field definitions ([#133]) and ([#185]), by [@localheinz]
 * Removed support for `string` sequences that do not contain a `%d` placeholder ([#185]), by [@localheinz]
+* Removed `FieldDefinition::optionalReferences()` and `FieldDefinition\References::optional()` ([#259]), by [@localheinz]
 
 [fa9c564...main]: https://github.com/ergebnis/factory-bot/compare/fa9c564...main
 
@@ -105,5 +106,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#190]: https://github.com/ergebnis/factory-bot/pull/190
 [#196]: https://github.com/ergebnis/factory-bot/pull/196
 [#197]: https://github.com/ergebnis/factory-bot/pull/197
+[#259]: https://github.com/ergebnis/factory-bot/pull/259
 
 [@localheinz]: https://github.com/localheinz
