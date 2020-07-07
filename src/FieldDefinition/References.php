@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FixtureFactory;
 
 /**
@@ -35,7 +35,7 @@ final class References implements Resolvable
     private $className;
 
     /**
-     * @var int
+     * @var Count
      */
     private $count;
 
@@ -45,19 +45,10 @@ final class References implements Resolvable
      * @psalm-param class-string<T> $className
      *
      * @param string $className
-     * @param int    $count
-     *
-     * @throws Exception\InvalidCount
+     * @param Count  $count
      */
-    public function __construct(string $className, int $count)
+    public function __construct(string $className, Count $count)
     {
-        if (1 > $count) {
-            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
-                1,
-                $count
-            );
-        }
-
         $this->className = $className;
         $this->count = $count;
     }

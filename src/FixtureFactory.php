@@ -246,26 +246,18 @@ final class FixtureFactory
      *
      * @param string               $className
      * @param array<string, mixed> $fieldOverrides
-     * @param int                  $count
-     *
-     * @throws Exception\InvalidCount
+     * @param null|Count           $count
      *
      * @return array<int, object>
      */
-    public function createMultiple(string $className, array $fieldOverrides = [], int $count = 1): array
+    public function createMultiple(string $className, array $fieldOverrides = [], ?Count $count = null): array
     {
-        $minimumCount = 1;
-
-        if ($minimumCount > $count) {
-            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
-                $minimumCount,
-                $count
-            );
+        if (null === $count) {
+            $count = new Count(1);
         }
-
         $instances = [];
 
-        for ($i = 0; $i < $count; ++$i) {
+        for ($i = 0; $count->value() > $i; ++$i) {
             $instances[] = $this->create(
                 $className,
                 $fieldOverrides

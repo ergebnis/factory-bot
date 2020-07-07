@@ -66,15 +66,17 @@ final class FieldDefinition
      * @psalm-return FieldDefinition\References<T>
      * @psalm-template T
      *
-     * @param string $className
-     * @param int    $count
-     *
-     * @throws Exception\InvalidCount
+     * @param string     $className
+     * @param null|Count $count
      *
      * @return FieldDefinition\References
      */
-    public static function references(string $className, int $count = 1): FieldDefinition\References
+    public static function references(string $className, ?Count $count = null): FieldDefinition\References
     {
+        if (null === $count) {
+            $count = new Count(1);
+        }
+
         return new FieldDefinition\References(
             $className,
             $count

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -23,6 +24,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
+ * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
@@ -92,32 +94,16 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
-     *
-     * @param int $count
-     */
-    public function testReferencesThrowsInvalidCountExceptionWhenCountIsLessThanOne(int $count): void
-    {
-        $className = self::class;
-
-        $this->expectException(Exception\InvalidCount::class);
-
-        FieldDefinition::references(
-            $className,
-            $count
-        );
-    }
-
     public function testReferencesReturnsRequiredReferencesWhenCountIsNotSpecified(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
+        $count = new Count(1);
 
         $fieldDefinition = FieldDefinition::references($className);
 
         $expected = new FieldDefinition\References(
             $className,
-            1
+            $count
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -126,11 +112,12 @@ final class FieldDefinitionTest extends AbstractTestCase
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
-     * @param int $count
+     * @param int $value
      */
-    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $count): void
+    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
+        $count = new Count($value);
 
         $fieldDefinition = FieldDefinition::references(
             $className,
