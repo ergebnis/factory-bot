@@ -34,65 +34,15 @@ final class Reference implements Resolvable
     private $className;
 
     /**
-     * @var bool
-     */
-    private $isRequired;
-
-    /**
      * @phpstan-param class-string<T> $className
      *
      * @psalm-param class-string<T> $className
      *
      * @param string $className
-     * @param bool   $isRequired
      */
-    private function __construct(string $className, bool $isRequired)
+    public function __construct(string $className)
     {
         $this->className = $className;
-        $this->isRequired = $isRequired;
-    }
-
-    /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-return self<T>
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-return self<T>
-     *
-     * @param string $className
-     *
-     * @return self
-     */
-    public static function required(string $className): self
-    {
-        return new self(
-            $className,
-            true
-        );
-    }
-
-    /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-return self<T>
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-return self<T>
-     *
-     * @param string $className
-     *
-     * @return self
-     */
-    public static function optional(string $className): self
-    {
-        return new self(
-            $className,
-            false
-        );
-    }
-
-    public function isRequired(): bool
-    {
-        return $this->isRequired;
     }
 
     /**

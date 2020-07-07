@@ -32,62 +32,19 @@ final class Sequence implements Resolvable
     private $sequentialNumber;
 
     /**
-     * @var bool
+     * @param string $value
+     * @param int    $initialNumber
+     *
+     * @throws Exception\InvalidSequence
      */
-    private $isRequired;
-
-    private function __construct(string $value, int $initialNumber, bool $isRequired)
+    public function __construct(string $value, int $initialNumber)
     {
+        if (false === \strpos($value, '%d')) {
+            throw Exception\InvalidSequence::value($value);
+        }
+
         $this->value = $value;
         $this->sequentialNumber = $initialNumber;
-        $this->isRequired = $isRequired;
-    }
-
-    /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
-     * @throws Exception\InvalidSequence
-     *
-     * @return self
-     */
-    public static function required(string $value, int $initialNumber): self
-    {
-        if (false === \strpos($value, '%d')) {
-            throw Exception\InvalidSequence::value($value);
-        }
-
-        return new self(
-            $value,
-            $initialNumber,
-            true
-        );
-    }
-
-    /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
-     * @throws Exception\InvalidSequence
-     *
-     * @return self
-     */
-    public static function optional(string $value, int $initialNumber): self
-    {
-        if (false === \strpos($value, '%d')) {
-            throw Exception\InvalidSequence::value($value);
-        }
-
-        return new self(
-            $value,
-            $initialNumber,
-            false
-        );
-    }
-
-    public function isRequired(): bool
-    {
-        return $this->isRequired;
     }
 
     public function resolve(FixtureFactory $fixtureFactory): string

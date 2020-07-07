@@ -34,65 +34,15 @@ final class Value implements Resolvable
     private $value;
 
     /**
-     * @var bool
-     */
-    private $isRequired;
-
-    /**
      * @phpstan-param T $value
      *
      * @psalm-param T $value
      *
      * @param mixed $value
-     * @param bool  $isRequired
      */
-    private function __construct($value, bool $isRequired)
+    public function __construct($value)
     {
         $this->value = $value;
-        $this->isRequired = $isRequired;
-    }
-
-    /**
-     * @phpstan-param T $value
-     * @phpstan-return self<T>
-     *
-     * @psalm-param T $value
-     * @psalm-return self<T>
-     *
-     * @param mixed $value
-     *
-     * @return self
-     */
-    public static function required($value): self
-    {
-        return new self(
-            $value,
-            true
-        );
-    }
-
-    /**
-     * @phpstan-param T $value
-     * @phpstan-return self<T>
-     *
-     * @psalm-param T $value
-     * @psalm-return self<T>
-     *
-     * @param mixed $value
-     *
-     * @return self
-     */
-    public static function optional($value): self
-    {
-        return new self(
-            $value,
-            false
-        );
-    }
-
-    public function isRequired(): bool
-    {
-        return $this->isRequired;
     }
 
     /**

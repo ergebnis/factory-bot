@@ -26,6 +26,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
+ * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
@@ -46,7 +47,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::closure($closure);
 
-        $expected = FieldDefinition\Closure::required($closure);
+        $expected = new FieldDefinition\Closure($closure);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -64,7 +65,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalClosure($closure);
 
-        $expected = FieldDefinition\Closure::optional($closure);
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Closure($closure));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -75,7 +76,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::reference($className);
 
-        $expected = FieldDefinition\Reference::required($className);
+        $expected = new FieldDefinition\Reference($className);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -86,7 +87,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalReference($className);
 
-        $expected = FieldDefinition\Reference::optional($className);
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Reference($className));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -114,7 +115,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::references($className);
 
-        $expected = FieldDefinition\References::required(
+        $expected = new FieldDefinition\References(
             $className,
             1
         );
@@ -136,7 +137,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             $count
         );
 
-        $expected = FieldDefinition\References::required(
+        $expected = new FieldDefinition\References(
             $className,
             $count
         );
@@ -169,7 +170,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence($value);
 
-        $expected = FieldDefinition\Sequence::required(
+        $expected = new FieldDefinition\Sequence(
             $value,
             1
         );
@@ -191,7 +192,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             $initialNumber
         );
 
-        $expected = FieldDefinition\Sequence::required(
+        $expected = new FieldDefinition\Sequence(
             $value,
             $initialNumber
         );
@@ -224,10 +225,10 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalSequence($value);
 
-        $expected = FieldDefinition\Sequence::optional(
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
             1
-        );
+        ));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -246,10 +247,10 @@ final class FieldDefinitionTest extends AbstractTestCase
             $initialNumber
         );
 
-        $expected = FieldDefinition\Sequence::optional(
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
             $initialNumber
-        );
+        ));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -263,7 +264,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $fieldDefinition = FieldDefinition::value($value);
 
-        $expected = FieldDefinition\Value::required($value);
+        $expected = new FieldDefinition\Value($value);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -277,7 +278,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $fieldDefinition = FieldDefinition::optionalValue($value);
 
-        $expected = FieldDefinition\Value::optional($value);
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Value($value));
 
         self::assertEquals($expected, $fieldDefinition);
     }

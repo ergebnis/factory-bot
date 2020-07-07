@@ -40,6 +40,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Renamed `FixtureFactory::get()` to `FixtureFactory::create()` ([#189]), by [@localheinz]
 * Renamed `FixtureFactory::getList()` to `FixtureFactory::createMultiple()` ([#190]), by [@localheinz]
 * Renamed `FixtureFactory::defineEntity()` to `FixtureFactory::define()` ([#197]), by [@localheinz]
+* Extracted `FieldDefinition\Optional` ([#260]), by [@localheinz]
 
 ### Fixed
 
@@ -107,5 +108,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#196]: https://github.com/ergebnis/factory-bot/pull/196
 [#197]: https://github.com/ergebnis/factory-bot/pull/197
 [#259]: https://github.com/ergebnis/factory-bot/pull/259
+[#260]: https://github.com/ergebnis/factory-bot/pull/260
 
 [@localheinz]: https://github.com/localheinz
