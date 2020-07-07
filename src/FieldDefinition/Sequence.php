@@ -34,7 +34,7 @@ final class Sequence implements Resolvable
     /**
      * @var bool
      */
-    private $isRequired = false;
+    private $isRequired;
 
     private function __construct(string $value, int $initialNumber, bool $isRequired)
     {

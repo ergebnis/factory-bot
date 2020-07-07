@@ -36,7 +36,7 @@ final class Reference implements Resolvable
     /**
      * @var bool
      */
-    private $isRequired = false;
+    private $isRequired;
 
     /**
      * @phpstan-param class-string<T> $className
