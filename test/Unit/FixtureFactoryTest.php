@@ -694,7 +694,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateOneAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionHasBeenSpecified(): void
+    public function testCreateOneAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionOverrideHasBeenSpecifiedAsString(): void
     {
         $faker = self::faker();
 
@@ -717,7 +717,30 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($name, $organization->name());
     }
 
-    public function testCreateOneAllowsOverridingAssociationWithNullWhenFieldDefinitionHasBeenSpecified(): void
+    public function testCreateOneAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(): void
+    {
+        $faker = self::faker();
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => $faker->unique()->word,
+        ]);
+
+        $name = $faker->unique()->word;
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
+            'name' => FieldDefinition::value($name),
+        ]);
+
+        self::assertSame($name, $organization->name());
+    }
+
+    public function testCreateOneAllowsOverridingAssociationWithNullWhenFieldDefinitionOverrideHasBeenSpecifiedAsNull(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -736,12 +759,31 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($repository->template());
     }
 
+    public function testCreateOneAllowsOverridingAssociationWithNullWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
+            'template' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+        ]);
+
+        /** @var Fixture\FixtureFactory\Entity\Repository $repository */
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class, [
+            'template' => FieldDefinition::value(null),
+        ]);
+
+        self::assertNull($repository->template());
+    }
+
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
      *
      * @param int $value
      */
-    public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionHasBeenSpecified(int $value): void
+    public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsArray(int $value): void
     {
         $count = new Count($value);
 
@@ -763,6 +805,44 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => $fixtureFactory->createMany(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                $count
+            ),
+        ]);
+
+        $repositories = $organization->repositories();
+
+        self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
+        self::assertCount($count->value(), $repositories);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     *
+     * @param int $value
+     */
+    public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(int $value): void
+    {
+        $count = new Count($value);
+
+        $faker = self::faker();
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
+            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+        ]);
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
+            'name' => $faker->word,
+        ]);
+
+        /** @var Fixture\FixtureFactory\Entity\Organization $organization */
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
+            'repositories' => FieldDefinition::references(
                 Fixture\FixtureFactory\Entity\Repository::class,
                 $count
             ),
@@ -916,7 +996,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($count->value(), $unverifiedEntities);
     }
 
-    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldOverridesAreSpecified(): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsValue(): void
     {
         $faker = self::faker();
         $fixtureFactory = new FixtureFactory(
@@ -933,6 +1013,35 @@ final class FixtureFactoryTest extends AbstractTestCase
             $count,
             [
                 'isVerified' => true,
+            ]
+        );
+
+        self::assertCount($count->value(), $entities);
+
+        $verifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
+            return $organization->isVerified();
+        });
+
+        self::assertCount($count->value(), $verifiedEntities);
+    }
+
+    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsFieldDefinition(): void
+    {
+        $faker = self::faker();
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $count = new Count($faker->numberBetween(1, 5));
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
+
+        $entities = $fixtureFactory->createMany(
+            Fixture\FixtureFactory\Entity\Organization::class,
+            $count,
+            [
+                'isVerified' => FieldDefinition::value(true),
             ]
         );
 

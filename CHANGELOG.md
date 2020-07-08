@@ -15,6 +15,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Added `FieldDefinition::value()` which allows resolving a field definition to a constant value ([#149]), by [@localheinz]
 * Added `FieldDefinition::closure()` which allows resolving a field definition to the return value of a closure that is invoked with the `FixtureFactory` ([#155]), by [@localheinz]
 * Allowed creation of optional field definitions ([#167]) and ([#196]), by [@localheinz]
+* Allowed using field definitions as field overrides ([#270]), by [@localheinz]
 
 ### Changed
 
@@ -117,5 +118,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#263]: https://github.com/ergebnis/factory-bot/pull/263
 [#264]: https://github.com/ergebnis/factory-bot/pull/264
 [#266]: https://github.com/ergebnis/factory-bot/pull/266
+[#270]: https://github.com/ergebnis/factory-bot/pull/270
 
 [@localheinz]: https://github.com/localheinz

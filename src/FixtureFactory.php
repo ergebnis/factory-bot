@@ -107,17 +107,7 @@ final class FixtureFactory
             );
         }
 
-        $fieldDefinitions = \array_map(static function ($fieldDefinition): FieldDefinition\Resolvable {
-            if ($fieldDefinition instanceof FieldDefinition\Resolvable) {
-                return $fieldDefinition;
-            }
-
-            if ($fieldDefinition instanceof \Closure) {
-                return FieldDefinition::closure($fieldDefinition);
-            }
-
-            return FieldDefinition::value($fieldDefinition);
-        }, $fieldDefinitions);
+        $fieldDefinitions = self::normalizeFieldDefinitions($fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
 
@@ -157,15 +147,15 @@ final class FixtureFactory
      * @psalm-return T
      * @psalm-template T
      *
-     * @param string               $className
-     * @param array<string, mixed> $fieldOverrides
+     * @param string                                                   $className
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
-     * @throws Exception\EntityDefinitionNotRegistered
      * @throws Exception\InvalidFieldNames
+     * @throws Exception\EntityDefinitionNotRegistered
      *
      * @return object
      */
-    public function createOne(string $className, array $fieldOverrides = [])
+    public function createOne(string $className, array $fieldDefinitionOverrides = [])
     {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
@@ -175,7 +165,7 @@ final class FixtureFactory
         $entityDefinition = $this->entityDefinitions[$className];
 
         $extraFieldNames = \array_diff(
-            \array_keys($fieldOverrides),
+            \array_keys($fieldDefinitionOverrides),
             \array_keys($entityDefinition->fieldDefinitions())
         );
 
@@ -192,15 +182,14 @@ final class FixtureFactory
         /** @var T $entity */
         $entity = $classMetadata->newInstance();
 
+        $fieldDefinitions = \array_merge(
+            $entityDefinition->fieldDefinitions(),
+            self::normalizeFieldDefinitions($fieldDefinitionOverrides)
+        );
+
         $fieldValues = [];
 
-        foreach ($entityDefinition->fieldDefinitions() as $fieldName => $fieldDefinition) {
-            if (\array_key_exists($fieldName, $fieldOverrides)) {
-                $fieldValues[$fieldName] = $fieldOverrides[$fieldName];
-
-                continue;
-            }
-
+        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
             if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
                 continue;
             }
@@ -244,13 +233,13 @@ final class FixtureFactory
      * @psalm-return list<T>
      * @psalm-template T
      *
-     * @param string               $className
-     * @param null|Count           $count
-     * @param array<string, mixed> $fieldOverrides
+     * @param string                                                   $className
+     * @param null|Count                                               $count
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, ?Count $count = null, array $fieldOverrides = []): array
+    public function createMany(string $className, ?Count $count = null, array $fieldDefinitionOverrides = []): array
     {
         if (null === $count) {
             $count = new Count(1);
@@ -261,7 +250,7 @@ final class FixtureFactory
         for ($i = 0; $count->value() > $i; ++$i) {
             $instances[] = $this->createOne(
                 $className,
-                $fieldOverrides
+                $fieldDefinitionOverrides
             );
         }
 
@@ -286,6 +275,26 @@ final class FixtureFactory
     public function definitions(): array
     {
         return $this->entityDefinitions;
+    }
+
+    /**
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitions
+     *
+     * @return array<string, FieldDefinition\Resolvable>
+     */
+    private static function normalizeFieldDefinitions(array $fieldDefinitions): array
+    {
+        return \array_map(static function ($fieldDefinition): FieldDefinition\Resolvable {
+            if ($fieldDefinition instanceof FieldDefinition\Resolvable) {
+                return $fieldDefinition;
+            }
+
+            if ($fieldDefinition instanceof \Closure) {
+                return FieldDefinition::closure($fieldDefinition);
+            }
+
+            return FieldDefinition::value($fieldDefinition);
+        }, $fieldDefinitions);
     }
 
     /**
