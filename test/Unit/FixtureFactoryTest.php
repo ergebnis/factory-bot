@@ -19,6 +19,7 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Double;
 use Ergebnis\FactoryBot\Test\Fixture;
+use Faker\Generator;
 
 /**
  * @internal
@@ -407,7 +408,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesOptionalClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesOptionalClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -417,7 +418,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalClosure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
+            'codeOfConduct' => FieldDefinition::optionalClosure(static function (Generator $faker, FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
@@ -428,7 +429,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -438,7 +439,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
+            'codeOfConduct' => FieldDefinition::closure(static function (Generator $faker, FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
@@ -449,7 +450,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -459,7 +460,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
+            'codeOfConduct' => FieldDefinition::closure(static function (Generator $faker, FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);

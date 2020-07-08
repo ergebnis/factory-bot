@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\FieldDefinition;
 
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Number;
+use Faker\Generator;
 
 /**
  * @internal
@@ -58,11 +59,12 @@ final class References implements Resolvable
      *
      * @psalm-return list<T>
      *
+     * @param Generator      $faker
      * @param FixtureFactory $fixtureFactory
      *
      * @return array<int, object>
      */
-    public function resolve(FixtureFactory $fixtureFactory): array
+    public function resolve(Generator $faker, FixtureFactory $fixtureFactory): array
     {
         return $fixtureFactory->createMany(
             $this->className,

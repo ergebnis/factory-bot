@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\FieldDefinition;
 
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Faker\Generator;
 
 /**
  * @internal
@@ -47,7 +48,7 @@ final class Sequence implements Resolvable
         $this->sequentialNumber = $initialNumber;
     }
 
-    public function resolve(FixtureFactory $fixtureFactory): string
+    public function resolve(Generator $faker, FixtureFactory $fixtureFactory): string
     {
         return \str_replace(
             '%d',

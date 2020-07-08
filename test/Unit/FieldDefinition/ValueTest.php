@@ -35,14 +35,19 @@ final class ValueTest extends AbstractTestCase
      */
     public function testResolvesToValue($value): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fieldDefinition = new Value($value);
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $resolved = $fieldDefinition->resolve(
+            $faker,
+            $fixtureFactory
+        );
 
         self::assertSame($value, $resolved);
     }

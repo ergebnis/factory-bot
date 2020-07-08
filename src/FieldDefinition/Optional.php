@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
 use Ergebnis\FactoryBot\FixtureFactory;
+use Faker\Generator;
 
 /**
  * @internal
@@ -32,11 +33,15 @@ final class Optional implements Resolvable
 
     /**
      * @param FixtureFactory $fixtureFactory
+     * @param Generator      $faker
      *
      * @return mixed
      */
-    public function resolve(FixtureFactory $fixtureFactory)
+    public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
     {
-        return $this->resolvable->resolve($fixtureFactory);
+        return $this->resolvable->resolve(
+            $faker,
+            $fixtureFactory
+        );
     }
 }
