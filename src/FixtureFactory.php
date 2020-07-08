@@ -165,7 +165,7 @@ final class FixtureFactory
      *
      * @return object
      */
-    public function create(string $className, array $fieldOverrides = [])
+    public function createOne(string $className, array $fieldOverrides = [])
     {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
@@ -258,7 +258,7 @@ final class FixtureFactory
         $instances = [];
 
         for ($i = 0; $count->value() > $i; ++$i) {
-            $instances[] = $this->create(
+            $instances[] = $this->createOne(
                 $className,
                 $fieldOverrides
             );

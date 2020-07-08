@@ -40,7 +40,7 @@ final class ClosureTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
-            return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+            return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
         };
 
         $fieldDefinition = new Closure($closure);

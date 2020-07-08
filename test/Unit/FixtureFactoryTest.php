@@ -103,7 +103,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testCreateThrowsEntityDefinitionNotRegisteredWhenEntityDefinitionHasNotBeenRegistered(): void
+    public function testCreateOneThrowsEntityDefinitionNotRegisteredWhenEntityDefinitionHasNotBeenRegistered(): void
     {
         $className = self::class;
 
@@ -114,10 +114,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\EntityDefinitionNotRegistered::class);
 
-        $fixtureFactory->create($className);
+        $fixtureFactory->createOne($className);
     }
 
-    public function testCreateThrowsInvalidFieldNamesExceptionWhenReferencingFieldsThatDoNotExistInEntity(): void
+    public function testCreateOneThrowsInvalidFieldNamesExceptionWhenReferencingFieldsThatDoNotExistInEntity(): void
     {
         $faker = self::faker();
 
@@ -132,7 +132,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\InvalidFieldNames::class);
 
-        $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class, [
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'flavour' => 'strawberry',
         ]);
     }
@@ -156,7 +156,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'avatar' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Avatar::class),
         ]);
 
-        $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $user);
 
@@ -185,7 +185,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
     }
 
-    public function testCreateThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
+    public function testCreateOneThrowsInvalidFieldNamesExceptionWhenReferencingFieldsOfEmbeddablesUsingDotNotation(): void
     {
         $faker = self::faker();
 
@@ -198,7 +198,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\InvalidFieldNames::class);
 
-        $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class, [
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class, [
             'login' => $faker->userName,
             'avatar.url' => $faker->imageUrl(),
             'avatar.width' => $faker->numberBetween(100, 250),
@@ -222,7 +222,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertSame($name, $organization->name());
     }
@@ -246,18 +246,18 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organizationOne */
-        $organizationOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organizationOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         $name = 'bar';
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organizationTwo */
-        $organizationTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organizationTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertSame('the-foo-organization', $organizationOne->name());
         self::assertSame('the-bar-organization', $organizationTwo->name());
     }
 
-    public function testCreateResolvesFieldWithoutDefaultValueToNullWhenFieldDefinitionWasNotSpecified(): void
+    public function testCreateOneResolvesFieldWithoutDefaultValueToNullWhenFieldDefinitionWasNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -267,12 +267,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertNull($organization->name());
     }
 
-    public function testCreateResolvesFieldWithDefaultValueToItsDefaultValueWhenFieldDefinitionWasNotSpecified(): void
+    public function testCreateOneResolvesFieldWithDefaultValueToItsDefaultValueWhenFieldDefinitionWasNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -282,12 +282,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertFalse($organization->isVerified());
     }
 
-    public function testCreateDoesNotInvokeEntityConstructor(): void
+    public function testCreateOneDoesNotInvokeEntityConstructor(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -297,12 +297,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, []);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertFalse($organization->constructorWasCalled());
     }
 
-    public function testCreateResolvesOneToManyAssociationToEmptyArrayCollectionWhenFieldDefinitionWasNotSpecified(): void
+    public function testCreateOneResolvesOneToManyAssociationToEmptyArrayCollectionWhenFieldDefinitionWasNotSpecified(): void
     {
         $faker = self::faker();
 
@@ -316,12 +316,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertEmpty($organization->repositories());
     }
 
-    public function testCreateMapsArraysToCollectionAsscociationFields(): void
+    public function testCreateOneMapsArraysToCollectionAsscociationFields(): void
     {
         $faker = self::faker();
 
@@ -337,13 +337,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryOne */
-        $repositoryOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repositoryOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryTwo */
-        $repositoryTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repositoryTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class, [
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => $faker->word,
             'repositories' => [
                 $repositoryOne,
@@ -355,7 +355,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertContains($repositoryTwo, $organization->repositories());
     }
 
-    public function testCreateEstablishesBidirectionalOneToManyAssociations(): void
+    public function testCreateOneEstablishesBidirectionalOneToManyAssociations(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -369,14 +369,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         $organization = $repository->organization();
 
         self::assertContains($repository, $organization->repositories());
     }
 
-    public function testCreateResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -387,17 +387,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'codeOfConduct' => FieldDefinition::optionalClosure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
-                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
+                return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertNull($repository->codeOfConduct());
     }
 
-    public function testCreateResolvesOptionalClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesOptionalClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -408,17 +408,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'codeOfConduct' => FieldDefinition::optionalClosure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
-                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
+                return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -429,17 +429,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'codeOfConduct' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
-                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
+                return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -450,17 +450,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
             'codeOfConduct' => FieldDefinition::closure(static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\CodeOfConduct {
-                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
+                return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\CodeOfConduct::class);
             }),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateResolvesOptionalReferenceToNullWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesOptionalReferenceToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -474,12 +474,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertNull($repository->codeOfConduct());
     }
 
-    public function testCreateResolvesOptionalReferenceToEntityWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesOptionalReferenceToEntityWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -493,12 +493,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateResolvesRequiredReferenceToEntityWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesRequiredReferenceToEntityWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -512,12 +512,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateResolvesRequiredReferenceToEntityWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesRequiredReferenceToEntityWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -531,7 +531,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
@@ -541,7 +541,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $value): void
+    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $value): void
     {
         $count = new Count($value);
 
@@ -562,7 +562,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $organization->repositories());
         self::assertCount($count->value(), $organization->repositories());
@@ -573,7 +573,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $value): void
+    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $value): void
     {
         $count = new Count($value);
 
@@ -594,7 +594,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         $repositories = $organization->repositories();
 
@@ -602,7 +602,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($count->value(), $repositories);
     }
 
-    public function testCreateResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -614,12 +614,12 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\User $user */
-        $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         self::assertNull($user->location());
     }
 
-    public function testCreateResolvesOptionalSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
+    public function testCreateOneResolvesOptionalSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -631,20 +631,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\User $userOne */
-        $userOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userTwo */
-        $userTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userThree */
-        $userThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userThree = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         self::assertSame('City (1)', $userOne->location());
         self::assertSame('City (2)', $userTwo->location());
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsFalse(): void
+    public function testCreateOneResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -656,20 +656,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\User $userOne */
-        $userOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userTwo */
-        $userTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userThree */
-        $userThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userThree = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         self::assertSame('City (1)', $userOne->location());
         self::assertSame('City (2)', $userTwo->location());
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
+    public function testCreateOneResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -681,20 +681,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\User $userOne */
-        $userOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userTwo */
-        $userTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         /** @var Fixture\FixtureFactory\Entity\User $userThree */
-        $userThree = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $userThree = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         self::assertSame('City (1)', $userOne->location());
         self::assertSame('City (2)', $userTwo->location());
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionHasBeenSpecified(): void
+    public function testCreateOneAllowsOverridingFieldWithDifferentValueWhenFieldDefinitionHasBeenSpecified(): void
     {
         $faker = self::faker();
 
@@ -710,14 +710,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         $name = $faker->unique()->word;
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class, [
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'name' => $name,
         ]);
 
         self::assertSame($name, $organization->name());
     }
 
-    public function testCreateAllowsOverridingAssociationWithNullWhenFieldDefinitionHasBeenSpecified(): void
+    public function testCreateOneAllowsOverridingAssociationWithNullWhenFieldDefinitionHasBeenSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -729,7 +729,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
-        $repository = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class, [
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class, [
             'template' => null,
         ]);
 
@@ -741,7 +741,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionHasBeenSpecified(int $value): void
+    public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionHasBeenSpecified(int $value): void
     {
         $count = new Count($value);
 
@@ -761,7 +761,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class, [
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => $fixtureFactory->createMultiple(
                 Fixture\FixtureFactory\Entity\Repository::class,
                 [],
@@ -803,7 +803,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         $expectedName = \sprintf(
             '%s-%s',
@@ -814,7 +814,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($expectedName, $organization->name());
     }
 
-    public function testCreateCreatesReferencedObjectAutomatically(): void
+    public function testCreateOneCreatesReferencedObjectAutomatically(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -829,10 +829,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryOne */
-        $repositoryOne = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repositoryOne = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repositoryTwo */
-        $repositoryTwo = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Repository::class);
+        $repositoryTwo = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
 
         $organizationOne = $repositoryOne->organization();
         $organizationTwo = $repositoryTwo->organization();
@@ -842,7 +842,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNotSame($organizationOne, $organizationTwo);
     }
 
-    public function testCreatesCreatesReferencedObjectsTransitively(): void
+    public function testCreateOnesCreatesReferencedObjectsTransitively(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -859,7 +859,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'repository' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Repository::class),
         ]);
 
-        $project = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Project::class);
+        $project = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Project::class);
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Project::class, $project);
 

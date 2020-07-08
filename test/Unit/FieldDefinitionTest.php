@@ -40,7 +40,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             /** @var Fixture\FixtureFactory\Entity\User $user */
-            $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+            $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
             $user->renameTo(self::faker()->userName);
 
@@ -58,7 +58,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
             /** @var Fixture\FixtureFactory\Entity\User $user */
-            $user = $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+            $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
             $user->renameTo(self::faker()->userName);
 

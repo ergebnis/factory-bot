@@ -43,7 +43,7 @@ final class OptionalTest extends AbstractTestCase
         $resolvable = new class() implements Resolvable {
             public function resolve(FixtureFactory $fixtureFactory)
             {
-                return $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+                return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
             }
         };
 
