@@ -30,10 +30,7 @@ final class Exact
     public function __construct(int $value)
     {
         if (0 > $value) {
-            throw Exception\InvalidNumber::notGreaterThanOrEqualTo(
-                0,
-                $value
-            );
+            throw Exception\InvalidNumber::notGreaterThanOrEqualToZero($value);
         }
 
         $this->value = $value;

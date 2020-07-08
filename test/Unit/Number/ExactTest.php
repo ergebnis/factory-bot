@@ -35,8 +35,7 @@ final class ExactTest extends Framework\TestCase
     {
         $this->expectException(Exception\InvalidNumber::class);
         $this->expectExceptionMessage(\sprintf(
-            'Number needs to be greater than or equal to %d, but %d is not.',
-            0,
+            'Number needs to be greater than or equal to 0, but %d is not.',
             $value
         ));
 
