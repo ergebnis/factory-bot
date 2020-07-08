@@ -34,7 +34,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 final class ReferencesTest extends AbstractTestCase
 {
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
      *
      * @param int $value
      */

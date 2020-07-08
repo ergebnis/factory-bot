@@ -27,7 +27,7 @@ use PHPUnit\Framework;
 final class ExactTest extends Framework\TestCase
 {
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
      *
      * @param int $value
      */
@@ -36,7 +36,7 @@ final class ExactTest extends Framework\TestCase
         $this->expectException(Exception\InvalidNumber::class);
         $this->expectExceptionMessage(\sprintf(
             'Number needs to be greater than or equal to %d, but %d is not.',
-            1,
+            0,
             $value
         ));
 
@@ -44,7 +44,7 @@ final class ExactTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
      *
      * @param int $value
      */

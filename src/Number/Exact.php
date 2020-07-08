@@ -29,9 +29,9 @@ final class Exact
      */
     public function __construct(int $value)
     {
-        if (1 > $value) {
+        if (0 > $value) {
             throw Exception\InvalidNumber::notGreaterThanOrEqualTo(
-                1,
+                0,
                 $value
             );
         }
