@@ -321,7 +321,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertEmpty($organization->repositories());
     }
 
-    public function testCreateOneMapsArraysToCollectionAsscociationFields(): void
+    public function testCreateOneMapsArraysToCollectionAssociationFields(): void
     {
         $faker = self::faker();
 
