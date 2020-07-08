@@ -15,14 +15,14 @@ namespace Ergebnis\FactoryBot\Test\DataProvider;
 
 use Ergebnis\Test\Util\Helper;
 
-final class NumberProvider
+final class IntProvider
 {
     use Helper;
 
     /**
      * @return \Generator<string, array<int>>
      */
-    public function intArbitrary(): \Generator
+    public function arbitrary(): \Generator
     {
         $values = [
             'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
@@ -42,7 +42,7 @@ final class NumberProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function intLessThanOne(): \Generator
+    public function lessThanOne(): \Generator
     {
         $values = [
             'int-zero' => 0,
@@ -60,7 +60,7 @@ final class NumberProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function intGreaterThanOrEqualToOne(): \Generator
+    public function greaterThanOrEqualToOne(): \Generator
     {
         $values = [
             'int-one' => 1,

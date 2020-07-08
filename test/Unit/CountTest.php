@@ -27,7 +27,7 @@ use PHPUnit\Framework;
 final class CountTest extends Framework\TestCase
 {
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intLessThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanOne()
      *
      * @param int $value
      */
@@ -44,7 +44,7 @@ final class CountTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToOne()
      *
      * @param int $value
      */
