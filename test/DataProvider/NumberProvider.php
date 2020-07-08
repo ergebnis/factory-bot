@@ -22,6 +22,26 @@ final class NumberProvider
     /**
      * @return \Generator<string, array<int>>
      */
+    public function intArbitrary(): \Generator
+    {
+        $values = [
+            'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
+            'int-minus-one' => -1,
+            'int-zero' => 0,
+            'int-one' => 1,
+            'int-greater-than-one' => self::faker()->numberBetween(2),
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    /**
+     * @return \Generator<string, array<int>>
+     */
     public function intLessThanOne(): \Generator
     {
         $values = [
