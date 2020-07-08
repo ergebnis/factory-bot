@@ -908,5 +908,40 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         self::assertCount($count->value(), $entities);
+
+        $unverifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
+            return !$organization->isVerified();
+        });
+
+        self::assertCount($count->value(), $unverifiedEntities);
+    }
+
+    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldOverridesAreSpecified(): void
+    {
+        $faker = self::faker();
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $count = new Count($faker->numberBetween(1, 5));
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
+
+        $entities = $fixtureFactory->createMany(
+            Fixture\FixtureFactory\Entity\Organization::class,
+            $count,
+            [
+                'isVerified' => true,
+            ]
+        );
+
+        self::assertCount($count->value(), $entities);
+
+        $verifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
+            return $organization->isVerified();
+        });
+
+        self::assertCount($count->value(), $verifiedEntities);
     }
 }
