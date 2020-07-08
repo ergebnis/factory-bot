@@ -110,7 +110,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToOne()
      *
      * @param int $value
      */
@@ -166,7 +166,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToOne()
      *
      * @param int $initialNumber
      */
@@ -221,7 +221,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intArbitrary()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::arbitrary()
      *
      * @param int $initialNumber
      */
