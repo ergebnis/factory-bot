@@ -24,6 +24,9 @@ use Faker\Generator;
  */
 final class FixtureFactory
 {
+    /**
+     * @var ORM\EntityManagerInterface
+     */
     private $entityManager;
 
     /**
