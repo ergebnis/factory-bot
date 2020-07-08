@@ -28,19 +28,12 @@ final class InvalidNumberTest extends Framework\TestCase
 
     public function testNotGreaterThanOrEqualToReturnsException(): void
     {
-        $faker = self::faker();
+        $number = -1 * self::faker()->numberBetween(1);
 
-        $minimum = $faker->numberBetween(1, 1000);
-        $number = $minimum - $faker->numberBetween(1);
-
-        $exception = Exception\InvalidNumber::notGreaterThanOrEqualTo(
-            $minimum,
-            $number
-        );
+        $exception = Exception\InvalidNumber::notGreaterThanOrEqualToZero($number);
 
         $message = \sprintf(
-            'Number needs to be greater than or equal to %d, but %d is not.',
-            $minimum,
+            'Number needs to be greater than or equal to 0, but %d is not.',
             $number
         );
 

@@ -15,11 +15,10 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidNumber extends \InvalidArgumentException implements Exception
 {
-    public static function notGreaterThanOrEqualTo(int $minimum, int $number): self
+    public static function notGreaterThanOrEqualToZero(int $number): self
     {
         return new self(\sprintf(
-            'Number needs to be greater than or equal to %d, but %d is not.',
-            $minimum,
+            'Number needs to be greater than or equal to 0, but %d is not.',
             $number
         ));
     }
