@@ -255,6 +255,7 @@ final class FixtureFactory
         if (null === $count) {
             $count = new Count(1);
         }
+
         $instances = [];
 
         for ($i = 0; $count->value() > $i; ++$i) {
