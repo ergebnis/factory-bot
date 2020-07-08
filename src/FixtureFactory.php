@@ -250,7 +250,7 @@ final class FixtureFactory
      *
      * @return array<int, object>
      */
-    public function createMultiple(string $className, array $fieldOverrides = [], ?Count $count = null): array
+    public function createMany(string $className, array $fieldOverrides = [], ?Count $count = null): array
     {
         if (null === $count) {
             $count = new Count(1);
