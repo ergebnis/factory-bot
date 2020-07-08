@@ -547,7 +547,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */
@@ -579,7 +579,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */
@@ -789,7 +789,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */
@@ -827,7 +827,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */
@@ -977,7 +977,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */

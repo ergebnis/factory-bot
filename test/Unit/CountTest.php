@@ -44,7 +44,7 @@ final class CountTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
      *
      * @param int $value
      */

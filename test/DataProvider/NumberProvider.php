@@ -40,7 +40,7 @@ final class NumberProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function intGreaterThanOne(): \Generator
+    public function intGreaterThanOrEqualToOne(): \Generator
     {
         $values = [
             'int-one' => 1,
