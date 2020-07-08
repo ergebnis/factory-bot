@@ -46,6 +46,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Renamed `FixtureFactory::create()` to `FixtureFactory::createOne()` ([#263]), by [@localheinz]
 * Renamed `FixtureFactory::createMultiple()` to `FixtureFactory::createMany()` ([#264]), by [@localheinz]
 * Changed order of parameters for `FixtureFactory::createMany()` ([#266]), by [@localheinz]
+* Renamed `Count` to `Number\Exact` and `InvalidCount` to `InvalidNumber` ([#273]), by [@localheinz]
 
 ### Fixed
 
@@ -119,5 +120,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#264]: https://github.com/ergebnis/factory-bot/pull/264
 [#266]: https://github.com/ergebnis/factory-bot/pull/266
 [#270]: https://github.com/ergebnis/factory-bot/pull/270
+[#273]: https://github.com/ergebnis/factory-bot/pull/273
 
 [@localheinz]: https://github.com/localheinz

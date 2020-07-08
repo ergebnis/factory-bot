@@ -20,9 +20,9 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @covers \Ergebnis\FactoryBot\Exception\InvalidNumber
  */
-final class InvalidCountTest extends Framework\TestCase
+final class InvalidNumberTest extends Framework\TestCase
 {
     use Helper;
 
@@ -30,21 +30,21 @@ final class InvalidCountTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $minimumCount = $faker->numberBetween(1, 1000);
-        $count = $minimumCount - $faker->numberBetween(1);
+        $minimum = $faker->numberBetween(1, 1000);
+        $number = $minimum - $faker->numberBetween(1);
 
-        $exception = Exception\InvalidCount::notGreaterThanOrEqualTo(
-            $minimumCount,
-            $count
+        $exception = Exception\InvalidNumber::notGreaterThanOrEqualTo(
+            $minimum,
+            $number
         );
 
         $message = \sprintf(
-            'Count needs to be greater than or equal to %d, but %d is not.',
-            $minimumCount,
-            $count
+            'Number needs to be greater than or equal to %d, but %d is not.',
+            $minimum,
+            $number
         );
 
-        self::assertInstanceOf(Exception\InvalidCount::class, $exception);
+        self::assertInstanceOf(Exception\InvalidNumber::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
         self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());

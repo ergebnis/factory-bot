@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Double;
 use Ergebnis\FactoryBot\Test\Fixture;
 
@@ -25,14 +25,13 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
- * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
  * @uses \Ergebnis\FactoryBot\Exception\ClassNotFound
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
@@ -40,6 +39,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
+ * @uses \Ergebnis\FactoryBot\Number\Exact
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
@@ -553,7 +553,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $value): void
     {
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -563,7 +563,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Fixture\FixtureFactory\Entity\Repository::class,
-                $count
+                $number
             ),
         ]);
 
@@ -575,7 +575,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $organization->repositories());
-        self::assertCount($count->value(), $organization->repositories());
+        self::assertCount($number->value(), $organization->repositories());
     }
 
     /**
@@ -585,7 +585,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $value): void
     {
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -595,7 +595,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Fixture\FixtureFactory\Entity\Repository::class,
-                $count
+                $number
             ),
         ]);
 
@@ -609,7 +609,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount($count->value(), $repositories);
+        self::assertCount($number->value(), $repositories);
     }
 
     public function testCreateOneResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
@@ -795,7 +795,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsArray(int $value): void
     {
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $faker = self::faker();
 
@@ -816,14 +816,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => $fixtureFactory->createMany(
                 Fixture\FixtureFactory\Entity\Repository::class,
-                $count
+                $number
             ),
         ]);
 
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount($count->value(), $repositories);
+        self::assertCount($number->value(), $repositories);
     }
 
     /**
@@ -833,7 +833,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(int $value): void
     {
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $faker = self::faker();
 
@@ -854,14 +854,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Fixture\FixtureFactory\Entity\Repository::class,
-                $count
+                $number
             ),
         ]);
 
         $repositories = $organization->repositories();
 
         self::assertContainsOnly(Fixture\FixtureFactory\Entity\Repository::class, $repositories);
-        self::assertCount($count->value(), $repositories);
+        self::assertCount($number->value(), $repositories);
     }
 
     public function testDefineAcceptsClosureThatWillBeInvokedAfterEntityCreation(): void
@@ -962,7 +962,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
     }
 
-    public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsNotSpecified(): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -981,9 +981,9 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsSpecified(int $value): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsSpecified(int $value): void
     {
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -994,16 +994,16 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $entities = $fixtureFactory->createMany(
             Fixture\FixtureFactory\Entity\Organization::class,
-            $count
+            $number
         );
 
-        self::assertCount($count->value(), $entities);
+        self::assertCount($number->value(), $entities);
 
         $unverifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
             return !$organization->isVerified();
         });
 
-        self::assertCount($count->value(), $unverifiedEntities);
+        self::assertCount($number->value(), $unverifiedEntities);
     }
 
     public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsValue(): void
@@ -1014,25 +1014,25 @@ final class FixtureFactoryTest extends AbstractTestCase
             $faker
         );
 
-        $count = new Count($faker->numberBetween(1, 5));
+        $number = new Number\Exact($faker->numberBetween(1, 5));
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entities = $fixtureFactory->createMany(
             Fixture\FixtureFactory\Entity\Organization::class,
-            $count,
+            $number,
             [
                 'isVerified' => true,
             ]
         );
 
-        self::assertCount($count->value(), $entities);
+        self::assertCount($number->value(), $entities);
 
         $verifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
             return $organization->isVerified();
         });
 
-        self::assertCount($count->value(), $verifiedEntities);
+        self::assertCount($number->value(), $verifiedEntities);
     }
 
     public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsFieldDefinition(): void
@@ -1043,24 +1043,24 @@ final class FixtureFactoryTest extends AbstractTestCase
             $faker
         );
 
-        $count = new Count($faker->numberBetween(1, 5));
+        $number = new Number\Exact($faker->numberBetween(1, 5));
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entities = $fixtureFactory->createMany(
             Fixture\FixtureFactory\Entity\Organization::class,
-            $count,
+            $number,
             [
                 'isVerified' => FieldDefinition::value(true),
             ]
         );
 
-        self::assertCount($count->value(), $entities);
+        self::assertCount($number->value(), $entities);
 
         $verifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
             return $organization->isVerified();
         });
 
-        self::assertCount($count->value(), $verifiedEntities);
+        self::assertCount($number->value(), $verifiedEntities);
     }
 }

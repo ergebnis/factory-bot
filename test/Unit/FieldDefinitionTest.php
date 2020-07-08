@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
@@ -24,8 +24,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
- * @uses \Ergebnis\FactoryBot\Count
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
@@ -33,6 +32,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
+ * @uses \Ergebnis\FactoryBot\Number\Exact
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
@@ -94,16 +94,16 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testReferencesReturnsRequiredReferencesWhenCountIsNotSpecified(): void
+    public function testReferencesReturnsRequiredReferencesWhenNumberIsNotSpecified(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $count = new Count(1);
+        $number = new Number\Exact(1);
 
         $fieldDefinition = FieldDefinition::references($className);
 
         $expected = new FieldDefinition\References(
             $className,
-            $count
+            $number
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -114,19 +114,19 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $value): void
+    public function testReferencesReturnsRequiredReferencesWhenNumberIsSpecified(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $fieldDefinition = FieldDefinition::references(
             $className,
-            $count
+            $number
         );
 
         $expected = new FieldDefinition\References(
             $className,
-            $count
+            $number
         );
 
         self::assertEquals($expected, $fieldDefinition);

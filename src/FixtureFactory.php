@@ -237,20 +237,20 @@ final class FixtureFactory
      * @psalm-template T
      *
      * @param string                                                   $className
-     * @param null|Count                                               $count
+     * @param null|Number\Exact                                        $number
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, ?Count $count = null, array $fieldDefinitionOverrides = []): array
+    public function createMany(string $className, ?Number\Exact $number = null, array $fieldDefinitionOverrides = []): array
     {
-        if (null === $count) {
-            $count = new Count(1);
+        if (null === $number) {
+            $number = new Number\Exact(1);
         }
 
         $instances = [];
 
-        for ($i = 0; $count->value() > $i; ++$i) {
+        for ($i = 0; $number->value() > $i; ++$i) {
             $instances[] = $this->createOne(
                 $className,
                 $fieldDefinitionOverrides

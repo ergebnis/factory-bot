@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-final class InvalidCount extends \InvalidArgumentException implements Exception
+final class InvalidNumber extends \InvalidArgumentException implements Exception
 {
-    public static function notGreaterThanOrEqualTo(int $minimumCount, int $count): self
+    public static function notGreaterThanOrEqualTo(int $minimum, int $number): self
     {
         return new self(\sprintf(
-            'Count needs to be greater than or equal to %d, but %d is not.',
-            $minimumCount,
-            $count
+            'Number needs to be greater than or equal to %d, but %d is not.',
+            $minimum,
+            $number
         ));
     }
 }
