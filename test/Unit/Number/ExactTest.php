@@ -11,20 +11,20 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit;
+namespace Ergebnis\FactoryBot\Test\Unit\Number;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot\Number\Exact;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Count
+ * @covers \Ergebnis\FactoryBot\Number\Exact
  *
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
  */
-final class CountTest extends Framework\TestCase
+final class ExactTest extends Framework\TestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanOne()
@@ -33,14 +33,14 @@ final class CountTest extends Framework\TestCase
      */
     public function testConstructorRejectsInvalidValue(int $value): void
     {
-        $this->expectException(Exception\InvalidCount::class);
+        $this->expectException(Exception\InvalidNumber::class);
         $this->expectExceptionMessage(\sprintf(
-            'Count needs to be greater than or equal to %d, but %d is not.',
+            'Number needs to be greater than or equal to %d, but %d is not.',
             1,
             $value
         ));
 
-        new Count($value);
+        new Exact($value);
     }
 
     /**
@@ -50,8 +50,8 @@ final class CountTest extends Framework\TestCase
      */
     public function testConstructorSetsValue(int $value): void
     {
-        $count = new Count($value);
+        $number = new Exact($value);
 
-        self::assertSame($value, $count->value());
+        self::assertSame($value, $number->value());
     }
 }

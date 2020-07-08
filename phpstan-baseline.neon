@@ -6,12 +6,12 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$count with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$number with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FieldDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$count with null as default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$number with null as default value\\.$#"
 			count: 1
 			path: src/FieldDefinition.php
 
@@ -26,12 +26,12 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$count with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$number with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$count with null as default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$number with null as default value\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -196,21 +196,6 @@ parameters:
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidCount' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidCountTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidCountTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidCountTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDefinition' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidDefinitionTest.php
@@ -269,6 +254,21 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidNumber' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidNumber will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidNumberTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidNumber will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidNumberTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidNumber will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidNumberTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidSequence' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"

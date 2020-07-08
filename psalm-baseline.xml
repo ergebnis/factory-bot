@@ -97,14 +97,6 @@
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/Unit/Exception/InvalidCountTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="test/Unit/Exception/InvalidDefinitionTest.php">
     <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
@@ -136,6 +128,14 @@
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Exception/InvalidNumberTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>

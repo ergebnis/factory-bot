@@ -11,9 +11,11 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot;
+namespace Ergebnis\FactoryBot\Number;
 
-final class Count
+use Ergebnis\FactoryBot\Exception;
+
+final class Exact
 {
     /**
      * @var int
@@ -23,12 +25,12 @@ final class Count
     /**
      * @param int $value
      *
-     * @throws Exception\InvalidCount
+     * @throws Exception\InvalidNumber
      */
     public function __construct(int $value)
     {
         if (1 > $value) {
-            throw Exception\InvalidCount::notGreaterThanOrEqualTo(
+            throw Exception\InvalidNumber::notGreaterThanOrEqualTo(
                 1,
                 $value
             );

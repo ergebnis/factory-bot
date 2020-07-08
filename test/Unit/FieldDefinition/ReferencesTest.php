@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition\References;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 
@@ -24,12 +24,12 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\References
  *
- * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
+ * @uses \Ergebnis\FactoryBot\Number\Exact
  */
 final class ReferencesTest extends AbstractTestCase
 {
@@ -41,7 +41,7 @@ final class ReferencesTest extends AbstractTestCase
     public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $count = new Count($value);
+        $number = new Number\Exact($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -52,13 +52,13 @@ final class ReferencesTest extends AbstractTestCase
 
         $fieldDefinition = new References(
             $className,
-            $count
+            $number
         );
 
         $resolved = $fieldDefinition->resolve($fixtureFactory);
 
         self::assertIsArray($resolved);
-        self::assertCount($count->value(), $resolved);
+        self::assertCount($number->value(), $resolved);
         self::assertContainsOnly($className, $resolved);
     }
 }
