@@ -66,7 +66,6 @@ final class References implements Resolvable
     {
         return $fixtureFactory->createMany(
             $this->className,
-            [],
             $this->count
         );
     }
