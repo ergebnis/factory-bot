@@ -26,12 +26,12 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMultiple\\(\\) has parameter \\$count with a nullable type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$count with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMultiple\\(\\) has parameter \\$count with null as default value\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$count with null as default value\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

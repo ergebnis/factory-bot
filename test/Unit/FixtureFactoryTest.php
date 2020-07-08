@@ -762,7 +762,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => $fixtureFactory->createMultiple(
+            'repositories' => $fixtureFactory->createMany(
                 Fixture\FixtureFactory\Entity\Repository::class,
                 [],
                 $count
@@ -873,7 +873,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
     }
 
-    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsNotSpecified(): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsNotSpecified(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -882,7 +882,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $entities = $fixtureFactory->createMultiple(Fixture\FixtureFactory\Entity\Organization::class);
+        $entities = $fixtureFactory->createMany(Fixture\FixtureFactory\Entity\Organization::class);
 
         self::assertCount(1, $entities);
     }
@@ -892,7 +892,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateMultipleResolvesToArrayOfEntitiesWhenCountIsSpecified(int $value): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsSpecified(int $value): void
     {
         $count = new Count($value);
 
@@ -903,7 +903,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $entities = $fixtureFactory->createMultiple(
+        $entities = $fixtureFactory->createMany(
             Fixture\FixtureFactory\Entity\Organization::class,
             [],
             $count
