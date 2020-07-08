@@ -42,10 +42,9 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function lessThanOne(): \Generator
+    public function lessThanZero(): \Generator
     {
         $values = [
-            'int-zero' => 0,
             'int-minus-one' => -1,
             'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
         ];
@@ -60,9 +59,10 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function greaterThanOrEqualToOne(): \Generator
+    public function greaterThanOrEqualToZero(): \Generator
     {
         $values = [
+            'int-zero' => 0,
             'int-one' => 1,
             'int-two' => 2,
             'int-greater-than-two' => self::faker()->numberBetween(3, 10),
