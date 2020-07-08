@@ -245,12 +245,12 @@ final class FixtureFactory
      * @psalm-template T
      *
      * @param string               $className
-     * @param array<string, mixed> $fieldOverrides
      * @param null|Count           $count
+     * @param array<string, mixed> $fieldOverrides
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, array $fieldOverrides = [], ?Count $count = null): array
+    public function createMany(string $className, ?Count $count = null, array $fieldOverrides = []): array
     {
         if (null === $count) {
             $count = new Count(1);

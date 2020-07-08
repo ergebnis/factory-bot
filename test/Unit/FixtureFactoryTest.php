@@ -764,7 +764,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class, [
             'repositories' => $fixtureFactory->createMany(
                 Fixture\FixtureFactory\Entity\Repository::class,
-                [],
                 $count
             ),
         ]);
@@ -905,7 +904,6 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $entities = $fixtureFactory->createMany(
             Fixture\FixtureFactory\Entity\Organization::class,
-            [],
             $count
         );
 
