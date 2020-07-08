@@ -30,7 +30,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testCreatePersistsEntityWhenPersistOnGetHasBeenTurnedOn(): void
+    public function testCreateOnePersistsEntityWhenPersistOnGetHasBeenTurnedOn(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -47,7 +47,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->persistOnGet();
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
@@ -55,7 +55,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertSame($organization, $entityManager->find(Fixture\FixtureFactory\Entity\Organization::class, $organization->id()));
     }
 
-    public function testCreateDoesNotNotPersistEntityByDefault(): void
+    public function testCreateOneDoesNotNotPersistEntityByDefault(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -70,7 +70,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
-        $organization = $fixtureFactory->create(Fixture\FixtureFactory\Entity\Organization::class);
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
         $entityManager->flush();
 
@@ -84,7 +84,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertEmpty($query->getResult());
     }
 
-    public function testCreateDoesNotPersistEmbeddablesWhenPersistOnGetHasBeenTurnedOn(): void
+    public function testCreateOneDoesNotPersistEmbeddablesWhenPersistOnGetHasBeenTurnedOn(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -107,7 +107,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->persistOnGet();
 
-        $fixtureFactory->create(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
         $entityManager->flush();
 
