@@ -6,8 +6,7 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/FixtureFactory.php">
-    <MixedAssignment occurrences="5">
-      <code>$fieldValues[$fieldName]</code>
+    <MixedAssignment occurrences="4">
       <code>$fieldValues[$fieldName]</code>
       <code>$fieldValue</code>
       <code>$inversedBy</code>
