@@ -221,7 +221,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intGreaterThanOrEqualToOne()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\NumberProvider::intArbitrary()
      *
      * @param int $initialNumber
      */
