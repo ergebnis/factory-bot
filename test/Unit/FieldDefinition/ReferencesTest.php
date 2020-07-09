@@ -41,8 +41,6 @@ final class ReferencesTest extends AbstractTestCase
     public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number($value);
-
         $faker = self::faker();
 
         $fixtureFactory = new FixtureFactory(
@@ -54,7 +52,7 @@ final class ReferencesTest extends AbstractTestCase
 
         $fieldDefinition = new References(
             $className,
-            $number
+            Number::exact($value)
         );
 
         $resolved = $fieldDefinition->resolve(
@@ -63,7 +61,7 @@ final class ReferencesTest extends AbstractTestCase
         );
 
         self::assertIsArray($resolved);
-        self::assertCount($number->value(), $resolved);
+        self::assertCount($value, $resolved);
         self::assertContainsOnly($className, $resolved);
     }
 }

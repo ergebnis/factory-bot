@@ -22,14 +22,26 @@
     </TooManyTemplateParams>
   </file>
   <file src="test/Double/Faker/FalseGenerator.php">
-    <MissingParamType occurrences="1">
+    <MissingParamType occurrences="3">
       <code>$chanceOfGettingTrue</code>
+      <code>$min</code>
+      <code>$max</code>
     </MissingParamType>
+    <MixedArgument occurrences="2">
+      <code>$min</code>
+      <code>$max</code>
+    </MixedArgument>
   </file>
   <file src="test/Double/Faker/TrueGenerator.php">
-    <MissingParamType occurrences="1">
+    <MissingParamType occurrences="3">
       <code>$chanceOfGettingTrue</code>
+      <code>$min</code>
+      <code>$max</code>
     </MissingParamType>
+    <MixedArgument occurrences="2">
+      <code>$min</code>
+      <code>$max</code>
+    </MixedArgument>
   </file>
   <file src="test/Fixture/FixtureFactory/Entity/Organization.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -131,6 +143,22 @@
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
+  <file src="test/Unit/Exception/InvalidMaximumTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Exception/InvalidMinimumTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/Unit/Exception/InvalidNumberTest.php">
     <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
@@ -183,5 +211,11 @@
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/NumberTest.php">
+    <RedundantCondition occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
   </file>
 </files>

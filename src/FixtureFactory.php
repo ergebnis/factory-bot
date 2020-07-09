@@ -248,12 +248,14 @@ final class FixtureFactory
     public function createMany(string $className, ?Number $number = null, array $fieldDefinitionOverrides = []): array
     {
         if (null === $number) {
-            $number = new Number(1);
+            $number = Number::exact(1);
         }
 
         $instances = [];
 
-        for ($i = 0; $number->value() > $i; ++$i) {
+        $value = $number->resolve($this->faker);
+
+        for ($i = 0; $value > $i; ++$i) {
             $instances[] = $this->createOne(
                 $className,
                 $fieldDefinitionOverrides

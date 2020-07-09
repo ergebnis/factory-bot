@@ -21,4 +21,12 @@ final class TrueGenerator extends Generator
     {
         return true;
     }
+
+    public function numberBetween($min = 0, $max = 2147483647): int
+    {
+        return \mt_rand(
+            $min,
+            $max
+        );
+    }
 }

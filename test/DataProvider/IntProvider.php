@@ -47,8 +47,8 @@ final class IntProvider
     public function lessThanZero(): \Generator
     {
         $values = [
-            'int-minus-one' => -1,
             'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
+            'int-minus-one' => -1,
         ];
 
         foreach ($values as $key => $value) {
@@ -66,8 +66,24 @@ final class IntProvider
         $values = [
             'int-zero' => 0,
             'int-one' => 1,
-            'int-two' => 2,
-            'int-greater-than-two' => self::faker()->numberBetween(3, 10),
+            'int-greater-than-one' => self::faker()->numberBetween(2, 10),
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    /**
+     * @return \Generator<string, array<int>>
+     */
+    public function greaterThanZero()
+    {
+        $values = [
+            'int-one' => 1,
+            'int-greater-than-one' => self::faker()->numberBetween(2, 10),
         ];
 
         foreach ($values as $key => $value) {

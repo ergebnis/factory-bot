@@ -97,13 +97,12 @@ final class FieldDefinitionTest extends AbstractTestCase
     public function testReferencesReturnsRequiredReferencesWhenNumberIsNotSpecified(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number(1);
 
         $fieldDefinition = FieldDefinition::references($className);
 
         $expected = new FieldDefinition\References(
             $className,
-            $number
+            Number::exact(1)
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -117,16 +116,15 @@ final class FieldDefinitionTest extends AbstractTestCase
     public function testReferencesReturnsRequiredReferencesWhenNumberIsSpecified(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number($value);
 
         $fieldDefinition = FieldDefinition::references(
             $className,
-            $number
+            Number::exact($value)
         );
 
         $expected = new FieldDefinition\References(
             $className,
-            $number
+            Number::exact($value)
         );
 
         self::assertEquals($expected, $fieldDefinition);

@@ -74,7 +74,7 @@ final class FieldDefinition
     public static function references(string $className, ?Number $number = null): FieldDefinition\References
     {
         if (null === $number) {
-            $number = new Number(1);
+            $number = Number::exact(1);
         }
 
         return new FieldDefinition\References(

@@ -13,29 +13,82 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
+use Faker\Generator;
+
 final class Number
 {
     /**
      * @var int
      */
-    private $value;
+    private $minimum;
+
+    /**
+     * @var int
+     */
+    private $maximum;
+
+    private function __construct(int $minimum, int $maximum)
+    {
+        $this->minimum = $minimum;
+        $this->maximum = $maximum;
+    }
 
     /**
      * @param int $value
      *
      * @throws Exception\InvalidNumber
+     *
+     * @return self
      */
-    public function __construct(int $value)
+    public static function exact(int $value): self
     {
         if (0 > $value) {
             throw Exception\InvalidNumber::notGreaterThanOrEqualToZero($value);
         }
 
-        $this->value = $value;
+        return new self(
+            $value,
+            $value
+        );
     }
 
-    public function value(): int
+    /**
+     * @param int $minimum
+     * @param int $maximum
+     *
+     * @throws Exception\InvalidMaximum
+     * @throws Exception\InvalidMinimum
+     *
+     * @return self
+     */
+    public static function between(int $minimum, int $maximum): self
     {
-        return $this->value;
+        if (0 > $minimum) {
+            throw Exception\InvalidMinimum::notGreaterThanOrEqualToZero($minimum);
+        }
+
+        if ($maximum <= $minimum) {
+            throw Exception\InvalidMaximum::notGreaterThanMinimum(
+                $minimum,
+                $maximum
+            );
+        }
+
+        return new self(
+            $minimum,
+            $maximum
+        );
+    }
+
+    public function resolve(Generator $faker): int
+    {
+        if ($this->minimum === $this->maximum) {
+            return $this->minimum;
+        }
+
+        return $faker->numberBetween(
+            $this->minimum,
+            $this->maximum
+        );
     }
 }
