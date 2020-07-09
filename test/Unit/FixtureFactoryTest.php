@@ -201,7 +201,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
@@ -905,15 +905,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testCreateOneCreatesReferencedObjectAutomatically(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => $faker->word,
             'organization' => FieldDefinition::reference(Fixture\FixtureFactory\Entity\Organization::class),
         ]);
 
@@ -1009,6 +1011,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsValue(): void
     {
         $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             $faker
@@ -1038,6 +1041,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsFieldDefinition(): void
     {
         $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             $faker
