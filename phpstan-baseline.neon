@@ -46,7 +46,27 @@ parameters:
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/FalseGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/FalseGenerator.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/TrueGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/TrueGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
@@ -256,6 +276,36 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMaximum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMaximumTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMaximumTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMaximumTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMinimum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMinimumTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMinimumTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMinimumTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidNumber' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidNumber will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidNumberTest.php
@@ -324,4 +374,9 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\Organization' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Number' and Ergebnis\\\\FactoryBot\\\\Number will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/NumberTest.php
 
