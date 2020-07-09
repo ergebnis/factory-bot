@@ -6,32 +6,12 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$number with a nullable type declaration\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FieldDefinition\\:\\:references\\(\\) has parameter \\$number with null as default value\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
-
-		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$number with a nullable type declaration\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createMany\\(\\) has parameter \\$number with null as default value\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 

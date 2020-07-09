@@ -823,7 +823,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'template' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'template' => FieldDefinition::references(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                Number::between(0, 5)
+            ),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
@@ -842,7 +845,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
-            'template' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'template' => FieldDefinition::references(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                Number::between(0, 5)
+            ),
         ]);
 
         /** @var Fixture\FixtureFactory\Entity\Repository $repository */
@@ -868,7 +874,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                Number::between(0, 5)
+            ),
         ]);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -904,7 +913,10 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(Fixture\FixtureFactory\Entity\Repository::class),
+            'repositories' => FieldDefinition::references(
+                Fixture\FixtureFactory\Entity\Repository::class,
+                Number::between(0, 5)
+            ),
         ]);
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class, [
@@ -1023,20 +1035,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $repository->organization();
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
-    }
-
-    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsNotSpecified(): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
-
-        $entities = $fixtureFactory->createMany(Fixture\FixtureFactory\Entity\Organization::class);
-
-        self::assertCount(1, $entities);
     }
 
     /**

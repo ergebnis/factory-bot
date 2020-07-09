@@ -94,20 +94,6 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testReferencesReturnsRequiredReferencesWhenNumberIsNotSpecified(): void
-    {
-        $className = Fixture\FixtureFactory\Entity\User::class;
-
-        $fieldDefinition = FieldDefinition::references($className);
-
-        $expected = new FieldDefinition\References(
-            $className,
-            Number::exact(1)
-        );
-
-        self::assertEquals($expected, $fieldDefinition);
-    }
-
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
      *
