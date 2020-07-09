@@ -694,6 +694,34 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($user->location());
     }
 
+    public function testOptionalFieldValuesAreSetToNullWhenFakerReturnsFalse(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            new Double\Faker\FalseGenerator()
+        );
+
+        $fixtureFactory->define(
+            Fixture\FixtureFactory\Entity\User::class,
+            [
+                'location' => FieldDefinition::optionalSequence('City (%d)'),
+            ],
+            static function (Fixture\FixtureFactory\Entity\User $user, array $fieldValues): void {
+                $fieldName = 'location';
+
+                self::assertArrayHasKey($fieldName, $fieldValues, \sprintf(
+                    'Failed asserting that key for field "%s" exists in field values.',
+                    $fieldName
+                ));
+            }
+        );
+
+        /** @var Fixture\FixtureFactory\Entity\User $user */
+        $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+
+        self::assertNull($user->location());
+    }
+
     public function testCreateOneResolvesOptionalSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
