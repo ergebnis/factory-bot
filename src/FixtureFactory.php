@@ -216,7 +216,8 @@ final class FixtureFactory
 
         $afterCreate(
             $entity,
-            $fieldValues
+            $fieldValues,
+            $this->faker
         );
 
         if ($this->persist && false === $classMetadata->isEmbeddedClass) {
