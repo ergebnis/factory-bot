@@ -36,7 +36,7 @@ final class References implements Resolvable
     private $className;
 
     /**
-     * @var Number\Exact
+     * @var Number
      */
     private $number;
 
@@ -45,10 +45,10 @@ final class References implements Resolvable
      *
      * @psalm-param class-string<T> $className
      *
-     * @param string       $className
-     * @param Number\Exact $number
+     * @param string $className
+     * @param Number $number
      */
-    public function __construct(string $className, Number\Exact $number)
+    public function __construct(string $className, Number $number)
     {
         $this->className = $className;
         $this->number = $number;

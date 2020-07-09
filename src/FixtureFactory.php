@@ -240,15 +240,15 @@ final class FixtureFactory
      * @psalm-template T
      *
      * @param string                                                   $className
-     * @param null|Number\Exact                                        $number
+     * @param null|Number                                              $number
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, ?Number\Exact $number = null, array $fieldDefinitionOverrides = []): array
+    public function createMany(string $className, ?Number $number = null, array $fieldDefinitionOverrides = []): array
     {
         if (null === $number) {
-            $number = new Number\Exact(1);
+            $number = new Number(1);
         }
 
         $instances = [];

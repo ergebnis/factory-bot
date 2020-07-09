@@ -11,20 +11,20 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\Number;
+namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\Number\Exact;
+use Ergebnis\FactoryBot\Number;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Number\Exact
+ * @covers \Ergebnis\FactoryBot\Number
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
  */
-final class ExactTest extends Framework\TestCase
+final class NumberTest extends Framework\TestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
@@ -39,7 +39,7 @@ final class ExactTest extends Framework\TestCase
             $value
         ));
 
-        new Exact($value);
+        new Number($value);
     }
 
     /**
@@ -49,7 +49,7 @@ final class ExactTest extends Framework\TestCase
      */
     public function testConstructorSetsValue(int $value): void
     {
-        $number = new Exact($value);
+        $number = new Number($value);
 
         self::assertSame($value, $number->value());
     }

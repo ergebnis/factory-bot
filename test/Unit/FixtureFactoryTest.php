@@ -40,7 +40,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\Number\Exact
+ * @uses \Ergebnis\FactoryBot\Number
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
@@ -554,7 +554,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalse(int $value): void
     {
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -586,7 +586,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrue(int $value): void
     {
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -796,7 +796,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsArray(int $value): void
     {
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $faker = self::faker();
 
@@ -834,7 +834,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(int $value): void
     {
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $faker = self::faker();
 
@@ -986,7 +986,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      */
     public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsSpecified(int $value): void
     {
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -1018,7 +1018,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             $faker
         );
 
-        $number = new Number\Exact($faker->numberBetween(1, 5));
+        $number = new Number($faker->numberBetween(1, 5));
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 
@@ -1048,7 +1048,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             $faker
         );
 
-        $number = new Number\Exact($faker->numberBetween(1, 5));
+        $number = new Number($faker->numberBetween(1, 5));
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
 

@@ -29,7 +29,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Number\Exact
+ * @uses \Ergebnis\FactoryBot\Number
  */
 final class ReferencesTest extends AbstractTestCase
 {
@@ -41,7 +41,7 @@ final class ReferencesTest extends AbstractTestCase
     public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $faker = self::faker();
 
