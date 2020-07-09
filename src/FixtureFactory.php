@@ -190,20 +190,16 @@ final class FixtureFactory
             self::normalizeFieldDefinitions($fieldDefinitionOverrides)
         );
 
-        $fieldValues = [];
-
-        foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
+        $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
             if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
-                $fieldValues[$fieldName] = null;
-
-                continue;
+                return null;
             }
 
-            $fieldValues[$fieldName] = $fieldDefinition->resolve(
+            return $fieldDefinition->resolve(
                 $this->faker,
                 $this
             );
-        }
+        }, $fieldDefinitions);
 
         foreach ($fieldValues as $fieldName => $fieldValue) {
             $this->setField(
