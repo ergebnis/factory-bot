@@ -24,12 +24,14 @@ final class IntProvider
      */
     public function arbitrary(): \Generator
     {
+        $faker = self::faker();
+
         $values = [
-            'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
+            'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
             'int-minus-one' => -1,
             'int-zero' => 0,
             'int-one' => 1,
-            'int-greater-than-one' => self::faker()->numberBetween(2),
+            'int-greater-than-one' => $faker->numberBetween(2),
         ];
 
         foreach ($values as $key => $value) {
