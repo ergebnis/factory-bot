@@ -1044,7 +1044,7 @@ final class FixtureFactoryTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsSpecified(int $value): void
+    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -1059,12 +1059,32 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         self::assertCount($value, $entities);
+    }
 
-        $unverifiedEntities = \array_filter($entities, static function (Fixture\FixtureFactory\Entity\Organization $organization): bool {
-            return !$organization->isVerified();
-        });
+    public function testCreateManyResolvesToArrayOfEntitiesWhenNumberIsBetween(): void
+    {
+        $faker = self::faker();
 
-        self::assertCount($value, $unverifiedEntities);
+        $minimum = $faker->numberBetween(5, 10);
+        $maximum = $faker->numberBetween(10, 20);
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
+
+        $entities = $fixtureFactory->createMany(
+            Fixture\FixtureFactory\Entity\Organization::class,
+            Number::between(
+                $minimum,
+                $maximum
+            )
+        );
+
+        self::assertGreaterThanOrEqual($minimum, \count($entities));
+        self::assertLessThanOrEqual($maximum, \count($entities));
     }
 
     public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsValue(): void
