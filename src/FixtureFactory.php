@@ -194,6 +194,8 @@ final class FixtureFactory
 
         foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
             if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
+                $fieldValues[$fieldName] = null;
+
                 continue;
             }
 
