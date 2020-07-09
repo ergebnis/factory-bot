@@ -15,11 +15,10 @@ namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\DoesNotImplementDefinitio
 
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
-use Faker\Generator;
 
 final class RepositoryDefinition
 {
-    public function accept(FixtureFactory $fixtureFactory, Generator $faker): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
     }

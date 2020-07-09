@@ -68,6 +68,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Removed `callable` support for field definitions ([#133]) and ([#185]), by [@localheinz]
 * Removed support for `string` sequences that do not contain a `%d` placeholder ([#185]), by [@localheinz]
 * Removed `FieldDefinition::optionalReferences()` and `FieldDefinition\References::optional()` ([#259]), by [@localheinz]
+* Removed parameter `$faker` from `Definition::registerWith()` ([#286]), by [@localheinz]
 
 [fa9c564...main]: https://github.com/ergebnis/factory-bot/compare/fa9c564...main
 
@@ -123,5 +124,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#266]: https://github.com/ergebnis/factory-bot/pull/266
 [#270]: https://github.com/ergebnis/factory-bot/pull/270
 [#273]: https://github.com/ergebnis/factory-bot/pull/273
+[#286]: https://github.com/ergebnis/factory-bot/pull/286
 
 [@localheinz]: https://github.com/localheinz

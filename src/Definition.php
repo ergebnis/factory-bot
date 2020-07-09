@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-use Faker\Generator;
-
 interface Definition
 {
-    public function accept(FixtureFactory $fixtureFactory, Generator $faker): void;
+    public function accept(FixtureFactory $fixtureFactory): void;
 }

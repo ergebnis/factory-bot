@@ -41,57 +41,42 @@ final class DefinitionsTest extends AbstractTestCase
 
     public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
     {
-        $faker = self::faker();
-
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            self::faker()
         );
 
         $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/DoesNotImplementDefinition');
 
-        $definitions->registerWith(
-            $fixtureFactory,
-            $faker
-        );
+        $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresDefinitionsThatAreAbstract(): void
     {
-        $faker = self::faker();
-
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            self::faker()
         );
 
         $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButIsAbstract');
 
-        $definitions->registerWith(
-            $fixtureFactory,
-            $faker
-        );
+        $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
 
     public function testInIgnoresDefinitionsThatHavePrivateConstructors(): void
     {
-        $faker = self::faker();
-
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            self::faker()
         );
 
         $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButHasPrivateConstructor');
 
-        $definitions->registerWith(
-            $fixtureFactory,
-            $faker
-        );
+        $definitions->registerWith($fixtureFactory);
 
         self::assertSame([], $fixtureFactory->definitions());
     }
@@ -105,19 +90,14 @@ final class DefinitionsTest extends AbstractTestCase
 
     public function testInAcceptsDefinitionsThatHaveNoIssues(): void
     {
-        $faker = self::faker();
-
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            self::faker()
         );
 
         $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinition');
 
-        $definitions->registerWith(
-            $fixtureFactory,
-            $faker
-        );
+        $definitions->registerWith($fixtureFactory);
 
         self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $fixtureFactory->definitions());
     }
