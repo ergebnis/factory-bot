@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot;
 
 use Ergebnis\Classy;
-use Faker\Generator;
 
 final class Definitions
 {
@@ -83,15 +82,11 @@ final class Definitions
      * Registers all found definitions with the specified fixture factory.
      *
      * @param FixtureFactory $fixtureFactory
-     * @param Generator      $faker
      */
-    public function registerWith(FixtureFactory $fixtureFactory, Generator $faker): void
+    public function registerWith(FixtureFactory $fixtureFactory): void
     {
         foreach ($this->definitions as $definition) {
-            $definition->accept(
-                $fixtureFactory,
-                $faker
-            );
+            $definition->accept($fixtureFactory);
         }
     }
 }
