@@ -613,7 +613,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($number->value(), $repositories);
     }
 
-    public function testCreateOneResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesOptionalSequenceToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
