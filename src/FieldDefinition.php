@@ -66,15 +66,15 @@ final class FieldDefinition
      * @psalm-return FieldDefinition\References<T>
      * @psalm-template T
      *
-     * @param string            $className
-     * @param null|Number\Exact $number
+     * @param string      $className
+     * @param null|Number $number
      *
      * @return FieldDefinition\References
      */
-    public static function references(string $className, ?Number\Exact $number = null): FieldDefinition\References
+    public static function references(string $className, ?Number $number = null): FieldDefinition\References
     {
         if (null === $number) {
-            $number = new Number\Exact(1);
+            $number = new Number(1);
         }
 
         return new FieldDefinition\References(

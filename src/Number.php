@@ -11,11 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Number;
+namespace Ergebnis\FactoryBot;
 
-use Ergebnis\FactoryBot\Exception;
-
-final class Exact
+final class Number
 {
     /**
      * @var int

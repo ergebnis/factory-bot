@@ -32,7 +32,7 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\Number\Exact
+ * @uses \Ergebnis\FactoryBot\Number
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
@@ -97,7 +97,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     public function testReferencesReturnsRequiredReferencesWhenNumberIsNotSpecified(): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number\Exact(1);
+        $number = new Number(1);
 
         $fieldDefinition = FieldDefinition::references($className);
 
@@ -117,7 +117,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     public function testReferencesReturnsRequiredReferencesWhenNumberIsSpecified(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
-        $number = new Number\Exact($value);
+        $number = new Number($value);
 
         $fieldDefinition = FieldDefinition::references(
             $className,
