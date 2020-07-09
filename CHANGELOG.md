@@ -17,6 +17,7 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 * Added `FieldDefinition::closure()` which allows resolving a field definition to the return value of a closure that is invoked with the `FixtureFactory` ([#155]), by [@localheinz]
 * Allowed creation of optional field definitions ([#167]) and ([#196]), by [@localheinz]
 * Allowed using field definitions as field overrides ([#270]), by [@localheinz]
+* Allowed use of `Faker\Generator` in closure invoked after entity creation ([#287]), by [@localheinz]
 
 ### Changed
 
@@ -125,5 +126,6 @@ For a full diff see [`fa9c564...main`][fa9c564...main].
 [#270]: https://github.com/ergebnis/factory-bot/pull/270
 [#273]: https://github.com/ergebnis/factory-bot/pull/273
 [#286]: https://github.com/ergebnis/factory-bot/pull/286
+[#287]: https://github.com/ergebnis/factory-bot/pull/287
 
 [@localheinz]: https://github.com/localheinz

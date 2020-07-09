@@ -953,11 +953,12 @@ final class FixtureFactoryTest extends AbstractTestCase
             [
                 'name' => $name,
             ],
-            static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues): void {
+            static function (Fixture\FixtureFactory\Entity\Organization $organization, array $fieldValues, Generator $faker): void {
                 $name = \sprintf(
-                    '%s-%s',
+                    '%s-%s-%d',
                     $organization->name(),
-                    $fieldValues['name']
+                    $fieldValues['name'],
+                    $faker->numberBetween(10, 99)
                 );
 
                 $organization->renameTo($name);
@@ -967,13 +968,16 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Fixture\FixtureFactory\Entity\Organization $organization */
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
-        $expectedName = \sprintf(
-            '%s-%s',
+        $expectedPattern = \sprintf(
+            '/^%s-%s-\d{2}$/',
             $name,
             $name
         );
 
-        self::assertSame($expectedName, $organization->name());
+        $actualName = $organization->name();
+
+        self::assertIsString($actualName);
+        self::assertRegExp($expectedPattern, $actualName);
     }
 
     public function testCreateOneCreatesReferencedObjectAutomatically(): void
