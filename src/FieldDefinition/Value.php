@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
 use Ergebnis\FactoryBot\FixtureFactory;
+use Faker\Generator;
 
 /**
  * @internal
@@ -50,11 +51,12 @@ final class Value implements Resolvable
      *
      * @psalm-return T
      *
+     * @param Generator      $faker
      * @param FixtureFactory $fixtureFactory
      *
      * @return mixed
      */
-    public function resolve(FixtureFactory $fixtureFactory)
+    public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
     {
         return $this->value;
     }

@@ -34,16 +34,21 @@ final class ReferenceTest extends AbstractTestCase
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fixtureFactory->define($className);
 
         $fieldDefinition = new Reference($className);
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $resolved = $fieldDefinition->resolve(
+            $faker,
+            $fixtureFactory
+        );
 
         self::assertInstanceOf($className, $resolved);
     }

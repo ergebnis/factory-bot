@@ -73,8 +73,8 @@ final class SequenceTest extends AbstractTestCase
             );
         };
 
-        self::assertSame($expected($initialNumber), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected($initialNumber + 1), $fieldDefinition->resolve($fixtureFactory));
-        self::assertSame($expected($initialNumber + 2), $fieldDefinition->resolve($fixtureFactory));
+        self::assertSame($expected($initialNumber), $fieldDefinition->resolve($faker, $fixtureFactory));
+        self::assertSame($expected($initialNumber + 1), $fieldDefinition->resolve($faker, $fixtureFactory));
+        self::assertSame($expected($initialNumber + 2), $fieldDefinition->resolve($faker, $fixtureFactory));
     }
 }

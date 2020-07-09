@@ -18,6 +18,7 @@ use Ergebnis\FactoryBot\FieldDefinition\Resolvable;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Faker\Generator;
 
 /**
  * @internal
@@ -33,15 +34,17 @@ final class OptionalTest extends AbstractTestCase
 {
     public function testResolvesToResultOfResolvingResolvableWithFixtureFactory(): void
     {
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
 
         $resolvable = new class() implements Resolvable {
-            public function resolve(FixtureFactory $fixtureFactory)
+            public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
             {
                 return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
             }
@@ -49,7 +52,10 @@ final class OptionalTest extends AbstractTestCase
 
         $fieldDefinition = new Optional($resolvable);
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $resolved = $fieldDefinition->resolve(
+            $faker,
+            $fixtureFactory
+        );
 
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $resolved);
     }

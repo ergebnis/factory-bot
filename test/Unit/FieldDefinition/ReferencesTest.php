@@ -43,9 +43,11 @@ final class ReferencesTest extends AbstractTestCase
         $className = Fixture\FixtureFactory\Entity\User::class;
         $number = new Number\Exact($value);
 
+        $faker = self::faker();
+
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            $faker
         );
 
         $fixtureFactory->define($className);
@@ -55,7 +57,10 @@ final class ReferencesTest extends AbstractTestCase
             $number
         );
 
-        $resolved = $fieldDefinition->resolve($fixtureFactory);
+        $resolved = $fieldDefinition->resolve(
+            $faker,
+            $fixtureFactory
+        );
 
         self::assertIsArray($resolved);
         self::assertCount($number->value(), $resolved);

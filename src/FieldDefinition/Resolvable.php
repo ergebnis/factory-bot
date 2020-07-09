@@ -14,13 +14,15 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
 use Ergebnis\FactoryBot\FixtureFactory;
+use Faker\Generator;
 
 interface Resolvable
 {
     /**
+     * @param Generator      $faker
      * @param FixtureFactory $fixtureFactory
      *
      * @return mixed
      */
-    public function resolve(FixtureFactory $fixtureFactory);
+    public function resolve(Generator $faker, FixtureFactory $fixtureFactory);
 }
