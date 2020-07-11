@@ -93,4 +93,4 @@ repository:
 
   # https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics
 
-  topics: "doctrine, entity, factory"
+  topics: "doctrine, orm, entity, fixture, factory"

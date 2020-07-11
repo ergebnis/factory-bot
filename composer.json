@@ -4,7 +4,9 @@
   "description": "Provides an entity factory for doctrine/orm entities that can be used in tests.",
   "keywords": [
     "doctrine",
+    "orm",
     "entity",
+    "fixture",
     "factory"
   ],
   "homepage": "https://github.com/ergebnis/factory-bot",
