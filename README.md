@@ -11,7 +11,7 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/factory-bot/v/stable)](https://packagist.org/packages/ergebnis/factory-bot)
 [![Total Downloads](https://poser.pugx.org/ergebnis/factory-bot/downloads)](https://packagist.org/packages/ergebnis/factory-bot)
 
-Provides an entity factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities that can be used in tests.
+Provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities that can be used in tests.
 
 ## Installation
 
