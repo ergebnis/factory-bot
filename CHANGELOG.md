@@ -12,6 +12,10 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 
 * Renamed `InvalidDefinition::fromClassNameAndException()` to `InvalidDefinition::throwsExceptionDuringInstantiation()` ([#300]), by [@localheinz]
 
+### Fixed
+
+* Started throwing an `InvalidDefinition` exception when a definition is concrete but cannot be instantiated ([#301]), by [@localheinz]
+
 ## [`0.1.0`][0.1.0]
 
 For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
@@ -139,5 +143,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#286]: https://github.com/ergebnis/factory-bot/pull/286
 [#287]: https://github.com/ergebnis/factory-bot/pull/287
 [#300]: https://github.com/ergebnis/factory-bot/pull/300
+[#301]: https://github.com/ergebnis/factory-bot/pull/301
 
 [@localheinz]: https://github.com/localheinz

@@ -15,6 +15,14 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidDefinition extends \RuntimeException implements Exception
 {
+    public static function canNotBeInstantiated(string $className): self
+    {
+        return new self(\sprintf(
+            'Definition "%s" can not be instantiated.',
+            $className
+        ));
+    }
+
     public static function throwsExceptionDuringInstantiation(string $className, \Exception $exception): self
     {
         return new self(

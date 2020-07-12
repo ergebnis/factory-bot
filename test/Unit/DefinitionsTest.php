@@ -80,29 +80,24 @@ final class DefinitionsTest extends AbstractTestCase
         self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
     }
 
-    public function testInIgnoresDefinitionsThatHavePrivateConstructors(): void
+    public function testInThrowsInvalidDefinitionExceptionWhenDefinitionCanNotBeInstantiated(): void
     {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
+        $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Definition "%s" can not be instantiated.',
+            Fixture\Definitions\ImplementsDefinitionButCanNotBeInstantiated\RepositoryDefinition::class
+        ));
 
-        $definitions = Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButHasPrivateConstructor');
-
-        $definitions->registerWith($fixtureFactory);
-
-        $registeredDefinitions = $fixtureFactory->definitions();
-
-        self::assertCount(2, $registeredDefinitions);
-        self::assertContainsOnly(EntityDefinition::class, $registeredDefinitions);
-        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Organization::class, $registeredDefinitions);
-        self::assertArrayNotHasKey(Fixture\FixtureFactory\Entity\Repository::class, $registeredDefinitions);
-        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
+        Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButCanNotBeInstantiated');
     }
 
     public function testInThrowsInvalidDefinitionExceptionWhenExceptionIsThrownDuringInstantiationOfDefinition(): void
     {
         $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'An exception was thrown while trying to instantiate definition "%s".',
+            Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringConstruction\RepositoryDefinition::class
+        ));
 
         Definitions::in(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButThrowsExceptionDuringConstruction');
     }

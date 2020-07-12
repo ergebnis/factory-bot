@@ -6,8 +6,7 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/FixtureFactory.php">
-    <MixedAssignment occurrences="4">
-      <code>$fieldValues[$fieldName]</code>
+    <MixedAssignment occurrences="3">
       <code>$fieldValue</code>
       <code>$inversedBy</code>
       <code>$collection</code>
@@ -110,10 +109,12 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/InvalidDefinitionTest.php">
-    <RedundantCondition occurrences="1">
+    <RedundantCondition occurrences="2">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
