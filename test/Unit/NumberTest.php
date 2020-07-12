@@ -70,7 +70,7 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $minimum
      */
-    public function testBetweenRejectsInvalidMinimum(int $minimum): void
+    public function testBetweenRejectsMinimumLessThanZero(int $minimum): void
     {
         $maximum = $minimum + 1;
 
@@ -91,7 +91,7 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $difference
      */
-    public function testBetweenRejectsInvalidMaximum(int $difference): void
+    public function testBetweenRejectsMaximumNotGreaterThanMinimum(int $difference): void
     {
         $minimum = self::faker()->numberBetween(1);
         $maximum = $minimum - $difference;
@@ -110,16 +110,15 @@ final class NumberTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanZero()
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
      *
-     * @param int $difference
+     * @param int $minimum
      */
-    public function testBetweenReturnsNumber(int $difference): void
+    public function testBetweenReturnsNumber(int $minimum): void
     {
         $faker = self::faker();
 
-        $minimum = $faker->numberBetween(1);
-        $maximum = $minimum + $difference;
+        $maximum = $minimum + $faker->numberBetween(1);
 
         $number = Number::between(
             $minimum,
