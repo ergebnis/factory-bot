@@ -362,7 +362,11 @@ final class FixtureFactory
 
         $inversedBy = $association['inversedBy'];
 
-        if (!\is_string($inversedBy) || '' === $inversedBy) {
+        if (!\is_string($inversedBy)) {
+            return;
+        }
+
+        if ('' === $inversedBy) {
             return;
         }
 
