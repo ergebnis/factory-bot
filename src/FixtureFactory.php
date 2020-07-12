@@ -246,18 +246,18 @@ final class FixtureFactory
      */
     public function createMany(string $className, Number $number, array $fieldDefinitionOverrides = []): array
     {
-        $instances = [];
+        $resolvedNumber = $number->resolve($this->faker);
 
-        $value = $number->resolve($this->faker);
+        if (0 === $resolvedNumber) {
+            return [];
+        }
 
-        for ($i = 0; $value > $i; ++$i) {
-            $instances[] = $this->createOne(
+        return \array_map(function () use ($className, $fieldDefinitionOverrides) {
+            return $this->createOne(
                 $className,
                 $fieldDefinitionOverrides
             );
-        }
-
-        return $instances;
+        }, \range(1, $resolvedNumber));
     }
 
     /**
