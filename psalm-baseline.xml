@@ -11,6 +11,7 @@
       <code>$inversedBy</code>
       <code>$collection</code>
     </MixedAssignment>
+    <TooManyArguments occurrences="1"/>
   </file>
   <file src="test/DataProvider/ValueProvider.php">
     <InvalidReturnType occurrences="1">
