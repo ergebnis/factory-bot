@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\Number;
 use Ergebnis\Test\Util\Helper;
 use Faker\Generator;
 use PHPUnit\Framework;
@@ -22,13 +22,13 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Number
+ * @covers \Ergebnis\FactoryBot\Count
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidMaximum
  * @uses \Ergebnis\FactoryBot\Exception\InvalidMinimum
- * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  */
-final class NumberTest extends Framework\TestCase
+final class CountTest extends Framework\TestCase
 {
     use Helper;
 
@@ -39,13 +39,13 @@ final class NumberTest extends Framework\TestCase
      */
     public function testExactRejectsValueLessThanZero(int $value): void
     {
-        $this->expectException(Exception\InvalidNumber::class);
+        $this->expectException(Exception\InvalidCount::class);
         $this->expectExceptionMessage(\sprintf(
-            'Number needs to be greater than or equal to 0, but %d is not.',
+            'Count needs to be greater than or equal to 0, but %d is not.',
             $value
         ));
 
-        Number::exact($value);
+        Count::exact($value);
     }
 
     /**
@@ -53,7 +53,7 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $value
      */
-    public function testExactReturnsNumberThatResolvesToValueWhenValueIsGreaterThanZero(int $value): void
+    public function testExactReturnsCountThatResolvesToValueWhenValueIsGreaterThanZero(int $value): void
     {
         $faker = new class() extends Generator {
             /**
@@ -69,11 +69,11 @@ final class NumberTest extends Framework\TestCase
             }
         };
 
-        $number = Number::exact($value);
+        $count = Count::exact($value);
 
-        self::assertInstanceOf(Number::class, $number);
+        self::assertInstanceOf(Count::class, $count);
 
-        $resolved = $number->resolve($faker);
+        $resolved = $count->resolve($faker);
 
         self::assertSame($value, $resolved);
     }
@@ -93,7 +93,7 @@ final class NumberTest extends Framework\TestCase
             $minimum
         ));
 
-        Number::between(
+        Count::between(
             $minimum,
             $maximum
         );
@@ -116,7 +116,7 @@ final class NumberTest extends Framework\TestCase
             $maximum
         ));
 
-        Number::between(
+        Count::between(
             $minimum,
             $maximum
         );
@@ -127,20 +127,20 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $minimum
      */
-    public function testBetweenReturnsNumberThatResolvesToValueBetweenMinimumAndMaximum(int $minimum): void
+    public function testBetweenReturnsCountThatResolvesToValueBetweenMinimumAndMaximum(int $minimum): void
     {
         $faker = self::faker();
 
         $maximum = $minimum + $faker->numberBetween(1);
 
-        $number = Number::between(
+        $count = Count::between(
             $minimum,
             $maximum
         );
 
-        self::assertInstanceOf(Number::class, $number);
+        self::assertInstanceOf(Count::class, $count);
 
-        $resolved = $number->resolve($faker);
+        $resolved = $count->resolve($faker);
 
         self::assertGreaterThanOrEqual($minimum, $resolved);
         self::assertLessThanOrEqual($maximum, $resolved);

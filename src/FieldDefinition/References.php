@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Number;
 use Faker\Generator;
 
 /**
@@ -36,9 +36,9 @@ final class References implements Resolvable
     private $className;
 
     /**
-     * @var Number
+     * @var Count
      */
-    private $number;
+    private $count;
 
     /**
      * @phpstan-param class-string<T> $className
@@ -46,12 +46,12 @@ final class References implements Resolvable
      * @psalm-param class-string<T> $className
      *
      * @param string $className
-     * @param Number $number
+     * @param Count  $count
      */
-    public function __construct(string $className, Number $number)
+    public function __construct(string $className, Count $count)
     {
         $this->className = $className;
-        $this->number = $number;
+        $this->count = $count;
     }
 
     /**
@@ -68,7 +68,7 @@ final class References implements Resolvable
     {
         return $fixtureFactory->createMany(
             $this->className,
-            $this->number
+            $this->count
         );
     }
 }

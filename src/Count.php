@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot;
 
 use Faker\Generator;
 
-final class Number
+final class Count
 {
     /**
      * @var int
@@ -36,14 +36,14 @@ final class Number
     /**
      * @param int $value
      *
-     * @throws Exception\InvalidNumber
+     *@throws Exception\InvalidCount
      *
      * @return self
      */
     public static function exact(int $value): self
     {
         if (0 > $value) {
-            throw Exception\InvalidNumber::notGreaterThanOrEqualToZero($value);
+            throw Exception\InvalidCount::notGreaterThanOrEqualToZero($value);
         }
 
         return new self(

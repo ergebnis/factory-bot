@@ -239,16 +239,16 @@ final class FixtureFactory
      * @psalm-template T
      *
      * @param string                                                   $className
-     * @param Number                                                   $number
+     * @param Count                                                    $count
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, Number $number, array $fieldDefinitionOverrides = []): array
+    public function createMany(string $className, Count $count, array $fieldDefinitionOverrides = []): array
     {
-        $resolvedNumber = $number->resolve($this->faker);
+        $resolved = $count->resolve($this->faker);
 
-        if (0 === $resolvedNumber) {
+        if (0 === $resolved) {
             return [];
         }
 
@@ -257,7 +257,7 @@ final class FixtureFactory
                 $className,
                 $fieldDefinitionOverrides
             );
-        }, \range(1, $resolvedNumber));
+        }, \range(1, $resolved));
     }
 
     /**
