@@ -314,7 +314,7 @@ final class FixtureFactory
             $classMetadata->setFieldValue(
                 $entity,
                 $fieldName,
-                self::createCollectionFrom($fieldValue)
+                self::collectionFrom($fieldValue)
             );
         } else {
             $classMetadata->setFieldValue(
@@ -339,7 +339,7 @@ final class FixtureFactory
      *
      * @return Common\Collections\ArrayCollection
      */
-    private static function createCollectionFrom($value = []): Common\Collections\ArrayCollection
+    private static function collectionFrom($value = []): Common\Collections\ArrayCollection
     {
         if (!\is_array($value)) {
             return new Common\Collections\ArrayCollection();
