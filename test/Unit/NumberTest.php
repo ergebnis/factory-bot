@@ -16,6 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Number;
 use Ergebnis\Test\Util\Helper;
+use Faker\Generator;
 use PHPUnit\Framework;
 
 /**
@@ -36,7 +37,7 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $value
      */
-    public function testExactRejectsInvalidValue(int $value): void
+    public function testExactRejectsValueLessThanZero(int $value): void
     {
         $this->expectException(Exception\InvalidNumber::class);
         $this->expectExceptionMessage(\sprintf(
@@ -52,9 +53,21 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $value
      */
-    public function testExactReturnsNumberValue(int $value): void
+    public function testExactReturnsNumberThatResolvesToValueWhenValueIsGreaterThanZero(int $value): void
     {
-        $faker = self::faker();
+        $faker = new class() extends Generator {
+            /**
+             * @param int $min
+             * @param int $max
+             */
+            public function numberBetween($min = 0, $max = 2147483647): void
+            {
+                throw new \BadMethodCallException(\sprintf(
+                    'Method "%s" should not be called.',
+                    __METHOD__
+                ));
+            }
+        };
 
         $number = Number::exact($value);
 
@@ -114,7 +127,7 @@ final class NumberTest extends Framework\TestCase
      *
      * @param int $minimum
      */
-    public function testBetweenReturnsNumber(int $minimum): void
+    public function testBetweenReturnsNumberThatResolvesToValueBetweenMinimumAndMaximum(int $minimum): void
     {
         $faker = self::faker();
 
