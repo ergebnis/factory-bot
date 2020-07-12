@@ -316,22 +316,30 @@ final class FixtureFactory
                 $fieldName,
                 self::createCollectionFrom($fieldValue)
             );
-        } else {
-            $classMetadata->setFieldValue(
-                $entity,
-                $fieldName,
-                $fieldValue
-            );
 
-            if (\is_object($fieldValue) && $classMetadata->isSingleValuedAssociation($fieldName)) {
-                $this->updateCollectionSideOfAssocation(
-                    $entity,
-                    $classMetadata,
-                    $fieldName,
-                    $fieldValue
-                );
-            }
+            return;
         }
+
+        $classMetadata->setFieldValue(
+            $entity,
+            $fieldName,
+            $fieldValue
+        );
+
+        if (!\is_object($fieldValue)) {
+            return;
+        }
+
+        if (!$classMetadata->isSingleValuedAssociation($fieldName)) {
+            return;
+        }
+
+        $this->updateCollectionSideOfAssocation(
+            $entity,
+            $classMetadata,
+            $fieldName,
+            $fieldValue
+        );
     }
 
     /**
