@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Ergebnis\FactoryBot\Definitions;
+use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
@@ -50,7 +51,13 @@ final class DefinitionsTest extends AbstractTestCase
 
         $definitions->registerWith($fixtureFactory);
 
-        self::assertSame([], $fixtureFactory->definitions());
+        $registeredDefinitions = $fixtureFactory->definitions();
+
+        self::assertCount(2, $registeredDefinitions);
+        self::assertContainsOnly(EntityDefinition::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Organization::class, $registeredDefinitions);
+        self::assertArrayNotHasKey(Fixture\FixtureFactory\Entity\Repository::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
     }
 
     public function testInIgnoresDefinitionsThatAreAbstract(): void
@@ -64,7 +71,13 @@ final class DefinitionsTest extends AbstractTestCase
 
         $definitions->registerWith($fixtureFactory);
 
-        self::assertSame([], $fixtureFactory->definitions());
+        $registeredDefinitions = $fixtureFactory->definitions();
+
+        self::assertCount(2, $registeredDefinitions);
+        self::assertContainsOnly(EntityDefinition::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Organization::class, $registeredDefinitions);
+        self::assertArrayNotHasKey(Fixture\FixtureFactory\Entity\Repository::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
     }
 
     public function testInIgnoresDefinitionsThatHavePrivateConstructors(): void
@@ -78,7 +91,13 @@ final class DefinitionsTest extends AbstractTestCase
 
         $definitions->registerWith($fixtureFactory);
 
-        self::assertSame([], $fixtureFactory->definitions());
+        $registeredDefinitions = $fixtureFactory->definitions();
+
+        self::assertCount(2, $registeredDefinitions);
+        self::assertContainsOnly(EntityDefinition::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Organization::class, $registeredDefinitions);
+        self::assertArrayNotHasKey(Fixture\FixtureFactory\Entity\Repository::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
     }
 
     public function testInThrowsInvalidDefinitionExceptionWhenExceptionIsThrownDuringInstantiationOfDefinition(): void
@@ -99,6 +118,12 @@ final class DefinitionsTest extends AbstractTestCase
 
         $definitions->registerWith($fixtureFactory);
 
-        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $fixtureFactory->definitions());
+        $registeredDefinitions = $fixtureFactory->definitions();
+
+        self::assertCount(3, $registeredDefinitions);
+        self::assertContainsOnly(EntityDefinition::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Organization::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\Repository::class, $registeredDefinitions);
+        self::assertArrayHasKey(Fixture\FixtureFactory\Entity\User::class, $registeredDefinitions);
     }
 }
