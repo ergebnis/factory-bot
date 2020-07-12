@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinitionButHasPrivateConstructor;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinitionButCanNotBeInstantiated;
 
 use Ergebnis\FactoryBot\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;

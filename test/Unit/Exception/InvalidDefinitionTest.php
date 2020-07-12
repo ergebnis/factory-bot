@@ -26,6 +26,24 @@ final class InvalidDefinitionTest extends Framework\TestCase
 {
     use Helper;
 
+    public function testCanNotBeInstantiatedReturnsException(): void
+    {
+        $className = self::faker()->word;
+
+        $exception = Exception\InvalidDefinition::canNotBeInstantiated($className);
+
+        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
+
+        $message = \sprintf(
+            'Definition "%s" can not be instantiated.',
+            $className
+        );
+
+        self::assertSame($message, $exception->getMessage());
+    }
+
     public function testThrowsExceptionDuringInstantiationReturnsException(): void
     {
         $className = self::faker()->word;
@@ -36,14 +54,15 @@ final class InvalidDefinitionTest extends Framework\TestCase
             $previousException
         );
 
+        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
+
         $message = \sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',
             $className
         );
 
-        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
-        self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
         self::assertSame($previousException, $exception->getPrevious());

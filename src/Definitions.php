@@ -62,8 +62,12 @@ final class Definitions
                 continue;
             }
 
-            if (!$reflection->isInstantiable()) {
+            if ($reflection->isAbstract()) {
                 continue;
+            }
+
+            if (!$reflection->isInstantiable()) {
+                throw Exception\InvalidDefinition::canNotBeInstantiated($className);
             }
 
             try {
