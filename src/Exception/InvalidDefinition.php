@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidDefinition extends \RuntimeException implements Exception
 {
-    public static function fromClassNameAndException(string $className, \Exception $exception): self
+    public static function throwsExceptionDuringInstantiation(string $className, \Exception $exception): self
     {
         return new self(
             \sprintf(

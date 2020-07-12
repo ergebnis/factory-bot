@@ -70,7 +70,7 @@ final class Definitions
                 /** @var Definition $definition */
                 $definition = $reflection->newInstance();
             } catch (\Exception $exception) {
-                throw Exception\InvalidDefinition::fromClassNameAndException(
+                throw Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
                     $className,
                     $exception
                 );
