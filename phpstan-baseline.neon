@@ -16,7 +16,7 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:createCollectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:collectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: src/FixtureFactory.php
 
