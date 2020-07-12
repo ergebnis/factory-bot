@@ -58,7 +58,7 @@ final class Definitions
                 continue;
             }
 
-            if (!$reflection->isSubclassOf(Definition::class)) {
+            if (!$reflection->implementsInterface(Definition::class)) {
                 continue;
             }
 
