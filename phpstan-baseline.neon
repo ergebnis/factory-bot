@@ -197,17 +197,17 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDefinition' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-

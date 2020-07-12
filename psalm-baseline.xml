@@ -109,11 +109,13 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/InvalidDefinitionTest.php">
-    <RedundantCondition occurrences="2">
+    <RedundantCondition occurrences="3">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>

@@ -15,6 +15,14 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidDefinition extends \RuntimeException implements Exception
 {
+    public static function canNotBeAutoloaded(string $className): self
+    {
+        return new self(\sprintf(
+            'Definition "%s" can not be autoloaded.',
+            $className
+        ));
+    }
+
     public static function canNotBeInstantiated(string $className): self
     {
         return new self(\sprintf(

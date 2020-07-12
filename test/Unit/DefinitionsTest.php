@@ -40,7 +40,18 @@ final class DefinitionsTest extends AbstractTestCase
         Definitions::in(__DIR__ . '/../Fixture/Definitions/NonExistentDirectory');
     }
 
-    public function testInIgnoresClassesWhichDoNotImplementProviderInterface(): void
+    public function testInThrowsInvalidDefinitionExceptionWhenDefinitionCanNotBeAutoloaded(): void
+    {
+        $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Definition "%s" can not be autoloaded.',
+            Fixture\Definitions\CanNotBeAutoloaded\RepositoryDefinitionButCanNotBeAutoloaded::class
+        ));
+
+        Definitions::in(__DIR__ . '/../Fixture/Definitions/CanNotBeAutoloaded');
+    }
+
+    public function testInIgnoresClassesWhichDoNotImplementDefinitionInterface(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),

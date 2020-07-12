@@ -26,6 +26,24 @@ final class InvalidDefinitionTest extends Framework\TestCase
 {
     use Helper;
 
+    public function testCanNotBeAutoloadedReturnsException(): void
+    {
+        $className = self::faker()->word;
+
+        $exception = Exception\InvalidDefinition::canNotBeAutoloaded($className);
+
+        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(Exception\Exception::class, $exception);
+
+        $message = \sprintf(
+            'Definition "%s" can not be autoloaded.',
+            $className
+        );
+
+        self::assertSame($message, $exception->getMessage());
+    }
+
     public function testCanNotBeInstantiatedReturnsException(): void
     {
         $className = self::faker()->word;
