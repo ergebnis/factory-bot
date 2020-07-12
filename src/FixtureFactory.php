@@ -334,7 +334,7 @@ final class FixtureFactory
             return;
         }
 
-        $this->updateCollectionSideOfAssocation(
+        $this->updateCollectionSideOfAssociation(
             $entity,
             $classMetadata,
             $fieldName,
@@ -356,7 +356,7 @@ final class FixtureFactory
         return new Common\Collections\ArrayCollection($value);
     }
 
-    private function updateCollectionSideOfAssocation(
+    private function updateCollectionSideOfAssociation(
         object $entity,
         ORM\Mapping\ClassMetadata $classMetadata,
         string $fieldName,
