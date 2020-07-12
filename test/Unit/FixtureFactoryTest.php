@@ -1096,7 +1096,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $faker = self::faker();
 
         $minimum = $faker->numberBetween(5, 10);
-        $maximum = $faker->numberBetween(10, 20);
+        $maximum = $faker->numberBetween($minimum + 1, $minimum + 10);
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
