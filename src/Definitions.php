@@ -58,7 +58,11 @@ final class Definitions
                 continue;
             }
 
-            if (!$reflection->isSubclassOf(Definition::class) || !$reflection->isInstantiable()) {
+            if (!$reflection->isSubclassOf(Definition::class)) {
+                continue;
+            }
+
+            if (!$reflection->isInstantiable()) {
                 continue;
             }
 
