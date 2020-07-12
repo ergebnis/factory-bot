@@ -341,11 +341,11 @@ final class FixtureFactory
      */
     private static function createCollectionFrom($value = []): Common\Collections\ArrayCollection
     {
-        if (\is_array($value)) {
-            return new Common\Collections\ArrayCollection($value);
+        if (!\is_array($value)) {
+            return new Common\Collections\ArrayCollection();
         }
 
-        return new Common\Collections\ArrayCollection();
+        return new Common\Collections\ArrayCollection($value);
     }
 
     private function updateCollectionSideOfAssocation(
