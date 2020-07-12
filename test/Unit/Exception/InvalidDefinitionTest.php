@@ -26,12 +26,12 @@ final class InvalidDefinitionTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testFromClassNameCreatesException(): void
+    public function testThrowsExceptionDuringInstantiationReturnsException(): void
     {
         $className = self::faker()->word;
         $previousException = new \Exception();
 
-        $exception = Exception\InvalidDefinition::fromClassNameAndException(
+        $exception = Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
             $className,
             $previousException
         );

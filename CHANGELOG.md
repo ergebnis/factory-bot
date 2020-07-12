@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.1.0...main`][0.1.0...main].
 
+### Changed
+
+* Renamed `InvalidDefinition::fromClassNameAndException()` to `InvalidDefinition::throwsExceptionDuringInstantiation()` ([#300]), by [@localheinz]
+
 ## [`0.1.0`][0.1.0]
 
 For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
@@ -134,5 +138,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#273]: https://github.com/ergebnis/factory-bot/pull/273
 [#286]: https://github.com/ergebnis/factory-bot/pull/286
 [#287]: https://github.com/ergebnis/factory-bot/pull/287
+[#300]: https://github.com/ergebnis/factory-bot/pull/300
 
 [@localheinz]: https://github.com/localheinz
