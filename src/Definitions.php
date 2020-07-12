@@ -55,7 +55,7 @@ final class Definitions
             try {
                 $reflection = new \ReflectionClass($className);
             } catch (\ReflectionException $exception) {
-                continue;
+                throw Exception\InvalidDefinition::canNotBeAutoloaded($className);
             }
 
             if (!$reflection->implementsInterface(Definition::class)) {

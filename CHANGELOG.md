@@ -15,6 +15,7 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 ### Fixed
 
 * Started throwing an `InvalidDefinition` exception when a definition is concrete but cannot be instantiated ([#301]), by [@localheinz]
+* Started throwing an `InvalidDefinition` exception when a definition cannot be autoloaded ([#302]), by [@localheinz]
 
 ## [`0.1.0`][0.1.0]
 
@@ -144,5 +145,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#287]: https://github.com/ergebnis/factory-bot/pull/287
 [#300]: https://github.com/ergebnis/factory-bot/pull/300
 [#301]: https://github.com/ergebnis/factory-bot/pull/301
+[#302]: https://github.com/ergebnis/factory-bot/pull/302
 
 [@localheinz]: https://github.com/localheinz

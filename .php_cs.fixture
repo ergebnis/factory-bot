@@ -28,19 +28,11 @@ $license->save();
 
 $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71($license->header()), [
     'mb_str_functions' => false,
+    'psr4' => false,
 ]);
 
-$config->getFinder()
-    ->ignoreDotFiles(false)
-    ->in(__DIR__)
-    ->exclude([
-        '.build/',
-        '.github/',
-        '.notes/',
-        '/test/Fixture/Definitions/CanNotBeAutoloaded/',
-    ])
-    ->name('.php_cs');
+$config->getFinder()->in(__DIR__ . '/test/Fixture/Definitions/CanNotBeAutoloaded');
 
-$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
 return $config;
