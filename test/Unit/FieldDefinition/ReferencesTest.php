@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition\References;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
 
@@ -25,11 +25,11 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  * @covers \Ergebnis\FactoryBot\FieldDefinition\References
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition
- * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Number
+ * @uses \Ergebnis\FactoryBot\Count
  */
 final class ReferencesTest extends AbstractTestCase
 {
@@ -52,7 +52,7 @@ final class ReferencesTest extends AbstractTestCase
 
         $fieldDefinition = new References(
             $className,
-            Number::exact($value)
+            Count::exact($value)
         );
 
         $resolved = $fieldDefinition->resolve(

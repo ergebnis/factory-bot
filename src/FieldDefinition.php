@@ -67,15 +67,15 @@ final class FieldDefinition
      * @psalm-template T
      *
      * @param string $className
-     * @param Number $number
+     * @param Count  $count
      *
      * @return FieldDefinition\References
      */
-    public static function references(string $className, Number $number): FieldDefinition\References
+    public static function references(string $className, Count $count): FieldDefinition\References
     {
         return new FieldDefinition\References(
             $className,
-            $number
+            $count
         );
     }
 

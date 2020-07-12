@@ -20,24 +20,24 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\FactoryBot\Exception\InvalidNumber
+ * @covers \Ergebnis\FactoryBot\Exception\InvalidCount
  */
-final class InvalidNumberTest extends Framework\TestCase
+final class InvalidCountTest extends Framework\TestCase
 {
     use Helper;
 
     public function testNotGreaterThanOrEqualToReturnsException(): void
     {
-        $number = -1 * self::faker()->numberBetween(1);
+        $value = -1 * self::faker()->numberBetween(1);
 
-        $exception = Exception\InvalidNumber::notGreaterThanOrEqualToZero($number);
+        $exception = Exception\InvalidCount::notGreaterThanOrEqualToZero($value);
 
         $message = \sprintf(
-            'Number needs to be greater than or equal to 0, but %d is not.',
-            $number
+            'Count needs to be greater than or equal to 0, but %d is not.',
+            $value
         );
 
-        self::assertInstanceOf(Exception\InvalidNumber::class, $exception);
+        self::assertInstanceOf(Exception\InvalidCount::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
         self::assertInstanceOf(Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());

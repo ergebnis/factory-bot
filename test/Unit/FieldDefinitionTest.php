@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
+use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Number;
 use Ergebnis\FactoryBot\Test\Fixture;
 
 /**
@@ -24,7 +24,8 @@ use Ergebnis\FactoryBot\Test\Fixture;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
- * @uses \Ergebnis\FactoryBot\Exception\InvalidNumber
+ * @uses \Ergebnis\FactoryBot\Count
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
@@ -32,7 +33,6 @@ use Ergebnis\FactoryBot\Test\Fixture;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\Number
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
@@ -99,18 +99,18 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testReferencesReturnsRequiredReferencesWhenNumberIsSpecified(int $value): void
+    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Fixture\FixtureFactory\Entity\User::class;
 
         $fieldDefinition = FieldDefinition::references(
             $className,
-            Number::exact($value)
+            Count::exact($value)
         );
 
         $expected = new FieldDefinition\References(
             $className,
-            Number::exact($value)
+            Count::exact($value)
         );
 
         self::assertEquals($expected, $fieldDefinition);

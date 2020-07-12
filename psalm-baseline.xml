@@ -68,6 +68,12 @@
       <code>addToAssertionCount</code>
     </InternalMethod>
   </file>
+  <file src="test/Unit/CountTest.php">
+    <RedundantCondition occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+  </file>
   <file src="test/Unit/EntityDefinitionTest.php">
     <MissingClosureParamType occurrences="2">
       <code>$entity</code>
@@ -102,6 +108,14 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/EntityDefinitionNotRegisteredTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Exception/InvalidCountTest.php">
     <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantCondition>
@@ -163,14 +177,6 @@
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/Unit/Exception/InvalidNumberTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="test/Unit/Exception/InvalidSequenceTest.php">
     <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
@@ -215,11 +221,5 @@
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/NumberTest.php">
-    <RedundantCondition occurrences="2">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
   </file>
 </files>
