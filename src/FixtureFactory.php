@@ -42,7 +42,7 @@ final class FixtureFactory
     /**
      * @var bool
      */
-    private $persist = false;
+    private $persistAfterCreate = false;
 
     public function __construct(ORM\EntityManagerInterface $entityManager, Generator $faker)
     {
@@ -218,7 +218,7 @@ final class FixtureFactory
             $this->faker
         );
 
-        if ($this->persist && false === $classMetadata->isEmbeddedClass) {
+        if ($this->persistAfterCreate && false === $classMetadata->isEmbeddedClass) {
             $this->entityManager->persist($entity);
         }
 
@@ -261,15 +261,19 @@ final class FixtureFactory
     }
 
     /**
-     * Sets whether `get()` should automatically persist the entity it creates.
-     * By default it does not. In any case, you still need to call
-     * flush() yourself.
-     *
-     * @param bool $enabled
+     * Enable persisting of entities after creation.
      */
-    public function persistOnGet(bool $enabled = true): void
+    public function persistAfterCreate(): void
     {
-        $this->persist = $enabled;
+        $this->persistAfterCreate = true;
+    }
+
+    /**
+     * Disable persisting of entities after creation.
+     */
+    public function doNotPersistAfterCreate(): void
+    {
+        $this->persistAfterCreate = false;
     }
 
     /**
