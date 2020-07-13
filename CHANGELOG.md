@@ -12,6 +12,7 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 
 * Renamed `InvalidDefinition::fromClassNameAndException()` to `InvalidDefinition::throwsExceptionDuringInstantiation()` ([#300]), by [@localheinz]
 * Renamed `Number` to `Count` ([#309]), by [@localheinz]
+* Split `FixtureFactory::persistOnGet()` into `FixtureFactory::persistAfterCreate()` and `FixtureFactory::doNotPersistAfterCreate()` ([#311]), by [@localheinz]
 
 ### Fixed
 
@@ -148,5 +149,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#301]: https://github.com/ergebnis/factory-bot/pull/301
 [#302]: https://github.com/ergebnis/factory-bot/pull/302
 [#309]: https://github.com/ergebnis/factory-bot/pull/309
+[#311]: https://github.com/ergebnis/factory-bot/pull/311
 
 [@localheinz]: https://github.com/localheinz

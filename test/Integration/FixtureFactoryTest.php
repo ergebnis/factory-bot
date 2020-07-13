@@ -59,7 +59,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($organization);
     }
 
-    public function testCreateOnePersistsEntityWhenPersistOnGetHasBeenEnabled(): void
+    public function testCreateOnePersistsEntityWhenPersistAfterCreateHasBeenEnabled(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -75,7 +75,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => $name,
         ]);
 
-        $fixtureFactory->persistOnGet();
+        $fixtureFactory->persistAfterCreate();
 
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
@@ -89,7 +89,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
     }
 
-    public function testCreateOneDoesNotPersistEntityWhenPersistOnGetHasBeenDisabled(): void
+    public function testCreateOneDoesNotPersistEntityWhenPersistAfterCreateHasBeenDisabled(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -105,8 +105,8 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => $name,
         ]);
 
-        $fixtureFactory->persistOnGet();
-        $fixtureFactory->persistOnGet(false);
+        $fixtureFactory->persistAfterCreate();
+        $fixtureFactory->doNotPersistAfterCreate();
 
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
 
@@ -120,7 +120,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($organization);
     }
 
-    public function testCreateOneDoesNotPersistEmbeddablesWhenPersistOnGetHasBeenEnabled(): void
+    public function testCreateOneDoesNotPersistEmbeddablesWhenPersistAfterCreateHasBeenEnabled(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -141,7 +141,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'login' => $faker->userName,
         ]);
 
-        $fixtureFactory->persistOnGet();
+        $fixtureFactory->persistAfterCreate();
 
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
 
@@ -176,7 +176,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertEmpty($organizations);
     }
 
-    public function testCreateManyPersistsEntitiesWhenPersistOnGetHasBeenEnabled(): void
+    public function testCreateManyPersistsEntitiesWhenPersistAfterCreateHasBeenEnabled(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -190,7 +190,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => FieldDefinition::sequence('name-%d'),
         ]);
 
-        $fixtureFactory->persistOnGet();
+        $fixtureFactory->persistAfterCreate();
 
         $value = $faker->numberBetween(1, 5);
 
@@ -207,7 +207,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($value, $organizations);
     }
 
-    public function testCreateManyDoesNotPersistEntitiesWhenPersistOnGetHasBeenDisabled(): void
+    public function testCreateManyDoesNotPersistEntitiesWhenPersistAfterCreateHasBeenDisabled(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -221,8 +221,8 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => FieldDefinition::sequence('name-%d'),
         ]);
 
-        $fixtureFactory->persistOnGet();
-        $fixtureFactory->persistOnGet(false);
+        $fixtureFactory->persistAfterCreate();
+        $fixtureFactory->doNotPersistAfterCreate();
 
         $value = $faker->numberBetween(1, 5);
 
