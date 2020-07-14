@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-interface Definition
+interface EntityDefinitionProvider
 {
     public function accept(FixtureFactory $fixtureFactory): void;
 }

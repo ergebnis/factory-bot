@@ -31,7 +31,7 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
     'psr4' => false,
 ]);
 
-$config->getFinder()->in(__DIR__ . '/test/Fixture/Definitions/CanNotBeAutoloaded');
+$config->getFinder()->in(__DIR__ . '/test/Fixture/DefinitionProvider/CanNotBeAutoloaded');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 

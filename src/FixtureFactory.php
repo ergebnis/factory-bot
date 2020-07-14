@@ -164,7 +164,7 @@ final class FixtureFactory
                 throw Exception\InvalidDefinition::canNotBeAutoloaded($className);
             }
 
-            if (!$reflection->implementsInterface(Definition::class)) {
+            if (!$reflection->implementsInterface(EntityDefinitionProvider::class)) {
                 continue;
             }
 
@@ -177,8 +177,8 @@ final class FixtureFactory
             }
 
             try {
-                /** @var Definition $definition */
-                $definition = $reflection->newInstance();
+                /** @var EntityDefinitionProvider $provider */
+                $provider = $reflection->newInstance();
             } catch (\Exception $exception) {
                 throw Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
                     $className,
@@ -186,7 +186,7 @@ final class FixtureFactory
                 );
             }
 
-            $definition->accept($this);
+            $provider->accept($this);
         }
     }
 

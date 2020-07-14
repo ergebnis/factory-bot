@@ -11,13 +11,12 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\CanNotBeAutoloaded;
+namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\DoesNotImplementDefinitionProvider;
 
-use Ergebnis\FactoryBot\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-final class RepositoryDefinitionButCanNotBeAutoloaded implements Definition
+final class RepositoryDefinition
 {
     public function accept(FixtureFactory $fixtureFactory): void
     {

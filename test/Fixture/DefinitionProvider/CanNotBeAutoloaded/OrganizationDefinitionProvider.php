@@ -11,13 +11,13 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\DoesNotImplementDefinition;
+namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\CanNotBeAutoloaded;
 
-use Ergebnis\FactoryBot\Definition;
+use Ergebnis\FactoryBot\EntityDefinitionProvider;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-final class OrganizationDefinition implements Definition
+final class OrganizationDefinitionProvider implements EntityDefinitionProvider
 {
     public function accept(FixtureFactory $fixtureFactory): void
     {
