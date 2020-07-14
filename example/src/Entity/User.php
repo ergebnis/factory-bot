@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
+namespace Example\Entity;
 
 use Doctrine\Common;
 use Doctrine\ORM;
@@ -57,7 +57,7 @@ class User
 
     /**
      * @ORM\Mapping\Embedded(
-     *     class="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Avatar",
+     *     class="Example\Entity\Avatar",
      *     columnPrefix="avatar"
      * )
      *
@@ -67,7 +67,7 @@ class User
 
     /**
      * @ORM\Mapping\ManyToMany(
-     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Organization",
+     *     targetEntity="Example\Entity\Organization",
      *     mappedBy="members"
      * )
      *

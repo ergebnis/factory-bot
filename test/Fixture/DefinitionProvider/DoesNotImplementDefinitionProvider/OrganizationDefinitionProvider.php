@@ -15,12 +15,12 @@ namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\DoesNotImplementDe
 
 use Ergebnis\FactoryBot\EntityDefinitionProvider;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Example\Entity;
 
 final class OrganizationDefinitionProvider implements EntityDefinitionProvider
 {
     public function accept(FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Entity\Organization::class);
     }
 }

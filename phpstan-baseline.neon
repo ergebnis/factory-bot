@@ -1,6 +1,91 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:name\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Project\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Project.php
+
+		-
+			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$codeOfConduct with default value\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$template with default value\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with a nullable type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with null as default value\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with a nullable type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with null as default value\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:codeOfConduct\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Repository.php
+
+		-
+			message: "#^Constructor in Example\\\\Entity\\\\User has parameter \\$location with default value\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with a nullable type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with null as default value\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\User\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\User\\:\\:location\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
 			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
@@ -49,91 +134,6 @@ parameters:
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Organization.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization\\:\\:name\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Organization.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Project\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Project.php
-
-		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository has parameter \\$codeOfConduct with default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository has parameter \\$template with default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with a nullable type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with null as default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with a nullable type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with null as default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository\\:\\:codeOfConduct\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/Repository.php
-
-		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User has parameter \\$location with default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/User.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with a nullable type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/User.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with null as default value\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/User.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:id\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/User.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\:\\:location\\(\\) has a nullable return type declaration\\.$#"
-			count: 1
-			path: test/Fixture/FixtureFactory/Entity/User.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Count' and Ergebnis\\\\FactoryBot\\\\Count will always evaluate to true\\.$#"
@@ -321,12 +321,12 @@ parameters:
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\User' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\User' and Example\\\\Entity\\\\User will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/FieldDefinition/ReferenceTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, Example\\\\Entity\\\\User\\> will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/FieldDefinition/ReferencesTest.php
 
@@ -336,27 +336,27 @@ parameters:
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\Organization' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Organization' and Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\Repository' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Repository will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Repository' and Example\\\\Entity\\\\Repository will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\User' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\User will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\User' and Example\\\\Entity\\\\User will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Organization will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Test\\\\\\\\Fixture\\\\\\\\FixtureFactory\\\\\\\\Entity\\\\\\\\Project' and Ergebnis\\\\FactoryBot\\\\Test\\\\Fixture\\\\FixtureFactory\\\\Entity\\\\Project will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Project' and Example\\\\Entity\\\\Project will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 

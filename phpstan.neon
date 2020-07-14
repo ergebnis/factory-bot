@@ -16,6 +16,7 @@ parameters:
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
 	paths:
+		- example/
 		- src/
 		- test/
 	tmpDir: .build/phpstan/

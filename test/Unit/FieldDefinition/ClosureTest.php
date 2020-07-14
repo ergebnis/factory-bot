@@ -15,8 +15,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\FieldDefinition\Closure;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Example\Entity;
 use Faker\Generator;
 
 /**
@@ -40,10 +40,10 @@ final class ClosureTest extends AbstractTestCase
             $faker
         );
 
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\User::class);
+        $fixtureFactory->define(Entity\User::class);
 
-        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
-            return $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
+            return $fixtureFactory->createOne(Entity\User::class);
         };
 
         $fieldDefinition = new Closure($closure);
@@ -53,6 +53,6 @@ final class ClosureTest extends AbstractTestCase
             $fixtureFactory
         );
 
-        self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $resolved);
+        self::assertInstanceOf(Entity\User::class, $resolved);
     }
 }

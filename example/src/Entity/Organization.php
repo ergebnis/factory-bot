@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
+namespace Example\Entity;
 
 use Doctrine\Common;
 use Doctrine\ORM;
@@ -53,7 +53,7 @@ class Organization
 
     /**
      * @ORM\Mapping\OneToMany(
-     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository",
+     *     targetEntity="Example\Entity\Repository",
      *     mappedBy="organization"
      * )
      *
@@ -63,7 +63,7 @@ class Organization
 
     /**
      * @ORM\Mapping\ManyToMany(
-     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\User",
+     *     targetEntity="Example\Entity\User",
      *     inversedBy="organizations"
      * )
      *

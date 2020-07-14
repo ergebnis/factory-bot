@@ -15,12 +15,12 @@ namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\ImplementsDefiniti
 
 use Ergebnis\FactoryBot\EntityDefinitionProvider;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Example\Entity;
 
 abstract class RepositoryDefinitionProvider implements EntityDefinitionProvider
 {
     final public function accept(FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->define(Entity\Repository::class);
     }
 }

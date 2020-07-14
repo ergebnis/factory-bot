@@ -15,8 +15,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\FieldDefinition\Reference;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
 use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Example\Entity;
 
 /**
  * @internal
@@ -32,7 +32,7 @@ final class ReferenceTest extends AbstractTestCase
 {
     public function testResolvesToObjectCreatedByFixtureFactory(): void
     {
-        $className = Fixture\FixtureFactory\Entity\User::class;
+        $className = Entity\User::class;
 
         $faker = self::faker();
 
