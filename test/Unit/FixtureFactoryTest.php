@@ -125,10 +125,10 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $this->expectException(Exception\InvalidDirectory::class);
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/NonExistentDirectory');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/NonExistentDirectory');
     }
 
-    public function testLoadThrowsInvalidDefinitionExceptionWhenDefinitionCanNotBeAutoloaded(): void
+    public function testLoadThrowsInvalidDefinitionExceptionWhenDefinitionProviderCanNotBeAutoloaded(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -138,20 +138,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be autoloaded.',
-            Fixture\Definitions\CanNotBeAutoloaded\RepositoryDefinitionButCanNotBeAutoloaded::class
+            Fixture\DefinitionProvider\CanNotBeAutoloaded\RepositoryDefinitionProviderButCanNotBeAutoloaded::class
         ));
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/CanNotBeAutoloaded');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/CanNotBeAutoloaded');
     }
 
-    public function testLoadIgnoresClassesWhichDoNotImplementDefinitionInterface(): void
+    public function testLoadIgnoresClassesWhichDoNotImplementDefinitionProviderInterface(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             self::faker()
         );
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/DoesNotImplementDefinition');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider');
 
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
@@ -161,14 +161,14 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
     }
 
-    public function testLoadIgnoresClassesWhichImplementDefinitionInterfaceButAreAbstract(): void
+    public function testLoadIgnoresClassesWhichImplementDefinitionProviderInterfaceButAreAbstract(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             self::faker()
         );
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButIsAbstract');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract');
 
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
@@ -178,7 +178,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
     }
 
-    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionInterfaceButCanNotBeInstantiated(): void
+    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionProviderInterfaceButCanNotBeInstantiated(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -188,13 +188,13 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be instantiated.',
-            Fixture\Definitions\ImplementsDefinitionButCanNotBeInstantiated\RepositoryDefinition::class
+            Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated\RepositoryDefinitionProvider::class
         ));
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButCanNotBeInstantiated');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated');
     }
 
-    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionInterfaceButExceptionIsThrownDuringInstantation(): void
+    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionProviderInterfaceButExceptionIsThrownDuringInstantation(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -204,20 +204,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',
-            Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringInstantiation\RepositoryDefinition::class
+            Fixture\DefinitionProvider\ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation\RepositoryDefinitionProvider::class
         ));
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButThrowsExceptionDuringInstantiation');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation');
     }
 
-    public function testLoadAcceptsClassesWhichImplementDefinitionInterfaceAndHaveNoIssues(): void
+    public function testLoadAcceptsClassesWhichImplementDefinitionProviderInterfaceAndHaveNoIssues(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             self::faker()
         );
 
-        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinition');
+        $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProvider');
 
         $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
         $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
