@@ -271,13 +271,13 @@ jobs:
         run: "vendor/bin/doctrine orm:validate-schema --skip-sync"
 
       - name: "Run auto-review tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=auto-review"
+        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=auto-review"
 
       - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=unit"
+        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit"
 
       - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=integration"
+        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration"
 
   code-coverage:
     name: "Code Coverage"
