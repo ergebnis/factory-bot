@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\ImplementsDefinitionProvider;
+namespace Example\Test\Fixture\Entity;
 
 use Ergebnis\FactoryBot\EntityDefinitionProvider;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Example\Entity;
 
-final class RepositoryDefinitionProvider implements EntityDefinitionProvider
+final class UserDefinitionProvider implements EntityDefinitionProvider
 {
     public function accept(FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->define(Entity\User::class);
     }
 }

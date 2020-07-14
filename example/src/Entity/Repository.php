@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
+namespace Example\Entity;
 
 use Doctrine\ORM;
 
@@ -45,7 +45,7 @@ class Repository
 
     /**
      * @ORM\Mapping\ManyToOne(
-     *     targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Organization",
+     *     targetEntity="Example\Entity\Organization",
      *     inversedBy="repositories"
      * )
      * @ORM\Mapping\JoinColumn(
@@ -59,7 +59,7 @@ class Repository
     private $organization;
 
     /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
+     * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
      * @ORM\Mapping\JoinColumn(
      *     name="template_id",
      *     referencedColumnName="id"
@@ -70,7 +70,7 @@ class Repository
     private $template;
 
     /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\CodeOfConduct")
+     * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\CodeOfConduct")
      * @ORM\Mapping\JoinColumn(
      *     name="code_of_conduct_key",
      *     referencedColumnName="key"

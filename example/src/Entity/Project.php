@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity;
+namespace Example\Entity;
 
 use Doctrine\ORM;
 
@@ -41,7 +41,7 @@ class Project
     private $name;
 
     /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Ergebnis\FactoryBot\Test\Fixture\FixtureFactory\Entity\Repository")
+     * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
      * @ORM\Mapping\JoinColumn(
      *     name="repository_id",
      *     referencedColumnName="id",

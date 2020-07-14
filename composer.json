@@ -57,7 +57,9 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Ergebnis\\FactoryBot\\Test\\": "test/"
+      "Ergebnis\\FactoryBot\\Test\\": "test/",
+      "Example\\": "example/src/",
+      "Example\\Test\\": "example/test/"
     }
   },
   "support": {

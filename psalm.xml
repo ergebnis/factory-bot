@@ -17,6 +17,7 @@
     </plugins>
 
     <projectFiles>
+        <directory name="example/" />
         <directory name="src/" />
         <directory name="test/" />
         <ignoreFiles>

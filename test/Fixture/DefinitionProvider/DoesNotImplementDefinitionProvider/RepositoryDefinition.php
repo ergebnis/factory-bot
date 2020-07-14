@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\DoesNotImplementDefinitionProvider;
 
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Example\Entity;
 
 final class RepositoryDefinition
 {
     public function accept(FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
+        $fixtureFactory->define(Entity\Repository::class);
     }
 }

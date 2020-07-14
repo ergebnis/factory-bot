@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Example\Entity;
 
 /**
  * @internal
@@ -38,9 +38,9 @@ final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsRequiredClosure(): void
     {
-        $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
-            /** @var Fixture\FixtureFactory\Entity\User $user */
-            $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+        $closure = static function (FixtureFactory $fixtureFactory): Entity\User {
+            /** @var Entity\User $user */
+            $user = $fixtureFactory->createOne(Entity\User::class);
 
             $user->renameTo(self::faker()->userName);
 
@@ -56,9 +56,9 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testOptionalClosureReturnsOptionalClosure(): void
     {
-        $closure = static function (FixtureFactory $fixtureFactory): Fixture\FixtureFactory\Entity\User {
-            /** @var Fixture\FixtureFactory\Entity\User $user */
-            $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+        $closure = static function (FixtureFactory $fixtureFactory): Entity\User {
+            /** @var Entity\User $user */
+            $user = $fixtureFactory->createOne(Entity\User::class);
 
             $user->renameTo(self::faker()->userName);
 
@@ -74,7 +74,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testReferenceReturnsRequiredReference(): void
     {
-        $className = Fixture\FixtureFactory\Entity\User::class;
+        $className = Entity\User::class;
 
         $fieldDefinition = FieldDefinition::reference($className);
 
@@ -85,7 +85,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testOptionalReferenceReturnsOptionalReference(): void
     {
-        $className = Fixture\FixtureFactory\Entity\User::class;
+        $className = Entity\User::class;
 
         $fieldDefinition = FieldDefinition::optionalReference($className);
 
@@ -101,7 +101,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      */
     public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $value): void
     {
-        $className = Fixture\FixtureFactory\Entity\User::class;
+        $className = Entity\User::class;
 
         $fieldDefinition = FieldDefinition::references(
             $className,
