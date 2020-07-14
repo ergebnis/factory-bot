@@ -11,16 +11,21 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringConstruction;
+namespace Ergebnis\FactoryBot\Test\Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringInstantiation;
 
 use Ergebnis\FactoryBot\Definition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test\Fixture;
 
-final class OrganizationDefinition implements Definition
+final class RepositoryDefinition implements Definition
 {
+    public function __construct()
+    {
+        throw new \RuntimeException();
+    }
+
     public function accept(FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->define(Fixture\FixtureFactory\Entity\Repository::class);
     }
 }

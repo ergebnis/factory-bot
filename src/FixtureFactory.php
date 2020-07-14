@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot;
 
 use Doctrine\Common;
 use Doctrine\ORM;
+use Ergebnis\Classy;
 use Faker\Generator;
 
 /**
@@ -139,6 +140,54 @@ final class FixtureFactory
             $fieldDefinitions,
             $afterCreate
         );
+    }
+
+    /**
+     * @param string $directory
+     *
+     * @throws Exception\InvalidDefinition
+     * @throws Exception\InvalidDirectory
+     */
+    public function load(string $directory): void
+    {
+        if (!\is_dir($directory)) {
+            throw Exception\InvalidDirectory::notDirectory($directory);
+        }
+
+        foreach (Classy\Constructs::fromDirectory($directory) as $construct) {
+            /** @var class-string $className */
+            $className = $construct->name();
+
+            try {
+                $reflection = new \ReflectionClass($className);
+            } catch (\ReflectionException $exception) {
+                throw Exception\InvalidDefinition::canNotBeAutoloaded($className);
+            }
+
+            if (!$reflection->implementsInterface(Definition::class)) {
+                continue;
+            }
+
+            if ($reflection->isAbstract()) {
+                continue;
+            }
+
+            if (!$reflection->isInstantiable()) {
+                throw Exception\InvalidDefinition::canNotBeInstantiated($className);
+            }
+
+            try {
+                /** @var Definition $definition */
+                $definition = $reflection->newInstance();
+            } catch (\Exception $exception) {
+                throw Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
+                    $className,
+                    $exception
+                );
+            }
+
+            $definition->accept($this);
+        }
     }
 
     /**
