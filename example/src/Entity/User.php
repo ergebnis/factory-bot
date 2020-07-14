@@ -15,6 +15,7 @@ namespace Example\Entity;
 
 use Doctrine\Common;
 use Doctrine\ORM;
+use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
@@ -24,13 +25,13 @@ class User
 {
     /**
      * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\GeneratedValue(strategy="NONE")
      * @ORM\Mapping\Column(
-     *     name="id",
-     *     type="integer"
+     *     type="string",
+     *     length=36
      * )
      *
-     * @var int
+     * @var string
      */
     private $id;
 
@@ -77,13 +78,14 @@ class User
 
     public function __construct(string $login, Avatar $avatar, ?string $location = null)
     {
+        $this->id = Uuid\Uuid::uuid4()->toString();
         $this->login = $login;
         $this->avatar = $avatar;
         $this->location = $location;
         $this->organizations = new Common\Collections\ArrayCollection();
     }
 
-    public function id(): ?int
+    public function id(): string
     {
         return $this->id;
     }

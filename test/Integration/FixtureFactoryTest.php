@@ -75,6 +75,9 @@ final class FixtureFactoryTest extends AbstractTestCase
         $name = $faker->word;
 
         $fixtureFactory->define(Entity\Organization::class, [
+            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+                return $faker->uuid;
+            }),
             'name' => $name,
         ]);
 
@@ -141,6 +144,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->define(Entity\User::class, [
             'avatar' => FieldDefinition::reference(Entity\Avatar::class),
+            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+                return $faker->uuid;
+            }),
             'login' => $faker->userName,
         ]);
 
@@ -190,6 +196,9 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
+            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+                return $faker->unique()->uuid;
+            }),
             'name' => FieldDefinition::sequence('name-%d'),
         ]);
 

@@ -15,6 +15,7 @@ namespace Example\Entity;
 
 use Doctrine\Common;
 use Doctrine\ORM;
+use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
@@ -24,10 +25,13 @@ class Organization
 {
     /**
      * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @ORM\Mapping\Column(type="integer")
+     * @ORM\Mapping\GeneratedValue(strategy="NONE")
+     * @ORM\Mapping\Column(
+     *     type="string",
+     *     length=36
+     * )
      *
-     * @var int
+     * @var string
      */
     private $id;
 
@@ -50,6 +54,17 @@ class Organization
      * @var string
      */
     private $name;
+
+    /**
+     * @ORM\Mapping\Column(
+     *     name="url",
+     *     type="string",
+     *     nullable=true
+     * )
+     *
+     * @var null|string
+     */
+    private $url;
 
     /**
      * @ORM\Mapping\OneToMany(
@@ -78,20 +93,26 @@ class Organization
 
     public function __construct(string $name)
     {
+        $this->id = Uuid\Uuid::uuid4()->toString();
         $this->name = $name;
         $this->repositories = new Common\Collections\ArrayCollection();
         $this->members = new Common\Collections\ArrayCollection();
         $this->constructorWasCalled = true;
     }
 
-    public function id(): ?int
+    public function id(): string
     {
         return $this->id;
     }
 
-    public function name(): ?string
+    public function name(): string
     {
         return $this->name;
+    }
+
+    public function url(): ?string
+    {
+        return $this->url;
     }
 
     public function isVerified(): bool

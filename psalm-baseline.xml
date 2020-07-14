@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
-  <file src="example/src/Entity/Organization.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="example/src/Entity/Project.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="example/src/Entity/Repository.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="example/src/Entity/User.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$id</code>
-    </PropertyNotSetInConstructor>
+  <file src="example/test/AutoReview/FixtureTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$providerClassName</code>
+    </ArgumentTypeCoercion>
   </file>
   <file src="src/EntityDefinition.php">
     <DocblockTypeContradiction occurrences="1">
@@ -208,9 +193,6 @@
       <code>$name</code>
       <code>$fieldValues['name']</code>
     </MixedArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$organization-&gt;name()</code>
-    </PossiblyNullArgument>
     <RedundantCondition occurrences="4">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
