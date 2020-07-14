@@ -17,6 +17,7 @@ use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
+use Faker\Generator;
 
 /**
  * @internal
@@ -133,7 +134,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->define(Entity\Avatar::class, [
-            'url' => FieldDefinition::closure(static function () use ($faker): string {
+            'url' => FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->imageUrl();
             }),
         ]);
