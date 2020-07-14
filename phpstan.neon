@@ -10,6 +10,7 @@ parameters:
 			- Ergebnis\FactoryBot\Definition\AbstractDefinition
 			- Ergebnis\FactoryBot\Test\Integration\AbstractTestCase
 			- Ergebnis\FactoryBot\Test\Unit\AbstractTestCase
+			- Example\Test\Unit\AbstractTestCase
 			- Faker\Generator
 			- InvalidArgumentException
 			- RuntimeException

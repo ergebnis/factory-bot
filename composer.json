@@ -41,6 +41,7 @@
     "phpstan/phpstan-strict-rules": "~0.12.2",
     "phpunit/phpunit": "^8.5.8",
     "psalm/plugin-phpunit": "~0.10.1",
+    "ramsey/uuid": "^4.0",
     "vimeo/psalm": "^3.12.2"
   },
   "config": {

@@ -279,6 +279,12 @@ jobs:
       - name: "Run integration tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration"
 
+      - name: "Run auto-review tests for examples with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=example/test/AutoReview/phpunit.xml"
+
+      - name: "Run unit tests for examples with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=example/test/Unit/phpunit.xml"
+
   code-coverage:
     name: "Code Coverage"
 

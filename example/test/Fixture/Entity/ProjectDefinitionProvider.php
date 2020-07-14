@@ -17,27 +17,18 @@ use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 
-final class OrganizationDefinitionProvider implements FactoryBot\EntityDefinitionProvider
+final class ProjectDefinitionProvider implements FactoryBot\EntityDefinitionProvider
 {
     public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
     {
-        $fixtureFactory->define(Entity\Organization::class, [
+        $fixtureFactory->define(Entity\Project::class, [
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid;
             }),
-            'isVerified' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): bool {
-                return $faker->boolean;
-            }),
-            'members' => FactoryBot\FieldDefinition::references(
-                Entity\User::class,
-                FactoryBot\Count::between(1, 10)
-            ),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->word;
             }),
-            'url' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
-                return $faker->url;
-            }),
+            'repository' => FactoryBot\FieldDefinition::reference(Entity\Repository::class),
         ]);
     }
 }

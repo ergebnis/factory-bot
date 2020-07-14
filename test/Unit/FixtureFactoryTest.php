@@ -395,7 +395,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         /** @var Entity\Organization $organization */
         $organization = $fixtureFactory->createOne(Entity\Organization::class);
 
-        self::assertNull($organization->name());
+        self::assertNull($organization->url());
     }
 
     public function testCreateOneResolvesFieldWithDefaultValueToItsDefaultValueWhenFieldDefinitionWasNotSpecified(): void
@@ -1119,7 +1119,6 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $actualName = $organization->name();
 
-        self::assertIsString($actualName);
         self::assertRegExp($expectedPattern, $actualName);
     }
 

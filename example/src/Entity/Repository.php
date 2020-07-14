@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Example\Entity;
 
 use Doctrine\ORM;
+use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
@@ -23,13 +24,13 @@ class Repository
 {
     /**
      * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
+     * @ORM\Mapping\GeneratedValue(strategy="NONE")
      * @ORM\Mapping\Column(
      *     name="id",
-     *     type="integer"
+     *     type="string"
      * )
      *
-     * @var int
+     * @var string
      */
     private $id;
 
@@ -86,13 +87,14 @@ class Repository
         ?self $template = null,
         ?CodeOfConduct $codeOfConduct = null
     ) {
+        $this->id = Uuid\Uuid::uuid4()->toString();
         $this->organization = $organization;
         $this->name = $name;
         $this->template = $template;
         $this->codeOfConduct = $codeOfConduct;
     }
 
-    public function id(): ?int
+    public function id(): string
     {
         return $this->id;
     }

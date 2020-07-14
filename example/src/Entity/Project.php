@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Example\Entity;
 
 use Doctrine\ORM;
+use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
@@ -23,10 +24,13 @@ class Project
 {
     /**
      * @ORM\Mapping\Id
-     * @ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @ORM\Mapping\Column(type="integer")
+     * @ORM\Mapping\GeneratedValue(strategy="NONE")
+     * @ORM\Mapping\Column(
+     *     type="string",
+     *     length=36
+     * )
      *
-     * @var int
+     * @var string
      */
     private $id;
 
@@ -54,11 +58,12 @@ class Project
 
     public function __construct(string $name, Repository $repository)
     {
+        $this->id = Uuid\Uuid::uuid4()->toString();
         $this->name = $name;
         $this->repository = $repository;
     }
 
-    public function id(): ?int
+    public function id(): string
     {
         return $this->id;
     }
