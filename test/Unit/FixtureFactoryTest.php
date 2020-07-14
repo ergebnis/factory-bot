@@ -33,6 +33,8 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
  * @uses \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidDefinition
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidDirectory
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
@@ -112,6 +114,118 @@ final class FixtureFactoryTest extends AbstractTestCase
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
         ]);
+    }
+
+    public function testLoadRejectsNonExistentDirectory(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $this->expectException(Exception\InvalidDirectory::class);
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/NonExistentDirectory');
+    }
+
+    public function testLoadThrowsInvalidDefinitionExceptionWhenDefinitionCanNotBeAutoloaded(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Definition "%s" can not be autoloaded.',
+            Fixture\Definitions\CanNotBeAutoloaded\RepositoryDefinitionButCanNotBeAutoloaded::class
+        ));
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/CanNotBeAutoloaded');
+    }
+
+    public function testLoadIgnoresClassesWhichDoNotImplementDefinitionInterface(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/DoesNotImplementDefinition');
+
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+
+        $this->expectException(Exception\EntityDefinitionNotRegistered::class);
+
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
+    }
+
+    public function testLoadIgnoresClassesWhichImplementDefinitionInterfaceButAreAbstract(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButIsAbstract');
+
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+
+        $this->expectException(Exception\EntityDefinitionNotRegistered::class);
+
+        $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
+    }
+
+    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionInterfaceButCanNotBeInstantiated(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Definition "%s" can not be instantiated.',
+            Fixture\Definitions\ImplementsDefinitionButCanNotBeInstantiated\RepositoryDefinition::class
+        ));
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButCanNotBeInstantiated');
+    }
+
+    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionInterfaceButExceptionIsThrownDuringInstantation(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $this->expectException(Exception\InvalidDefinition::class);
+        $this->expectExceptionMessage(\sprintf(
+            'An exception was thrown while trying to instantiate definition "%s".',
+            Fixture\Definitions\ImplementsDefinitionButThrowsExceptionDuringInstantiation\RepositoryDefinition::class
+        ));
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinitionButThrowsExceptionDuringInstantiation');
+    }
+
+    public function testLoadAcceptsClassesWhichImplementDefinitionInterfaceAndHaveNoIssues(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $fixtureFactory->load(__DIR__ . '/../Fixture/Definitions/ImplementsDefinition');
+
+        $organization = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Organization::class);
+        $repository = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\Repository::class);
+        $user = $fixtureFactory->createOne(Fixture\FixtureFactory\Entity\User::class);
+
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Organization::class, $organization);
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\Repository::class, $repository);
+        self::assertInstanceOf(Fixture\FixtureFactory\Entity\User::class, $user);
     }
 
     public function testCreateOneThrowsEntityDefinitionNotRegisteredWhenEntityDefinitionHasNotBeenRegistered(): void
