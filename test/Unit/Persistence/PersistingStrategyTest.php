@@ -21,9 +21,9 @@ use PHPUnit\Framework;
 use Prophecy\Argument;
 
 /**
- * @covers \Ergebnis\FactoryBot\Persistence\PersistingStrategy
- *
  * @internal
+ *
+ * @covers \Ergebnis\FactoryBot\Persistence\PersistingStrategy
  */
 final class PersistingStrategyTest extends Framework\TestCase
 {
