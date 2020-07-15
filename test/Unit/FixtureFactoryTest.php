@@ -47,16 +47,6 @@ use Faker\Generator;
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
-    public function testDefaults(): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        self::assertCount(0, $fixtureFactory->definitions());
-    }
-
     public function testDefineThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
     {
         $fixtureFactory = new FixtureFactory(

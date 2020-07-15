@@ -326,14 +326,6 @@ final class FixtureFactory
     }
 
     /**
-     * @return array<string, EntityDefinition>
-     */
-    public function definitions(): array
-    {
-        return $this->entityDefinitions;
-    }
-
-    /**
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitions
      *
      * @return array<string, FieldDefinition\Resolvable>
