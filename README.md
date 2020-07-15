@@ -153,6 +153,8 @@ You can use the [`FieldDefinition`](src/FieldDefinition.php) factory to create f
 
 :bulb: Custom field definitions can be useful when you are dealing with identical field definitions over and over again.
 
+#### Non-nullable fields
+
 When you are working with non-nullable fields, you can use the following  field definitions, all of which will resolve to concrete references or values:
 
 - [`FieldDefinition::closure()`](#fielddefinitionclosure)
@@ -160,6 +162,8 @@ When you are working with non-nullable fields, you can use the following  field 
 - [`FieldDefinition::references()`](#fielddefinitionreferences)
 - [`FieldDefinition::sequence()`](#fielddefinitionsequence)
 - [`FieldDefinition::value()`](#fielddefinitionvalue)
+
+#### Nullable fields
 
 When you are working with nullable fields, you can use the following field definition, all of which will either resolve to `null` or to a concrete reference or value:
 
