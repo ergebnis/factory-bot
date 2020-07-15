@@ -31,6 +31,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
+ * @uses \Ergebnis\FactoryBot\FieldValue\DefaultResolutionStrategy
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  * @uses \Ergebnis\FactoryBot\Persistence\PersistingStrategy
  */

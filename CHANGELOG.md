@@ -16,6 +16,7 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 * Merged `Definitions` into `FixtureFactory::load()` ([#312]), by [@localheinz]
 * Renamed `Definition` to `EntityDefinitionProvider` ([#314]), by [@localheinz]
 * Extracted persisting strategies ([#322]), by [@localheinz]
+* Extracted a default field value resolution strategy ([#324]), by [@localheinz]
 
 ### Fixed
 
@@ -161,5 +162,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#314]: https://github.com/ergebnis/factory-bot/pull/314
 [#321]: https://github.com/ergebnis/factory-bot/pull/321
 [#322]: https://github.com/ergebnis/factory-bot/pull/322
+[#324]: https://github.com/ergebnis/factory-bot/pull/324
 
 [@localheinz]: https://github.com/localheinz

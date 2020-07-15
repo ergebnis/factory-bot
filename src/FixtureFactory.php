@@ -36,6 +36,11 @@ final class FixtureFactory
     private $faker;
 
     /**
+     * @var FieldValue\ResolutionStrategy
+     */
+    private $fieldValueResolutionStrategy;
+
+    /**
      * @var Persistence\PersistenceStrategy
      */
     private $persistenceStrategy;
@@ -49,6 +54,7 @@ final class FixtureFactory
     {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
+        $this->fieldValueResolutionStrategy = new FieldValue\DefaultResolutionStrategy();
         $this->persistenceStrategy = new Persistence\NonPersistingStrategy();
     }
 
@@ -241,11 +247,8 @@ final class FixtureFactory
         );
 
         $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
-            if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
-                return null;
-            }
-
-            return $fieldDefinition->resolve(
+            return $this->fieldValueResolutionStrategy->resolve(
+                $fieldDefinition,
                 $this->faker,
                 $this
             );

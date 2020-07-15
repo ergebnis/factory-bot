@@ -28,6 +28,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
+ * @uses \Ergebnis\FactoryBot\FieldValue\DefaultResolutionStrategy
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
