@@ -21,6 +21,10 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 * Started throwing an `InvalidDefinition` exception when a definition is concrete but cannot be instantiated ([#301]), by [@localheinz]
 * Started throwing an `InvalidDefinition` exception when a definition cannot be autoloaded ([#302]), by [@localheinz]
 
+### Removed
+
+* Removed `FixtureFactory::definitions()` ([#321]), by [@localheinz]
+
 ## [`0.1.0`][0.1.0]
 
 For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
@@ -154,5 +158,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#311]: https://github.com/ergebnis/factory-bot/pull/311
 [#312]: https://github.com/ergebnis/factory-bot/pull/312
 [#314]: https://github.com/ergebnis/factory-bot/pull/314
+[#321]: https://github.com/ergebnis/factory-bot/pull/321
 
 [@localheinz]: https://github.com/localheinz
