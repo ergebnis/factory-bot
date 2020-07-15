@@ -82,7 +82,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":robot: Provides a fixture factory for doctrine/orm entities that can be used in tests."
+  description: ":robot: Provides a fixture factory for doctrine/orm entities."
   has_downloads: true
   has_issues: true
   has_pages: false
