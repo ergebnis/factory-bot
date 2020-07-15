@@ -16,7 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition\References;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Ergebnis\FactoryBot\Test\Unit;
 use Example\Entity;
 
 /**
@@ -32,7 +32,7 @@ use Example\Entity;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
-final class ReferencesTest extends AbstractTestCase
+final class ReferencesTest extends Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()

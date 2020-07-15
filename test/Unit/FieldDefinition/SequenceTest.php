@@ -16,7 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition\Sequence;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Ergebnis\FactoryBot\Test\Unit;
 
 /**
  * @internal
@@ -27,7 +27,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
-final class SequenceTest extends AbstractTestCase
+final class SequenceTest extends Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
