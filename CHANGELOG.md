@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.1.0...main`][0.1.0...main].
+For a full diff see [`0.2.0...main`][0.2.0...main].
+
+## [`0.2.0`][0.2.0]
+
+For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0].
 
 ### Changed
 
@@ -95,9 +99,11 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 * Removed parameter `$faker` from `Definition::registerWith()` ([#286]), by [@localheinz]
 
 [0.1.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.1.0
+[0.2.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.2.0
 
 [fa9c564...0.1.0]: https://github.com/ergebnis/factory-bot/compare/fa9c564...0.1.0
-[0.1.0...main]: https://github.com/ergebnis/factory-bot/compare/fa9c564...main
+[0.1.0...0.2.0]: https://github.com/ergebnis/factory-bot/compare/0.1.0...0.2.0
+[0.2.0...main]: https://github.com/ergebnis/factory-bot/compare/0.2.0...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
