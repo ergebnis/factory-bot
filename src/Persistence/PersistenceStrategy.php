@@ -15,6 +15,9 @@ namespace Ergebnis\FactoryBot\Persistence;
 
 use Doctrine\ORM;
 
+/**
+ * @internal
+ */
 interface PersistenceStrategy
 {
     public function persist(ORM\EntityManagerInterface $entityManager, object $entity): void;
