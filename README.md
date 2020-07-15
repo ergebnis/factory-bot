@@ -141,6 +141,47 @@ $fixtureFactory->define(Entity\User::class, [
 ]);
 ```
 
+In addition to the map of field names to field definitions, you can specify a closure that the fixture factory will invoke after creating the entity. The closure accepts the freshly created entity and the map of field names to field values that the fixture factory used to populate the entity.
+
+```php
+<?php
+
+$closure = static function (object $entity, array $fieldValues): void {
+    // ...
+};
+```
+
+:bulb: You can use the closure to modify the freshly created entity.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+use Faker\Generator;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(
+    Entity\User::class, [
+        'avatar' => FactoryBot\FieldDefinition::reference(Entity\Avatar::class),
+        'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            return $faker->uuid;
+        }),
+        'location' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
+            return $faker->city;
+        }),
+        'login' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            return $faker->userName;
+        }),
+    ],
+    static function (Entity\User $user, array $fieldValues): void {
+        if (is_string($fieldValues['location')) {
+            // ...
+        }
+    }
+);
+```
+
 #### Field Definitions
 
 A field definition can be
