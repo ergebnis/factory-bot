@@ -17,6 +17,9 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
 
+/**
+ * @internal
+ */
 final class DefaultResolutionStrategy implements ResolutionStrategy
 {
     public function resolve(
