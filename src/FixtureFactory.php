@@ -31,14 +31,9 @@ final class FixtureFactory
     private $faker;
 
     /**
-     * @var FieldValue\ResolutionStrategy
+     * @var bool
      */
-    private $fieldValueResolutionStrategy;
-
-    /**
-     * @var Persistence\PersistenceStrategy
-     */
-    private $persistenceStrategy;
+    private $persistAfterCreate = false;
 
     /**
      * @var array<string, EntityDefinition>
@@ -49,8 +44,6 @@ final class FixtureFactory
     {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
-        $this->fieldValueResolutionStrategy = new FieldValue\DefaultResolutionStrategy();
-        $this->persistenceStrategy = new Persistence\NonPersistingStrategy();
     }
 
     /**
@@ -244,8 +237,11 @@ final class FixtureFactory
         );
 
         $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
-            return $this->fieldValueResolutionStrategy->resolve(
-                $fieldDefinition,
+            if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
+                return null;
+            }
+
+            return $fieldDefinition->resolve(
                 $this->faker,
                 $this
             );
@@ -268,11 +264,8 @@ final class FixtureFactory
             $this->faker
         );
 
-        if (false === $classMetadata->isEmbeddedClass) {
-            $this->persistenceStrategy->persist(
-                $this->entityManager,
-                $entity
-            );
+        if ($this->persistAfterCreate && false === $classMetadata->isEmbeddedClass) {
+            $this->entityManager->persist($entity);
         }
 
         return $entity;
@@ -318,7 +311,7 @@ final class FixtureFactory
      */
     public function persistAfterCreate(): void
     {
-        $this->persistenceStrategy = new Persistence\PersistingStrategy();
+        $this->persistAfterCreate = true;
     }
 
     /**
@@ -326,7 +319,7 @@ final class FixtureFactory
      */
     public function doNotPersistAfterCreate(): void
     {
-        $this->persistenceStrategy = new Persistence\NonPersistingStrategy();
+        $this->persistAfterCreate = false;
     }
 
     /**
