@@ -1144,7 +1144,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNotSame($organizationOne, $organizationTwo);
     }
 
-    public function testCreateOnesCreatesReferencedObjectsTransitively(): void
+    public function testCreateOneCreatesReferencedObjectsTransitively(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
