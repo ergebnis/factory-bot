@@ -155,7 +155,7 @@ You can use the [`FieldDefinition`](src/FieldDefinition.php) factory to create f
 
 #### Non-nullable fields
 
-When you are working with non-nullable fields, you can use the following  field definitions, all of which will resolve to concrete references or values:
+When you are working with non-nullable fields, you can use the following field definitions, all of which will resolve to concrete references or values:
 
 - [`FieldDefinition::closure()`](#fielddefinitionclosure)
 - [`FieldDefinition::reference()`](#fielddefinitionreference)
