@@ -18,11 +18,6 @@ use Doctrine\ORM;
 use Ergebnis\Classy;
 use Faker\Generator;
 
-/**
- * Creates Doctrine entities for use in tests.
- *
- * See the README file for a tutorial.
- */
 final class FixtureFactory
 {
     /**
@@ -59,9 +54,7 @@ final class FixtureFactory
     }
 
     /**
-     * Defines how to create a default entity of type `$className`.
-     *
-     * See the readme for a tutorial.
+     * Creates a definition for populating an entity with fake data.
      *
      * @phpstan-param class-string<T> $className
      * @phpstan-template T
@@ -150,6 +143,8 @@ final class FixtureFactory
     }
 
     /**
+     * Loads entity-definition providers from the specified directory.
+     *
      * @param string $directory
      *
      * @throws Exception\InvalidDefinition
@@ -198,6 +193,8 @@ final class FixtureFactory
     }
 
     /**
+     * Creates a single entity with all of its dependencies.
+     *
      * @phpstan-param class-string<T> $className
      * @phpstan-return T
      * @phpstan-template T
@@ -282,9 +279,7 @@ final class FixtureFactory
     }
 
     /**
-     * Get an array of entities and their dependencies.
-     *
-     * If you've called `persistOnGet()` then the entities are also persisted.
+     * Creates an array of entites with all of their dependencies.
      *
      * @phpstan-param class-string<T> $className
      * @phpstan-return array<int, T>
@@ -317,7 +312,7 @@ final class FixtureFactory
     }
 
     /**
-     * Enable persisting of entities after creation.
+     * Enables persisting of entities after creation.
      */
     public function persistAfterCreate(): void
     {
@@ -325,7 +320,7 @@ final class FixtureFactory
     }
 
     /**
-     * Disable persisting of entities after creation.
+     * Disables persisting of entities after creation.
      */
     public function doNotPersistAfterCreate(): void
     {
