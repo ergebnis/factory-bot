@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\FieldDefinition\Value;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Ergebnis\FactoryBot\Test\Unit;
 
 /**
  * @internal
@@ -27,7 +27,7 @@ use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
-final class ValueTest extends AbstractTestCase
+final class ValueTest extends Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()

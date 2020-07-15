@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\FieldDefinition\Reference;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Ergebnis\FactoryBot\Test\Unit;
 use Example\Entity;
 
 /**
@@ -29,7 +29,7 @@ use Example\Entity;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
-final class ReferenceTest extends AbstractTestCase
+final class ReferenceTest extends Unit\AbstractTestCase
 {
     public function testResolvesToObjectCreatedByFixtureFactory(): void
     {

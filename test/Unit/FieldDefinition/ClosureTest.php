@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\FieldDefinition\Closure;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit\AbstractTestCase;
+use Ergebnis\FactoryBot\Test\Unit;
 use Example\Entity;
 use Faker\Generator;
 
@@ -30,7 +30,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
-final class ClosureTest extends AbstractTestCase
+final class ClosureTest extends Unit\AbstractTestCase
 {
     public function testResolvesToResultOfInvokingClosureWithFakerAndFixtureFactory(): void
     {
