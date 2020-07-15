@@ -293,6 +293,8 @@ final class FixtureFactory
      * @param Count                                                    $count
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
+     * @throws Exception\EntityDefinitionNotRegistered
+     *
      * @return array<int, object>
      */
     public function createMany(string $className, Count $count, array $fieldDefinitionOverrides = []): array
