@@ -168,7 +168,7 @@ When you are working with nullable fields, you can use the following field defin
 - [`FieldDefinition::optionalSequence()`](#fielddefinitionoptionalsequence)
 - [`FieldDefinition::optionalValue()`](#fielddefinitionoptionalvalue)
 
-#### `FieldDefinition::closure()`
+##### `FieldDefinition::closure()`
 
 `FieldDefinition::closure()` accepts a closure.
 
@@ -247,7 +247,7 @@ var_dump($user->id());            // string
 var_dump($user->organizations()); // array with 1-5 instances of Entity\Organization
 ```
 
-#### `FieldDefinition::optionalClosure()`
+##### `FieldDefinition::optionalClosure()`
 
 `FieldDefinition::optionalClosure()` accepts a closure.
 
@@ -284,7 +284,7 @@ $user = $fixtureFactory->createOne(Entity\User::class);
 var_dump($user->location()); // null or a random city
 ```
 
-#### `FieldDefinition::reference()`
+##### `FieldDefinition::reference()`
 
 `FieldDefinition::reference()` accepts the class name of an entity or embeddable.
 
@@ -309,7 +309,7 @@ var_dump($user->avatar()); // an instance of Entity\Avatar
 
 :exclamation: When resolving the reference, the fixture factory needs to be aware of the referenced entity or embeddable.
 
-#### `FieldDefinition::optionalReference()`
+##### `FieldDefinition::optionalReference()`
 
 `FieldDefinition::optionalReference()` accepts the class name of an entity or embeddable.
 
@@ -334,7 +334,7 @@ var_dump($repository->template()); // null or an instance of Entity\Repository
 
 :exclamation: When resolving the reference, the fixture factory needs to be aware of the referenced entity or embeddable.
 
-#### `FieldDefinition::references()`
+##### `FieldDefinition::references()`
 
 `FieldDefinition::references()` accepts the class name of an entity or embeddable and the count of desired references.
 
@@ -384,7 +384,7 @@ var_dump($organization->repositories()); // array with 0-20 instances of Entity\
 
 :exclamation: When resolving the references, the fixture factory needs to be aware of the referenced entity or embeddable.
 
-#### `FieldDefinition::sequence()`
+##### `FieldDefinition::sequence()`
 
 `FieldDefinition::sequence()` accepts a string containing the `%d` placeholder at least once and an optional initial number (defaults to `1`).
 
@@ -414,7 +414,7 @@ var_dump($userOne->login()); // 'user-1'
 var_dump($userTwo->login()); // 'user-2'
 ```
 
-#### `FieldDefinition::optionalSequence()`
+##### `FieldDefinition::optionalSequence()`
 
 `FieldDefinition::optionalSequence()` accepts a string containing the `%d` placeholder at least once and an optional initial number (defaults to `1`).
 
@@ -444,7 +444,7 @@ var_dump($userOne->location()); // null or 'City 1'
 var_dump($userTwo->location()); // null or 'City 1' or 'City 2'
 ```
 
-#### `FieldDefinition::value()`
+##### `FieldDefinition::value()`
 
 `FieldDefinition::value()` accepts an arbitrary value.
 
@@ -486,7 +486,7 @@ $user = $fixtureFactory->createOne(Entity\User::class);
 var_dump($user->login()); // 'localheinz'
 ```
 
-#### `FieldDefinition::optionalValue()`
+##### `FieldDefinition::optionalValue()`
 
 `FieldDefinition::optionalValue()` accepts an arbitrary value.
 
