@@ -36,7 +36,7 @@ final class Count
     /**
      * @param int $value
      *
-     *@throws Exception\InvalidCount
+     * @throws Exception\InvalidCount
      *
      * @return self
      */
