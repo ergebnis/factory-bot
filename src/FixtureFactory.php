@@ -36,19 +36,20 @@ final class FixtureFactory
     private $faker;
 
     /**
+     * @var Persistence\PersistenceStrategy
+     */
+    private $persistenceStrategy;
+
+    /**
      * @var array<string, EntityDefinition>
      */
     private $entityDefinitions = [];
-
-    /**
-     * @var bool
-     */
-    private $persistAfterCreate = false;
 
     public function __construct(ORM\EntityManagerInterface $entityManager, Generator $faker)
     {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
+        $this->persistenceStrategy = new Persistence\NonPersistingStrategy();
     }
 
     /**
@@ -267,8 +268,11 @@ final class FixtureFactory
             $this->faker
         );
 
-        if ($this->persistAfterCreate && false === $classMetadata->isEmbeddedClass) {
-            $this->entityManager->persist($entity);
+        if (false === $classMetadata->isEmbeddedClass) {
+            $this->persistenceStrategy->persist(
+                $this->entityManager,
+                $entity
+            );
         }
 
         return $entity;
@@ -314,7 +318,7 @@ final class FixtureFactory
      */
     public function persistAfterCreate(): void
     {
-        $this->persistAfterCreate = true;
+        $this->persistenceStrategy = new Persistence\PersistingStrategy();
     }
 
     /**
@@ -322,7 +326,7 @@ final class FixtureFactory
      */
     public function doNotPersistAfterCreate(): void
     {
-        $this->persistAfterCreate = false;
+        $this->persistenceStrategy = new Persistence\NonPersistingStrategy();
     }
 
     /**
