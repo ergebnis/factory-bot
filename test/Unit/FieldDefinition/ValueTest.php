@@ -25,7 +25,6 @@ use Ergebnis\FactoryBot\Test\Unit;
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
 final class ValueTest extends Unit\AbstractTestCase
 {

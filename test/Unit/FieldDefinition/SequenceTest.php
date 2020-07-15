@@ -25,7 +25,6 @@ use Ergebnis\FactoryBot\Test\Unit;
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
 final class SequenceTest extends Unit\AbstractTestCase
 {
