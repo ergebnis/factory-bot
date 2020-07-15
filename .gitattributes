@@ -1,6 +1,5 @@
 /.github/               export-ignore
 /config/                export-ignore
-/example/               export-ignore
 /test/                  export-ignore
 /tools/                 export-ignore
 /.editorconfig          export-ignore
