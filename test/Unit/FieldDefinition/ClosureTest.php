@@ -28,6 +28,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
+ * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
 final class ClosureTest extends AbstractTestCase
 {

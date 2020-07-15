@@ -15,6 +15,7 @@ For a full diff see [`0.1.0...main`][0.1.0...main].
 * Split `FixtureFactory::persistOnGet()` into `FixtureFactory::persistAfterCreate()` and `FixtureFactory::doNotPersistAfterCreate()` ([#311]), by [@localheinz]
 * Merged `Definitions` into `FixtureFactory::load()` ([#312]), by [@localheinz]
 * Renamed `Definition` to `EntityDefinitionProvider` ([#314]), by [@localheinz]
+* Extracted persisting strategies ([#322]), by [@localheinz]
 
 ### Fixed
 
@@ -159,5 +160,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#312]: https://github.com/ergebnis/factory-bot/pull/312
 [#314]: https://github.com/ergebnis/factory-bot/pull/314
 [#321]: https://github.com/ergebnis/factory-bot/pull/321
+[#322]: https://github.com/ergebnis/factory-bot/pull/322
 
 [@localheinz]: https://github.com/localheinz

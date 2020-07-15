@@ -24,12 +24,13 @@ use Example\Entity;
  *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\References
  *
+ * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Count
+ * @uses \Ergebnis\FactoryBot\Persistence\NonPersistingStrategy
  */
 final class ReferencesTest extends AbstractTestCase
 {
