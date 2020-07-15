@@ -1175,6 +1175,23 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Entity\Organization::class, $organization);
     }
 
+    public function testCreateManyThrowsEntityDefinitionNotRegisteredWhenEntityDefinitionHasNotBeenRegistered(): void
+    {
+        $className = self::class;
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $this->expectException(Exception\EntityDefinitionNotRegistered::class);
+
+        $fixtureFactory->createMany(
+            $className,
+            Count::exact(3)
+        );
+    }
+
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
      *
