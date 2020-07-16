@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.2.0...main`][0.2.0...main].
+For a full diff see [`0.2.1...main`][0.2.1...main].
+
+## [`0.2.1`][0.2.1]
+
+For a full diff see [`0.2.0...0.2.1`][0.2.0...0.2.1].
+
+### Changed
+
+* Required `ergebnis/classy:^1.0.0` ([#338]), by [@localheinz]
 
 ## [`0.2.0`][0.2.0]
 
@@ -98,10 +106,12 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 
 [0.1.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.1.0
 [0.2.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.2.0
+[0.2.1]: https://github.com/ergebnis/factory-bot/releases/tag/0.2.1
 
 [fa9c564...0.1.0]: https://github.com/ergebnis/factory-bot/compare/fa9c564...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/factory-bot/compare/0.1.0...0.2.0
-[0.2.0...main]: https://github.com/ergebnis/factory-bot/compare/0.2.0...main
+[0.2.0...0.2.1]: https://github.com/ergebnis/factory-bot/compare/0.2.0...0.2.1
+[0.2.1...main]: https://github.com/ergebnis/factory-bot/compare/0.2.1...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
@@ -165,5 +175,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#312]: https://github.com/ergebnis/factory-bot/pull/312
 [#314]: https://github.com/ergebnis/factory-bot/pull/314
 [#321]: https://github.com/ergebnis/factory-bot/pull/321
+[#338]: https://github.com/ergebnis/factory-bot/pull/338
 
 [@localheinz]: https://github.com/localheinz
