@@ -162,7 +162,8 @@ use Faker\Generator;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
 $fixtureFactory->define(
-    Entity\User::class, [
+    Entity\User::class,
+    [
         'avatar' => FactoryBot\FieldDefinition::reference(Entity\Avatar::class),
         'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
             return $faker->uuid;
