@@ -30,6 +30,7 @@ final class RepositoryDefinitionProvider implements FactoryBot\EntityDefinitionP
                 return $faker->word;
             }),
             'organization' => FactoryBot\FieldDefinition::reference(Entity\Organization::class),
+            'template' => FactoryBot\FieldDefinition::optionalReference(Entity\Repository::class),
         ]);
     }
 }
