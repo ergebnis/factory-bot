@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e77e1de685e3d22eb281ab9b5b89039d",
+    "content-hash": "3cb69da35eb896637eaff6e0e76169b1",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3954,20 +3954,20 @@
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "0.12.18",
+            "version": "0.12.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "7de8b3232d024608facfc3360397d951dcb2f42b"
+                "reference": "78376cbf68e0c30c2ff16d6e38f3acf1fdd386b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/7de8b3232d024608facfc3360397d951dcb2f42b",
-                "reference": "7de8b3232d024608facfc3360397d951dcb2f42b",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/78376cbf68e0c30c2ff16d6e38f3acf1fdd386b4",
+                "reference": "78376cbf68e0c30c2ff16d6e38f3acf1fdd386b4",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.1",
+                "php": "^7.1 || ^8.0",
                 "phpstan/phpstan": "^0.12.33"
             },
             "conflict": {
@@ -4016,7 +4016,7 @@
                 "MIT"
             ],
             "description": "Doctrine extensions for PHPStan",
-            "time": "2020-07-18T10:46:43+00:00"
+            "time": "2020-07-21T14:46:27+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
