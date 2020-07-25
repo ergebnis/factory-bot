@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot;
 
-use Faker\Generator;
-
 final class Count
 {
     /**
@@ -80,15 +78,13 @@ final class Count
         );
     }
 
-    public function resolve(Generator $faker): int
+    public function minimum(): int
     {
-        if ($this->minimum === $this->maximum) {
-            return $this->minimum;
-        }
+        return $this->minimum;
+    }
 
-        return $faker->numberBetween(
-            $this->minimum,
-            $this->maximum
-        );
+    public function maximum(): int
+    {
+        return $this->maximum;
     }
 }

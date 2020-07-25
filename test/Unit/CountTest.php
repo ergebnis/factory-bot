@@ -16,7 +16,6 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\Test\Util\Helper;
-use Faker\Generator;
 use PHPUnit\Framework;
 
 /**
@@ -53,29 +52,13 @@ final class CountTest extends Framework\TestCase
      *
      * @param int $value
      */
-    public function testExactReturnsCountThatResolvesToValueWhenValueIsGreaterThanZero(int $value): void
+    public function testExactReturnsCountWhenValueIsGreaterThanZero(int $value): void
     {
-        $faker = new class() extends Generator {
-            /**
-             * @param int $min
-             * @param int $max
-             */
-            public function numberBetween($min = 0, $max = 2147483647): void
-            {
-                throw new \BadMethodCallException(\sprintf(
-                    'Method "%s" should not be called.',
-                    __METHOD__
-                ));
-            }
-        };
-
         $count = Count::exact($value);
 
         self::assertInstanceOf(Count::class, $count);
-
-        $resolved = $count->resolve($faker);
-
-        self::assertSame($value, $resolved);
+        self::assertSame($value, $count->minimum());
+        self::assertSame($value, $count->maximum());
     }
 
     /**
@@ -127,7 +110,7 @@ final class CountTest extends Framework\TestCase
      *
      * @param int $minimum
      */
-    public function testBetweenReturnsCountThatResolvesToValueBetweenMinimumAndMaximum(int $minimum): void
+    public function testBetweenReturnsCountWhenMinimumIsGreaterThanOrEqualToZeroAndMaximumIsGreaterThanMinimum(int $minimum): void
     {
         $faker = self::faker();
 
@@ -139,10 +122,7 @@ final class CountTest extends Framework\TestCase
         );
 
         self::assertInstanceOf(Count::class, $count);
-
-        $resolved = $count->resolve($faker);
-
-        self::assertGreaterThanOrEqual($minimum, $resolved);
-        self::assertLessThanOrEqual($maximum, $resolved);
+        self::assertSame($minimum, $count->minimum());
+        self::assertSame($maximum, $count->maximum());
     }
 }
