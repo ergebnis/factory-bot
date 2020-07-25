@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.2.1...main`][0.2.1...main].
 
+### Changed
+
+* Moved resolution of `Count` to `FixtureFactory` ([#351]), by [@localheinz]
+
 ## [`0.2.1`][0.2.1]
 
 For a full diff see [`0.2.0...0.2.1`][0.2.0...0.2.1].
@@ -15,7 +19,6 @@ For a full diff see [`0.2.0...0.2.1`][0.2.0...0.2.1].
 ### Changed
 
 * Required `ergebnis/classy:^1.0.0` ([#338]), by [@localheinz]
-* Moved resolution of `Count` to `FixtureFactory` ([#351]), by [@localheinz]
 
 ## [`0.2.0`][0.2.0]
 
