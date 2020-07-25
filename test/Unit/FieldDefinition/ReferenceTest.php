@@ -27,6 +27,7 @@ use Example\Entity;
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
+ * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
 final class ReferenceTest extends Unit\AbstractTestCase
 {

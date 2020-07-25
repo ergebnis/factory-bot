@@ -31,6 +31,11 @@ final class FixtureFactory
     private $faker;
 
     /**
+     * @var Strategy\ResolutionStrategy
+     */
+    private $resolutionStrategy;
+
+    /**
      * @var bool
      */
     private $persistAfterCreate = false;
@@ -44,6 +49,7 @@ final class FixtureFactory
     {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
+        $this->resolutionStrategy = new Strategy\DefaultStrategy();
     }
 
     /**
@@ -237,13 +243,10 @@ final class FixtureFactory
         );
 
         $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
-            if ($fieldDefinition instanceof FieldDefinition\Optional && !$this->faker->boolean()) {
-                return null;
-            }
-
-            return $fieldDefinition->resolve(
+            return $this->resolutionStrategy->resolveFieldValue(
                 $this->faker,
-                $this
+                $this,
+                $fieldDefinition
             );
         }, $fieldDefinitions);
 
@@ -292,9 +295,9 @@ final class FixtureFactory
      */
     public function createMany(string $className, Count $count, array $fieldDefinitionOverrides = []): array
     {
-        $resolved = $this->faker->numberBetween(
-            $count->minimum(),
-            $count->maximum()
+        $resolved = $this->resolutionStrategy->resolveCount(
+            $this->faker,
+            $count
         );
 
         if (0 === $resolved) {
