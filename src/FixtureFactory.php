@@ -292,7 +292,10 @@ final class FixtureFactory
      */
     public function createMany(string $className, Count $count, array $fieldDefinitionOverrides = []): array
     {
-        $resolved = $count->resolve($this->faker);
+        $resolved = $this->faker->numberBetween(
+            $count->minimum(),
+            $count->maximum()
+        );
 
         if (0 === $resolved) {
             return [];

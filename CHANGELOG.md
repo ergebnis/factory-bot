@@ -15,6 +15,7 @@ For a full diff see [`0.2.0...0.2.1`][0.2.0...0.2.1].
 ### Changed
 
 * Required `ergebnis/classy:^1.0.0` ([#338]), by [@localheinz]
+* Moved resolution of `Count` to `FixtureFactory` ([#351]), by [@localheinz]
 
 ## [`0.2.0`][0.2.0]
 
@@ -176,5 +177,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#314]: https://github.com/ergebnis/factory-bot/pull/314
 [#321]: https://github.com/ergebnis/factory-bot/pull/321
 [#338]: https://github.com/ergebnis/factory-bot/pull/338
+[#351]: https://github.com/ergebnis/factory-bot/pull/351
 
 [@localheinz]: https://github.com/localheinz
