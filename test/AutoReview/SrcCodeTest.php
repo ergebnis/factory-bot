@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\AutoReview;
 
-use Ergebnis\FactoryBot;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -31,10 +30,7 @@ final class SrcCodeTest extends Framework\TestCase
         self::assertClassesHaveTests(
             __DIR__ . '/../../src/',
             'Ergebnis\\FactoryBot\\',
-            'Ergebnis\\FactoryBot\\Test\\Unit',
-            [
-                FactoryBot\FieldDefinition::class,
-            ]
+            'Ergebnis\\FactoryBot\\Test\\Unit'
         );
     }
 }
