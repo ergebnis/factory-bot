@@ -11,6 +11,7 @@ For a full diff see [`0.2.1...main`][0.2.1...main].
 ### Changed
 
 * Moved resolution of `Count` to `FixtureFactory` ([#351]), by [@localheinz]
+* Extracted `DefaultStrategy` for resolving field values and count ([#353]), by [@localheinz]
 
 ## [`0.2.1`][0.2.1]
 
@@ -181,5 +182,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#321]: https://github.com/ergebnis/factory-bot/pull/321
 [#338]: https://github.com/ergebnis/factory-bot/pull/338
 [#351]: https://github.com/ergebnis/factory-bot/pull/351
+[#353]: https://github.com/ergebnis/factory-bot/pull/353
 
 [@localheinz]: https://github.com/localheinz

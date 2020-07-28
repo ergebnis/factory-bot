@@ -11,6 +11,9 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/FixtureFactory.php">
+    <MissingClosureReturnType occurrences="1">
+      <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>
+    </MissingClosureReturnType>
     <MixedAssignment occurrences="3">
       <code>$fieldValue</code>
       <code>$inversedBy</code>
@@ -206,5 +209,11 @@
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Strategy/DefaultStrategyTest.php">
+    <MixedAssignment occurrences="2">
+      <code>$resolved</code>
+      <code>$expected</code>
+    </MixedAssignment>
   </file>
 </files>
