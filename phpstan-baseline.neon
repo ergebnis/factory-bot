@@ -116,6 +116,26 @@ parameters:
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/MaximumGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/MaximumGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/MinimumGenerator.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			count: 1
+			path: test/Double/Faker/MinimumGenerator.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no typehint specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php

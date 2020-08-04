@@ -152,6 +152,50 @@ final class DefaultStrategyTest extends Unit\AbstractTestCase
         self::assertSame($value, $resolved);
     }
 
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
+     *
+     * @param int $minimum
+     */
+    public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMinimum(int $minimum): void
+    {
+        $maximum = self::faker()->numberBetween($minimum + 1);
+
+        $strategy = new DefaultStrategy();
+
+        $resolved = $strategy->resolveCount(
+            new Double\Faker\MinimumGenerator(),
+            Count::between(
+                $minimum,
+                $maximum
+            )
+        );
+
+        self::assertSame($minimum, $resolved);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanZero()
+     *
+     * @param int $maximum
+     */
+    public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMaximum(int $maximum): void
+    {
+        $minimum = self::faker()->numberBetween(0, $maximum - 1);
+
+        $strategy = new DefaultStrategy();
+
+        $resolved = $strategy->resolveCount(
+            new Double\Faker\MaximumGenerator(),
+            Count::between(
+                $minimum,
+                $maximum
+            )
+        );
+
+        self::assertSame($maximum, $resolved);
+    }
+
     public function testResolveCountResolvesCountWithFakerWhenCountIsBetween(): void
     {
         $faker = self::faker();
