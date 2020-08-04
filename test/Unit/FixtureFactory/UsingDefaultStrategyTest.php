@@ -39,55 +39,6 @@ use Faker\Generator;
  */
 final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
 {
-    public function testCreateOneResolvesFieldWithoutDefaultValueToNullWhenFieldDefinitionWasNotSpecified(): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        $fixtureFactory->define(Entity\Organization::class);
-
-        /** @var Entity\Organization $organization */
-        $organization = $fixtureFactory->createOne(Entity\Organization::class);
-
-        self::assertNull($organization->url());
-    }
-
-    public function testCreateOneResolvesFieldWithDefaultValueToItsDefaultValueWhenFieldDefinitionWasNotSpecified(): void
-    {
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            self::faker()
-        );
-
-        $fixtureFactory->define(Entity\Organization::class);
-
-        /** @var Entity\Organization $organization */
-        $organization = $fixtureFactory->createOne(Entity\Organization::class);
-
-        self::assertFalse($organization->isVerified());
-    }
-
-    public function testCreateOneResolvesOneToManyAssociationToEmptyArrayCollectionWhenFieldDefinitionWasNotSpecified(): void
-    {
-        $faker = self::faker();
-
-        $fixtureFactory = new FixtureFactory(
-            self::entityManager(),
-            $faker
-        );
-
-        $fixtureFactory->define(Entity\Organization::class, [
-            'name' => $faker->word,
-        ]);
-
-        /** @var Entity\Organization $organization */
-        $organization = $fixtureFactory->createOne(Entity\Organization::class);
-
-        self::assertEmpty($organization->repositories());
-    }
-
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
