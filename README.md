@@ -546,7 +546,7 @@ use Example\Entity;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
 $fixtureFactory->define(Entity\User::class, [
-    'location' => FactoryBot\FieldDefinition::value('Berlin'),
+    'location' => FactoryBot\FieldDefinition::optionalValue('Berlin'),
 ]);
 
 /** @var Entity\User $user */
