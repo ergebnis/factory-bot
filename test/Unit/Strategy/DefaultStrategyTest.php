@@ -136,16 +136,17 @@ final class DefaultStrategyTest extends Unit\AbstractTestCase
         self::assertSame($expected, $resolved);
     }
 
-    public function testResolveCountResolvesCountWithFakerWhenCountIsExact(): void
+    /**
+     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
+     *
+     * @param int $value
+     */
+    public function testResolveCountResolvesCountWithFakerWhenCountIsExact(int $value): void
     {
-        $faker = self::faker();
-
-        $value = $faker->numberBetween(1);
-
         $strategy = new DefaultStrategy();
 
         $resolved = $strategy->resolveCount(
-            $faker,
+            self::faker(),
             Count::exact($value)
         );
 
