@@ -76,6 +76,16 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
+			message: "#^Type mixed in generic type Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Reference\\<mixed\\> in PHPDoc tag @return is not subtype of template type T of object of class Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Reference\\.$#"
+			count: 1
+			path: src/FieldDefinition.php
+
+		-
+			message: "#^Type mixed in generic type Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\References\\<mixed\\> in PHPDoc tag @return is not subtype of template type T of object of class Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\References\\.$#"
+			count: 1
+			path: src/FieldDefinition.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
