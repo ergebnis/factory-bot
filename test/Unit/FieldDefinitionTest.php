@@ -18,6 +18,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
+use Faker\Generator;
 
 /**
  * @internal
@@ -38,7 +39,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsRequiredClosure(): void
     {
-        $closure = static function (FixtureFactory $fixtureFactory): Entity\User {
+        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
@@ -56,7 +57,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     public function testOptionalClosureReturnsOptionalClosure(): void
     {
-        $closure = static function (FixtureFactory $fixtureFactory): Entity\User {
+        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
