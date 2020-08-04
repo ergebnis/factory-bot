@@ -808,4 +808,64 @@ final class FixtureFactoryTest extends AbstractTestCase
             Count::exact(3)
         );
     }
+
+    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsValue(): void
+    {
+        $faker = self::faker();
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $value = $faker->numberBetween(1, 5);
+
+        $fixtureFactory->define(Entity\Organization::class);
+
+        $entities = $fixtureFactory->createMany(
+            Entity\Organization::class,
+            Count::exact($value),
+            [
+                'isVerified' => true,
+            ]
+        );
+
+        self::assertCount($value, $entities);
+
+        $verifiedEntities = \array_filter($entities, static function (Entity\Organization $organization): bool {
+            return $organization->isVerified();
+        });
+
+        self::assertCount($value, $verifiedEntities);
+    }
+
+    public function testCreateManyResolvesToArrayOfEntitiesWhenFieldDefinitionOverridesAreSpecifiedAsFieldDefinition(): void
+    {
+        $faker = self::faker();
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker
+        );
+
+        $value = $faker->numberBetween(1, 5);
+
+        $fixtureFactory->define(Entity\Organization::class);
+
+        $entities = $fixtureFactory->createMany(
+            Entity\Organization::class,
+            Count::exact($value),
+            [
+                'isVerified' => FieldDefinition::value(true),
+            ]
+        );
+
+        self::assertCount($value, $entities);
+
+        $verifiedEntities = \array_filter($entities, static function (Entity\Organization $organization): bool {
+            return $organization->isVerified();
+        });
+
+        self::assertCount($value, $verifiedEntities);
+    }
 }
