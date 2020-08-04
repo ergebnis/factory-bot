@@ -313,6 +313,25 @@ final class FixtureFactory
     }
 
     /**
+     * Returns a fixture factory that utilizes the WithOptionalStrategy.
+     *
+     * With this strategy
+     *
+     * - an optional reference is always resolved
+     * - references resolve to an array containing at least one reference
+     *
+     * @return self
+     */
+    public function withOptional(): self
+    {
+        $instance = clone $this;
+
+        $instance->resolutionStrategy = new Strategy\WithOptionalStrategy();
+
+        return $instance;
+    }
+
+    /**
      * Enables persisting of entities after creation.
      */
     public function persistAfterCreate(): void

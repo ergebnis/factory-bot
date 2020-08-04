@@ -308,7 +308,7 @@ $closure = static function (Generator $faker, FactoryBot\FixtureFactory $fixture
 };
 ```
 
-The fixture factory will resolve the field definition to `null` or to the return value of invoking the closure with the instance of `Faker\Generator` composed into the fixture factory.
+A fixture factory using the [`DefaultStrategy`](#defaultstrategy) will resolve the field definition to `null` or to the return value of invoking the closure with the instance of `Faker\Generator` composed into the fixture factory.
 
 ```php
 <?php
@@ -330,11 +330,35 @@ $user = $fixtureFactory->createOne(Entity\User::class);
 var_dump($user->location()); // null or a random city
 ```
 
+A fixture factory using the [`WithOptionalStrategy`](#withoptionalstrategy) will resolve the field definition to the return value of invoking the closure with the instance of `Faker\Generator` composed into the fixture factory.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+use Faker\Generator;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\User::class, [
+    'location' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
+        return $faker->city;
+    }),
+]);
+
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+/** @var Entity\User $user */
+$user = $withOptionalFixtureFactory->createOne(Entity\User::class);
+
+var_dump($user->location()); // a random city
+```
+
 ##### `FieldDefinition::reference()`
 
 `FieldDefinition::reference()` accepts the class name of an entity or embeddable.
 
-The fixture factory will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
+Every fixture factory will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
 
 ```php
 <?php
@@ -359,7 +383,7 @@ var_dump($user->avatar()); // an instance of Entity\Avatar
 
 `FieldDefinition::optionalReference()` accepts the class name of an entity or embeddable.
 
-The fixture factory will resolve the field definition to `null` or to an instance of the entity or embeddable class populated through the fixture factory.
+A fixture factory using the [`DefaultStrategy`](#defaultstrategy)] will resolve the field definition to `null` or to an instance of the entity or embeddable class populated through the fixture factory.
 
 ```php
 <?php
@@ -376,6 +400,27 @@ $fixtureFactory->define(Entity\Repository::class, [
 $repository = $fixtureFactory->createOne(Entity\Repository::class);
 
 var_dump($repository->template()); // null or an instance of Entity\Repository
+```
+
+A fixture factory using the [`WithOptionalStrategy`](#withoptionalstrategy)] will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\Repository::class, [
+    'template' => FactoryBot\FieldDefinition::optionalReference(Entity\Repository::class),
+]);
+
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+/** @var Entity\Repository $repository */
+$repository = $withOptionalFixtureFactory->createOne(Entity\Repository::class);
+
+var_dump($repository->template()); // an instance of Entity\Repository
 ```
 
 :exclamation: When resolving the reference, the fixture factory needs to be aware of the referenced entity or embeddable.
@@ -401,7 +446,7 @@ $otherCount = FactoryBot\Count::between(
 
 :bulb: When you create the count from minimum and maximum values, the fixture factory will resolve its actual value before creating references. This way, you can have variation in the number of references - any number between the minimum and maximum can be assumed.
 
-The fixture factory will resolve the field definition to an array of instances of the entity or embeddable class populated through the fixture factory.
+A fixture factory using the [`DefaultStrategy`](#defaultstrategy) will resolve the field definition to an array of instances of the entity or embeddable class populated through the fixture factory. Depending on the value of `$count`, the array might be empty.
 
 ```php
 <?php
@@ -428,13 +473,42 @@ var_dump($organization->members());      // array with 5 instances of Entity\Use
 var_dump($organization->repositories()); // array with 0-20 instances of Entity\Repository
 ```
 
+A fixture factory using the [`WithOptionalStrategy`](#withoptionalstrategy) will resolve the field definition to an array of instances of the entity or embeddable class populated through the fixture factory. The array will contain at least one reference.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\Organization::class, [
+    'members' => FactoryBot\FieldDefinition::references(
+        Entity\User::class,
+        FactoryBot\Count::exact(5)
+    ),
+    'repositories' => FactoryBot\FieldDefinition::references(
+        Entity\Repository::class,
+        FactoryBot\Count::between(0, 20)
+    ),
+]);
+
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+/** @var Entity\Organization $organization */
+$organization = $withOptionalFixtureFactory->createOne(Entity\Organization::class);
+
+var_dump($organization->members());      // array with 5 instances of Entity\User
+var_dump($organization->repositories()); // array with 1-20 instances of Entity\Repository
+```
+
 :exclamation: When resolving the references, the fixture factory needs to be aware of the referenced entity or embeddable.
 
 ##### `FieldDefinition::sequence()`
 
 `FieldDefinition::sequence()` accepts a string containing the `%d` placeholder at least once and an optional initial number (defaults to `1`).
 
-The fixture factory will resolve the field definition by replacing all occurrences of the placeholder `%d` in the string with the sequential number's current value. The sequential number will then be incremented by `1` for the next run.
+Every fixture factory will resolve the field definition by replacing all occurrences of the placeholder `%d` in the string with the sequential number's current value. The sequential number will then be incremented by `1` for the next run.
 
 ```php
 <?php
@@ -464,7 +538,7 @@ var_dump($userTwo->login()); // 'user-2'
 
 `FieldDefinition::optionalSequence()` accepts a string containing the `%d` placeholder at least once and an optional initial number (defaults to `1`).
 
-The fixture factory will resolve the field definition to `null` or by replacing all occurrences of the placeholder `%d` in the string with the sequential number's current value. The sequential number will then be incremented by `1` for the next run.
+A fixture factory using the [`DefaultStrategy`](#defaultstrategy) will resolve the field definition to `null` or by replacing all occurrences of the placeholder `%d` in the string with the sequential number's current value. The sequential number will then be incremented by `1` for the next run.
 
 ```php
 <?php
@@ -488,6 +562,34 @@ $userTwo = $fixtureFactory->createOne(Entity\User::class);
 
 var_dump($userOne->location()); // null or 'City 1'
 var_dump($userTwo->location()); // null or 'City 1' or 'City 2'
+```
+
+A fixture factory using the [`WithOptionalStrategy`](#withoptionalstrategy) will resolve the field definition by replacing all occurrences of the placeholder `%d` in the string with the sequential number's current value. The sequential number will then be incremented by `1` for the next run.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\User::class, [
+    'location' => FactoryBot\FieldDefinition::optionalSequence(
+        'City %d',
+        1
+    ),
+]);
+
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+/** @var Entity\User $userOne */
+$userOne = $withOptionalFixtureFactory->createOne(Entity\User::class);
+
+/** @var Entity\User $userTwo */
+$userTwo = $withOptionalFixtureFactory->createOne(Entity\User::class);
+
+var_dump($userOne->location()); // 'City 1'
+var_dump($userTwo->location()); // 'City 2'
 ```
 
 ##### `FieldDefinition::value()`
@@ -536,7 +638,7 @@ var_dump($user->login()); // 'localheinz'
 
 `FieldDefinition::optionalValue()` accepts an arbitrary value.
 
-The fixture factory will resolve the field definition to `null` or the value.
+A fixture factory using the [`DefaultStrategy`](#defaultstrategy) will resolve the field definition to `null` or the value.
 
 ```php
 <?php
@@ -553,6 +655,27 @@ $fixtureFactory->define(Entity\User::class, [
 $user = $fixtureFactory->create(Entity\User::class);
 
 var_dump($user->location()); // null or 'Berlin'
+```
+
+A fixture factory using the [`WithOptionalStrategy`](#withoptionalstrategy) will resolve the field definition to the value.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\User::class, [
+    'location' => FactoryBot\FieldDefinition::optionalValue('Berlin'),
+]);
+
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+/** @var Entity\User $user */
+$user = $withOptionalFixtureFactory->create(Entity\User::class);
+
+var_dump($user->location()); // 'Berlin'
 ```
 
 ### Loading entity definitions
@@ -615,6 +738,41 @@ abstract class AbstractTestCase extends Framework\TestCase
 ### Creating entities
 
 Now that you have created (or loaded) entity definitions, you can create Doctrine entities populated with fake data.
+
+#### `DefaultStrategy`
+
+The fixture factory uses a `DefaultStrategy` for resolving field definitions.
+
+This strategy involves random behavior, and
+
+- [`FieldDefinition::optionalClosure()`](#fielddefinitionoptionalclosure) might be resolved to `null` a concrete value
+- [`FieldDefinition::optionalReference()`](#fielddefinitionoptionalreference) might be resolved to `null` or a concrete reference
+- [`FieldDefinition::optionalSequence()`](#fielddefinitionoptionalsequence) might be resolved to `null` or a concrete value
+- [`FieldDefinition::optionalValue()`](#fielddefinitionoptionalvalue) might be resolved to `null` or a concrete value
+- [`FieldDefinition::references()`](#fielddefinitionreferences) might be resolved to an empty `array` or an `array` of references
+
+:bulb: You might have a scenario where you have entity definitions that use optional field definitions, but would like to create an entity where these optional field definitions are resolved to concrete values or references. In this case you can use a fixture factory with the `WithOptionalStrategy`.
+
+#### `WithOptionalStrategy`
+
+To create a fixture factory using the `WithOptionalStrategy` out of an available fixture factory, invoke `withOptional()`:
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
+```
+
+This strategy still involves random behavior, but
+
+- [`FieldDefinition::optionalClosure()`](#fielddefinitionoptionalclosure) will be resolved to a concrete value
+- [`FieldDefinition::optionalReference()`](#fielddefinitionoptionalreference) will be resolved to a concrete value
+- [`FieldDefinition::optionalSequence()`](#fielddefinitionoptionalsequence) will be resolved to a concrete value
+- [`FieldDefinition::optionalValue()`](#fielddefinitionoptionalvalue) will be resolved to a concrete value
+- [`FieldDefinition::references()`](#fielddefinitionreferences) will be resolved to a non-empty `array`
 
 #### `FixtureFactory::createOne()`
 
