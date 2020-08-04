@@ -26,7 +26,6 @@ use Faker\Generator;
  * @internal
  *
  * @covers \Ergebnis\FactoryBot\FixtureFactory
- * @covers \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  *
  * @uses \Ergebnis\FactoryBot\Count
  * @uses \Ergebnis\FactoryBot\EntityDefinition
@@ -45,6 +44,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\References
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
+ * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
 final class FixtureFactoryTest extends AbstractTestCase
 {
