@@ -19,9 +19,9 @@ use Faker\Generator;
 /**
  * @internal
  *
- * @phpstan-template T
+ * @phpstan-template T of object
  *
- * @psalm-template T
+ * @psalm-template T of object
  */
 final class Reference implements Resolvable
 {
