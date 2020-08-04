@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.2.1...main`][0.2.1...main].
 
+### Added
+
+* Implemented a `WithOptionalStrategy` ([#365]), by [@localheinz]
+
 ### Changed
 
 * Moved resolution of `Count` to `FixtureFactory` ([#351]), by [@localheinz]
@@ -183,5 +187,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#338]: https://github.com/ergebnis/factory-bot/pull/338
 [#351]: https://github.com/ergebnis/factory-bot/pull/351
 [#353]: https://github.com/ergebnis/factory-bot/pull/353
+[#365]: https://github.com/ergebnis/factory-bot/pull/365
 
 [@localheinz]: https://github.com/localheinz
