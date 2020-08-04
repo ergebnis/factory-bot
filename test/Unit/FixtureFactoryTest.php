@@ -503,7 +503,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalClosure(static function (FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
+            'codeOfConduct' => FieldDefinition::optionalClosure(static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Entity\CodeOfConduct::class);
             }),
         ]);
