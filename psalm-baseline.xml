@@ -40,6 +40,30 @@
       <code>$max</code>
     </MixedArgument>
   </file>
+  <file src="test/Double/Faker/MaximumGenerator.php">
+    <MissingParamType occurrences="2">
+      <code>$min</code>
+      <code>$max</code>
+    </MissingParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>int</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$max</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="test/Double/Faker/MinimumGenerator.php">
+    <MissingParamType occurrences="2">
+      <code>$min</code>
+      <code>$max</code>
+    </MissingParamType>
+    <MixedInferredReturnType occurrences="1">
+      <code>int</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$min</code>
+    </MixedReturnStatement>
+  </file>
   <file src="test/Double/Faker/TrueGenerator.php">
     <MissingParamType occurrences="3">
       <code>$chanceOfGettingTrue</code>
