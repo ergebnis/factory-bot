@@ -100,7 +100,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $value
      */
-    public function testReferencesReturnsRequiredReferencesWhenCountIsSpecified(int $value): void
+    public function testReferencesReturnsReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Entity\User::class;
 

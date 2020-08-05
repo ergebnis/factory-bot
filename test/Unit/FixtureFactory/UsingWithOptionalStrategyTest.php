@@ -221,7 +221,7 @@ final class UsingWithOptionalStrategyTest extends Unit\AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsExact(int $value): void
+    public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -253,7 +253,7 @@ final class UsingWithOptionalStrategyTest extends Unit\AbstractTestCase
      *
      * @param int $value
      */
-    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsExact(int $value): void
+    public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -282,7 +282,7 @@ final class UsingWithOptionalStrategyTest extends Unit\AbstractTestCase
         self::assertCount($value, $repositories);
     }
 
-    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsBetween(): void
+    public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsBetween(): void
     {
         $faker = self::faker();
 
@@ -318,7 +318,7 @@ final class UsingWithOptionalStrategyTest extends Unit\AbstractTestCase
         self::assertLessThanOrEqual($maximum, \count($organization->repositories()));
     }
 
-    public function testCreateOneResolvesRequiredReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsBetween(): void
+    public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsBetween(): void
     {
         $faker = self::faker();
 
