@@ -375,3 +375,8 @@ parameters:
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\FixtureFactory' and Ergebnis\\\\FactoryBot\\\\FixtureFactory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactoryTest.php
+
