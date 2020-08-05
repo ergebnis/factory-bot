@@ -81,7 +81,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -102,7 +102,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -161,7 +161,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredReferenceToEntityWhenFakerReturnsFalse(): void
+    public function testCreateOneResolvesReferenceToEntityWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -180,7 +180,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    public function testCreateOneResolvesRequiredReferenceToEntityWhenFakerReturnsTrue(): void
+    public function testCreateOneResolvesReferenceToEntityWhenFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -371,7 +371,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateOneResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsFalse(): void
+    public function testCreateOneResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -396,7 +396,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
         self::assertSame('City (3)', $userThree->location());
     }
 
-    public function testCreateOneResolvesRequiredSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
+    public function testCreateOneResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),

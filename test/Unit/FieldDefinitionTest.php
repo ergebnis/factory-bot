@@ -37,7 +37,7 @@ use Faker\Generator;
  */
 final class FieldDefinitionTest extends AbstractTestCase
 {
-    public function testClosureReturnsRequiredClosure(): void
+    public function testClosureReturnsClosure(): void
     {
         $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
             /** @var Entity\User $user */
@@ -73,7 +73,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    public function testReferenceReturnsRequiredReference(): void
+    public function testReferenceReturnsReference(): void
     {
         $className = Entity\User::class;
 
@@ -136,7 +136,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         );
     }
 
-    public function testSequenceReturnsRequiredSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
+    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsNotSpecified(): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -155,7 +155,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param int $initialNumber
      */
-    public function testSequenceReturnsRequiredSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
+    public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
@@ -232,7 +232,7 @@ final class FieldDefinitionTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testValueReturnsRequiredValue($value): void
+    public function testValueReturnsValue($value): void
     {
         $fieldDefinition = FieldDefinition::value($value);
 
