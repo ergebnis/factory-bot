@@ -220,9 +220,10 @@
       <code>$name</code>
       <code>$fieldValues['name']</code>
     </MixedArgument>
-    <RedundantCondition occurrences="6">
+    <RedundantCondition occurrences="7">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
@@ -243,6 +244,14 @@
     </MixedAssignment>
   </file>
   <file src="test/Unit/Strategy/WithOptionalStrategyTest.php">
+    <MixedAssignment occurrences="4">
+      <code>$resolved</code>
+      <code>$expected</code>
+      <code>$resolved</code>
+      <code>$expected</code>
+    </MixedAssignment>
+  </file>
+  <file src="test/Unit/Strategy/WithoutOptionalStrategyTest.php">
     <MixedAssignment occurrences="4">
       <code>$resolved</code>
       <code>$expected</code>
