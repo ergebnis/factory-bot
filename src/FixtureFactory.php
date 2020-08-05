@@ -332,19 +332,17 @@ final class FixtureFactory
     }
 
     /**
-     * Enables persisting of entities after creation.
+     * Returns a fixture factory that persists entities after creation.
+     *
+     * @return self
      */
-    public function persistAfterCreate(): void
+    public function persisting(): self
     {
-        $this->persistAfterCreate = true;
-    }
+        $instance = clone $this;
 
-    /**
-     * Disables persisting of entities after creation.
-     */
-    public function doNotPersistAfterCreate(): void
-    {
-        $this->persistAfterCreate = false;
+        $instance->persistAfterCreate = true;
+
+        return $instance;
     }
 
     /**
