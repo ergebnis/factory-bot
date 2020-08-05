@@ -220,9 +220,10 @@
       <code>$name</code>
       <code>$fieldValues['name']</code>
     </MixedArgument>
-    <RedundantCondition occurrences="5">
+    <RedundantCondition occurrences="6">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>

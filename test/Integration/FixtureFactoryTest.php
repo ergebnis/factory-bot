@@ -63,7 +63,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($organization);
     }
 
-    public function testCreateOnePersistsEntityWhenPersistAfterCreateHasBeenEnabled(): void
+    public function testCreateOnePersistsEntityWhenFixtureFactoryIsPersisting(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -82,9 +82,9 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => $name,
         ]);
 
-        $fixtureFactory->persistAfterCreate();
+        $persistingFixtureFactory = $fixtureFactory->persisting();
 
-        $fixtureFactory->createOne(Entity\Organization::class);
+        $persistingFixtureFactory->createOne(Entity\Organization::class);
 
         $entityManager->flush();
         $entityManager->clear();
@@ -96,38 +96,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Entity\Organization::class, $organization);
     }
 
-    public function testCreateOneDoesNotPersistEntityWhenPersistAfterCreateHasBeenDisabled(): void
-    {
-        $entityManager = self::entityManager();
-        $faker = self::faker();
-
-        $fixtureFactory = new FixtureFactory(
-            $entityManager,
-            $faker
-        );
-
-        $name = $faker->word;
-
-        $fixtureFactory->define(Entity\Organization::class, [
-            'name' => $name,
-        ]);
-
-        $fixtureFactory->persistAfterCreate();
-        $fixtureFactory->doNotPersistAfterCreate();
-
-        $fixtureFactory->createOne(Entity\Organization::class);
-
-        $entityManager->flush();
-        $entityManager->clear();
-
-        $organization = $entityManager->getRepository(Entity\Organization::class)->findOneBy([
-            'name' => $name,
-        ]);
-
-        self::assertNull($organization);
-    }
-
-    public function testCreateOneDoesNotPersistEmbeddablesWhenPersistAfterCreateHasBeenEnabled(): void
+    public function testCreateOneDoesNotPersistEmbeddablesWhenFixtureFactoryIsPersisting(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -151,9 +120,9 @@ final class FixtureFactoryTest extends AbstractTestCase
             'login' => $faker->userName,
         ]);
 
-        $fixtureFactory->persistAfterCreate();
+        $persistingFixtureFactory = $fixtureFactory->persisting();
 
-        $fixtureFactory->createOne(Entity\User::class);
+        $persistingFixtureFactory->createOne(Entity\User::class);
 
         $entityManager->flush();
 
@@ -186,7 +155,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertEmpty($organizations);
     }
 
-    public function testCreateManyPersistsEntitiesWhenPersistAfterCreateHasBeenEnabled(): void
+    public function testCreateManyPersistsEntitiesWhenFixtureFactoryIsPersisting(): void
     {
         $entityManager = self::entityManager();
         $faker = self::faker();
@@ -203,11 +172,11 @@ final class FixtureFactoryTest extends AbstractTestCase
             'name' => FieldDefinition::sequence('name-%d'),
         ]);
 
-        $fixtureFactory->persistAfterCreate();
+        $persistingFixtureFactory = $fixtureFactory->persisting();
 
         $value = $faker->numberBetween(1, 5);
 
-        $fixtureFactory->createMany(
+        $persistingFixtureFactory->createMany(
             Entity\Organization::class,
             Count::exact($value)
         );
@@ -218,37 +187,5 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organizations = $entityManager->getRepository(Entity\Organization::class)->findAll();
 
         self::assertCount($value, $organizations);
-    }
-
-    public function testCreateManyDoesNotPersistEntitiesWhenPersistAfterCreateHasBeenDisabled(): void
-    {
-        $entityManager = self::entityManager();
-        $faker = self::faker();
-
-        $fixtureFactory = new FixtureFactory(
-            $entityManager,
-            $faker
-        );
-
-        $fixtureFactory->define(Entity\Organization::class, [
-            'name' => FieldDefinition::sequence('name-%d'),
-        ]);
-
-        $fixtureFactory->persistAfterCreate();
-        $fixtureFactory->doNotPersistAfterCreate();
-
-        $value = $faker->numberBetween(1, 5);
-
-        $fixtureFactory->createMany(
-            Entity\Organization::class,
-            Count::exact($value)
-        );
-
-        $entityManager->flush();
-        $entityManager->clear();
-
-        $organizations = $entityManager->getRepository(Entity\Organization::class)->findAll();
-
-        self::assertEmpty($organizations);
     }
 }

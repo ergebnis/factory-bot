@@ -1052,9 +1052,7 @@ Also see [Creating entity definitions](#creating-entity-definitions).
 
 When the fixture factory creates entities, the fixture factory does not persist them by default.
 
-#### Enabling persistence
-
-You can activate the automatic persistence of entities by invoking `FixtureFactory::persistAfterCreate()`.
+To create a fixture factory that persists entities out of an available fixture factory, invoke `persisting()`:
 
 ```php
 <?php
@@ -1062,27 +1060,12 @@ You can activate the automatic persistence of entities by invoking `FixtureFacto
 use Ergebnis\FactoryBot;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
-$fixtureFactory->persistAfterCreate();
+$persistingFixtureFactory = $fixtureFactory->persisting();
 ```
 
 After this point, the fixture factory will automatically persist every entity it creates.
 
 :exclamation: You need to flush the entity manager yourself.
-
-#### Disabling persistence
-
-If you have previously activated the automatic persistence of entities, you can disable it by invoking `FixtureFactory::doNotPersistAfterCreate()`.
-
-```php
-<?php
-
-use Ergebnis\FactoryBot;
-
-/** @var FactoryBot\FixtureFactory $fixtureFactory */
-$fixtureFactory->doNotPersistAfterCreate();
-```
-
-After this point, the fixture factory will not automatically persist any entity it creates.
 
 ### Flushing entities
 
