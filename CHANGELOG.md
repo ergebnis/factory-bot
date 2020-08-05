@@ -11,6 +11,7 @@ For a full diff see [`0.2.1...main`][0.2.1...main].
 ### Added
 
 * Implemented a `WithOptionalStrategy` ([#365]), by [@localheinz]
+* Implemented a `WithoutOptionalStrategy` ([#369]), by [@localheinz]
 
 ### Changed
 
@@ -188,5 +189,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#351]: https://github.com/ergebnis/factory-bot/pull/351
 [#353]: https://github.com/ergebnis/factory-bot/pull/353
 [#365]: https://github.com/ergebnis/factory-bot/pull/365
+[#369]: https://github.com/ergebnis/factory-bot/pull/369
 
 [@localheinz]: https://github.com/localheinz
