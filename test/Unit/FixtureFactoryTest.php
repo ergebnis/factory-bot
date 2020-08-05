@@ -868,4 +868,17 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         self::assertCount($value, $verifiedEntities);
     }
+
+    public function testWithOptionalReturnsMutatedFixtureFactory(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $withOptionalFixtureFactory = $fixtureFactory->withOptional();
+
+        self::assertInstanceOf(FixtureFactory::class, $withOptionalFixtureFactory);
+        self::assertNotSame($fixtureFactory, $withOptionalFixtureFactory);
+    }
 }
