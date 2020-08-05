@@ -882,6 +882,19 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNotSame($fixtureFactory, $withOptionalFixtureFactory);
     }
 
+    public function testWitoutOptionalReturnsMutatedFixtureFactory(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker()
+        );
+
+        $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
+
+        self::assertInstanceOf(FixtureFactory::class, $withoutOptionalFixtureFactory);
+        self::assertNotSame($fixtureFactory, $withoutOptionalFixtureFactory);
+    }
+
     public function testPersistingReturnsMutatedFixtureFactory(): void
     {
         $fixtureFactory = new FixtureFactory(

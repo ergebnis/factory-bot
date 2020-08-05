@@ -332,6 +332,25 @@ final class FixtureFactory
     }
 
     /**
+     * Returns a fixture factory that utilizes the WithoutOptionalStrategy.
+     *
+     * With this strategy
+     *
+     * - an optional reference is never resolved
+     * - references resolve to an array containing only the minimum number of references
+     *
+     * @return self
+     */
+    public function withoutOptional(): self
+    {
+        $instance = clone $this;
+
+        $instance->resolutionStrategy = new Strategy\WithoutOptionalStrategy();
+
+        return $instance;
+    }
+
+    /**
      * Returns a fixture factory that persists entities after creation.
      *
      * @return self

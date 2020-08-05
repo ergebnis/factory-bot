@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.3.0...main`][0.3.0...main].
+For a full diff see [`0.3.1...main`][0.3.1...main].
+
+## [`0.3.1`][0.3.1]
+
+For a full diff see [`0.3.0...0.3.1`][0.3.0...0.3.1].
+
+### Fixed
+
+* Actually implemented `WithoutOptionalStrategy` ([#375]), by [@localheinz]
 
 ## [`0.3.0`][0.3.0]
 
@@ -123,12 +131,14 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [0.2.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.2.0
 [0.2.1]: https://github.com/ergebnis/factory-bot/releases/tag/0.2.1
 [0.3.0]: https://github.com/ergebnis/factory-bot/releases/tag/0.3.0
+[0.3.1]: https://github.com/ergebnis/factory-bot/releases/tag/0.3.1
 
 [fa9c564...0.1.0]: https://github.com/ergebnis/factory-bot/compare/fa9c564...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/factory-bot/compare/0.1.0...0.2.0
 [0.2.0...0.2.1]: https://github.com/ergebnis/factory-bot/compare/0.2.0...0.2.1
 [0.2.1...0.3.0]: https://github.com/ergebnis/factory-bot/compare/0.2.1...0.3.0
-[0.3.0...main]: https://github.com/ergebnis/factory-bot/compare/0.3.0...main
+[0.3.0...0.3.1]: https://github.com/ergebnis/factory-bot/compare/0.3.0...0.3.1
+[0.3.1...main]: https://github.com/ergebnis/factory-bot/compare/0.3.1...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
@@ -198,5 +208,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#365]: https://github.com/ergebnis/factory-bot/pull/365
 [#369]: https://github.com/ergebnis/factory-bot/pull/369
 [#374]: https://github.com/ergebnis/factory-bot/pull/374
+[#375]: https://github.com/ergebnis/factory-bot/pull/375
 
 [@localheinz]: https://github.com/localheinz
