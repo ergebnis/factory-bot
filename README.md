@@ -39,7 +39,7 @@ You will use the fixture factory to create entity definitions and to create Doct
 
 You can find examples in
 
-- the directory [`example/`](example/) 
+- the directory [`example/`](example/)
 - the repository [`ergebnis/factory-bot-example`](https://github.com/ergebnis/factory-bot-example)
 
 ### Creating a fixture factory
