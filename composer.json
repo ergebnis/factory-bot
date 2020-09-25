@@ -22,7 +22,7 @@
     "doctrine/annotations": "^1.7.0",
     "doctrine/collections": "^1.0.0",
     "doctrine/orm": "^2.6.3",
-    "ergebnis/classy": "^1.0.0",
+    "ergebnis/classy": "^1.1.0",
     "fzaninotto/faker": "^1.9.1"
   },
   "require-dev": {
