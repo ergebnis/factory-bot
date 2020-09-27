@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da0a423ae4e5388c9e4bd0660bc6281f",
+    "content-hash": "dbfe74de033b193148ca66458862c55c",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2657,37 +2657,37 @@
         },
         {
             "name": "ergebnis/test-util",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/test-util.git",
-                "reference": "44bdb78d14fbaf6411002c16022fd1bb7327ad37"
+                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/44bdb78d14fbaf6411002c16022fd1bb7327ad37",
-                "reference": "44bdb78d14fbaf6411002c16022fd1bb7327ad37",
+                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/bbb15e417b44044a93ac083fa1d73ae5551c7505",
+                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505",
                 "shasum": ""
             },
             "require": {
-                "ergebnis/classy": "^1.0.0",
+                "ergebnis/classy": "^1.1.0",
                 "fzaninotto/faker": "^1.9.0",
-                "php": "^7.1"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2.4",
-                "ergebnis/license": "~0.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.1.0",
-                "ergebnis/phpstan-rules": "~0.14.3",
-                "infection/infection": "~0.13.6",
-                "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.14",
-                "phpstan/phpstan-deprecation-rules": "~0.12.2",
-                "phpstan/phpstan-phpunit": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.2",
-                "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.9.0",
-                "vimeo/psalm": "^3.9.5"
+                "ergebnis/composer-normalize": "^2.7.1",
+                "ergebnis/license": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/phpstan-rules": "~0.15.2",
+                "infection/infection": "~0.15.3",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan": "~0.12.40",
+                "phpstan/phpstan-deprecation-rules": "~0.12.5",
+                "phpstan/phpstan-phpunit": "~0.12.16",
+                "phpstan/phpstan-strict-rules": "~0.12.4",
+                "phpunit/phpunit": "^8.5.8",
+                "psalm/plugin-phpunit": "~0.11.0",
+                "vimeo/psalm": "^3.14.2"
             },
             "type": "library",
             "autoload": {
@@ -2715,19 +2715,11 @@
             ],
             "funding": [
                 {
-                    "url": "http://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
                     "url": "https://github.com/localheinz",
                     "type": "github"
                 }
             ],
-            "time": "2020-03-11T11:08:49+00:00"
+            "time": "2020-08-30T10:56:49+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
