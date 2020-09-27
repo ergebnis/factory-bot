@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.16@d03e5ef057d6adc656c0ff7e166c50b73b4f48f3">
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$providerClassName</code>
@@ -20,15 +20,15 @@
       <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>
     </MissingClosureReturnType>
     <MixedAssignment occurrences="3">
+      <code>$collection</code>
       <code>$fieldValue</code>
       <code>$inversedBy</code>
-      <code>$collection</code>
     </MixedAssignment>
     <TooManyArguments occurrences="1"/>
     <UnnecessaryVarAnnotation occurrences="3">
-      <code>array&lt;int, string&gt;</code>
       <code>EntityDefinition</code>
       <code>ORM\Mapping\ClassMetadata</code>
+      <code>array&lt;int, string&gt;</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/DataProvider/ValueProvider.php">
@@ -42,18 +42,18 @@
   <file src="test/Double/Faker/FalseGenerator.php">
     <MissingParamType occurrences="3">
       <code>$chanceOfGettingTrue</code>
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MissingParamType>
     <MixedArgument occurrences="2">
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MixedArgument>
   </file>
   <file src="test/Double/Faker/MaximumGenerator.php">
     <MissingParamType occurrences="2">
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MissingParamType>
     <MixedInferredReturnType occurrences="1">
       <code>int</code>
@@ -64,8 +64,8 @@
   </file>
   <file src="test/Double/Faker/MinimumGenerator.php">
     <MissingParamType occurrences="2">
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MissingParamType>
     <MixedInferredReturnType occurrences="1">
       <code>int</code>
@@ -77,12 +77,12 @@
   <file src="test/Double/Faker/TrueGenerator.php">
     <MissingParamType occurrences="3">
       <code>$chanceOfGettingTrue</code>
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MissingParamType>
     <MixedArgument occurrences="2">
-      <code>$min</code>
       <code>$max</code>
+      <code>$min</code>
     </MixedArgument>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
@@ -243,18 +243,18 @@
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
     <UnnecessaryVarAnnotation occurrences="22">
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
@@ -275,18 +275,18 @@
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation occurrences="24">
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
@@ -309,18 +309,18 @@
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation occurrences="24">
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
       <code>Entity\User</code>
@@ -346,17 +346,17 @@
       <code>$className</code>
     </ArgumentTypeCoercion>
     <MixedArgument occurrences="2">
-      <code>$name</code>
       <code>$fieldValues['name']</code>
+      <code>$name</code>
     </MixedArgument>
     <RedundantCondition occurrences="7">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
       <code>assertNotNull</code>
       <code>assertNotNull</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="5">
       <code>assertInstanceOf</code>
@@ -366,7 +366,6 @@
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
     <UnnecessaryVarAnnotation occurrences="23">
-      <code>Entity\User</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -374,21 +373,22 @@
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\User</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
+      <code>Entity\Organization</code>
+      <code>Entity\Organization</code>
+      <code>Entity\Organization</code>
       <code>Entity\Project</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\Repository</code>
+      <code>Entity\User</code>
+      <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
     <UnusedClosureParam occurrences="1">
       <code>$user</code>
@@ -399,16 +399,16 @@
   </file>
   <file src="test/Unit/Strategy/DefaultStrategyTest.php">
     <MixedAssignment occurrences="2">
-      <code>$resolved</code>
       <code>$expected</code>
+      <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/Strategy/WithOptionalStrategyTest.php">
     <MixedAssignment occurrences="4">
-      <code>$resolved</code>
+      <code>$expected</code>
       <code>$expected</code>
       <code>$resolved</code>
-      <code>$expected</code>
+      <code>$resolved</code>
     </MixedAssignment>
   </file>
 </files>
