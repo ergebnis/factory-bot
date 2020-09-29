@@ -33,13 +33,29 @@ final class Reference implements Resolvable
     private string $className;
 
     /**
+     * @phpstan-var array<string, \Closure|mixed|Resolvable>
+     *
+     * @psalm-var array<string, \Closure|mixed|Resolvable>
+     *
+     * @var array<string, \Closure|mixed|Resolvable>
+     */
+    private array $fieldDefinitionOverrides;
+
+    /**
      * @phpstan-param class-string<T> $className
+     * @phpstan-param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      *
      * @psalm-param class-string<T> $className
+     * @psalm-param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
+     *
+     * @param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      */
-    public function __construct(string $className)
-    {
+    public function __construct(
+        string $className,
+        array $fieldDefinitionOverrides = []
+    ) {
         $this->className = $className;
+        $this->fieldDefinitionOverrides = $fieldDefinitionOverrides;
     }
 
     /**
@@ -53,6 +69,9 @@ final class Reference implements Resolvable
         Generator $faker,
         FixtureFactory $fixtureFactory
     ) {
-        return $fixtureFactory->createOne($this->className);
+        return $fixtureFactory->createOne(
+            $this->className,
+            $this->fieldDefinitionOverrides,
+        );
     }
 }

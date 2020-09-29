@@ -27,44 +27,68 @@ final class FieldDefinition
 
     /**
      * @phpstan-param class-string<T> $className
+     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
      * @phpstan-return FieldDefinition\Reference<T>
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
+     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
      * @psalm-return FieldDefinition\Reference<T>
      * @psalm-template T
+     *
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      */
-    public static function reference(string $className): FieldDefinition\Reference
-    {
-        return new FieldDefinition\Reference($className);
+    public static function reference(
+        string $className,
+        array $fieldDefinitionOverrides = []
+    ): FieldDefinition\Reference {
+        return new FieldDefinition\Reference(
+            $className,
+            $fieldDefinitionOverrides,
+        );
     }
 
     /**
      * @phpstan-param class-string $className
+     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
      *
      * @psalm-param class-string $className
+     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     *
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      */
-    public static function optionalReference(string $className): FieldDefinition\Optional
-    {
-        return new FieldDefinition\Optional(new FieldDefinition\Reference($className));
+    public static function optionalReference(
+        string $className,
+        array $fieldDefinitionOverrides = []
+    ): FieldDefinition\Optional {
+        return new FieldDefinition\Optional(new FieldDefinition\Reference(
+            $className,
+            $fieldDefinitionOverrides,
+        ));
     }
 
     /**
      * @phpstan-param class-string<T> $className
      * @phpstan-return FieldDefinition\References<T>
+     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
+     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
      * @psalm-return FieldDefinition\References<T>
      * @psalm-template T
+     *
+     * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      */
     public static function references(
         string $className,
-        Count $count
+        Count $count,
+        array $fieldDefinitionOverrides = []
     ): FieldDefinition\References {
         return new FieldDefinition\References(
             $className,
             $count,
+            $fieldDefinitionOverrides,
         );
     }
 
