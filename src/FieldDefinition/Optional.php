@@ -32,9 +32,6 @@ final class Optional implements Resolvable
     }
 
     /**
-     * @param FixtureFactory $fixtureFactory
-     * @param Generator      $faker
-     *
      * @return mixed
      */
     public function resolve(Generator $faker, FixtureFactory $fixtureFactory)

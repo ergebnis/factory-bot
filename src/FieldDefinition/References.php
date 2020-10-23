@@ -44,9 +44,6 @@ final class References implements Resolvable
      * @phpstan-param class-string<T> $className
      *
      * @psalm-param class-string<T> $className
-     *
-     * @param string $className
-     * @param Count  $count
      */
     public function __construct(string $className, Count $count)
     {
@@ -58,9 +55,6 @@ final class References implements Resolvable
      * @phpstan-return array<int, T>
      *
      * @psalm-return list<T>
-     *
-     * @param Generator      $faker
-     * @param FixtureFactory $fixtureFactory
      *
      * @return array<int, object>
      */

@@ -33,9 +33,6 @@ final class Sequence implements Resolvable
     private $sequentialNumber;
 
     /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
      * @throws Exception\InvalidSequence
      */
     public function __construct(string $value, int $initialNumber)

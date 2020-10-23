@@ -32,11 +32,7 @@ final class Count
     }
 
     /**
-     * @param int $value
-     *
      * @throws Exception\InvalidCount
-     *
-     * @return self
      */
     public static function exact(int $value): self
     {
@@ -51,13 +47,8 @@ final class Count
     }
 
     /**
-     * @param int $minimum
-     * @param int $maximum
-     *
      * @throws Exception\InvalidMaximum
      * @throws Exception\InvalidMinimum
-     *
-     * @return self
      */
     public static function between(int $minimum, int $maximum): self
     {

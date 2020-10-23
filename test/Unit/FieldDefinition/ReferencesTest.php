@@ -36,8 +36,6 @@ final class ReferencesTest extends Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {

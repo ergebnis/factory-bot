@@ -24,10 +24,6 @@ use Faker\Generator;
 interface ResolutionStrategy
 {
     /**
-     * @param Generator                  $faker
-     * @param FixtureFactory             $fixtureFactory
-     * @param FieldDefinition\Resolvable $fieldDefinition
-     *
      * @return mixed
      */
     public function resolveFieldValue(
