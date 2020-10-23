@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.16@d03e5ef057d6adc656c0ff7e166c50b73b4f48f3">
+<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$providerClassName</code>
@@ -19,10 +19,8 @@
     <MissingClosureReturnType occurrences="1">
       <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MixedAssignment occurrences="3">
-      <code>$collection</code>
+    <MixedAssignment occurrences="1">
       <code>$fieldValue</code>
-      <code>$inversedBy</code>
     </MixedAssignment>
     <TooManyArguments occurrences="1"/>
     <UnnecessaryVarAnnotation occurrences="3">
