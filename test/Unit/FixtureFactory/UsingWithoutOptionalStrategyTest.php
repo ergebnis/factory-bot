@@ -218,8 +218,6 @@ final class UsingWithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsExact(int $value): void
     {
@@ -250,8 +248,6 @@ final class UsingWithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsExact(int $value): void
     {
@@ -462,8 +458,6 @@ final class UsingWithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsExact(int $value): void
     {
@@ -486,8 +480,6 @@ final class UsingWithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $minimum
      */
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsBetween(int $minimum): void
     {

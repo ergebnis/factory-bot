@@ -133,8 +133,6 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testResolveCountResolvesCountToValueWhenCountIsExact(int $value): void
     {
@@ -152,8 +150,6 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $minimum
      */
     public function testResolveCountResolvesCountToMininumWhenCountIsBetween(int $minimum): void
     {

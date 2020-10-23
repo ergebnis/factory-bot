@@ -33,8 +33,6 @@ final class CountTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
-     *
-     * @param int $value
      */
     public function testExactRejectsValueLessThanZero(int $value): void
     {
@@ -49,8 +47,6 @@ final class CountTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $value
      */
     public function testExactReturnsCountWhenValueIsGreaterThanZero(int $value): void
     {
@@ -63,8 +59,6 @@ final class CountTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
-     *
-     * @param int $minimum
      */
     public function testBetweenRejectsMinimumLessThanZero(int $minimum): void
     {
@@ -84,8 +78,6 @@ final class CountTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $difference
      */
     public function testBetweenRejectsMaximumNotGreaterThanMinimum(int $difference): void
     {
@@ -107,8 +99,6 @@ final class CountTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     *
-     * @param int $minimum
      */
     public function testBetweenReturnsCountWhenMinimumIsGreaterThanOrEqualToZeroAndMaximumIsGreaterThanMinimum(int $minimum): void
     {

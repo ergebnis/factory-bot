@@ -51,9 +51,6 @@ final class Value implements Resolvable
      *
      * @psalm-return T
      *
-     * @param Generator      $faker
-     * @param FixtureFactory $fixtureFactory
-     *
      * @return mixed
      */
     public function resolve(Generator $faker, FixtureFactory $fixtureFactory)

@@ -19,9 +19,6 @@ use Faker\Generator;
 interface Resolvable
 {
     /**
-     * @param Generator      $faker
-     * @param FixtureFactory $fixtureFactory
-     *
      * @return mixed
      */
     public function resolve(Generator $faker, FixtureFactory $fixtureFactory);

@@ -33,10 +33,6 @@ final class FieldDefinition
      * @psalm-param class-string<T> $className
      * @psalm-return FieldDefinition\Reference<T>
      * @psalm-template T
-     *
-     * @param string $className
-     *
-     * @return FieldDefinition\Reference
      */
     public static function reference(string $className): FieldDefinition\Reference
     {
@@ -47,10 +43,6 @@ final class FieldDefinition
      * @phpstan-param class-string $className
      *
      * @psalm-param class-string $className
-     *
-     * @param string $className
-     *
-     * @return FieldDefinition\Optional
      */
     public static function optionalReference(string $className): FieldDefinition\Optional
     {
@@ -65,11 +57,6 @@ final class FieldDefinition
      * @psalm-param class-string<T> $className
      * @psalm-return FieldDefinition\References<T>
      * @psalm-template T
-     *
-     * @param string $className
-     * @param Count  $count
-     *
-     * @return FieldDefinition\References
      */
     public static function references(string $className, Count $count): FieldDefinition\References
     {
@@ -80,12 +67,7 @@ final class FieldDefinition
     }
 
     /**
-     * @param string $value
-     * @param int    $initialNumber
-     *
      * @throws Exception\InvalidSequence
-     *
-     * @return FieldDefinition\Sequence
      */
     public static function sequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
     {
@@ -113,8 +95,6 @@ final class FieldDefinition
      * @psalm-template T
      *
      * @param mixed $value
-     *
-     * @return FieldDefinition\Value
      */
     public static function value($value): FieldDefinition\Value
     {
@@ -123,8 +103,6 @@ final class FieldDefinition
 
     /**
      * @param mixed $value
-     *
-     * @return FieldDefinition\Optional
      */
     public static function optionalValue($value): FieldDefinition\Optional
     {

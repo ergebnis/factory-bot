@@ -38,8 +38,6 @@ final class Reference implements Resolvable
      * @phpstan-param class-string<T> $className
      *
      * @psalm-param class-string<T> $className
-     *
-     * @param string $className
      */
     public function __construct(string $className)
     {
@@ -50,9 +48,6 @@ final class Reference implements Resolvable
      * @phpstan-return T
      *
      * @psalm-return T
-     *
-     * @param Generator      $faker
-     * @param FixtureFactory $fixtureFactory
      *
      * @return object
      */
