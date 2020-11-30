@@ -39,7 +39,7 @@
     "phpstan/phpstan-doctrine": "~0.12.25",
     "phpstan/phpstan-phpunit": "~0.12.16",
     "phpstan/phpstan-strict-rules": "~0.12.5",
-    "phpunit/phpunit": "^8.5.9",
+    "phpunit/phpunit": "^8.5.11",
     "psalm/plugin-phpunit": "~0.12.2",
     "ramsey/uuid": "^4.1.1",
     "vimeo/psalm": "^3.18"
