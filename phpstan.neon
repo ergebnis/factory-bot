@@ -3,8 +3,10 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+
 	doctrine:
 		objectManagerLoader: config/object-manager.php
+
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Ergebnis\FactoryBot\Definition\AbstractDefinition
@@ -15,9 +17,12 @@ parameters:
 			- InvalidArgumentException
 			- RuntimeException
 	inferPrivatePropertyTypeFromConstructor: true
+
 	level: max
+
 	paths:
 		- example/
 		- src/
 		- test/
+
 	tmpDir: .build/phpstan/
