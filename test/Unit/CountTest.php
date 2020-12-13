@@ -23,9 +23,9 @@ use PHPUnit\Framework;
  *
  * @covers \Ergebnis\FactoryBot\Count
  *
+ * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  * @uses \Ergebnis\FactoryBot\Exception\InvalidMaximum
  * @uses \Ergebnis\FactoryBot\Exception\InvalidMinimum
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
  */
 final class CountTest extends Framework\TestCase
 {
