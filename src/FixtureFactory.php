@@ -201,8 +201,8 @@ final class FixtureFactory
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
-     * @throws Exception\InvalidFieldNames
      * @throws Exception\EntityDefinitionNotRegistered
+     * @throws Exception\InvalidFieldNames
      *
      * @return object
      */
