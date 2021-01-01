@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": "^7.3",
-    "doctrine/annotations": "^1.7.0",
+    "doctrine/annotations": "^1.10.3",
     "doctrine/collections": "^1.0.0",
     "doctrine/orm": "^2.6.3",
     "ergebnis/classy": "^1.1.0",
