@@ -15,6 +15,7 @@ For a full diff see [`0.3.1...0.3.2`][0.3.1...0.3.2].
 ### Fixed
 
 * Started using `fakerphp/faker` instead of `fzaninotto/faker` ([#459]), by [@localheinz]
+* Dropped support for PHP 7.2 ([#493]), by [@localheinz]
 
 ## [`0.3.1`][0.3.1]
 
@@ -220,5 +221,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#374]: https://github.com/ergebnis/factory-bot/pull/374
 [#375]: https://github.com/ergebnis/factory-bot/pull/375
 [#459]: https://github.com/ergebnis/factory-bot/pull/459
+[#493]: https://github.com/ergebnis/factory-bot/pull/493
 
 [@localheinz]: https://github.com/localheinz
