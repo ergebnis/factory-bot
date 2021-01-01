@@ -12,7 +12,8 @@ For a full diff see [`0.3.2...main`][0.3.2...main].
 
 * Required at least `doctrine/annotations:^1.10.3` ([#495]), by [@localheinz]
 * Required at least `doctrine/collections:^1.6.5` ([#496]), by [@localheinz]
-* Required at least `doctrine/orm:^2.8.0` ([#497]), by [@localheinz]
+* Required at least `doctrine/orm:^2.8.0` ([#498]), by [@localheinz]
+* Required at least `doctrine/dbal:^2.12.0` ([#499]), by [@localheinz]
 
 ### Fixed
 
@@ -233,6 +234,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#493]: https://github.com/ergebnis/factory-bot/pull/493
 [#495]: https://github.com/ergebnis/factory-bot/pull/495
 [#496]: https://github.com/ergebnis/factory-bot/pull/496
-[#497]: https://github.com/ergebnis/factory-bot/pull/497
+[#498]: https://github.com/ergebnis/factory-bot/pull/498
+[#499]: https://github.com/ergebnis/factory-bot/pull/499
 
 [@localheinz]: https://github.com/localheinz
