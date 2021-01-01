@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.3.2...main`][0.3.2...main].
 
+### Fixed
+
+* Dropped support for PHP 7.2 ([#493]), by [@localheinz]
+
 ## [`0.3.2`][0.3.2]
 
 For a full diff see [`0.3.1...0.3.2`][0.3.1...0.3.2].
@@ -15,7 +19,6 @@ For a full diff see [`0.3.1...0.3.2`][0.3.1...0.3.2].
 ### Fixed
 
 * Started using `fakerphp/faker` instead of `fzaninotto/faker` ([#459]), by [@localheinz]
-* Dropped support for PHP 7.2 ([#493]), by [@localheinz]
 
 ## [`0.3.1`][0.3.1]
 
