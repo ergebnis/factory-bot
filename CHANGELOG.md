@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.3.2...main`][0.3.2...main].
 
+### Changed
+
+* Required at least `doctrine/annotations:^1.10.3` ([#494]), by [@localheinz]
+
 ### Fixed
 
 * Dropped support for PHP 7.2 ([#493]), by [@localheinz]
@@ -225,5 +229,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#375]: https://github.com/ergebnis/factory-bot/pull/375
 [#459]: https://github.com/ergebnis/factory-bot/pull/459
 [#493]: https://github.com/ergebnis/factory-bot/pull/493
+[#494]: https://github.com/ergebnis/factory-bot/pull/494
 
 [@localheinz]: https://github.com/localheinz
