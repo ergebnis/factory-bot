@@ -724,7 +724,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $actualName = $organization->name();
 
-        self::assertRegExp($expectedPattern, $actualName);
+        self::assertMatchesRegularExpression($expectedPattern, $actualName);
     }
 
     public function testCreateOneCreatesReferencedObjectAutomatically(): void

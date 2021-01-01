@@ -48,7 +48,7 @@ final class EntityDefinitionTest extends Framework\TestCase
         $this->expectException(Exception\InvalidFieldDefinitions::class);
 
         new EntityDefinition(
-            $this->prophesize(ORM\Mapping\ClassMetadata::class)->reveal(),
+            $this->createMock(ORM\Mapping\ClassMetadata::class),
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
                 // intentionally left blank
@@ -58,7 +58,7 @@ final class EntityDefinitionTest extends Framework\TestCase
 
     public function testConstructorSetsValues(): void
     {
-        $classMetadata = $this->prophesize(ORM\Mapping\ClassMetadata::class);
+        $classMetadata = $this->createMock(ORM\Mapping\ClassMetadata::class);
 
         $fieldDefinitions = [
             'foo' => FieldDefinition::value('bar'),
@@ -70,12 +70,12 @@ final class EntityDefinitionTest extends Framework\TestCase
         };
 
         $entityDefiniton = new EntityDefinition(
-            $classMetadata->reveal(),
+            $classMetadata,
             $fieldDefinitions,
             $afterCreate
         );
 
-        self::assertSame($classMetadata->reveal(), $entityDefiniton->classMetadata());
+        self::assertSame($classMetadata, $entityDefiniton->classMetadata());
         self::assertSame($fieldDefinitions, $entityDefiniton->fieldDefinitions());
         self::assertSame($afterCreate, $entityDefiniton->afterCreate());
     }
