@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.3",
     "doctrine/annotations": "^1.7.0",
     "doctrine/collections": "^1.0.0",
     "doctrine/orm": "^2.6.3",
@@ -46,7 +46,7 @@
   },
   "config": {
     "platform": {
-      "php": "7.2.25"
+      "php": "7.3.24"
     },
     "preferred-install": "dist",
     "sort-packages": true
