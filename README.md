@@ -1,9 +1,9 @@
 # factory-bot
 
-[![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
-[![Prune](https://github.com/ergebnis/factory-bot/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
-[![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
-[![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions)
+[![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
+[![Prune](https://github.com/ergebnis/factory-bot/workflows/Prune/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
+[![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
+[![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/factory-bot/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/factory-bot)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/factory-bot/coverage.svg)](https://shepherd.dev/github/ergebnis/factory-bot)
