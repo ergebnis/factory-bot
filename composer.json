@@ -26,12 +26,6 @@
     "ergebnis/classy": "^1.1.0",
     "fakerphp/faker": "^1.11.0"
   },
-  "replace": {
-    "symfony/polyfill-php70": "*",
-    "symfony/polyfill-php71": "*",
-    "symfony/polyfill-php72": "*",
-    "symfony/polyfill-php73": "*"
-  },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.13.2",
     "ergebnis/license": "^1.1.0",
