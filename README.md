@@ -1094,7 +1094,7 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 
 ## Credits
 
-This project is based on [`breerly/factory-girl-php@0e6f1b6`](https://github.com/unhashable/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) (originally licensed under MIT by [Grayson Koonce](https://github.com/unhashable)), which is based on [`xi/doctrine`](https://github.com/xi-project/xi-doctrine) (originally licensed under MIT by [Xi](https://github.com/xi-project)), which in turn provided a port of [`factory_bot`](https://github.com/thoughtbot/factory_girl) (originally licensed under MIT by [Joe Ferris](https://github.com/jferris) and [thoughtbot, Inc.](https://github.com/thoughtbot)).
+This project is based on [`breerly/factory-girl-php@0e6f1b6`](https://github.com/GoodPete/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) (originally licensed under MIT by [Grayson Koonce](https://github.com/unhashable)), which is based on [`xi/doctrine`](https://github.com/xi-project/xi-doctrine) (originally licensed under MIT by [Xi](https://github.com/xi-project)), which in turn provided a port of [`factory_bot`](https://github.com/thoughtbot/factory_girl) (originally licensed under MIT by [Joe Ferris](https://github.com/jferris) and [thoughtbot, Inc.](https://github.com/thoughtbot)).
 
 ## Curious what I am building?
 
