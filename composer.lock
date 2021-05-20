@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f4d03b171dc966a13481a21afb0a7ba",
+    "content-hash": "e378f7c50a12b7f5dde4716d6cec8ebf",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2356,21 +2356,21 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.13.2",
+            "version": "2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "1255dbc6acb55cb439ce871513b3877a43473a59"
+                "reference": "1d5fd0a87ea2baa91b643815dbec8d722c7532db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/1255dbc6acb55cb439ce871513b3877a43473a59",
-                "reference": "1255dbc6acb55cb439ce871513b3877a43473a59",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/1d5fd0a87ea2baa91b643815dbec8d722c7532db",
+                "reference": "1d5fd0a87ea2baa91b643815dbec8d722c7532db",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1.0 || ^2.0.0",
-                "ergebnis/json-normalizer": "^1.0.2",
+                "ergebnis/json-normalizer": "^1.0.3",
                 "ergebnis/json-printer": "^3.1.1",
                 "justinrainbow/json-schema": "^5.2.10",
                 "localheinz/diff": "^1.1.1",
@@ -2379,18 +2379,18 @@
             "require-dev": {
                 "composer/composer": "^1.10.19 || ^2.0.8",
                 "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.10.0",
+                "ergebnis/php-cs-fixer-config": "^2.14.0",
                 "ergebnis/phpstan-rules": "~0.15.3",
-                "ergebnis/test-util": "^1.4.0",
+                "ergebnis/test-util": "^1.5.0",
                 "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.64",
+                "phpstan/phpstan": "~0.12.84",
                 "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-phpunit": "~0.12.17",
-                "phpstan/phpstan-strict-rules": "~0.12.7",
-                "phpunit/phpunit": "^8.5.13",
-                "psalm/plugin-phpunit": "~0.12.2",
-                "symfony/filesystem": "^5.1.8",
-                "vimeo/psalm": "^3.18.2"
+                "phpstan/phpstan-phpunit": "~0.12.19",
+                "phpstan/phpstan-strict-rules": "~0.12.9",
+                "phpunit/phpunit": "^8.5.15",
+                "psalm/plugin-phpunit": "~0.15.0",
+                "symfony/filesystem": "^5.2.7",
+                "vimeo/psalm": "^4.7.2"
             },
             "type": "composer-plugin",
             "extra": {
@@ -2433,20 +2433,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-31T09:51:22+00:00"
+            "time": "2021-05-19T12:26:29+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "6da58f6b555959c07724181744664e732555d0be"
+                "reference": "4a7f064ce34d5a2e382564565cdd433dbc5b9494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/6da58f6b555959c07724181744664e732555d0be",
-                "reference": "6da58f6b555959c07724181744664e732555d0be",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/4a7f064ce34d5a2e382564565cdd433dbc5b9494",
+                "reference": "4a7f064ce34d5a2e382564565cdd433dbc5b9494",
                 "shasum": ""
             },
             "require": {
@@ -2463,11 +2463,11 @@
                 "infection/infection": "~0.15.3",
                 "jangregor/phpstan-prophecy": "~0.8.1",
                 "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.60",
+                "phpstan/phpstan": "~0.12.80",
                 "phpstan/phpstan-deprecation-rules": "~0.12.6",
                 "phpstan/phpstan-phpunit": "~0.12.17",
-                "phpstan/phpstan-strict-rules": "~0.12.7",
-                "phpunit/phpunit": "^8.5.13",
+                "phpstan/phpstan-strict-rules": "~0.12.9",
+                "phpunit/phpunit": "^8.5.14",
                 "psalm/plugin-phpunit": "~0.12.2",
                 "vimeo/psalm": "^3.18"
             },
@@ -2503,7 +2503,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-31T09:27:51+00:00"
+            "time": "2021-03-06T13:33:57+00:00"
         },
         {
             "name": "ergebnis/json-printer",
