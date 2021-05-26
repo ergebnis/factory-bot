@@ -410,7 +410,7 @@ var_dump($user->avatar()); // an instance of Entity\Avatar
 
 `FieldDefinition::optionalReference()` accepts the class name of an entity or embeddable.
 
-A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrategy)] will resolve the field definition to `null` or an instance of the entity or embeddable class populated through the fixture factory.
+A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrategy) will resolve the field definition to `null` or an instance of the entity or embeddable class populated through the fixture factory.
 
 ```php
 <?php
@@ -429,7 +429,7 @@ $repository = $fixtureFactory->createOne(Entity\Repository::class);
 var_dump($repository->template()); // null or an instance of Entity\Repository
 ```
 
-A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptionalstrategy)] will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
+A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptionalstrategy) will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
 
 ```php
 <?php
@@ -450,7 +450,7 @@ $repository = $withOptionalFixtureFactory->createOne(Entity\Repository::class);
 var_dump($repository->template()); // an instance of Entity\Repository
 ```
 
-A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithoutoptionalstrategy)] will resolve the field definition to `null`.
+A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithoutoptionalstrategy) will resolve the field definition to `null`.
 
 ```php
 <?php
