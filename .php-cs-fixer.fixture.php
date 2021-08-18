@@ -28,7 +28,7 @@ $license->save();
 
 $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php73($license->header()), [
     'mb_str_functions' => false,
-    'psr4' => false,
+    'psr_autoloading' => false,
 ]);
 
 $config->getFinder()->in(__DIR__ . '/test/Fixture/DefinitionProvider/CanNotBeAutoloaded');
