@@ -9,20 +9,10 @@ updates:
     directory: "/"
     ignore:
       - dependency-name: "doctrine/annotations"
-        versions:
-          - ">= 0"
       - dependency-name: "doctrine/collections"
-        versions:
-          - ">= 0"
       - dependency-name: "doctrine/dbal"
-        versions:
-          - ">= 0"
       - dependency-name: "doctrine/orm"
-        versions:
-          - ">= 0"
       - dependency-name: "fakerphp/faker"
-        versions:
-          - ">= 0"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
