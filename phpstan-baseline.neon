@@ -36,12 +36,12 @@ parameters:
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:codeOfConduct\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:codeOfConduct\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: example/src/Entity/Repository.php
 
@@ -76,14 +76,9 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Type mixed in generic type Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Reference\\<mixed\\> in PHPDoc tag @return is not subtype of template type T of object of class Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Reference\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:collectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
-			path: src/FieldDefinition.php
-
-		-
-			message: "#^Type mixed in generic type Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\References\\<mixed\\> in PHPDoc tag @return is not subtype of template type T of object of class Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\References\\.$#"
-			count: 1
-			path: src/FieldDefinition.php
+			path: src/FixtureFactory.php
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
@@ -92,11 +87,6 @@ parameters:
 
 		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:collectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -161,12 +151,12 @@ parameters:
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
@@ -176,12 +166,12 @@ parameters:
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
@@ -191,12 +181,12 @@ parameters:
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
@@ -206,14 +196,19 @@ parameters:
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
 			count: 1
-			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
+			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidCount' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
@@ -226,9 +221,9 @@ parameters:
 			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidCountTest.php
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			count: 3
+			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDefinition' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
@@ -241,9 +236,9 @@ parameters:
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
-			count: 3
-			path: test/Unit/Exception/InvalidDefinitionTest.php
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDirectoryTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDirectory' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
@@ -256,9 +251,9 @@ parameters:
 			path: test/Unit/Exception/InvalidDirectoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
 			count: 1
-			path: test/Unit/Exception/InvalidDirectoryTest.php
+			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldDefinitions' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
@@ -271,9 +266,9 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			count: 2
+			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldNames' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
@@ -286,9 +281,9 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
-			count: 2
-			path: test/Unit/Exception/InvalidFieldNamesTest.php
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMaximumTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMaximum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
@@ -301,9 +296,9 @@ parameters:
 			path: test/Unit/Exception/InvalidMaximumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
 			count: 1
-			path: test/Unit/Exception/InvalidMaximumTest.php
+			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMinimum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
@@ -316,9 +311,9 @@ parameters:
 			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
 			count: 1
-			path: test/Unit/Exception/InvalidMinimumTest.php
+			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidSequence' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
@@ -327,11 +322,6 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidSequenceTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
@@ -346,13 +336,18 @@ parameters:
 			path: test/Unit/FieldDefinition/ReferencesTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
-			count: 1
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\FixtureFactory' and Ergebnis\\\\FactoryBot\\\\FixtureFactory will always evaluate to true\\.$#"
+			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Organization' and Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 2
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Project' and Example\\\\Entity\\\\Project will always evaluate to true\\.$#"
+			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
@@ -371,12 +366,7 @@ parameters:
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Project' and Example\\\\Entity\\\\Project will always evaluate to true\\.$#"
+			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
 			count: 1
-			path: test/Unit/FixtureFactoryTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\FixtureFactory' and Ergebnis\\\\FactoryBot\\\\FixtureFactory will always evaluate to true\\.$#"
-			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
