@@ -39,7 +39,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
@@ -49,7 +49,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\TrueGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         self::assertNull($resolved);
@@ -61,7 +61,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
@@ -71,7 +71,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\FalseGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         self::assertNull($resolved);
@@ -83,7 +83,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
@@ -93,12 +93,12 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\TrueGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -110,7 +110,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
@@ -120,12 +120,12 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\FalseGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -142,7 +142,7 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
 
         $resolved = $strategy->resolveCount(
             $faker,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         self::assertSame($value, $resolved);
@@ -163,8 +163,8 @@ final class WithoutOptionalStrategyTest extends Unit\AbstractTestCase
             $faker,
             Count::between(
                 $minimum,
-                $maximum
-            )
+                $maximum,
+            ),
         );
 
         self::assertSame($minimum, $resolved);

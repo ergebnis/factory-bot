@@ -39,14 +39,14 @@ final class ValueTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = new Value($value);
 
         $resolved = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($value, $resolved);

@@ -34,7 +34,7 @@ final class InvalidDirectoryTest extends Framework\TestCase
 
         $message = \sprintf(
             'Directory should be a directory, but "%s" is not.',
-            $directory
+            $directory,
         );
 
         self::assertInstanceOf(Exception\InvalidDirectory::class, $exception);

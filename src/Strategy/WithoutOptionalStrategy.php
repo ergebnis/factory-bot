@@ -34,7 +34,7 @@ final class WithoutOptionalStrategy implements ResolutionStrategy
 
         return $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
     }
 

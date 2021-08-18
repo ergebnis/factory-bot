@@ -104,12 +104,12 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::references(
             $className,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         $expected = new FieldDefinition\References(
             $className,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -125,12 +125,12 @@ final class FieldDefinitionTest extends AbstractTestCase
         $this->expectException(Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
+            $value,
         ));
 
         FieldDefinition::sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
     }
 
@@ -142,7 +142,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $expected = new FieldDefinition\Sequence(
             $value,
-            1
+            1,
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -157,12 +157,12 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
 
         $expected = new FieldDefinition\Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -178,12 +178,12 @@ final class FieldDefinitionTest extends AbstractTestCase
         $this->expectException(Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
+            $value,
         ));
 
         FieldDefinition::optionalSequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
     }
 
@@ -195,7 +195,7 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
-            1
+            1,
         ));
 
         self::assertEquals($expected, $fieldDefinition);
@@ -210,12 +210,12 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalSequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
 
         $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         ));
 
         self::assertEquals($expected, $fieldDefinition);

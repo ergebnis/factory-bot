@@ -28,7 +28,7 @@ final class InvalidFieldNames extends \InvalidArgumentException implements Excep
         return new self(\sprintf(
             $template,
             $className,
-            \implode('", "', $fieldNames)
+            \implode('", "', $fieldNames),
         ));
     }
 }

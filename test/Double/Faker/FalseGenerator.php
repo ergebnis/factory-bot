@@ -26,7 +26,7 @@ final class FalseGenerator extends Generator
     {
         return \mt_rand(
             $min,
-            $max
+            $max,
         );
     }
 }

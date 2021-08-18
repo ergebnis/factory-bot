@@ -19,7 +19,7 @@ final class InvalidCount extends \InvalidArgumentException implements Exception
     {
         return new self(\sprintf(
             'Count needs to be greater than or equal to 0, but %d is not.',
-            $count
+            $count,
         ));
     }
 }

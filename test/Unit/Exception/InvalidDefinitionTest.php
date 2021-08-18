@@ -38,7 +38,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
         $message = \sprintf(
             'Definition "%s" can not be autoloaded.',
-            $className
+            $className,
         );
 
         self::assertSame($message, $exception->getMessage());
@@ -56,7 +56,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
         $message = \sprintf(
             'Definition "%s" can not be instantiated.',
-            $className
+            $className,
         );
 
         self::assertSame($message, $exception->getMessage());
@@ -69,7 +69,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
         $exception = Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
             $className,
-            $previousException
+            $previousException,
         );
 
         self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
@@ -78,7 +78,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
         $message = \sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',
-            $className
+            $className,
         );
 
         self::assertSame($message, $exception->getMessage());

@@ -20,7 +20,7 @@ final class InvalidMaximum extends \InvalidArgumentException implements Exceptio
         return new self(\sprintf(
             'Maximum needs to be greater than minimum %d, but %d is not.',
             $minimum,
-            $maximum
+            $maximum,
         ));
     }
 }

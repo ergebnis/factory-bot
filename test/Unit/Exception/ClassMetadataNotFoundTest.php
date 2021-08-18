@@ -31,7 +31,7 @@ final class ClassMetadataNotFoundTest extends Framework\TestCase
 
         $message = \sprintf(
             'Class metadata for a class with the name "%s" could not be found.',
-            $className
+            $className,
         );
 
         self::assertInstanceOf(Exception\ClassMetadataNotFound::class, $exception);

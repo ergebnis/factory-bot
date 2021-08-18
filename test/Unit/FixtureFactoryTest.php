@@ -52,7 +52,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -68,7 +68,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\ClassNotFound::class);
@@ -82,7 +82,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\ClassMetadataNotFound::class);
@@ -96,7 +96,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $this->expectException(Exception\InvalidFieldNames::class);
@@ -112,7 +112,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\InvalidDirectory::class);
@@ -124,13 +124,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be autoloaded.',
-            Fixture\DefinitionProvider\CanNotBeAutoloaded\RepositoryDefinitionProviderButCanNotBeAutoloaded::class
+            Fixture\DefinitionProvider\CanNotBeAutoloaded\RepositoryDefinitionProviderButCanNotBeAutoloaded::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/CanNotBeAutoloaded');
@@ -140,7 +140,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider');
@@ -157,7 +157,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract');
@@ -174,13 +174,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be instantiated.',
-            Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated\RepositoryDefinitionProvider::class
+            Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated\RepositoryDefinitionProvider::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated');
@@ -190,13 +190,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',
-            Fixture\DefinitionProvider\ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation\RepositoryDefinitionProvider::class
+            Fixture\DefinitionProvider\ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation\RepositoryDefinitionProvider::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation');
@@ -206,7 +206,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->load(__DIR__ . '/../../example/test/Fixture/Entity');
@@ -226,7 +226,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\EntityDefinitionNotRegistered::class);
@@ -240,7 +240,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -262,7 +262,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Avatar::class, [
@@ -289,7 +289,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $this->expectException(Exception\InvalidFieldNames::class);
@@ -308,7 +308,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\User::class);
@@ -331,7 +331,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -350,14 +350,14 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
             'name' => static function () use (&$name): string {
                 return \sprintf(
                     'the-%s-organization',
-                    $name
+                    $name,
                 );
             },
         ]);
@@ -378,7 +378,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -393,7 +393,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -408,7 +408,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, []);
@@ -425,7 +425,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -444,7 +444,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -476,7 +476,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -497,7 +497,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator()
+            new Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(
@@ -510,9 +510,9 @@ final class FixtureFactoryTest extends AbstractTestCase
 
                 self::assertArrayHasKey($fieldName, $fieldValues, \sprintf(
                     'Failed asserting that key for field "%s" exists in field values.',
-                    $fieldName
+                    $fieldName,
                 ));
-            }
+            },
         );
 
         /** @var Entity\User $user */
@@ -527,7 +527,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -550,7 +550,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -571,13 +571,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Repository::class, [
             'template' => FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(0, 5)
+                Count::between(0, 5),
             ),
         ]);
 
@@ -593,13 +593,13 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Repository::class, [
             'template' => FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(0, 5)
+                Count::between(0, 5),
             ),
         ]);
 
@@ -620,13 +620,13 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(0, 5)
+                Count::between(0, 5),
             ),
         ]);
 
@@ -638,7 +638,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Entity\Organization::class, [
             'repositories' => $fixtureFactory->createMany(
                 Entity\Repository::class,
-                Count::exact($value)
+                Count::exact($value),
             ),
         ]);
 
@@ -657,13 +657,13 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(0, 5)
+                Count::between(0, 5),
             ),
         ]);
 
@@ -675,7 +675,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $organization = $fixtureFactory->createOne(Entity\Organization::class, [
             'repositories' => FieldDefinition::references(
                 Entity\Repository::class,
-                Count::exact($value)
+                Count::exact($value),
             ),
         ]);
 
@@ -693,7 +693,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(
@@ -706,11 +706,11 @@ final class FixtureFactoryTest extends AbstractTestCase
                     '%s-%s-%d',
                     $organization->name(),
                     $fieldValues['name'],
-                    $faker->numberBetween(10, 99)
+                    $faker->numberBetween(10, 99),
                 );
 
                 $organization->renameTo($name);
-            }
+            },
         );
 
         /** @var Entity\Organization $organization */
@@ -719,7 +719,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $expectedPattern = \sprintf(
             '/^%s-%s-\d{2}$/',
             $name,
-            $name
+            $name,
         );
 
         $actualName = $organization->name();
@@ -733,7 +733,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -761,7 +761,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -794,14 +794,14 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $this->expectException(Exception\EntityDefinitionNotRegistered::class);
 
         $fixtureFactory->createMany(
             $className,
-            Count::exact(3)
+            Count::exact(3),
         );
     }
 
@@ -811,7 +811,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $value = $faker->numberBetween(1, 5);
@@ -823,7 +823,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             Count::exact($value),
             [
                 'isVerified' => true,
-            ]
+            ],
         );
 
         self::assertCount($value, $entities);
@@ -841,7 +841,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $value = $faker->numberBetween(1, 5);
@@ -853,7 +853,7 @@ final class FixtureFactoryTest extends AbstractTestCase
             Count::exact($value),
             [
                 'isVerified' => FieldDefinition::value(true),
-            ]
+            ],
         );
 
         self::assertCount($value, $entities);
@@ -869,7 +869,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $withOptionalFixtureFactory = $fixtureFactory->withOptional();
@@ -882,7 +882,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -895,7 +895,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $oersistingFixtureFactory = $fixtureFactory->persisting();

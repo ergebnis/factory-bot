@@ -33,13 +33,13 @@ final class InvalidMaximumTest extends Framework\TestCase
 
         $exception = Exception\InvalidMaximum::notGreaterThanMinimum(
             $minimum,
-            $maximum
+            $maximum,
         );
 
         $message = \sprintf(
             'Maximum needs to be greater than minimum %d, but %d is not.',
             $minimum,
-            $maximum
+            $maximum,
         );
 
         self::assertInstanceOf(Exception\InvalidMaximum::class, $exception);

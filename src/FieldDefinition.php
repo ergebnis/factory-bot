@@ -62,7 +62,7 @@ final class FieldDefinition
     {
         return new FieldDefinition\References(
             $className,
-            $count
+            $count,
         );
     }
 
@@ -73,7 +73,7 @@ final class FieldDefinition
     {
         return new FieldDefinition\Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
     }
 
@@ -81,7 +81,7 @@ final class FieldDefinition
     {
         return new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         ));
     }
 

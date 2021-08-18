@@ -39,7 +39,7 @@ final class ReferenceTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define($className);
@@ -48,7 +48,7 @@ final class ReferenceTest extends Unit\AbstractTestCase
 
         $resolved = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertInstanceOf($className, $resolved);

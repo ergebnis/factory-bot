@@ -38,7 +38,7 @@ final class Optional implements Resolvable
     {
         return $this->resolvable->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
     }
 }

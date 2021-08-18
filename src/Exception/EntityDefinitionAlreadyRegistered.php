@@ -19,7 +19,7 @@ final class EntityDefinitionAlreadyRegistered extends \RuntimeException implemen
     {
         return new self(\sprintf(
             'An entity definition for class name "%s" has already been registered.',
-            $className
+            $className,
         ));
     }
 }

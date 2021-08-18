@@ -19,7 +19,7 @@ final class InvalidDirectory extends \InvalidArgumentException implements Except
     {
         return new self(\sprintf(
             'Directory should be a directory, but "%s" is not.',
-            $directory
+            $directory,
         ));
     }
 }

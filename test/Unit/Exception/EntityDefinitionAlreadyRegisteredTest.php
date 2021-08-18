@@ -31,7 +31,7 @@ final class EntityDefinitionAlreadyRegisteredTest extends Framework\TestCase
 
         $message = \sprintf(
             'An entity definition for class name "%s" has already been registered.',
-            $className
+            $className,
         );
 
         self::assertInstanceOf(Exception\EntityDefinitionAlreadyRegistered::class, $exception);

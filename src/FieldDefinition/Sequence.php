@@ -50,7 +50,7 @@ final class Sequence implements Resolvable
         return \str_replace(
             '%d',
             (string) $this->sequentialNumber++,
-            $this->value
+            $this->value,
         );
     }
 }

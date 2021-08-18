@@ -42,7 +42,7 @@ final class Count
 
         return new self(
             $value,
-            $value
+            $value,
         );
     }
 
@@ -59,13 +59,13 @@ final class Count
         if ($maximum <= $minimum) {
             throw Exception\InvalidMaximum::notGreaterThanMinimum(
                 $minimum,
-                $maximum
+                $maximum,
             );
         }
 
         return new self(
             $minimum,
-            $maximum
+            $maximum,
         );
     }
 

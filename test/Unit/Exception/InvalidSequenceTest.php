@@ -34,7 +34,7 @@ final class InvalidSequenceTest extends Framework\TestCase
 
         $message = \sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
+            $value,
         );
 
         self::assertInstanceOf(Exception\InvalidSequence::class, $exception);

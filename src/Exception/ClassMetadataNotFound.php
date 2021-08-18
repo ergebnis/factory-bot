@@ -19,7 +19,7 @@ final class ClassMetadataNotFound extends \RuntimeException implements Exception
     {
         return new self(\sprintf(
             'Class metadata for a class with the name "%s" could not be found.',
-            $className
+            $className,
         ));
     }
 }

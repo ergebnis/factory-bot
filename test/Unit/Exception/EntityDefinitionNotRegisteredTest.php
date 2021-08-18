@@ -31,7 +31,7 @@ final class EntityDefinitionNotRegisteredTest extends Framework\TestCase
 
         $message = \sprintf(
             'An entity definition for class name "%s" has not been registered.',
-            $className
+            $className,
         );
 
         self::assertInstanceOf(Exception\EntityDefinitionNotRegistered::class, $exception);

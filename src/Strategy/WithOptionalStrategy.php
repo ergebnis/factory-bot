@@ -30,7 +30,7 @@ final class WithOptionalStrategy implements ResolutionStrategy
     ) {
         return $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
     }
 
@@ -42,7 +42,7 @@ final class WithOptionalStrategy implements ResolutionStrategy
 
         $resolved = $faker->numberBetween(
             $count->minimum(),
-            $count->maximum()
+            $count->maximum(),
         );
 
         if (0 === $resolved) {

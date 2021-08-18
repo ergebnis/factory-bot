@@ -44,19 +44,19 @@ final class ReferencesTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define($className);
 
         $fieldDefinition = new References(
             $className,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         $resolved = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertIsArray($resolved);
