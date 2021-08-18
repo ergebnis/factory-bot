@@ -14,6 +14,9 @@ updates:
       - dependency-name: "doctrine/collections"
         versions:
           - ">= 0"
+      - dependency-name: "doctrine/dbal"
+        versions:
+          - ">= 0"
       - dependency-name: "doctrine/orm"
         versions:
           - ">= 0"
