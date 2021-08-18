@@ -42,7 +42,7 @@
     "phpstan/phpstan-strict-rules": "~0.12.9",
     "phpunit/phpunit": "~9.2.6",
     "psalm/plugin-phpunit": "~0.16.1",
-    "ramsey/uuid": "^4.1.1",
+    "ramsey/uuid": "^4.2.1",
     "symfony/cache": "^5.3.4",
     "vimeo/psalm": "^4.6.4"
   },
