@@ -33,6 +33,6 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
 
 $config->getFinder()->in(__DIR__ . '/test/Fixture/DefinitionProvider/CanNotBeAutoloaded');
 
-$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/php-cs-fixer.fixture.cache');
 
 return $config;
