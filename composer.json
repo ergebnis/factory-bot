@@ -44,7 +44,7 @@
     "psalm/plugin-phpunit": "~0.15.0",
     "ramsey/uuid": "^4.1.1",
     "symfony/cache": "^5.3.4",
-    "vimeo/psalm": "^4.6.4"
+    "vimeo/psalm": "^4.9.3"
   },
   "config": {
     "platform": {
