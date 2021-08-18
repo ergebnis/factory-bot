@@ -38,12 +38,12 @@ final class SequenceTest extends Unit\AbstractTestCase
         $this->expectException(Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
+            $value,
         ));
 
         new Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
     }
 
@@ -53,7 +53,7 @@ final class SequenceTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $value = '%d Why, hello - this is a nice thing, if you need it! %d';
@@ -62,14 +62,14 @@ final class SequenceTest extends Unit\AbstractTestCase
 
         $fieldDefinition = new Sequence(
             $value,
-            $initialNumber
+            $initialNumber,
         );
 
         $expected = static function (int $sequentialNumber): string {
             return \sprintf(
                 '%d Why, hello - this is a nice thing, if you need it! %d',
                 $sequentialNumber,
-                $sequentialNumber
+                $sequentialNumber,
             );
         };
 

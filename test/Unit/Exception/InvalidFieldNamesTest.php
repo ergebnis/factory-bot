@@ -35,13 +35,13 @@ final class InvalidFieldNamesTest extends Framework\TestCase
 
         $exception = Exception\InvalidFieldNames::notFoundIn(
             $className,
-            $fieldName
+            $fieldName,
         );
 
         $message = \sprintf(
             'Entity "%s" does not have a field with the name "%s".',
             $className,
-            $fieldName
+            $fieldName,
         );
 
         self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);
@@ -62,7 +62,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
 
         $exception = Exception\InvalidFieldNames::notFoundIn(
             $className,
-            ...$fieldNames
+            ...$fieldNames,
         );
 
         $sortedFieldNames = $fieldNames;
@@ -72,7 +72,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
         $message = \sprintf(
             'Entity "%s" does not have fields with the names "%s".',
             $className,
-            \implode('", "', $sortedFieldNames)
+            \implode('", "', $sortedFieldNames),
         );
 
         self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);

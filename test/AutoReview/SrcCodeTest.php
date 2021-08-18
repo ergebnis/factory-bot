@@ -34,7 +34,7 @@ final class SrcCodeTest extends Framework\TestCase
             'Ergebnis\\FactoryBot\\Test\\Unit',
             [
                 FactoryBot\Strategy\DefaultStrategy::class,
-            ]
+            ],
         );
     }
 }

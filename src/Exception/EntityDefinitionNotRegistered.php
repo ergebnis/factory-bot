@@ -19,7 +19,7 @@ final class EntityDefinitionNotRegistered extends \RuntimeException implements E
     {
         return new self(\sprintf(
             'An entity definition for class name "%s" has not been registered.',
-            $className
+            $className,
         ));
     }
 }

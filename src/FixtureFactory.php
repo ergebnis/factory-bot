@@ -89,7 +89,7 @@ final class FixtureFactory
         $allFieldNames = \array_merge(
             \array_keys($classMetadata->fieldMappings),
             \array_keys($classMetadata->associationMappings),
-            \array_keys($classMetadata->embeddedClasses)
+            \array_keys($classMetadata->embeddedClasses),
         );
 
         $fieldNames = \array_filter($allFieldNames, static function (string $fieldName): bool {
@@ -99,13 +99,13 @@ final class FixtureFactory
         /** @var array<int, string> $extraFieldNames */
         $extraFieldNames = \array_diff(
             \array_keys($fieldDefinitions),
-            $fieldNames
+            $fieldNames,
         );
 
         if ([] !== $extraFieldNames) {
             throw Exception\InvalidFieldNames::notFoundIn(
                 $classMetadata->getName(),
-                ...$extraFieldNames
+                ...$extraFieldNames,
             );
         }
 
@@ -121,7 +121,7 @@ final class FixtureFactory
             /** @var mixed $defaultFieldValue */
             $defaultFieldValue = $classMetadata->getFieldValue(
                 $defaultEntity,
-                $fieldName
+                $fieldName,
             );
 
             $fieldDefinitions[$fieldName] = FieldDefinition::value($defaultFieldValue);
@@ -136,7 +136,7 @@ final class FixtureFactory
         $this->entityDefinitions[$className] = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
-            $afterCreate
+            $afterCreate,
         );
     }
 
@@ -180,7 +180,7 @@ final class FixtureFactory
             } catch (\Exception $exception) {
                 throw Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
                     $className,
-                    $exception
+                    $exception,
                 );
             }
 
@@ -217,13 +217,13 @@ final class FixtureFactory
 
         $extraFieldNames = \array_diff(
             \array_keys($fieldDefinitionOverrides),
-            \array_keys($entityDefinition->fieldDefinitions())
+            \array_keys($entityDefinition->fieldDefinitions()),
         );
 
         if ([] !== $extraFieldNames) {
             throw Exception\InvalidFieldNames::notFoundIn(
                 $entityDefinition->classMetadata()->getName(),
-                ...$extraFieldNames
+                ...$extraFieldNames,
             );
         }
 
@@ -235,14 +235,14 @@ final class FixtureFactory
 
         $fieldDefinitions = \array_merge(
             $entityDefinition->fieldDefinitions(),
-            self::normalizeFieldDefinitions($fieldDefinitionOverrides)
+            self::normalizeFieldDefinitions($fieldDefinitionOverrides),
         );
 
         $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
             return $this->resolutionStrategy->resolveFieldValue(
                 $this->faker,
                 $this,
-                $fieldDefinition
+                $fieldDefinition,
             );
         }, $fieldDefinitions);
 
@@ -251,7 +251,7 @@ final class FixtureFactory
                 $entity,
                 $entityDefinition,
                 $fieldName,
-                $fieldValue
+                $fieldValue,
             );
         }
 
@@ -260,7 +260,7 @@ final class FixtureFactory
         $afterCreate(
             $entity,
             $fieldValues,
-            $this->faker
+            $this->faker,
         );
 
         if ($this->persistAfterCreate && false === $classMetadata->isEmbeddedClass) {
@@ -291,7 +291,7 @@ final class FixtureFactory
     {
         $resolved = $this->resolutionStrategy->resolveCount(
             $this->faker,
-            $count
+            $count,
         );
 
         if (0 === $resolved) {
@@ -301,7 +301,7 @@ final class FixtureFactory
         return \array_map(function () use ($className, $fieldDefinitionOverrides) {
             return $this->createOne(
                 $className,
-                $fieldDefinitionOverrides
+                $fieldDefinitionOverrides,
             );
         }, \range(1, $resolved));
     }
@@ -383,7 +383,7 @@ final class FixtureFactory
             $classMetadata->setFieldValue(
                 $entity,
                 $fieldName,
-                self::collectionFrom($fieldValue)
+                self::collectionFrom($fieldValue),
             );
 
             return;
@@ -392,7 +392,7 @@ final class FixtureFactory
         $classMetadata->setFieldValue(
             $entity,
             $fieldName,
-            $fieldValue
+            $fieldValue,
         );
 
         if (!\is_object($fieldValue)) {
@@ -407,7 +407,7 @@ final class FixtureFactory
             $entity,
             $classMetadata,
             $fieldName,
-            $fieldValue
+            $fieldValue,
         );
     }
 
@@ -449,7 +449,7 @@ final class FixtureFactory
 
         $collection = $classMetadataOfFieldValue->getFieldValue(
             $fieldValue,
-            $inversedBy
+            $inversedBy,
         );
 
         if (!$collection instanceof Common\Collections\Collection) {

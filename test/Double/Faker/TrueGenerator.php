@@ -26,7 +26,7 @@ final class TrueGenerator extends Generator
     {
         return \mt_rand(
             $min,
-            $max
+            $max,
         );
     }
 }

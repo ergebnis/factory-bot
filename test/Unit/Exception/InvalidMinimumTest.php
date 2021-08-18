@@ -34,7 +34,7 @@ final class InvalidMinimumTest extends Framework\TestCase
 
         $message = \sprintf(
             'Minimum needs to be greater than or equal to 0, but %d is not.',
-            $minimum
+            $minimum,
         );
 
         self::assertInstanceOf(Exception\InvalidMinimum::class, $exception);

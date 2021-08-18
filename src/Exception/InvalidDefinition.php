@@ -19,7 +19,7 @@ final class InvalidDefinition extends \RuntimeException implements Exception
     {
         return new self(\sprintf(
             'Definition "%s" can not be autoloaded.',
-            $className
+            $className,
         ));
     }
 
@@ -27,7 +27,7 @@ final class InvalidDefinition extends \RuntimeException implements Exception
     {
         return new self(\sprintf(
             'Definition "%s" can not be instantiated.',
-            $className
+            $className,
         ));
     }
 
@@ -36,10 +36,10 @@ final class InvalidDefinition extends \RuntimeException implements Exception
         return new self(
             \sprintf(
                 'An exception was thrown while trying to instantiate definition "%s".',
-                $className
+                $className,
             ),
             0,
-            $exception
+            $exception,
         );
     }
 }

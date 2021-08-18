@@ -39,7 +39,7 @@ final class OptionalTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\User::class);
@@ -55,7 +55,7 @@ final class OptionalTest extends Unit\AbstractTestCase
 
         $resolved = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertInstanceOf(Entity\User::class, $resolved);

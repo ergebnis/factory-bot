@@ -19,7 +19,7 @@ final class InvalidMinimum extends \InvalidArgumentException implements Exceptio
     {
         return new self(\sprintf(
             'Minimum needs to be greater than or equal to 0, but %d is not.',
-            $minimum
+            $minimum,
         ));
     }
 }

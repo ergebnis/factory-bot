@@ -39,7 +39,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
@@ -49,12 +49,12 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\TrueGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -66,7 +66,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
@@ -76,12 +76,12 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\FalseGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -93,7 +93,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
@@ -103,12 +103,12 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\TrueGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -120,7 +120,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
@@ -130,12 +130,12 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
         $resolved = $strategy->resolveFieldValue(
             new Double\Faker\FalseGenerator(),
             $fixtureFactory,
-            $fieldDefinition
+            $fieldDefinition,
         );
 
         $expected = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertSame($expected, $resolved);
@@ -152,7 +152,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $resolved = $strategy->resolveCount(
             $faker,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         self::assertSame($value, $resolved);
@@ -171,13 +171,13 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
             new Double\Faker\MinimumGenerator(),
             Count::between(
                 $minimum,
-                $maximum
-            )
+                $maximum,
+            ),
         );
 
         $minimumGreaterThanZero = \max(
             1,
-            $minimum
+            $minimum,
         );
 
         self::assertSame($minimumGreaterThanZero, $resolved);
@@ -196,8 +196,8 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
             new Double\Faker\MaximumGenerator(),
             Count::between(
                 $minimum,
-                $maximum
-            )
+                $maximum,
+            ),
         );
 
         self::assertSame($maximum, $resolved);
@@ -216,13 +216,13 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
             $faker,
             Count::between(
                 $minimum,
-                $maximum
-            )
+                $maximum,
+            ),
         );
 
         $minimumGreaterThanZero = \max(
             1,
-            $minimum
+            $minimum,
         );
 
         self::assertGreaterThanOrEqual($minimumGreaterThanZero, $resolved);

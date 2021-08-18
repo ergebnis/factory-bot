@@ -33,7 +33,7 @@ final class InvalidFieldDefinitionsTest extends Framework\TestCase
 
         $message = \sprintf(
             'Field definitions need to be instances of "%s".',
-            FieldDefinition::class
+            FieldDefinition::class,
         );
 
         self::assertInstanceOf(Exception\InvalidFieldDefinitions::class, $exception);

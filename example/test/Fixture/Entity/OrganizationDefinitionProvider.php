@@ -30,7 +30,7 @@ final class OrganizationDefinitionProvider implements FactoryBot\EntityDefinitio
             }),
             'members' => FactoryBot\FieldDefinition::references(
                 Entity\User::class,
-                FactoryBot\Count::between(1, 10)
+                FactoryBot\Count::between(1, 10),
             ),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->word;

@@ -19,7 +19,7 @@ final class ClassNotFound extends \InvalidArgumentException implements Exception
     {
         return new self(\sprintf(
             'A class with the name "%s" could not be found.',
-            $className
+            $className,
         ));
     }
 }

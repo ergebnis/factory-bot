@@ -31,7 +31,7 @@ final class ClassNotFoundTest extends Framework\TestCase
 
         $message = \sprintf(
             'A class with the name "%s" could not be found.',
-            $className
+            $className,
         );
 
         self::assertInstanceOf(Exception\ClassNotFound::class, $exception);

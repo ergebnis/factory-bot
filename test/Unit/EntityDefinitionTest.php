@@ -52,7 +52,7 @@ final class EntityDefinitionTest extends Framework\TestCase
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
                 // intentionally left blank
-            }
+            },
         );
     }
 
@@ -72,7 +72,7 @@ final class EntityDefinitionTest extends Framework\TestCase
         $entityDefiniton = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
-            $afterCreate
+            $afterCreate,
         );
 
         self::assertSame($classMetadata, $entityDefiniton->classMetadata());

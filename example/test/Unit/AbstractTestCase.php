@@ -33,7 +33,7 @@ abstract class AbstractTestCase extends Framework\TestCase
             true,
             null,
             null,
-            false
+            false,
         );
 
         $entityManager = ORM\EntityManager::create(
@@ -41,7 +41,7 @@ abstract class AbstractTestCase extends Framework\TestCase
                 'driver' => 'pdo_sqlite',
                 'path' => ':memory:',
             ],
-            $configuration
+            $configuration,
         );
 
         $schemaTool = new ORM\Tools\SchemaTool($entityManager);
@@ -64,7 +64,7 @@ abstract class AbstractTestCase extends Framework\TestCase
     {
         $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->load(__DIR__ . '/../Fixture');

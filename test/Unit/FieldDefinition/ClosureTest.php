@@ -38,7 +38,7 @@ final class ClosureTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\User::class);
@@ -51,7 +51,7 @@ final class ClosureTest extends Unit\AbstractTestCase
 
         $resolved = $fieldDefinition->resolve(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
 
         self::assertInstanceOf(Entity\User::class, $resolved);

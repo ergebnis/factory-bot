@@ -21,7 +21,7 @@ final class InvalidFieldDefinitions extends \InvalidArgumentException implements
     {
         return new self(\sprintf(
             'Field definitions need to be instances of "%s".',
-            FieldDefinition::class
+            FieldDefinition::class,
         ));
     }
 }

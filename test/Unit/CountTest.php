@@ -39,7 +39,7 @@ final class CountTest extends Framework\TestCase
         $this->expectException(Exception\InvalidCount::class);
         $this->expectExceptionMessage(\sprintf(
             'Count needs to be greater than or equal to 0, but %d is not.',
-            $value
+            $value,
         ));
 
         Count::exact($value);
@@ -67,12 +67,12 @@ final class CountTest extends Framework\TestCase
         $this->expectException(Exception\InvalidMinimum::class);
         $this->expectExceptionMessage(\sprintf(
             'Minimum needs to be greater than or equal to 0, but %d is not.',
-            $minimum
+            $minimum,
         ));
 
         Count::between(
             $minimum,
-            $maximum
+            $maximum,
         );
     }
 
@@ -88,12 +88,12 @@ final class CountTest extends Framework\TestCase
         $this->expectExceptionMessage(\sprintf(
             'Maximum needs to be greater than minimum %d, but %d is not.',
             $minimum,
-            $maximum
+            $maximum,
         ));
 
         Count::between(
             $minimum,
-            $maximum
+            $maximum,
         );
     }
 
@@ -108,7 +108,7 @@ final class CountTest extends Framework\TestCase
 
         $count = Count::between(
             $minimum,
-            $maximum
+            $maximum,
         );
 
         self::assertInstanceOf(Count::class, $count);

@@ -34,7 +34,7 @@ final class InvalidCountTest extends Framework\TestCase
 
         $message = \sprintf(
             'Count needs to be greater than or equal to 0, but %d is not.',
-            $value
+            $value,
         );
 
         self::assertInstanceOf(Exception\InvalidCount::class, $exception);

@@ -37,7 +37,7 @@ final class Closure implements Resolvable
 
         return $closure(
             $faker,
-            $fixtureFactory
+            $fixtureFactory,
         );
     }
 }

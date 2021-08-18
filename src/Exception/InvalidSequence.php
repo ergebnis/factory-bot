@@ -19,7 +19,7 @@ final class InvalidSequence extends \InvalidArgumentException implements Excepti
     {
         return new self(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
-            $value
+            $value,
         ));
     }
 }

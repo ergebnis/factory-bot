@@ -26,7 +26,7 @@ final class EntityManagerFactory
             true,
             null,
             null,
-            false
+            false,
         );
 
         return ORM\EntityManager::create(
@@ -34,7 +34,7 @@ final class EntityManagerFactory
                 'driver' => 'pdo_sqlite',
                 'path' => ':memory:',
             ],
-            $configuration
+            $configuration,
         );
     }
 }

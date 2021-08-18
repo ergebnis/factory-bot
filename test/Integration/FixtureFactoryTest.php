@@ -42,7 +42,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             $entityManager,
-            $faker
+            $faker,
         );
 
         $name = $faker->word;
@@ -70,7 +70,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             $entityManager,
-            $faker
+            $faker,
         );
 
         $name = $faker->word;
@@ -103,7 +103,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             $entityManager,
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Avatar::class, [
@@ -135,7 +135,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             $entityManager,
-            self::faker()
+            self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -144,7 +144,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory->createMany(
             Entity\Organization::class,
-            Count::exact(5)
+            Count::exact(5),
         );
 
         $entityManager->flush();
@@ -162,7 +162,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             $entityManager,
-            $faker
+            $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -178,7 +178,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $persistingFixtureFactory->createMany(
             Entity\Organization::class,
-            Count::exact($value)
+            Count::exact($value),
         );
 
         $entityManager->flush();
