@@ -35,7 +35,7 @@
     "infection/infection": "~0.18.2",
     "jangregor/phpstan-prophecy": "~0.8.1",
     "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "~0.12.73",
+    "phpstan/phpstan": "~0.12.95",
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
     "phpstan/phpstan-doctrine": "~0.12.43",
     "phpstan/phpstan-phpunit": "~0.12.22",
