@@ -39,7 +39,7 @@
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
     "phpstan/phpstan-doctrine": "~0.12.43",
     "phpstan/phpstan-phpunit": "~0.12.22",
-    "phpstan/phpstan-strict-rules": "~0.12.10",
+    "phpstan/phpstan-strict-rules": "~0.12.11",
     "phpunit/phpunit": "~9.2.6",
     "psalm/plugin-phpunit": "~0.16.1",
     "ramsey/uuid": "^4.2.1",
