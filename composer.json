@@ -40,7 +40,7 @@
     "phpstan/phpstan-doctrine": "~0.12.44",
     "phpstan/phpstan-phpunit": "~0.12.22",
     "phpstan/phpstan-strict-rules": "~0.12.11",
-    "phpunit/phpunit": "~9.2.6",
+    "phpunit/phpunit": "~9.5.9",
     "psalm/plugin-phpunit": "~0.16.1",
     "ramsey/uuid": "^4.2.1",
     "symfony/cache": "^5.3.7",
