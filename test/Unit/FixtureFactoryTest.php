@@ -17,8 +17,7 @@ use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Double;
-use Ergebnis\FactoryBot\Test\Fixture;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
 
@@ -78,7 +77,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
     public function testDefineThrowsClassMetadataNotFoundExceptionWhenClassNameDoesNotReferenceAnEntity(): void
     {
-        $className = Fixture\FixtureFactory\NotAnEntity\User::class;
+        $className = Test\Fixture\FixtureFactory\NotAnEntity\User::class;
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
@@ -130,7 +129,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be autoloaded.',
-            Fixture\DefinitionProvider\CanNotBeAutoloaded\RepositoryDefinitionProviderButCanNotBeAutoloaded::class,
+            Test\Fixture\DefinitionProvider\CanNotBeAutoloaded\RepositoryDefinitionProviderButCanNotBeAutoloaded::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/CanNotBeAutoloaded');
@@ -180,7 +179,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'Definition "%s" can not be instantiated.',
-            Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated\RepositoryDefinitionProvider::class,
+            Test\Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated\RepositoryDefinitionProvider::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated');
@@ -196,7 +195,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $this->expectException(Exception\InvalidDefinition::class);
         $this->expectExceptionMessage(\sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',
-            Fixture\DefinitionProvider\ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation\RepositoryDefinitionProvider::class,
+            Test\Fixture\DefinitionProvider\ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation\RepositoryDefinitionProvider::class,
         ));
 
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation');
@@ -497,7 +496,7 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(

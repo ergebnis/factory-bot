@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Reference;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 
 /**
@@ -29,7 +29,7 @@ use Example\Entity;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
-final class ReferenceTest extends Unit\AbstractTestCase
+final class ReferenceTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToObjectCreatedByFixtureFactory(): void
     {
@@ -44,7 +44,7 @@ final class ReferenceTest extends Unit\AbstractTestCase
 
         $fixtureFactory->define($className);
 
-        $fieldDefinition = new Reference($className);
+        $fieldDefinition = new FieldDefinition\Reference($className);
 
         $resolved = $fieldDefinition->resolve(
             $faker,

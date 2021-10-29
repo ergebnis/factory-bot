@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FieldDefinition\References;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 
 /**
@@ -32,7 +32,7 @@ use Example\Entity;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
-final class ReferencesTest extends Unit\AbstractTestCase
+final class ReferencesTest extends Test\Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
@@ -49,7 +49,7 @@ final class ReferencesTest extends Unit\AbstractTestCase
 
         $fixtureFactory->define($className);
 
-        $fieldDefinition = new References(
+        $fieldDefinition = new FieldDefinition\References(
             $className,
             Count::exact($value),
         );

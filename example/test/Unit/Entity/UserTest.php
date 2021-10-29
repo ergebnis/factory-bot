@@ -14,14 +14,14 @@ declare(strict_types=1);
 namespace Example\Test\Unit\Entity;
 
 use Example\Entity;
-use Example\Test\Unit;
+use Example\Test;
 
 /**
  * @internal
  *
  * @covers \Example\Entity\User
  */
-final class UserTest extends Unit\AbstractTestCase
+final class UserTest extends Test\Unit\AbstractTestCase
 {
     public function testRenameToRenamesUser(): void
     {

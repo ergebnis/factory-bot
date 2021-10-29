@@ -16,8 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FixtureFactory;
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Double;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
 
@@ -37,13 +36,13 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
-final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
+final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -64,7 +63,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -85,7 +84,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -106,7 +105,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -127,7 +126,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -146,7 +145,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -165,7 +164,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -184,7 +183,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
@@ -206,7 +205,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -234,7 +233,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -266,7 +265,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -300,7 +299,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
 
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
@@ -329,7 +328,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
@@ -346,7 +345,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
@@ -371,7 +370,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
@@ -396,7 +395,7 @@ final class UsingDefaultStrategyTest extends Unit\AbstractTestCase
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [

@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace Example\Test\AutoReview;
 
 use Ergebnis\FactoryBot;
-use Example\Test\Unit;
+use Example\Test;
 
 /**
  * @internal
  * @coversNothing
  */
-final class FixtureTest extends Unit\AbstractTestCase
+final class FixtureTest extends Test\Unit\AbstractTestCase
 {
     public function testEntitiesHaveEntityDefinitionProviders(): void
     {

@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\DataProvider;
 
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 
 final class IntProvider
 {
-    use Helper;
+    use Util\Helper;
 
     /**
      * @return \Generator<string, array<int>>

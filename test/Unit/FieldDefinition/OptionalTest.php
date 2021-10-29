@@ -13,10 +13,9 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Optional;
-use Ergebnis\FactoryBot\FieldDefinition\Resolvable;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
 
@@ -31,7 +30,7 @@ use Faker\Generator;
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
  */
-final class OptionalTest extends Unit\AbstractTestCase
+final class OptionalTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfResolvingResolvableWithFixtureFactory(): void
     {
@@ -44,14 +43,14 @@ final class OptionalTest extends Unit\AbstractTestCase
 
         $fixtureFactory->define(Entity\User::class);
 
-        $resolvable = new class() implements Resolvable {
+        $resolvable = new class() implements FieldDefinition\Resolvable {
             public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
             {
                 return $fixtureFactory->createOne(Entity\User::class);
             }
         };
 
-        $fieldDefinition = new Optional($resolvable);
+        $fieldDefinition = new FieldDefinition\Optional($resolvable);
 
         $resolved = $fieldDefinition->resolve(
             $faker,

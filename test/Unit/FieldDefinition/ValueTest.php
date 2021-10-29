@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Value;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 
 /**
  * @internal
@@ -26,7 +26,7 @@ use Ergebnis\FactoryBot\Test\Unit;
  * @uses \Ergebnis\FactoryBot\FieldDefinition
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class ValueTest extends Unit\AbstractTestCase
+final class ValueTest extends Test\Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
@@ -42,7 +42,7 @@ final class ValueTest extends Unit\AbstractTestCase
             $faker,
         );
 
-        $fieldDefinition = new Value($value);
+        $fieldDefinition = new FieldDefinition\Value($value);
 
         $resolved = $fieldDefinition->resolve(
             $faker,
