@@ -58,8 +58,10 @@ final class FieldDefinition
      * @psalm-return FieldDefinition\References<T>
      * @psalm-template T
      */
-    public static function references(string $className, Count $count): FieldDefinition\References
-    {
+    public static function references(
+        string $className,
+        Count $count
+    ): FieldDefinition\References {
         return new FieldDefinition\References(
             $className,
             $count,
@@ -69,16 +71,20 @@ final class FieldDefinition
     /**
      * @throws Exception\InvalidSequence
      */
-    public static function sequence(string $value, int $initialNumber = 1): FieldDefinition\Sequence
-    {
+    public static function sequence(
+        string $value,
+        int $initialNumber = 1
+    ): FieldDefinition\Sequence {
         return new FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );
     }
 
-    public static function optionalSequence(string $value, int $initialNumber = 1): FieldDefinition\Resolvable
-    {
+    public static function optionalSequence(
+        string $value,
+        int $initialNumber = 1
+    ): FieldDefinition\Resolvable {
         return new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,
             $initialNumber,
