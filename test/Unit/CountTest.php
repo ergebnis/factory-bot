@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -29,7 +29,7 @@ use PHPUnit\Framework;
  */
 final class CountTest extends Framework\TestCase
 {
-    use Helper;
+    use Util\Helper;
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()

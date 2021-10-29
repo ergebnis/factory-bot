@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -24,7 +24,7 @@ use PHPUnit\Framework;
  */
 final class InvalidFieldNamesTest extends Framework\TestCase
 {
-    use Helper;
+    use Util\Helper;
 
     public function testNotFoundInReturnsExceptionWhenOnlyOneFieldNameIsProvided(): void
     {

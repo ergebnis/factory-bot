@@ -16,9 +16,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\Strategy;
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Strategy\WithOptionalStrategy;
-use Ergebnis\FactoryBot\Test\Double;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Strategy;
+use Ergebnis\FactoryBot\Test;
 
 /**
  * @internal
@@ -31,7 +30,7 @@ use Ergebnis\FactoryBot\Test\Unit;
  * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class WithOptionalStrategyTest extends Unit\AbstractTestCase
+final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testResolveFieldValueResolvesOptionalFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
@@ -44,10 +43,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -71,10 +70,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -98,10 +97,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
-            new Double\Faker\TrueGenerator(),
+            new Test\Double\Faker\TrueGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -125,10 +124,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
-            new Double\Faker\FalseGenerator(),
+            new Test\Double\Faker\FalseGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -148,7 +147,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
             $faker,
@@ -165,10 +164,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
     {
         $maximum = self::faker()->numberBetween($minimum + 1);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
-            new Double\Faker\MinimumGenerator(),
+            new Test\Double\Faker\MinimumGenerator(),
             Count::between(
                 $minimum,
                 $maximum,
@@ -190,10 +189,10 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
     {
         $minimum = self::faker()->numberBetween(0, $maximum - 1);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
-            new Double\Faker\MaximumGenerator(),
+            new Test\Double\Faker\MaximumGenerator(),
             Count::between(
                 $minimum,
                 $maximum,
@@ -210,7 +209,7 @@ final class WithOptionalStrategyTest extends Unit\AbstractTestCase
         $minimum = $faker->numberBetween(1);
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new WithOptionalStrategy();
+        $strategy = new Strategy\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
             $faker,

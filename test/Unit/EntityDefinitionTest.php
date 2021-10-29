@@ -17,7 +17,7 @@ use Doctrine\ORM;
 use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -31,7 +31,7 @@ use PHPUnit\Framework;
  */
 final class EntityDefinitionTest extends Framework\TestCase
 {
-    use Helper;
+    use Util\Helper;
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()

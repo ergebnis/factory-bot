@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition\Sequence;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 
 /**
  * @internal
@@ -26,7 +26,7 @@ use Ergebnis\FactoryBot\Test\Unit;
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
  * @uses \Ergebnis\FactoryBot\FixtureFactory
  */
-final class SequenceTest extends Unit\AbstractTestCase
+final class SequenceTest extends Test\Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
@@ -41,7 +41,7 @@ final class SequenceTest extends Unit\AbstractTestCase
             $value,
         ));
 
-        new Sequence(
+        new FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );
@@ -60,7 +60,7 @@ final class SequenceTest extends Unit\AbstractTestCase
 
         $initialNumber = $faker->numberBetween();
 
-        $fieldDefinition = new Sequence(
+        $fieldDefinition = new FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );
