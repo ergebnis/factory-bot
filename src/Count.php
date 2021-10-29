@@ -25,8 +25,10 @@ final class Count
      */
     private $maximum;
 
-    private function __construct(int $minimum, int $maximum)
-    {
+    private function __construct(
+        int $minimum,
+        int $maximum
+    ) {
         $this->minimum = $minimum;
         $this->maximum = $maximum;
     }
@@ -50,8 +52,10 @@ final class Count
      * @throws Exception\InvalidMaximum
      * @throws Exception\InvalidMinimum
      */
-    public static function between(int $minimum, int $maximum): self
-    {
+    public static function between(
+        int $minimum,
+        int $maximum
+    ): self {
         if (0 > $minimum) {
             throw Exception\InvalidMinimum::notGreaterThanOrEqualToZero($minimum);
         }

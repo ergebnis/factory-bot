@@ -40,8 +40,11 @@ final class EntityDefinition
      *
      * @throws Exception\InvalidFieldDefinitions
      */
-    public function __construct(ORM\Mapping\ClassMetadata $classMetadata, array $fieldDefinitions, \Closure $afterCreate)
-    {
+    public function __construct(
+        ORM\Mapping\ClassMetadata $classMetadata,
+        array $fieldDefinitions,
+        \Closure $afterCreate
+    ) {
         $invalidFieldDefinitions = \array_filter($fieldDefinitions, static function ($fieldDefinition): bool {
             return !$fieldDefinition instanceof FieldDefinition\Resolvable;
         });

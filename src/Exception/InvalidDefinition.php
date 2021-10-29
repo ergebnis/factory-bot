@@ -31,8 +31,10 @@ final class InvalidDefinition extends \RuntimeException implements Exception
         ));
     }
 
-    public static function throwsExceptionDuringInstantiation(string $className, \Exception $exception): self
-    {
+    public static function throwsExceptionDuringInstantiation(
+        string $className,
+        \Exception $exception
+    ): self {
         return new self(
             \sprintf(
                 'An exception was thrown while trying to instantiate definition "%s".',

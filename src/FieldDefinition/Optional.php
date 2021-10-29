@@ -34,8 +34,10 @@ final class Optional implements Resolvable
     /**
      * @return mixed
      */
-    public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
-    {
+    public function resolve(
+        Generator $faker,
+        FixtureFactory $fixtureFactory
+    ) {
         return $this->resolvable->resolve(
             $faker,
             $fixtureFactory,

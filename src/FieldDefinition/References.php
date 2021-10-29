@@ -45,8 +45,10 @@ final class References implements Resolvable
      *
      * @psalm-param class-string<T> $className
      */
-    public function __construct(string $className, Count $count)
-    {
+    public function __construct(
+        string $className,
+        Count $count
+    ) {
         $this->className = $className;
         $this->count = $count;
     }
@@ -58,8 +60,10 @@ final class References implements Resolvable
      *
      * @return array<int, object>
      */
-    public function resolve(Generator $faker, FixtureFactory $fixtureFactory): array
-    {
+    public function resolve(
+        Generator $faker,
+        FixtureFactory $fixtureFactory
+    ): array {
         return $fixtureFactory->createMany(
             $this->className,
             $this->count,

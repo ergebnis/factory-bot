@@ -32,5 +32,8 @@ interface ResolutionStrategy
         FieldDefinition\Resolvable $fieldDefinition
     );
 
-    public function resolveCount(Generator $faker, Count $count): int;
+    public function resolveCount(
+        Generator $faker,
+        Count $count
+    ): int;
 }

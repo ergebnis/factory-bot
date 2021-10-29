@@ -34,8 +34,10 @@ final class WithOptionalStrategy implements ResolutionStrategy
         );
     }
 
-    public function resolveCount(Generator $faker, Count $count): int
-    {
+    public function resolveCount(
+        Generator $faker,
+        Count $count
+    ): int {
         if ($count->minimum() === $count->maximum()) {
             return $count->minimum();
         }
