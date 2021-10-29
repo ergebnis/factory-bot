@@ -15,8 +15,10 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidMaximum extends \InvalidArgumentException implements Exception
 {
-    public static function notGreaterThanMinimum(int $minimum, int $maximum): self
-    {
+    public static function notGreaterThanMinimum(
+        int $minimum,
+        int $maximum
+    ): self {
         return new self(\sprintf(
             'Maximum needs to be greater than minimum %d, but %d is not.',
             $minimum,

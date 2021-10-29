@@ -51,8 +51,10 @@ final class Reference implements Resolvable
      *
      * @return object
      */
-    public function resolve(Generator $faker, FixtureFactory $fixtureFactory)
-    {
+    public function resolve(
+        Generator $faker,
+        FixtureFactory $fixtureFactory
+    ) {
         return $fixtureFactory->createOne($this->className);
     }
 }

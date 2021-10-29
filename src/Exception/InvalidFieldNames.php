@@ -15,8 +15,10 @@ namespace Ergebnis\FactoryBot\Exception;
 
 final class InvalidFieldNames extends \InvalidArgumentException implements Exception
 {
-    public static function notFoundIn(string $className, string ...$fieldNames): self
-    {
+    public static function notFoundIn(
+        string $className,
+        string ...$fieldNames
+    ): self {
         \natsort($fieldNames);
 
         $template = 'Entity "%s" does not have fields with the names "%s".';

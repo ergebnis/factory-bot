@@ -21,5 +21,8 @@ interface Resolvable
     /**
      * @return mixed
      */
-    public function resolve(Generator $faker, FixtureFactory $fixtureFactory);
+    public function resolve(
+        Generator $faker,
+        FixtureFactory $fixtureFactory
+    );
 }

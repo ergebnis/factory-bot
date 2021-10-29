@@ -45,8 +45,10 @@ final class FixtureFactory
      */
     private $entityDefinitions = [];
 
-    public function __construct(ORM\EntityManagerInterface $entityManager, Generator $faker)
-    {
+    public function __construct(
+        ORM\EntityManagerInterface $entityManager,
+        Generator $faker
+    ) {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
         $this->resolutionStrategy = new Strategy\DefaultStrategy();
@@ -69,8 +71,11 @@ final class FixtureFactory
      * @throws Exception\EntityDefinitionAlreadyRegistered
      * @throws Exception\InvalidFieldNames
      */
-    public function define(string $className, array $fieldDefinitions = [], ?\Closure $afterCreate = null): void
-    {
+    public function define(
+        string $className,
+        array $fieldDefinitions = [],
+        ?\Closure $afterCreate = null
+    ): void {
         if (\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionAlreadyRegistered::for($className);
         }
@@ -206,8 +211,10 @@ final class FixtureFactory
      *
      * @return object
      */
-    public function createOne(string $className, array $fieldDefinitionOverrides = [])
-    {
+    public function createOne(
+        string $className,
+        array $fieldDefinitionOverrides = []
+    ) {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
         }
@@ -287,8 +294,11 @@ final class FixtureFactory
      *
      * @return array<int, object>
      */
-    public function createMany(string $className, Count $count, array $fieldDefinitionOverrides = []): array
-    {
+    public function createMany(
+        string $className,
+        Count $count,
+        array $fieldDefinitionOverrides = []
+    ): array {
         $resolved = $this->resolutionStrategy->resolveCount(
             $this->faker,
             $count,
@@ -375,8 +385,12 @@ final class FixtureFactory
     /**
      * @param mixed $fieldValue
      */
-    private function setField(object $entity, EntityDefinition $entityDefinition, string $fieldName, $fieldValue): void
-    {
+    private function setField(
+        object $entity,
+        EntityDefinition $entityDefinition,
+        string $fieldName,
+        $fieldValue
+    ): void {
         $classMetadata = $entityDefinition->classMetadata();
 
         if ($classMetadata->isCollectionValuedAssociation($fieldName)) {

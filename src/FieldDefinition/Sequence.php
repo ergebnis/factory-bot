@@ -35,8 +35,10 @@ final class Sequence implements Resolvable
     /**
      * @throws Exception\InvalidSequence
      */
-    public function __construct(string $value, int $initialNumber)
-    {
+    public function __construct(
+        string $value,
+        int $initialNumber
+    ) {
         if (false === \strpos($value, '%d')) {
             throw Exception\InvalidSequence::value($value);
         }
@@ -45,8 +47,10 @@ final class Sequence implements Resolvable
         $this->sequentialNumber = $initialNumber;
     }
 
-    public function resolve(Generator $faker, FixtureFactory $fixtureFactory): string
-    {
+    public function resolve(
+        Generator $faker,
+        FixtureFactory $fixtureFactory
+    ): string {
         return \str_replace(
             '%d',
             (string) $this->sequentialNumber++,
