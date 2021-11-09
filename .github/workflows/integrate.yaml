@@ -260,7 +260,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.15.0"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -282,7 +282,7 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Collect code coverage with pcov and phpunit/phpunit"
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml --testsuite=unit,integration"
 
       - name: "Send code coverage report to Codecov.io"
@@ -310,7 +310,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.15.0"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -329,5 +329,5 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run mutation tests with pcov and infection/infection"
+      - name: "Run mutation tests with Xdebug and infection/infection"
         run: "vendor/bin/infection --configuration=infection.json"
