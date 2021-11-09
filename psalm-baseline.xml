@@ -57,6 +57,10 @@
       <code>$max</code>
       <code>$min</code>
     </MixedArgument>
+    <ParamNameMismatch occurrences="2">
+      <code>$max</code>
+      <code>$min</code>
+    </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/MaximumGenerator.php">
     <MissingParamType occurrences="2">
@@ -69,6 +73,10 @@
     <MixedReturnStatement occurrences="1">
       <code>$max</code>
     </MixedReturnStatement>
+    <ParamNameMismatch occurrences="2">
+      <code>$max</code>
+      <code>$min</code>
+    </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/MinimumGenerator.php">
     <MissingParamType occurrences="2">
@@ -81,6 +89,10 @@
     <MixedReturnStatement occurrences="1">
       <code>$min</code>
     </MixedReturnStatement>
+    <ParamNameMismatch occurrences="2">
+      <code>$max</code>
+      <code>$min</code>
+    </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/TrueGenerator.php">
     <MissingParamType occurrences="3">
@@ -92,6 +104,10 @@
       <code>$max</code>
       <code>$min</code>
     </MixedArgument>
+    <ParamNameMismatch occurrences="2">
+      <code>$max</code>
+      <code>$min</code>
+    </ParamNameMismatch>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
     <InternalMethod occurrences="1">
