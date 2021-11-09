@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
+<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$providerClassName</code>
@@ -9,11 +9,6 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-  </file>
-  <file src="src/EntityDefinition.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>return !$fieldDefinition instanceof FieldDefinition\Resolvable;</code>
-    </DocblockTypeContradiction>
   </file>
   <file src="src/FieldDefinition/Reference.php">
     <PropertyTypeCoercion occurrences="1">
