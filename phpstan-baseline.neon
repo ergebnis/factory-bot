@@ -6,6 +6,11 @@ parameters:
 			path: example/src/Entity/Organization.php
 
 		-
+			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$url is never written, only read\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
 			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$codeOfConduct with default value\\.$#"
 			count: 1
 			path: example/src/Entity/Repository.php
@@ -76,6 +81,11 @@ parameters:
 			path: src/EntityDefinition.php
 
 		-
+			message: "#^Dead catch \\- ReflectionException is never thrown in the try block\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
 			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:collectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: src/FixtureFactory.php
@@ -91,52 +101,67 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$entity of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) expects object, T given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$object of method Doctrine\\\\Persistence\\\\ObjectManager\\:\\:persist\\(\\) expects object, T given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^PHPDoc tag @return contains unresolvable type\\.$#"
+			count: 1
+			path: test/DataProvider/ValueProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/MaximumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/MaximumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/MinimumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/MinimumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no typehint specified\\.$#"
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
@@ -144,6 +169,11 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Count' and Ergebnis\\\\FactoryBot\\\\Count will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/CountTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$fieldDefinitions of class Ergebnis\\\\FactoryBot\\\\EntityDefinition constructor expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
+			count: 1
+			path: test/Unit/EntityDefinitionTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassMetadataNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
