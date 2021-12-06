@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89758f5b763a26ee5a8c7ced05cf837d",
+    "content-hash": "70afdacb1c8a3b59b43f5a1e62edd311",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2506,16 +2506,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.16.0",
+            "version": "2.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "21eb186aa37247544674ee75aa4139c1cade7a64"
+                "reference": "0ac8d06d91063ea7b7ade3d635f3700a8012eb57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/21eb186aa37247544674ee75aa4139c1cade7a64",
-                "reference": "21eb186aa37247544674ee75aa4139c1cade7a64",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/0ac8d06d91063ea7b7ade3d635f3700a8012eb57",
+                "reference": "0ac8d06d91063ea7b7ade3d635f3700a8012eb57",
                 "shasum": ""
             },
             "require": {
@@ -2527,14 +2527,14 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "composer/composer": "^2.1.12",
+                "composer/composer": "^2.1.14",
                 "ergebnis/license": "^1.1.0",
                 "ergebnis/php-cs-fixer-config": "^2.14.0",
                 "ergebnis/test-util": "^1.5.0",
                 "phpunit/phpunit": "^8.5.21",
                 "psalm/plugin-phpunit": "~0.16.1",
-                "symfony/filesystem": "^5.3.4",
-                "vimeo/psalm": "^4.12.0"
+                "symfony/filesystem": "^5.4.0",
+                "vimeo/psalm": "^4.13.1"
             },
             "type": "composer-plugin",
             "extra": {
@@ -2577,7 +2577,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-22T10:23:09+00:00"
+            "time": "2021-12-05T11:34:03+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
