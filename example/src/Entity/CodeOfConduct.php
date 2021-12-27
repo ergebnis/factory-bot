@@ -24,40 +24,32 @@ class CodeOfConduct
     /**
      * @ORM\Mapping\Id
      * @ORM\Mapping\Column(type="string")
-     *
-     * @var string
      */
-    private $key;
+    private string $key;
 
     /**
      * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Mapping\Column(
      *     name="url",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $url;
+    private string $url;
 
     /**
      * @ORM\Mapping\Column(
      *     name="body",
      *     type="text"
      * )
-     *
-     * @var string
      */
-    private $body;
+    private string $body;
 
     public function __construct(string $key, string $name, string $url, string $body)
     {

@@ -21,10 +21,7 @@ use Faker\Generator;
  */
 final class Closure implements Resolvable
 {
-    /**
-     * @var \Closure
-     */
-    private $closure;
+    private \Closure $closure;
 
     public function __construct(\Closure $closure)
     {

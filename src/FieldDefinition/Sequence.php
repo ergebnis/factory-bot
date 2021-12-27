@@ -22,15 +22,8 @@ use Faker\Generator;
  */
 final class Sequence implements Resolvable
 {
-    /**
-     * @var string
-     */
-    private $value;
-
-    /**
-     * @var int
-     */
-    private $sequentialNumber;
+    private string $value;
+    private int $sequentialNumber;
 
     /**
      * @throws Exception\InvalidSequence

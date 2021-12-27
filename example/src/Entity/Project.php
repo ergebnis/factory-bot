@@ -29,20 +29,16 @@ class Project
      *     type="string",
      *     length=36
      * )
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
@@ -51,10 +47,8 @@ class Project
      *     referencedColumnName="id",
      *     nullable=false
      * )
-     *
-     * @var Repository
      */
-    private $repository;
+    private Repository $repository;
 
     public function __construct(string $name, Repository $repository)
     {

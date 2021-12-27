@@ -6,11 +6,6 @@ parameters:
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$url is never written, only read\\.$#"
-			count: 1
-			path: example/src/Entity/Organization.php
-
-		-
 			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$codeOfConduct with default value\\.$#"
 			count: 1
 			path: example/src/Entity/Repository.php

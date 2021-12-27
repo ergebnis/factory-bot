@@ -21,10 +21,7 @@ use Faker\Generator;
  */
 final class Optional implements Resolvable
 {
-    /**
-     * @var Resolvable
-     */
-    private $resolvable;
+    private Resolvable $resolvable;
 
     public function __construct(Resolvable $resolvable)
     {

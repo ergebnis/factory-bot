@@ -25,30 +25,24 @@ final class Avatar
      *     name="url",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $url = '';
+    private string $url = '';
 
     /**
      * @ORM\Mapping\Column(
      *     name="width",
      *     type="integer"
      * )
-     *
-     * @var int
      */
-    private $width = 0;
+    private int $width = 0;
 
     /**
      * @ORM\Mapping\Column(
      *     name="height",
      *     type="integer"
      * )
-     *
-     * @var int
      */
-    private $height = 0;
+    private int $height = 0;
 
     public function url(): string
     {

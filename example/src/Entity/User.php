@@ -30,20 +30,16 @@ class User
      *     type="string",
      *     length=36
      * )
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @ORM\Mapping\Column(
      *     name="login",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $login;
+    private string $login;
 
     /**
      * @ORM\Mapping\Column(
@@ -51,20 +47,16 @@ class User
      *     type="string",
      *     nullable=true
      * )
-     *
-     * @var null|string
      */
-    private $location;
+    private ?string $location;
 
     /**
      * @ORM\Mapping\Embedded(
      *     class="Example\Entity\Avatar",
      *     columnPrefix="avatar"
      * )
-     *
-     * @var Avatar
      */
-    private $avatar;
+    private Avatar $avatar;
 
     /**
      * @ORM\Mapping\ManyToMany(
@@ -74,7 +66,7 @@ class User
      *
      * @var Common\Collections\Collection<int, Organization>
      */
-    private $organizations;
+    private Common\Collections\Collection $organizations;
 
     public function __construct(string $login, Avatar $avatar, ?string $location = null)
     {
