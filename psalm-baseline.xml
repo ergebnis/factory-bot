@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
+<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$providerClassName</code>
@@ -109,12 +109,6 @@
       <code>addToAssertionCount</code>
     </InternalMethod>
   </file>
-  <file src="test/Unit/CountTest.php">
-    <RedundantCondition occurrences="2">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-  </file>
   <file src="test/Unit/EntityDefinitionTest.php">
     <MissingClosureParamType occurrences="2">
       <code>$entity</code>
@@ -130,117 +124,10 @@
       <code>$fieldValues</code>
     </UnusedClosureParam>
   </file>
-  <file src="test/Unit/Exception/ClassMetadataNotFoundTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/ClassNotFoundTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/EntityDefinitionNotRegisteredTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidCountTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidDefinitionTest.php">
-    <RedundantCondition occurrences="3">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidDirectoryTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidFieldDefinitionsTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidFieldNamesTest.php">
-    <RedundantCondition occurrences="2">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidMaximumTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidMinimumTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/Exception/InvalidSequenceTest.php">
-    <RedundantCondition occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="test/Unit/FieldDefinition/ClosureTest.php">
     <UnusedClosureParam occurrences="1">
       <code>$faker</code>
     </UnusedClosureParam>
-  </file>
-  <file src="test/Unit/FieldDefinition/ReferenceTest.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
     <RedundantCondition occurrences="1">
@@ -370,22 +257,10 @@
       <code>$fieldValues['name']</code>
       <code>$name</code>
     </MixedArgument>
-    <RedundantCondition occurrences="7">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
+    <RedundantCondition occurrences="2">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="5">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
     <UnnecessaryVarAnnotation occurrences="23">
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
