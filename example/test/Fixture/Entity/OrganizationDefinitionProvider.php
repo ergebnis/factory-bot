@@ -23,20 +23,20 @@ final class OrganizationDefinitionProvider implements FactoryBot\EntityDefinitio
     {
         $fixtureFactory->define(Entity\Organization::class, [
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->uuid;
+                return $faker->uuid();
             }),
             'isVerified' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): bool {
-                return $faker->boolean;
+                return $faker->boolean();
             }),
             'members' => FactoryBot\FieldDefinition::references(
                 Entity\User::class,
                 FactoryBot\Count::between(1, 10),
             ),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->word;
+                return $faker->word();
             }),
             'url' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
-                return $faker->url;
+                return $faker->url();
             }),
         ]);
     }

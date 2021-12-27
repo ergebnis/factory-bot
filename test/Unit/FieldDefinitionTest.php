@@ -119,7 +119,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $value = $faker->sentence;
+        $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
         $this->expectException(Exception\InvalidSequence::class);
@@ -172,7 +172,7 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $faker = self::faker();
 
-        $value = $faker->sentence;
+        $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
         $this->expectException(Exception\InvalidSequence::class);

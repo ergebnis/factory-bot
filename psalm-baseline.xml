@@ -108,6 +108,12 @@
     <InternalMethod occurrences="1">
       <code>addToAssertionCount</code>
     </InternalMethod>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$faker-&gt;unique()-&gt;uuid()</code>
+    </MixedReturnStatement>
   </file>
   <file src="test/Unit/EntityDefinitionTest.php">
     <MissingClosureParamType occurrences="2">
@@ -257,6 +263,10 @@
       <code>$fieldValues['name']</code>
       <code>$name</code>
     </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$name</code>
+      <code>$name</code>
+    </MixedAssignment>
     <RedundantCondition occurrences="2">
       <code>assertNotNull</code>
       <code>assertNotNull</code>

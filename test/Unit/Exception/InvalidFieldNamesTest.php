@@ -30,8 +30,8 @@ final class InvalidFieldNamesTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $className = $faker->word;
-        $fieldName = $faker->word;
+        $className = $faker->word();
+        $fieldName = $faker->word();
 
         $exception = Exception\InvalidFieldNames::notFoundIn(
             $className,
@@ -55,7 +55,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $className = $faker->word;
+        $className = $faker->word();
 
         /** @var string[] $fieldNames */
         $fieldNames = $faker->words(10);
