@@ -383,7 +383,7 @@ var_dump($user->location()); // null
 
 ##### `FieldDefinition::reference()`
 
-`FieldDefinition::reference()` accepts the class name of an entity or embeddable.
+`FieldDefinition::reference()` accepts the class name of an entity or embeddable, and optionally an array of field definition overrides.
 
 Every fixture factory will resolve the field definition to an instance of the entity or embeddable class populated through the fixture factory.
 
@@ -404,11 +404,36 @@ $user = $fixtureFactory->createOne(Entity\User::class);
 var_dump($user->avatar()); // an instance of Entity\Avatar
 ```
 
+When field definition overrides are specified, they will be used to override exsting field definitions of the referenced entity.
+
+```php
+<?php
+
+use Ergebnis\FactoryBot;
+use Example\Entity;
+
+/** @var FactoryBot\FixtureFactory $fixtureFactory */
+$fixtureFactory->define(Entity\User::class, [
+    'avatar' => FactoryBot\FieldDefinition::reference(
+        Entity\Avatar::class,
+        [
+            'height' => 300,
+            'width' => 200,
+        ]
+    ),
+]);
+
+/** @var Entity\User $user */
+$user = $fixtureFactory->createOne(Entity\User::class);
+
+var_dump($user->avatar()); // an instance of Entity\Avatar with height set to 300 and width set to 200
+```
+
 :exclamation: When resolving the reference, the fixture factory needs to be aware of the referenced entity or embeddable.
 
 ##### `FieldDefinition::optionalReference()`
 
-`FieldDefinition::optionalReference()` accepts the class name of an entity or embeddable.
+`FieldDefinition::optionalReference()` accepts the class name of an entity or embeddable, and optionally an array of field definition overrides.
 
 A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrategy) will resolve the field definition to `null` or an instance of the entity or embeddable class populated through the fixture factory.
 
@@ -475,7 +500,7 @@ var_dump($repository->template()); // null
 
 ##### `FieldDefinition::references()`
 
-`FieldDefinition::references()` accepts the class name of an entity or embeddable and the count of desired references.
+`FieldDefinition::references()` accepts the class name of an entity or embeddable, the count of desired references, and optionally an array of field definition overrides.
 
 You can create the count from an exact number, or minimum and maximum values.
 
@@ -510,7 +535,10 @@ $fixtureFactory->define(Entity\Organization::class, [
     ),
     'repositories' => FactoryBot\FieldDefinition::references(
         Entity\Repository::class,
-        FactoryBot\Count::between(0, 20)
+        FactoryBot\Count::between(0, 20),
+        [
+            'codeOfConduct' => null,
+        ]
     ),
 ]);
 

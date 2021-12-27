@@ -84,6 +84,29 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
+    public function testReferenceReturnsReferenceWhenFieldDefinitionOverridesAreSpecified(): void
+    {
+        $className = Entity\User::class;
+
+        $name = self::faker()->name();
+
+        $fieldDefinition = FieldDefinition::reference(
+            $className,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
+        );
+
+        $expected = new FieldDefinition\Reference(
+            $className,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
     public function testOptionalReferenceReturnsOptionalReference(): void
     {
         $className = Entity\User::class;
@@ -91,6 +114,29 @@ final class FieldDefinitionTest extends AbstractTestCase
         $fieldDefinition = FieldDefinition::optionalReference($className);
 
         $expected = new FieldDefinition\Optional(new FieldDefinition\Reference($className));
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testOptionalReferenceReturnsOptionalReferenceWhenFieldDefinitionOverridesAreSpecified(): void
+    {
+        $className = Entity\User::class;
+
+        $name = self::faker()->name();
+
+        $fieldDefinition = FieldDefinition::optionalReference(
+            $className,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
+        );
+
+        $expected = new FieldDefinition\Optional(new FieldDefinition\Reference(
+            $className,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
+        ));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -110,6 +156,34 @@ final class FieldDefinitionTest extends AbstractTestCase
         $expected = new FieldDefinition\References(
             $className,
             Count::exact($value),
+        );
+
+        self::assertEquals($expected, $fieldDefinition);
+    }
+
+    public function testReferencesReturnsReferencesWhenFieldDefinitionOverridesAreSpecified(): void
+    {
+        $faker = self::faker();
+
+        $className = Entity\User::class;
+        $count = Count::exact($faker->numberBetween(1, 5));
+
+        $name = $faker->name();
+
+        $fieldDefinition = FieldDefinition::references(
+            $className,
+            $count,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
+        );
+
+        $expected = new FieldDefinition\References(
+            $className,
+            $count,
+            [
+                'name' => FieldDefinition::value($name),
+            ],
         );
 
         self::assertEquals($expected, $fieldDefinition);

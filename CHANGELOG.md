@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.4.0...main`][0.4.0...main].
 
+### Added
+
+- Allowed specifying field definition overrides when using `FieldDefinition::reference()` and `FieldDefinition::references()` ([#421]), by [@abenerd]
+
 ### Changed
 
 - Dropped support for PHP 7.3 ([#682]), by [@localheinz]
@@ -241,6 +245,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#369]: https://github.com/ergebnis/factory-bot/pull/369
 [#374]: https://github.com/ergebnis/factory-bot/pull/374
 [#375]: https://github.com/ergebnis/factory-bot/pull/375
+[#421]: https://github.com/ergebnis/factory-bot/pull/421
 [#459]: https://github.com/ergebnis/factory-bot/pull/459
 [#481]: https://github.com/ergebnis/factory-bot/pull/481
 [#493]: https://github.com/ergebnis/factory-bot/pull/493
@@ -250,4 +255,5 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#499]: https://github.com/ergebnis/factory-bot/pull/499
 [#682]: https://github.com/ergebnis/factory-bot/pull/682
 
+[@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
