@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.4.0...main`][0.4.0...main].
 
+### Changed
+
+- Dropped support for PHP 7.3 ([#682]), by [@localheinz]
+
 ## [`0.4.0`][0.4.0]
 
 For a full diff see [`0.3.2...0.4.0`][0.3.2...0.4.0].
@@ -244,5 +248,6 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#496]: https://github.com/ergebnis/factory-bot/pull/496
 [#498]: https://github.com/ergebnis/factory-bot/pull/498
 [#499]: https://github.com/ergebnis/factory-bot/pull/499
+[#682]: https://github.com/ergebnis/factory-bot/pull/682
 
 [@localheinz]: https://github.com/localheinz
