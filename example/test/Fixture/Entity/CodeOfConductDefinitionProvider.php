@@ -26,13 +26,13 @@ final class CodeOfConductDefinitionProvider implements FactoryBot\EntityDefiniti
                 return $faker->realText();
             }),
             'key' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->word;
+                return $faker->word();
             }),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->sentence;
+                return $faker->sentence();
             }),
             'url' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->url;
+                return $faker->url();
             }),
         ]);
     }

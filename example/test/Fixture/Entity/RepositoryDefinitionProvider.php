@@ -24,10 +24,10 @@ final class RepositoryDefinitionProvider implements FactoryBot\EntityDefinitionP
         $fixtureFactory->define(Entity\Repository::class, [
             'codeOfConduct' => FactoryBot\FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->uuid;
+                return $faker->uuid();
             }),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->word;
+                return $faker->word();
             }),
             'organization' => FactoryBot\FieldDefinition::reference(Entity\Organization::class),
             'template' => FactoryBot\FieldDefinition::optionalReference(Entity\Repository::class),

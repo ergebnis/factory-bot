@@ -24,13 +24,13 @@ final class UserDefinitionProvider implements FactoryBot\EntityDefinitionProvide
         $fixtureFactory->define(Entity\User::class, [
             'avatar' => FactoryBot\FieldDefinition::reference(Entity\Avatar::class),
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->uuid;
+                return $faker->uuid();
             }),
             'location' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
-                return $faker->city;
+                return $faker->city();
             }),
             'login' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->userName;
+                return $faker->userName();
             }),
         ]);
     }

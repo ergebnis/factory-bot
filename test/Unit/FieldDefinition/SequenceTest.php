@@ -32,7 +32,7 @@ final class SequenceTest extends Test\Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $value = $faker->sentence;
+        $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
         $this->expectException(Exception\InvalidSequence::class);

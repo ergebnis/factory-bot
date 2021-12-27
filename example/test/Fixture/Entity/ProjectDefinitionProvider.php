@@ -23,10 +23,10 @@ final class ProjectDefinitionProvider implements FactoryBot\EntityDefinitionProv
     {
         $fixtureFactory->define(Entity\Project::class, [
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->uuid;
+                return $faker->uuid();
             }),
             'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
-                return $faker->word;
+                return $faker->word();
             }),
             'repository' => FactoryBot\FieldDefinition::reference(Entity\Repository::class),
         ]);
