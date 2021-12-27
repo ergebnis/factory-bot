@@ -72,7 +72,7 @@ class User
      *     mappedBy="members"
      * )
      *
-     * @var Common\Collections\ArrayCollection<int, Organization>
+     * @var Common\Collections\Collection<int, Organization>
      */
     private $organizations;
 

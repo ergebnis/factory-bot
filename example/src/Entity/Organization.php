@@ -72,7 +72,7 @@ class Organization
      *     mappedBy="organization"
      * )
      *
-     * @var Common\Collections\ArrayCollection<int, Repository>
+     * @var Common\Collections\Collection<int, Repository>
      */
     private $repositories;
 
@@ -82,7 +82,7 @@ class Organization
      *     inversedBy="organizations"
      * )
      *
-     * @var Common\Collections\ArrayCollection<int, User>
+     * @var Common\Collections\Collection<int, User>
      */
     private $members;
 
