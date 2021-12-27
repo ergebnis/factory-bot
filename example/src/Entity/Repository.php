@@ -29,20 +29,16 @@ class Repository
      *     name="id",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Mapping\ManyToOne(
@@ -54,10 +50,8 @@ class Repository
      *     referencedColumnName="id",
      *     nullable=false
      * )
-     *
-     * @var Organization
      */
-    private $organization;
+    private Organization $organization;
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
@@ -65,10 +59,8 @@ class Repository
      *     name="template_id",
      *     referencedColumnName="id"
      * )
-     *
-     * @var null|Repository
      */
-    private $template;
+    private ?Repository $template;
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\CodeOfConduct")
@@ -76,10 +68,8 @@ class Repository
      *     name="code_of_conduct_key",
      *     referencedColumnName="key"
      * )
-     *
-     * @var null|CodeOfConduct
      */
-    private $codeOfConduct;
+    private ?CodeOfConduct $codeOfConduct;
 
     public function __construct(
         Organization $organization,

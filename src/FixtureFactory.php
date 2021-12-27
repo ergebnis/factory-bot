@@ -20,30 +20,15 @@ use Faker\Generator;
 
 final class FixtureFactory
 {
-    /**
-     * @var ORM\EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
-     * @var Generator
-     */
-    private $faker;
-
-    /**
-     * @var Strategy\ResolutionStrategy
-     */
-    private $resolutionStrategy;
-
-    /**
-     * @var bool
-     */
-    private $persistAfterCreate = false;
+    private ORM\EntityManagerInterface $entityManager;
+    private Generator $faker;
+    private Strategy\ResolutionStrategy $resolutionStrategy;
+    private bool $persistAfterCreate = false;
 
     /**
      * @var array<string, EntityDefinition>
      */
-    private $entityDefinitions = [];
+    private array $entityDefinitions = [];
 
     public function __construct(
         ORM\EntityManagerInterface $entityManager,

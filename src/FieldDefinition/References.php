@@ -30,15 +30,9 @@ final class References implements Resolvable
      * @phpstan-var class-string<T>
      *
      * @psalm-var class-string<T>
-     *
-     * @var string
      */
-    private $className;
-
-    /**
-     * @var Count
-     */
-    private $count;
+    private string $className;
+    private Count $count;
 
     /**
      * @phpstan-param class-string<T> $className

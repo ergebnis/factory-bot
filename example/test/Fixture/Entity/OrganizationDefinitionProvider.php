@@ -25,7 +25,7 @@ final class OrganizationDefinitionProvider implements FactoryBot\EntityDefinitio
             'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid;
             }),
-            'isVerified' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): bool {
+            'isVerified' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): bool {
                 return $faker->boolean;
             }),
             'members' => FactoryBot\FieldDefinition::references(

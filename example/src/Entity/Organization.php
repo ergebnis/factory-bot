@@ -30,30 +30,24 @@ class Organization
      *     type="string",
      *     length=36
      * )
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @ORM\Mapping\Column(
      *     name="is_verified",
      *     type="boolean"
      * )
-     *
-     * @var bool
      */
-    private $isVerified = false;
+    private bool $isVerified = false;
 
     /**
      * @ORM\Mapping\Column(
      *     name="name",
      *     type="string"
      * )
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Mapping\Column(
@@ -61,10 +55,8 @@ class Organization
      *     type="string",
      *     nullable=true
      * )
-     *
-     * @var null|string
      */
-    private $url;
+    private ?string $url = null;
 
     /**
      * @ORM\Mapping\OneToMany(
@@ -74,7 +66,7 @@ class Organization
      *
      * @var Common\Collections\Collection<int, Repository>
      */
-    private $repositories;
+    private Common\Collections\Collection $repositories;
 
     /**
      * @ORM\Mapping\ManyToMany(
@@ -84,12 +76,8 @@ class Organization
      *
      * @var Common\Collections\Collection<int, User>
      */
-    private $members;
-
-    /**
-     * @var bool
-     */
-    private $constructorWasCalled = false;
+    private Common\Collections\Collection$members;
+    private bool $constructorWasCalled = false;
 
     public function __construct(string $name)
     {
