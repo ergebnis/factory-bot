@@ -178,6 +178,13 @@ final class FixtureFactory
         }
     }
 
+    public function register(EntityDefinitionProvider ...$providers): void
+    {
+        foreach ($providers as $provider) {
+            $provider->accept($this);
+        }
+    }
+
     /**
      * Creates a single entity with all of its dependencies.
      *

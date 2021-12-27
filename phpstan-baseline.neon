@@ -377,7 +377,7 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Organization' and Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
@@ -387,12 +387,12 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Repository' and Example\\\\Entity\\\\Repository will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\User' and Example\\\\Entity\\\\User will always evaluate to true\\.$#"
-			count: 2
+			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
