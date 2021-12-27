@@ -31,6 +31,7 @@ You will use the fixture factory to create entity definitions and to create Doct
 - [Creating a fixture factory](#creating-a-fixture-factory)
 - [Creating entity definitions](#creating-entity-definitions)
 - [Loading entity definitions](#loading-entity-definitions)
+- [Registering entity definitions](#registering-entity-definitions)
 - [Creating entities](#creating-entities)
 - [Persisting entities](#persisting-entities)
 - [Flushing entities](#flushing-entities)
@@ -881,6 +882,39 @@ abstract class AbstractTestCase extends Framework\TestCase
         );
 
         $fixtureFactory->load(__DIR__ . '/../Fixture');
+
+        return $fixtureFactory;
+    }
+
+    // ...
+}
+```
+
+### Registering entity definitions
+
+Instead of loading entity definition providers contained within a directory with the fixture factory, you can also register entity definition providers that you have already instantiated.
+
+```php
+<?php
+
+namespace App\Test\Functional;
+
+use Ergebnis\FactoryBot;
+use Example\Test\Fixture;
+use PHPUnit\Framework;
+
+abstract class AbstractTestCase extends Framework\TestCase
+{
+    // ...
+
+    final protected static function fixtureFactory(): FactoryBot\FixtureFactory
+    {
+        $fixtureFactory = new FactoryBot\FixtureFactory(
+            static::entityManager(),
+            static::faker()
+        );
+
+        $fixtureFactory->register(new Fixture\UserDefinitionProvider());
 
         return $fixtureFactory;
     }

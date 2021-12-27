@@ -19,6 +19,7 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 use Example\Entity;
+use Example\Test\Fixture;
 use Faker\Generator;
 
 /**
@@ -209,6 +210,30 @@ final class FixtureFactoryTest extends AbstractTestCase
         );
 
         $fixtureFactory->load(__DIR__ . '/../../example/test/Fixture/Entity');
+
+        $organization = $fixtureFactory->createOne(Entity\Organization::class);
+        $repository = $fixtureFactory->createOne(Entity\Repository::class);
+        $user = $fixtureFactory->createOne(Entity\User::class);
+
+        self::assertInstanceOf(Entity\Organization::class, $organization);
+        self::assertInstanceOf(Entity\Repository::class, $repository);
+        self::assertInstanceOf(Entity\User::class, $user);
+    }
+
+    public function testRegisterAcceptsDefinitionProviders(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker(),
+        );
+
+        $fixtureFactory->register(
+            new Fixture\Entity\AvatarDefinitionProvider(),
+            new Fixture\Entity\CodeOfConductDefinitionProvider(),
+            new Fixture\Entity\OrganizationDefinitionProvider(),
+            new Fixture\Entity\RepositoryDefinitionProvider(),
+            new Fixture\Entity\UserDefinitionProvider(),
+        );
 
         $organization = $fixtureFactory->createOne(Entity\Organization::class);
         $repository = $fixtureFactory->createOne(Entity\Repository::class);
