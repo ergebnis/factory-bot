@@ -1,7 +1,8 @@
 {
   "name": "ergebnis/factory-bot",
-  "type": "library",
   "description": "Provides a fixture factory for doctrine/orm entities.",
+  "license": "MIT",
+  "type": "library",
   "keywords": [
     "doctrine",
     "orm",
@@ -9,14 +10,17 @@
     "fixture",
     "factory"
   ],
-  "homepage": "https://github.com/ergebnis/factory-bot",
-  "license": "MIT",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "homepage": "https://github.com/ergebnis/factory-bot",
+  "support": {
+    "issues": "https://github.com/ergebnis/factory-bot/issues",
+    "source": "https://github.com/ergebnis/factory-bot"
+  },
   "require": {
     "php": "^7.4 || ^8.0",
     "doctrine/annotations": "^1.10.3",
@@ -28,7 +32,7 @@
   },
   "require-dev": {
     "composer/package-versions-deprecated": "1.11.99.4",
-    "ergebnis/composer-normalize": "^2.16.0",
+    "ergebnis/composer-normalize": "^2.18.0",
     "ergebnis/license": "^1.1.0",
     "ergebnis/php-cs-fixer-config": "^2.14.0",
     "ergebnis/phpstan-rules": "^1.0.0",
@@ -46,13 +50,6 @@
     "symfony/cache": "^5.3.12",
     "vimeo/psalm": "^4.15.0"
   },
-  "config": {
-    "platform": {
-      "php": "7.4.26"
-    },
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "autoload": {
     "psr-4": {
       "Ergebnis\\FactoryBot\\": "src/"
@@ -65,8 +62,11 @@
       "Example\\Test\\": "example/test/"
     }
   },
-  "support": {
-    "issues": "https://github.com/ergebnis/factory-bot/issues",
-    "source": "https://github.com/ergebnis/factory-bot"
+  "config": {
+    "platform": {
+      "php": "7.4.26"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
   }
 }
