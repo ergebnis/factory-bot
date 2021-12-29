@@ -47,7 +47,7 @@
     "phpunit/phpunit": "^9.5.11",
     "psalm/plugin-phpunit": "~0.16.1",
     "ramsey/uuid": "^4.2.3",
-    "symfony/cache": "^5.3.12",
+    "symfony/cache": "^5.3.13",
     "vimeo/psalm": "^4.16.1"
   },
   "autoload": {

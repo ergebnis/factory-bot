@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cc0f80b6dc102d70187d0af0e5608b9",
+    "content-hash": "19f81807fbdcb2d265fee8d5a1b73b89",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -6598,16 +6598,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.3.12",
+            "version": "v5.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "fe05bcb21c1287401d96d066ada7ed881418c6a1"
+                "reference": "61ce40a96758a0e1f81125929a171df43b9e2214"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/fe05bcb21c1287401d96d066ada7ed881418c6a1",
-                "reference": "fe05bcb21c1287401d96d066ada7ed881418c6a1",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/61ce40a96758a0e1f81125929a171df43b9e2214",
+                "reference": "61ce40a96758a0e1f81125929a171df43b9e2214",
                 "shasum": ""
             },
             "require": {
@@ -6675,7 +6675,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v5.3.12"
+                "source": "https://github.com/symfony/cache/tree/v5.3.13"
             },
             "funding": [
                 {
@@ -6691,7 +6691,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-23T18:33:50+00:00"
+            "time": "2021-12-28T17:08:14+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -7337,16 +7337,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.3.11",
+            "version": "v5.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "b16fcf355b810bcbccc2c6eac1d016725dbf9002"
+                "reference": "2360c8525815b8535caac27cbc1994e2fa8644ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/b16fcf355b810bcbccc2c6eac1d016725dbf9002",
-                "reference": "b16fcf355b810bcbccc2c6eac1d016725dbf9002",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/2360c8525815b8535caac27cbc1994e2fa8644ba",
+                "reference": "2360c8525815b8535caac27cbc1994e2fa8644ba",
                 "shasum": ""
             },
             "require": {
@@ -7354,7 +7354,7 @@
                 "symfony/polyfill-php80": "^1.16"
             },
             "require-dev": {
-                "symfony/var-dumper": "^4.4.9|^5.0.9"
+                "symfony/var-dumper": "^4.4.9|^5.0.9|^6.0"
             },
             "type": "library",
             "autoload": {
@@ -7390,7 +7390,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v5.3.11"
+                "source": "https://github.com/symfony/var-exporter/tree/v5.4.2"
             },
             "funding": [
                 {
@@ -7406,7 +7406,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-22T10:43:59+00:00"
+            "time": "2021-12-16T21:58:21+00:00"
         },
         {
             "name": "thecodingmachine/safe",
