@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f2017419e42f8d49b65a44bfe7fac4d",
+    "content-hash": "fdff1ea4a505f742ec1a7924d2e2c42c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -964,36 +964,31 @@
         },
         {
             "name": "ergebnis/classy",
-            "version": "1.1.1",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947"
+                "reference": "e3bac43b56273ac7c4d13c839185ce96871e7a87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/e3bac43b56273ac7c4d13c839185ce96871e7a87",
+                "reference": "e3bac43b56273ac7c4d13c839185ce96871e7a87",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "^7.2 || ^8.0"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.13.2",
+                "ergebnis/composer-normalize": "^2.22.0",
                 "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.13.0",
-                "ergebnis/phpstan-rules": "~0.15.3",
-                "ergebnis/test-util": "^1.0.0",
-                "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.70",
-                "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.9",
-                "phpunit/phpunit": "^8.5.14",
-                "psalm/plugin-phpunit": "~0.15.0",
-                "vimeo/psalm": "^4.4.1",
+                "ergebnis/php-cs-fixer-config": "^3.4.0",
+                "fakerphp/faker": "^1.17.0",
+                "infection/infection": "~0.25.5",
+                "phpunit/phpunit": "^9.5.11",
+                "psalm/plugin-phpunit": "~0.16.1",
+                "vimeo/psalm": "^4.16.1",
                 "zendframework/zend-file": "^2.8.3"
             },
             "type": "library",
@@ -1037,7 +1032,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-01T08:25:30+00:00"
+            "time": "2021-12-30T17:07:33+00:00"
         },
         {
             "name": "fakerphp/faker",
