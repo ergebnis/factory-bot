@@ -116,6 +116,16 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\DataProvider\\\\IntProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/DataProvider/IntProvider.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\DataProvider\\\\ValueProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/DataProvider/ValueProvider.php
+
+		-
 			message: "#^PHPDoc tag @return contains unresolvable type\\.$#"
 			count: 1
 			path: test/DataProvider/ValueProvider.php
@@ -174,6 +184,16 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Count' and Ergebnis\\\\FactoryBot\\\\Count will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/CountTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\CountTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/CountTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\EntityDefinitionTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/EntityDefinitionTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$fieldDefinitions of class Ergebnis\\\\FactoryBot\\\\EntityDefinition constructor expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
@@ -256,6 +276,11 @@ parameters:
 			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidCountTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidCountTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
 			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
@@ -271,6 +296,11 @@ parameters:
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidDefinitionTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDefinitionTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidDirectoryTest.php
@@ -282,6 +312,11 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidDirectoryTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidDirectoryTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidDirectoryTest.php
 
@@ -301,6 +336,11 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidFieldDefinitionsTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
@@ -316,6 +356,11 @@ parameters:
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidFieldNamesTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidFieldNamesTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidMaximumTest.php
@@ -327,6 +372,11 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMaximumTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidMaximumTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidMaximumTest.php
 
@@ -346,6 +396,11 @@ parameters:
 			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidMinimumTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidMinimumTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
@@ -357,6 +412,11 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			count: 1
+			path: test/Unit/Exception/InvalidSequenceTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidSequenceTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
 

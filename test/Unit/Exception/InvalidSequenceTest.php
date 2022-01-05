@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
 use Ergebnis\FactoryBot\Exception;
-use Ergebnis\Test\Util;
+use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
@@ -24,7 +24,7 @@ use PHPUnit\Framework;
  */
 final class InvalidSequenceTest extends Framework\TestCase
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     public function testValueReturnsException(): void
     {
