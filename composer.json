@@ -64,6 +64,7 @@
   },
   "config": {
     "allow-plugins": {
+      "composer/package-versions-deprecated": true,
       "ergebnis/composer-normalize": true,
       "infection/extension-installer": true,
       "phpstan/extension-installer": true
