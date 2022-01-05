@@ -317,9 +317,6 @@ jobs:
       - name: "Validate Doctrine mapping"
         run: "vendor/bin/doctrine orm:validate-schema --skip-sync"
 
-      - name: "Run auto-review tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=auto-review"
-
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit"
 
