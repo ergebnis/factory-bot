@@ -12,6 +12,7 @@ updates:
       - dependency-name: "doctrine/collections"
       - dependency-name: "doctrine/dbal"
       - dependency-name: "doctrine/orm"
+      - dependency-name: "doctrine/persistence"
       - dependency-name: "fakerphp/faker"
     labels:
       - "dependency"
