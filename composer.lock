@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2df50de9f88e1215cc0ae0f5d166ed14",
+    "content-hash": "b04d1b9d6df299e70d8efa4dadf7ee73",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -3050,82 +3050,6 @@
                 }
             ],
             "time": "2021-11-08T15:37:09+00:00"
-        },
-        {
-            "name": "ergebnis/test-util",
-            "version": "1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ergebnis/test-util.git",
-                "reference": "7c85925bca8b2d2985eb7a208f53114dc64c780b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/7c85925bca8b2d2985eb7a208f53114dc64c780b",
-                "reference": "7c85925bca8b2d2985eb7a208f53114dc64c780b",
-                "shasum": ""
-            },
-            "require": {
-                "ergebnis/classy": "^1.1.1",
-                "fakerphp/faker": "^1.14.1",
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.13.3",
-                "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.13.0",
-                "ergebnis/phpstan-rules": "~0.15.3",
-                "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.65",
-                "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-phpunit": "~0.12.18",
-                "phpstan/phpstan-strict-rules": "~0.12.9",
-                "phpunit/phpunit": "^8.5.15",
-                "psalm/plugin-phpunit": "~0.15.1",
-                "vimeo/psalm": "^4.7.0"
-            },
-            "type": "library",
-            "extra": {
-                "composer-normalize": {
-                    "indent-size": 2,
-                    "indent-style": "space"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ergebnis\\Test\\Util\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a helper trait and generic data providers for tests.",
-            "homepage": "https://github.com/ergebnis/test-util",
-            "keywords": [
-                "assertion",
-                "faker",
-                "phpunit",
-                "test"
-            ],
-            "support": {
-                "issues": "https://github.com/ergebnis/test-util/issues",
-                "source": "https://github.com/ergebnis/test-util"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-03-30T15:07:05+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
@@ -7891,5 +7815,5 @@
     "platform-overrides": {
         "php": "7.4.26"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
