@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\DataProvider;
 
-use Ergebnis\Test\Util;
+use Ergebnis\FactoryBot\Test;
 
 final class ValueProvider
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     /**
      * @return \Generator<string, array<string[], bool, float, int, object, \stdClass, string>>

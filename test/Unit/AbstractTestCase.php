@@ -15,7 +15,6 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\Test;
-use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 
 /**
@@ -23,7 +22,7 @@ use PHPUnit\Framework;
  */
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     final protected static function entityManager(): ORM\EntityManagerInterface
     {

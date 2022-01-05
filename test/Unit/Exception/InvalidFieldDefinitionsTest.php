@@ -15,7 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\Test\Util;
+use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
@@ -25,7 +25,7 @@ use PHPUnit\Framework;
  */
 final class InvalidFieldDefinitionsTest extends Framework\TestCase
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     public function testFromClassNameCreatesException(): void
     {
