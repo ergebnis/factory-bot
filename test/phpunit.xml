@@ -28,9 +28,6 @@
         </include>
     </coverage>
     <testsuites>
-        <testsuite name="auto-review">
-            <directory>AutoReview/</directory>
-        </testsuite>
         <testsuite name="integration">
             <directory>Integration/</directory>
         </testsuite>

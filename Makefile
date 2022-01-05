@@ -47,9 +47,8 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
-tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpunit
+tests: vendor ## Runs unit and integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit
-	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=auto-review
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
 
