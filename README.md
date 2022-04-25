@@ -570,13 +570,13 @@ $fixtureFactory->define(Entity\Organization::class, [
     ),
 ]);
 
-$withOptionalFixtureFactory = $fixtureFactory->withoutOptional();
+$withOptionalFixtureFactory = $fixtureFactory->withOptional();
 
 /** @var Entity\Organization $organization */
 $organization = $withOptionalFixtureFactory->createOne(Entity\Organization::class);
 
 var_dump($organization->members());      // array with 5 instances of Entity\User
-var_dump($organization->repositories()); // empty array with 1-20 instances of Entity\Repository
+var_dump($organization->repositories()); // array with 1-20 instances of Entity\Repository
 ```
 
 A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithoutoptionalstrategy) will resolve the field definition to an empty array, unless `$count` uses an exact value, see [`FixtureFactory::createMany()`](#fixturefactorycreatemany).
