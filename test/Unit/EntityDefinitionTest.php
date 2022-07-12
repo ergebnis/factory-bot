@@ -51,7 +51,7 @@ final class EntityDefinitionTest extends Framework\TestCase
             $this->createMock(ORM\Mapping\ClassMetadata::class),
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
-                // intentionally left blank
+            // intentionally left blank
             },
         );
     }
