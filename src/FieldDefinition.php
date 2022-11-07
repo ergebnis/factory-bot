@@ -28,12 +28,16 @@ final class FieldDefinition
     /**
      * @phpstan-param class-string<T> $className
      * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     *
      * @phpstan-return FieldDefinition\Reference<T>
+     *
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
      * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     *
      * @psalm-return FieldDefinition\Reference<T>
+     *
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
@@ -69,13 +73,18 @@ final class FieldDefinition
 
     /**
      * @phpstan-param class-string<T> $className
+     *
      * @phpstan-return FieldDefinition\References<T>
+     *
      * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     *
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
      * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     *
      * @psalm-return FieldDefinition\References<T>
+     *
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
@@ -117,11 +126,15 @@ final class FieldDefinition
 
     /**
      * @phpstan-param T $value
+     *
      * @phpstan-return FieldDefinition\Value<T>
+     *
      * @phpstan-template T
      *
      * @psalm-param T $value
+     *
      * @psalm-return FieldDefinition\Value<T>
+     *
      * @psalm-template T
      *
      * @param mixed $value

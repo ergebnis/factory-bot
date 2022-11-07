@@ -43,9 +43,11 @@ final class FixtureFactory
      * Creates a definition for populating an entity with fake data.
      *
      * @phpstan-param class-string<T> $className
+     *
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
+     *
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitions
@@ -189,11 +191,15 @@ final class FixtureFactory
      * Creates a single entity with all of its dependencies.
      *
      * @phpstan-param class-string<T> $className
+     *
      * @phpstan-return T
+     *
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
+     *
      * @psalm-return T
+     *
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
@@ -273,11 +279,15 @@ final class FixtureFactory
      * Creates an array of entites with all of their dependencies.
      *
      * @phpstan-param class-string<T> $className
+     *
      * @phpstan-return array<int, T>
+     *
      * @phpstan-template T
      *
      * @psalm-param class-string<T> $className
+     *
      * @psalm-return list<T>
+     *
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
