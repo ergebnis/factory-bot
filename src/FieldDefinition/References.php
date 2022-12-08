@@ -55,7 +55,7 @@ final class References implements Resolvable
     public function __construct(
         string $className,
         Count $count,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ) {
         $this->className = $className;
         $this->count = $count;
@@ -71,7 +71,7 @@ final class References implements Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory
+        FixtureFactory $fixtureFactory,
     ): array {
         return $fixtureFactory->createMany(
             $this->className,

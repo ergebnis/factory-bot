@@ -55,7 +55,7 @@ final class Value implements Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory
+        FixtureFactory $fixtureFactory,
     ) {
         return $this->value;
     }

@@ -17,7 +17,7 @@ final class InvalidFieldNames extends \InvalidArgumentException implements Excep
 {
     public static function notFoundIn(
         string $className,
-        string ...$fieldNames
+        string ...$fieldNames,
     ): self {
         \natsort($fieldNames);
 

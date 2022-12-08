@@ -75,7 +75,7 @@ class Repository
         Organization $organization,
         string $name,
         ?self $template = null,
-        ?CodeOfConduct $codeOfConduct = null
+        ?CodeOfConduct $codeOfConduct = null,
     ) {
         $this->id = Uuid\Uuid::uuid4()->toString();
         $this->organization = $organization;

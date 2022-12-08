@@ -30,7 +30,7 @@ final class Closure implements Resolvable
 
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory
+        FixtureFactory $fixtureFactory,
     ) {
         $closure = $this->closure;
 

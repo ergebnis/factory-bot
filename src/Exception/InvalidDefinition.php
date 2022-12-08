@@ -33,7 +33,7 @@ final class InvalidDefinition extends \RuntimeException implements Exception
 
     public static function throwsExceptionDuringInstantiation(
         string $className,
-        \Exception $exception
+        \Exception $exception,
     ): self {
         return new self(
             \sprintf(

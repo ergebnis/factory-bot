@@ -44,7 +44,7 @@ final class FieldDefinition
      */
     public static function reference(
         string $className,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ): FieldDefinition\Reference {
         return new FieldDefinition\Reference(
             $className,
@@ -63,7 +63,7 @@ final class FieldDefinition
      */
     public static function optionalReference(
         string $className,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ): FieldDefinition\Optional {
         return new FieldDefinition\Optional(new FieldDefinition\Reference(
             $className,
@@ -92,7 +92,7 @@ final class FieldDefinition
     public static function references(
         string $className,
         Count $count,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ): FieldDefinition\References {
         return new FieldDefinition\References(
             $className,
@@ -106,7 +106,7 @@ final class FieldDefinition
      */
     public static function sequence(
         string $value,
-        int $initialNumber = 1
+        int $initialNumber = 1,
     ): FieldDefinition\Sequence {
         return new FieldDefinition\Sequence(
             $value,
@@ -116,7 +116,7 @@ final class FieldDefinition
 
     public static function optionalSequence(
         string $value,
-        int $initialNumber = 1
+        int $initialNumber = 1,
     ): FieldDefinition\Resolvable {
         return new FieldDefinition\Optional(new FieldDefinition\Sequence(
             $value,

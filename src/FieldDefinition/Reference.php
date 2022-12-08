@@ -52,7 +52,7 @@ final class Reference implements Resolvable
      */
     public function __construct(
         string $className,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ) {
         $this->className = $className;
         $this->fieldDefinitionOverrides = $fieldDefinitionOverrides;
@@ -67,7 +67,7 @@ final class Reference implements Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory
+        FixtureFactory $fixtureFactory,
     ) {
         return $fixtureFactory->createOne(
             $this->className,

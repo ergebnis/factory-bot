@@ -26,7 +26,7 @@ final class WithoutOptionalStrategy implements ResolutionStrategy
     public function resolveFieldValue(
         Generator $faker,
         FixtureFactory $fixtureFactory,
-        FieldDefinition\Resolvable $fieldDefinition
+        FieldDefinition\Resolvable $fieldDefinition,
     ) {
         if ($fieldDefinition instanceof FieldDefinition\Optional) {
             return null;
@@ -40,7 +40,7 @@ final class WithoutOptionalStrategy implements ResolutionStrategy
 
     public function resolveCount(
         Generator $faker,
-        Count $count
+        Count $count,
     ): int {
         return $count->minimum();
     }

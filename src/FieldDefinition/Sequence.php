@@ -30,9 +30,9 @@ final class Sequence implements Resolvable
      */
     public function __construct(
         string $value,
-        int $initialNumber
+        int $initialNumber,
     ) {
-        if (false === \strpos($value, '%d')) {
+        if (!\str_contains($value, '%d')) {
             throw Exception\InvalidSequence::value($value);
         }
 
@@ -42,7 +42,7 @@ final class Sequence implements Resolvable
 
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory
+        FixtureFactory $fixtureFactory,
     ): string {
         return \str_replace(
             '%d',

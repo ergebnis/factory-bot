@@ -29,11 +29,11 @@ interface ResolutionStrategy
     public function resolveFieldValue(
         Generator $faker,
         FixtureFactory $fixtureFactory,
-        FieldDefinition\Resolvable $fieldDefinition
+        FieldDefinition\Resolvable $fieldDefinition,
     );
 
     public function resolveCount(
         Generator $faker,
-        Count $count
+        Count $count,
     ): int;
 }

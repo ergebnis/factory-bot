@@ -32,7 +32,7 @@ final class FixtureFactory
 
     public function __construct(
         ORM\EntityManagerInterface $entityManager,
-        Generator $faker
+        Generator $faker,
     ) {
         $this->entityManager = $entityManager;
         $this->faker = $faker;
@@ -61,7 +61,7 @@ final class FixtureFactory
     public function define(
         string $className,
         array $fieldDefinitions = [],
-        ?\Closure $afterCreate = null
+        ?\Closure $afterCreate = null,
     ): void {
         if (\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionAlreadyRegistered::for($className);
@@ -85,7 +85,7 @@ final class FixtureFactory
         );
 
         $fieldNames = \array_filter($allFieldNames, static function (string $fieldName): bool {
-            return false === \strpos($fieldName, '.');
+            return !\str_contains($fieldName, '.');
         });
 
         /** @var array<int, string> $extraFieldNames */
@@ -211,7 +211,7 @@ final class FixtureFactory
      */
     public function createOne(
         string $className,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ) {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
@@ -299,7 +299,7 @@ final class FixtureFactory
     public function createMany(
         string $className,
         Count $count,
-        array $fieldDefinitionOverrides = []
+        array $fieldDefinitionOverrides = [],
     ): array {
         $resolved = $this->resolutionStrategy->resolveCount(
             $this->faker,
@@ -391,7 +391,7 @@ final class FixtureFactory
         object $entity,
         EntityDefinition $entityDefinition,
         string $fieldName,
-        $fieldValue
+        $fieldValue,
     ): void {
         $classMetadata = $entityDefinition->classMetadata();
 
@@ -443,7 +443,7 @@ final class FixtureFactory
         object $entity,
         ORM\Mapping\ClassMetadata $classMetadata,
         string $fieldName,
-        object $fieldValue
+        object $fieldValue,
     ): void {
         $association = $classMetadata->getAssociationMapping($fieldName);
 
@@ -461,7 +461,7 @@ final class FixtureFactory
             return;
         }
 
-        $classMetadataOfFieldValue = $this->entityManager->getClassMetadata(\get_class($fieldValue));
+        $classMetadataOfFieldValue = $this->entityManager->getClassMetadata($fieldValue::class);
 
         $collection = $classMetadataOfFieldValue->getFieldValue(
             $fieldValue,
