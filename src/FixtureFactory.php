@@ -73,7 +73,7 @@ final class FixtureFactory
 
         try {
             $classMetadata = $this->entityManager->getClassMetadata($className);
-        } catch (ORM\Mapping\MappingException $exception) {
+        } catch (ORM\Mapping\MappingException) {
             throw Exception\ClassMetadataNotFound::for($className);
         }
 
@@ -150,7 +150,7 @@ final class FixtureFactory
 
             try {
                 $reflection = new \ReflectionClass($className);
-            } catch (\ReflectionException $exception) {
+            } catch (\ReflectionException) {
                 throw Exception\InvalidDefinition::canNotBeAutoloaded($className);
             }
 
