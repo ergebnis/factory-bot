@@ -26,20 +26,12 @@ use Faker\Generator;
 final class Value implements Resolvable
 {
     /**
-     * @phpstan-var T
-     *
-     * @psalm-var T
-     */
-    private mixed $value;
-
-    /**
      * @phpstan-param T $value
      *
      * @psalm-param T $value
      */
-    public function __construct(mixed $value)
+    public function __construct(private mixed $value)
     {
-        $this->value = $value;
     }
 
     /**

@@ -20,8 +20,6 @@ use Faker\Generator;
 
 final class FixtureFactory
 {
-    private ORM\EntityManagerInterface $entityManager;
-    private Generator $faker;
     private Strategy\ResolutionStrategy $resolutionStrategy;
     private bool $persistAfterCreate = false;
 
@@ -31,11 +29,9 @@ final class FixtureFactory
     private array $entityDefinitions = [];
 
     public function __construct(
-        ORM\EntityManagerInterface $entityManager,
-        Generator $faker,
+        private ORM\EntityManagerInterface $entityManager,
+        private Generator $faker,
     ) {
-        $this->entityManager = $entityManager;
-        $this->faker = $faker;
         $this->resolutionStrategy = new Strategy\DefaultStrategy();
     }
 

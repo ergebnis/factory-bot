@@ -13,16 +13,6 @@
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/FieldDefinition/Reference.php">
-    <PropertyTypeCoercion occurrences="1">
-      <code>$className</code>
-    </PropertyTypeCoercion>
-  </file>
-  <file src="src/FieldDefinition/References.php">
-    <PropertyTypeCoercion occurrences="1">
-      <code>$className</code>
-    </PropertyTypeCoercion>
-  </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType occurrences="1">
       <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>

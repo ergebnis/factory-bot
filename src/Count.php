@@ -15,15 +15,10 @@ namespace Ergebnis\FactoryBot;
 
 final class Count
 {
-    private int $minimum;
-    private int $maximum;
-
     private function __construct(
-        int $minimum,
-        int $maximum,
+        private int $minimum,
+        private int $maximum,
     ) {
-        $this->minimum = $minimum;
-        $this->maximum = $maximum;
     }
 
     /**

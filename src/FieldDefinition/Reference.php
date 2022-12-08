@@ -26,22 +26,6 @@ use Faker\Generator;
 final class Reference implements Resolvable
 {
     /**
-     * @phpstan-var class-string<T>
-     *
-     * @psalm-var class-string<T>
-     */
-    private string $className;
-
-    /**
-     * @phpstan-var array<string, \Closure|mixed|Resolvable>
-     *
-     * @psalm-var array<string, \Closure|mixed|Resolvable>
-     *
-     * @var array<string, \Closure|mixed|Resolvable>
-     */
-    private array $fieldDefinitionOverrides;
-
-    /**
      * @phpstan-param class-string<T> $className
      * @phpstan-param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      *
@@ -51,11 +35,9 @@ final class Reference implements Resolvable
      * @param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      */
     public function __construct(
-        string $className,
-        array $fieldDefinitionOverrides = [],
+        private string $className,
+        private array $fieldDefinitionOverrides = [],
     ) {
-        $this->className = $className;
-        $this->fieldDefinitionOverrides = $fieldDefinitionOverrides;
     }
 
     /**

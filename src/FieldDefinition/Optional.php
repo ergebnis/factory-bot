@@ -21,11 +21,8 @@ use Faker\Generator;
  */
 final class Optional implements Resolvable
 {
-    private Resolvable $resolvable;
-
-    public function __construct(Resolvable $resolvable)
+    public function __construct(private Resolvable $resolvable)
     {
-        $this->resolvable = $resolvable;
     }
 
     /**

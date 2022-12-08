@@ -22,21 +22,19 @@ use Faker\Generator;
  */
 final class Sequence implements Resolvable
 {
-    private string $value;
     private int $sequentialNumber;
 
     /**
      * @throws Exception\InvalidSequence
      */
     public function __construct(
-        string $value,
+        private string $value,
         int $initialNumber,
     ) {
         if (!\str_contains($value, '%d')) {
             throw Exception\InvalidSequence::value($value);
         }
 
-        $this->value = $value;
         $this->sequentialNumber = $initialNumber;
     }
 
