@@ -29,10 +29,8 @@ final class Value implements Resolvable
      * @phpstan-var T
      *
      * @psalm-var T
-     *
-     * @var mixed
      */
-    private $value;
+    private mixed $value;
 
     /**
      * @phpstan-param T $value
