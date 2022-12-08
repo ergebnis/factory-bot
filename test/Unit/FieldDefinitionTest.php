@@ -297,10 +297,8 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     *
-     * @param mixed $value
      */
-    public function testValueReturnsValue($value): void
+    public function testValueReturnsValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::value($value);
 
@@ -311,10 +309,8 @@ final class FieldDefinitionTest extends AbstractTestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     *
-     * @param mixed $value
      */
-    public function testOptionalValueReturnsOptionalValue($value): void
+    public function testOptionalValueReturnsOptionalValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::optionalValue($value);
 

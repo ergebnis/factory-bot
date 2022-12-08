@@ -384,14 +384,11 @@ final class FixtureFactory
         }, $fieldDefinitions);
     }
 
-    /**
-     * @param mixed $fieldValue
-     */
     private function setField(
         object $entity,
         EntityDefinition $entityDefinition,
         string $fieldName,
-        $fieldValue,
+        mixed $fieldValue,
     ): void {
         $classMetadata = $entityDefinition->classMetadata();
 
@@ -427,10 +424,7 @@ final class FixtureFactory
         );
     }
 
-    /**
-     * @param mixed $value
-     */
-    private static function collectionFrom($value = []): Common\Collections\ArrayCollection
+    private static function collectionFrom(mixed $value = []): Common\Collections\ArrayCollection
     {
         if (!\is_array($value)) {
             return new Common\Collections\ArrayCollection();

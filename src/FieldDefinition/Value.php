@@ -38,10 +38,8 @@ final class Value implements Resolvable
      * @phpstan-param T $value
      *
      * @psalm-param T $value
-     *
-     * @param mixed $value
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         $this->value = $value;
     }

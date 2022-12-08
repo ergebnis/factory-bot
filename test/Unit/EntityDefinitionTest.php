@@ -35,10 +35,8 @@ final class EntityDefinitionTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     *
-     * @param mixed $fieldDefinition
      */
-    public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions($fieldDefinition): void
+    public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
     {
         $fieldDefinitions = [
             'foo' => FieldDefinition::value('bar'),

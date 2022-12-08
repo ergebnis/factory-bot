@@ -136,18 +136,13 @@ final class FieldDefinition
      * @psalm-return FieldDefinition\Value<T>
      *
      * @psalm-template T
-     *
-     * @param mixed $value
      */
-    public static function value($value): FieldDefinition\Value
+    public static function value(mixed $value): FieldDefinition\Value
     {
         return new FieldDefinition\Value($value);
     }
 
-    /**
-     * @param mixed $value
-     */
-    public static function optionalValue($value): FieldDefinition\Optional
+    public static function optionalValue(mixed $value): FieldDefinition\Optional
     {
         return new FieldDefinition\Optional(new FieldDefinition\Value($value));
     }

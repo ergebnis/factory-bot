@@ -30,10 +30,8 @@ final class ValueTest extends Test\Unit\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     *
-     * @param mixed $value
      */
-    public function testResolvesToValue($value): void
+    public function testResolvesToValue(mixed $value): void
     {
         $faker = self::faker();
 
