@@ -51,8 +51,12 @@ class CodeOfConduct
      */
     private string $body;
 
-    public function __construct(string $key, string $name, string $url, string $body)
-    {
+    public function __construct(
+        string $key,
+        string $name,
+        string $url,
+        string $body,
+    ) {
         $this->key = $key;
         $this->name = $name;
         $this->url = $url;

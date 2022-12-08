@@ -68,8 +68,11 @@ class User
      */
     private Common\Collections\Collection $organizations;
 
-    public function __construct(string $login, Avatar $avatar, ?string $location = null)
-    {
+    public function __construct(
+        string $login,
+        Avatar $avatar,
+        ?string $location = null,
+    ) {
         $this->id = Uuid\Uuid::uuid4()->toString();
         $this->login = $login;
         $this->avatar = $avatar;
