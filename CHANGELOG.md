@@ -8,9 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.1.0...main`][1.1.0...main].
 
-### Changedn
+### Changed
 
 - Allowed installation of `doctrine/collections:^2.0.0` ([#912]), by [@OskarStark]
+- Dropped support for PHP 7.3 ([#922]), by [@localheinz]
 
 ## [`1.0.0`][1.0.0]
 
@@ -284,6 +285,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#682]: https://github.com/ergebnis/factory-bot/pull/682
 [#702]: https://github.com/ergebnis/factory-bot/pull/702
 [#912]: https://github.com/ergebnis/factory-bot/pull/912
+[#922]: https://github.com/ergebnis/factory-bot/pull/922
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
