@@ -22,7 +22,7 @@
     "source": "https://github.com/ergebnis/factory-bot"
   },
   "require": {
-    "php": "^7.4 || ^8.0",
+    "php": "^8.0",
     "doctrine/annotations": "^1.10.3",
     "doctrine/collections": "^1.6.5 || ^2.0.0",
     "doctrine/dbal": "^2.12.0 || ^3.0.0",
@@ -70,7 +70,7 @@
       "phpstan/extension-installer": true
     },
     "platform": {
-      "php": "7.4.26"
+      "php": "8.0.25"
     },
     "preferred-install": "dist",
     "sort-packages": true
