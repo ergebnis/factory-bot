@@ -66,7 +66,12 @@ parameters:
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string, non\\-falsy\\-string\\> will always evaluate to true\\.$#"
+			count: 1
+			path: example/test/AutoReview/FixtureTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
 			count: 1
 			path: example/test/AutoReview/FixtureTest.php
 

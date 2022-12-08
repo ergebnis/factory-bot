@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+<files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$providerClassName</code>
     </ArgumentTypeCoercion>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="example/test/Unit/Entity/UserTest.php">
     <UnnecessaryVarAnnotation occurrences="1">
