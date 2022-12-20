@@ -28,7 +28,7 @@
     "doctrine/dbal": "^2.12.0 || ^3.0.0",
     "doctrine/orm": "^2.8.0",
     "doctrine/persistence": "^2.1.0",
-    "ergebnis/classy": "^1.3.0",
+    "ergebnis/classy": "^1.4.0",
     "fakerphp/faker": "^1.11.0"
   },
   "require-dev": {
