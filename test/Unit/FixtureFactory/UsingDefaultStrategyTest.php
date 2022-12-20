@@ -216,7 +216,7 @@ final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         /** @var Entity\Organization $organization */
@@ -244,7 +244,7 @@ final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         /** @var Entity\Organization $organization */
@@ -279,7 +279,7 @@ final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         /** @var Entity\Organization $organization */
@@ -313,7 +313,7 @@ final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         /** @var Entity\Organization $organization */

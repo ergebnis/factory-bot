@@ -28,7 +28,7 @@ final class InvalidDirectoryTest extends Framework\TestCase
 
     public function testNotDirectoryCreatesException(): void
     {
-        $directory = self::faker()->word;
+        $directory = self::faker()->word();
 
         $exception = Exception\InvalidDirectory::notDirectory($directory);
 

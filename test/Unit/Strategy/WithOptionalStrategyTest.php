@@ -41,7 +41,7 @@ final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
+        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
         $strategy = new Strategy\WithOptionalStrategy();
 
@@ -68,7 +68,7 @@ final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence);
+        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
         $strategy = new Strategy\WithOptionalStrategy();
 
@@ -95,7 +95,7 @@ final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::value($faker->sentence);
+        $fieldDefinition = FieldDefinition::value($faker->sentence());
 
         $strategy = new Strategy\WithOptionalStrategy();
 
@@ -122,7 +122,7 @@ final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::value($faker->sentence);
+        $fieldDefinition = FieldDefinition::value($faker->sentence());
 
         $strategy = new Strategy\WithOptionalStrategy();
 

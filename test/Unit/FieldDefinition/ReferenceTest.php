@@ -66,10 +66,10 @@ final class ReferenceTest extends Test\Unit\AbstractTestCase
         );
 
         $fixtureFactory->define($className, [
-            'login' => $faker->userName,
+            'login' => $faker->userName(),
         ]);
 
-        $overriddenLogin = $faker->userName;
+        $overriddenLogin = $faker->userName();
 
         $fieldDefinition = new FieldDefinition\Reference(
             $className,

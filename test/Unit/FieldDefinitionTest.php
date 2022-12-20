@@ -43,7 +43,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
-            $user->renameTo(self::faker()->userName);
+            $user->renameTo(self::faker()->userName());
 
             return $user;
         };
@@ -61,7 +61,7 @@ final class FieldDefinitionTest extends AbstractTestCase
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
-            $user->renameTo(self::faker()->userName);
+            $user->renameTo(self::faker()->userName());
 
             return $user;
         };
