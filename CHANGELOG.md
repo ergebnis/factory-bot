@@ -11,6 +11,7 @@ For a full diff see [`1.2.0...main`][1.2.0...main].
 ### Changed
 
 - Required `fakerphp/faker:^1.20.0` ([#947]), by [@localheinz]
+- Allowed installation of `doctrine/persistence:^3.0.0` ([#948]), by [@localheinz]
 
 ## [`1.2.0`][1.2.0]
 
@@ -304,6 +305,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#912]: https://github.com/ergebnis/factory-bot/pull/912
 [#922]: https://github.com/ergebnis/factory-bot/pull/922
 [#947]: https://github.com/ergebnis/factory-bot/pull/947
+[#948]: https://github.com/ergebnis/factory-bot/pull/948
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
