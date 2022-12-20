@@ -28,7 +28,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
     public function testCanNotBeAutoloadedReturnsException(): void
     {
-        $className = self::faker()->word;
+        $className = self::faker()->word();
 
         $exception = Exception\InvalidDefinition::canNotBeAutoloaded($className);
 
@@ -46,7 +46,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
     public function testCanNotBeInstantiatedReturnsException(): void
     {
-        $className = self::faker()->word;
+        $className = self::faker()->word();
 
         $exception = Exception\InvalidDefinition::canNotBeInstantiated($className);
 
@@ -64,7 +64,7 @@ final class InvalidDefinitionTest extends Framework\TestCase
 
     public function testThrowsExceptionDuringInstantiationReturnsException(): void
     {
-        $className = self::faker()->word;
+        $className = self::faker()->word();
         $previousException = new \Exception();
 
         $exception = Exception\InvalidDefinition::throwsExceptionDuringInstantiation(

@@ -17,8 +17,8 @@ Provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm)
 
 Run
 
-```sh
-$ composer require --dev ergebnis/factory-bot
+```shell
+composer require --dev ergebnis/factory-bot
 ```
 
 ## Usage

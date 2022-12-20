@@ -233,7 +233,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -263,7 +263,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -300,7 +300,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -335,7 +335,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         ]);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'name' => self::faker()->word,
+            'name' => self::faker()->word(),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();

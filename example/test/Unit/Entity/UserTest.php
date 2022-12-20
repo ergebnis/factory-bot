@@ -25,7 +25,7 @@ final class UserTest extends Test\Unit\AbstractTestCase
 {
     public function testRenameToRenamesUser(): void
     {
-        $login = self::faker()->userName;
+        $login = self::faker()->userName();
 
         /** @var Entity\User $user */
         $user = self::fixtureFactory()->createOne(Entity\User::class);

@@ -28,7 +28,7 @@ final class InvalidSequenceTest extends Framework\TestCase
 
     public function testValueReturnsException(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $exception = Exception\InvalidSequence::value($value);
 
