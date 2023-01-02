@@ -35,7 +35,7 @@
     "ext-pdo_sqlite": "*",
     "ergebnis/composer-normalize": "^2.29.0",
     "ergebnis/license": "^2.1.0",
-    "ergebnis/php-cs-fixer-config": "^5.0.1",
+    "ergebnis/php-cs-fixer-config": "^5.1.0",
     "ergebnis/phpstan-rules": "^1.0.0",
     "infection/infection": "~0.26.16",
     "phpstan/extension-installer": "^1.2.0",
