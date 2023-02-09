@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.3.0...main`][1.3.0...main].
 
+### Changed
+
+- Allowed installation of `doctrine/annotations:^2.0.0` ([#1000]), by [@localheinz]
+
 ## [`1.3.0`][1.3.0]
 
 For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
@@ -312,6 +316,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#922]: https://github.com/ergebnis/factory-bot/pull/922
 [#947]: https://github.com/ergebnis/factory-bot/pull/947
 [#948]: https://github.com/ergebnis/factory-bot/pull/948
+[#1000]: https://github.com/ergebnis/factory-bot/pull/1000
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
