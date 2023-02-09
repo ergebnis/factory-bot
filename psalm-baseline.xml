@@ -1,116 +1,253 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.4.0@62db5d4f6a7ae0a20f7cc5a4952d730272fc0863">
+<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
+  <file src="example/src/Entity/Avatar.php">
+    <PossiblyUnusedMethod>
+      <code>height</code>
+      <code>width</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="example/src/Entity/CodeOfConduct.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+      <code>body</code>
+      <code>key</code>
+      <code>name</code>
+      <code>url</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="example/src/Entity/Organization.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+      <code>id</code>
+      <code>members</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="example/src/Entity/Project.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+      <code>id</code>
+      <code>name</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="example/src/Entity/Repository.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+      <code>id</code>
+      <code>name</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="example/src/Entity/User.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+      <code>id</code>
+      <code>organizations</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="example/test/AutoReview/FixtureTest.php">
-    <ArgumentTypeCoercion occurrences="1">
+    <ArgumentTypeCoercion>
       <code>$providerClassName</code>
     </ArgumentTypeCoercion>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType>
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
   </file>
+  <file src="example/test/Fixture/Entity/ProjectDefinitionProvider.php">
+    <UnusedClass>
+      <code>ProjectDefinitionProvider</code>
+    </UnusedClass>
+  </file>
   <file src="example/test/Unit/Entity/UserTest.php">
-    <UnnecessaryVarAnnotation occurrences="1">
+    <UnnecessaryVarAnnotation>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="src/FixtureFactory.php">
-    <MissingClosureReturnType occurrences="1">
+    <MissingClosureReturnType>
       <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>
     </MissingClosureReturnType>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment>
       <code>$fieldValue</code>
     </MixedAssignment>
-    <TooManyArguments occurrences="1"/>
-    <UnnecessaryVarAnnotation occurrences="3">
+    <TooManyArguments>
+      <code>function () use ($className, $fieldDefinitionOverrides) {
+            return $this-&gt;createOne(
+                $className,
+                $fieldDefinitionOverrides,
+            );
+        }</code>
+    </TooManyArguments>
+    <UnnecessaryVarAnnotation>
       <code>EntityDefinition</code>
       <code>EntityDefinitionProvider</code>
       <code>ORM\Mapping\ClassMetadata</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/DataProvider/ValueProvider.php">
-    <InvalidDocblock occurrences="1">
+    <InvalidDocblock>
       <code>public function arbitrary(): \Generator</code>
     </InvalidDocblock>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType>
       <code>\Generator&lt;string, array&lt;string[], bool, float, int, object, \stdClass, string&gt;&gt;</code>
     </MixedInferredReturnType>
   </file>
   <file src="test/Double/Faker/FalseGenerator.php">
-    <MissingParamType occurrences="3">
+    <MissingParamType>
       <code>$chanceOfGettingTrue</code>
       <code>$max</code>
       <code>$min</code>
     </MissingParamType>
-    <MixedArgument occurrences="2">
+    <MixedArgument>
       <code>$max</code>
       <code>$min</code>
     </MixedArgument>
-    <ParamNameMismatch occurrences="2">
+    <ParamNameMismatch>
       <code>$max</code>
       <code>$min</code>
     </ParamNameMismatch>
+    <PossiblyUnusedMethod>
+      <code>boolean</code>
+    </PossiblyUnusedMethod>
+    <UnusedParam>
+      <code>$chanceOfGettingTrue</code>
+    </UnusedParam>
   </file>
   <file src="test/Double/Faker/MaximumGenerator.php">
-    <MissingParamType occurrences="2">
+    <MissingParamType>
       <code>$max</code>
       <code>$min</code>
     </MissingParamType>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType>
       <code>int</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement>
       <code>$max</code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="2">
+    <ParamNameMismatch>
       <code>$max</code>
       <code>$min</code>
     </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/MinimumGenerator.php">
-    <MissingParamType occurrences="2">
+    <MissingParamType>
       <code>$max</code>
       <code>$min</code>
     </MissingParamType>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType>
       <code>int</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement>
       <code>$min</code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="2">
+    <ParamNameMismatch>
       <code>$max</code>
       <code>$min</code>
     </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/TrueGenerator.php">
-    <MissingParamType occurrences="3">
+    <MissingParamType>
       <code>$chanceOfGettingTrue</code>
       <code>$max</code>
       <code>$min</code>
     </MissingParamType>
-    <MixedArgument occurrences="2">
+    <MixedArgument>
       <code>$max</code>
       <code>$min</code>
     </MixedArgument>
-    <ParamNameMismatch occurrences="2">
+    <ParamNameMismatch>
       <code>$max</code>
       <code>$min</code>
     </ParamNameMismatch>
+    <PossiblyUnusedMethod>
+      <code>boolean</code>
+    </PossiblyUnusedMethod>
+    <UnusedParam>
+      <code>$chanceOfGettingTrue</code>
+    </UnusedParam>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/CanNotBeAutoloaded/OrganizationDefinitionProvider.php">
+    <UnusedClass>
+      <code>OrganizationDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/CanNotBeAutoloaded/UserDefinitionProvider.php">
+    <UnusedClass>
+      <code>UserDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/OrganizationDefinitionProvider.php">
+    <UnusedClass>
+      <code>OrganizationDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/RepositoryDefinition.php">
+    <UnusedClass>
+      <code>RepositoryDefinition</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/UserDefinitionProvider.php">
+    <UnusedClass>
+      <code>UserDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/OrganizationDefinitionProvider.php">
+    <UnusedClass>
+      <code>OrganizationDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/RepositoryDefinitionProvider.php">
+    <UnusedConstructor>
+      <code>__construct</code>
+    </UnusedConstructor>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/UserDefinitionProvider.php">
+    <UnusedClass>
+      <code>UserDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/OrganizationDefinitionProvider.php">
+    <UnusedClass>
+      <code>OrganizationDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/RepositoryDefinitionProvider.php">
+    <UnusedClass>
+      <code>RepositoryDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/UserDefinitionProvider.php">
+    <UnusedClass>
+      <code>UserDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/OrganizationDefinitionProvider.php">
+    <UnusedClass>
+      <code>OrganizationDefinitionProvider</code>
+    </UnusedClass>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/RepositoryDefinitionProvider.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/UserDefinitionProvider.php">
+    <UnusedClass>
+      <code>UserDefinitionProvider</code>
+    </UnusedClass>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
-    <InternalMethod occurrences="1">
+    <InternalMethod>
       <code>addToAssertionCount</code>
     </InternalMethod>
   </file>
   <file src="test/Unit/EntityDefinitionTest.php">
-    <MissingClosureParamType occurrences="2">
+    <MissingClosureParamType>
       <code>$entity</code>
       <code>$entity</code>
     </MissingClosureParamType>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion>
       <code>$fieldDefinitions</code>
     </MixedArgumentTypeCoercion>
-    <UnusedClosureParam occurrences="4">
+    <UnusedClosureParam>
       <code>$entity</code>
       <code>$entity</code>
       <code>$fieldValues</code>
@@ -118,33 +255,33 @@
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FieldDefinition/ClosureTest.php">
-    <UnusedClosureParam occurrences="1">
+    <UnusedClosureParam>
       <code>$faker</code>
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
-    <RedundantCondition occurrences="2">
+    <RedundantCondition>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
-    <MixedAssignment occurrences="1">
+    <MixedAssignment>
       <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
-    <UnnecessaryVarAnnotation occurrences="2">
+    <UnnecessaryVarAnnotation>
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam occurrences="2">
+    <UnusedClosureParam>
       <code>$faker</code>
       <code>$faker</code>
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
-    <UnnecessaryVarAnnotation occurrences="22">
+    <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -168,7 +305,7 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam occurrences="4">
+    <UnusedClosureParam>
       <code>$faker</code>
       <code>$faker</code>
       <code>$faker</code>
@@ -176,7 +313,7 @@
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
-    <UnnecessaryVarAnnotation occurrences="24">
+    <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -202,7 +339,7 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam occurrences="4">
+    <UnusedClosureParam>
       <code>$faker</code>
       <code>$faker</code>
       <code>$faker</code>
@@ -210,7 +347,7 @@
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
-    <UnnecessaryVarAnnotation occurrences="24">
+    <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -236,7 +373,7 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam occurrences="4">
+    <UnusedClosureParam>
       <code>$faker</code>
       <code>$faker</code>
       <code>$faker</code>
@@ -244,18 +381,18 @@
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
-    <ArgumentTypeCoercion occurrences="1">
+    <ArgumentTypeCoercion>
       <code>$className</code>
     </ArgumentTypeCoercion>
-    <MixedArgument occurrences="2">
+    <MixedArgument>
       <code>$fieldValues['name']</code>
       <code>$name</code>
     </MixedArgument>
-    <RedundantCondition occurrences="2">
+    <RedundantCondition>
       <code>assertNotNull</code>
       <code>assertNotNull</code>
     </RedundantCondition>
-    <UnnecessaryVarAnnotation occurrences="23">
+    <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -280,21 +417,21 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam occurrences="1">
+    <UnusedClosureParam>
       <code>$user</code>
     </UnusedClosureParam>
-    <UnusedVariable occurrences="1">
+    <UnusedVariable>
       <code>$name</code>
     </UnusedVariable>
   </file>
   <file src="test/Unit/Strategy/DefaultStrategyTest.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment>
       <code>$expected</code>
       <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/Strategy/WithOptionalStrategyTest.php">
-    <MixedAssignment occurrences="4">
+    <MixedAssignment>
       <code>$expected</code>
       <code>$expected</code>
       <code>$resolved</code>

@@ -1,7 +1,7 @@
-# factory-bot
+# php-package-template
 
 [![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
-[![Prune](https://github.com/ergebnis/factory-bot/workflows/Prune/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
+[![Merge](https://github.com/ergebnis/factory-bot/workflows/Merge/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 [![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 [![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 
@@ -10,6 +10,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/factory-bot/v/stable)](https://packagist.org/packages/ergebnis/factory-bot)
 [![Total Downloads](https://poser.pugx.org/ergebnis/factory-bot/downloads)](https://packagist.org/packages/ergebnis/factory-bot)
+[![Monthly Downloads](http://poser.pugx.org/ergebnis/factory-bot/d/monthly)](https://packagist.org/packages/ergebnis/factory-bot)
 
 Provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities.
 
@@ -17,7 +18,7 @@ Provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm)
 
 Run
 
-```shell
+```sh
 composer require --dev ergebnis/factory-bot
 ```
 
@@ -1158,6 +1159,6 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 
 This project is based on [`breerly/factory-girl-php@0e6f1b6`](https://github.com/GoodPete/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) (originally licensed under MIT by [Grayson Koonce](https://github.com/unhashable)), which is based on [`xi/doctrine`](https://github.com/xi-project/xi-doctrine) (originally licensed under MIT by [Xi](https://github.com/xi-project)), which in turn provided a port of [`factory_bot`](https://github.com/thoughtbot/factory_girl) (originally licensed under MIT by [Joe Ferris](https://github.com/jferris) and [thoughtbot, Inc.](https://github.com/thoughtbot)).
 
-## Curious what I am building?
+## Curious what I am up to?
 
-:mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!
