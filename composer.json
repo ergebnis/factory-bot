@@ -49,7 +49,7 @@
     "ramsey/uuid": "^4.7.3",
     "rector/rector": "~0.15.18",
     "symfony/cache": "^5.3.14",
-    "vimeo/psalm": "^5.7.1"
+    "vimeo/psalm": "^5.7.5"
   },
   "autoload": {
     "psr-4": {
