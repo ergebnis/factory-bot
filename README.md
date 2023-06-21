@@ -1,4 +1,4 @@
-# php-package-template
+# factory-bot
 
 [![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 [![Merge](https://github.com/ergebnis/factory-bot/workflows/Merge/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
@@ -51,6 +51,8 @@ The fixture factory requires an instance of `Doctrine\ORM\EntityManagerInterface
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Doctrine\ORM;
 use Ergebnis\FactoryBot;
 use Faker\Factory;
@@ -68,6 +70,8 @@ To simplify the creation of a fixture factory in tests, you can create an [abstr
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 namespace App\Test\Functional;
 
@@ -115,6 +119,8 @@ Now that you have access to a fixture factory, you can create definitions for Do
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -126,6 +132,8 @@ This simple definition might work when all entity fields have default values, bu
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -151,6 +159,8 @@ In addition to the map of field names to field definitions, you can specify a cl
 ```php
 <?php
 
+declare(strict_types=1);
+
 $closure = static function (object $entity, array $fieldValues): void {
     // ...
 };
@@ -160,6 +170,8 @@ $closure = static function (object $entity, array $fieldValues): void {
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -226,6 +238,8 @@ When you are working with nullable fields, you can use the following field defin
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Faker\Generator;
 
@@ -238,6 +252,8 @@ The fixture factory will resolve the field definition to the return value of inv
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -270,6 +286,8 @@ var_dump($user->organizations()); // array with 1-5 instances of Entity\Organiza
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -305,6 +323,8 @@ var_dump($user->organizations()); // array with 1-5 instances of Entity\Organiza
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Faker\Generator;
 
@@ -317,6 +337,8 @@ A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrateg
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -339,6 +361,8 @@ A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptio
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -363,6 +387,8 @@ A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithou
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -392,6 +418,8 @@ Every fixture factory will resolve the field definition to an instance of the en
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -410,6 +438,8 @@ When field definition overrides are specified, they will be used to override exs
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -442,6 +472,8 @@ A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrateg
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -460,6 +492,8 @@ A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptio
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -481,6 +515,8 @@ A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithou
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -509,6 +545,8 @@ You can create the count from an exact number, or minimum and maximum values.
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 
 $count = FactoryBot\Count::exact(5);
@@ -525,6 +563,8 @@ A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrateg
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -556,6 +596,8 @@ A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptio
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -584,6 +626,8 @@ A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithou
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -620,6 +664,8 @@ Every fixture factory will resolve the field definition by replacing all occurre
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -650,6 +696,8 @@ A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrateg
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -675,6 +723,8 @@ A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptio
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -703,6 +753,8 @@ A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithou
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -736,6 +788,8 @@ The fixture factory will resolve the field definition to the value.
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -754,6 +808,8 @@ var_dump($user->login()); // 'localheinz'
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -778,6 +834,8 @@ A fixture factory using the [`Strategy\DefaultStrategy`](#strategydefaultstrateg
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 use Example\Entity;
 
@@ -796,6 +854,8 @@ A fixture factory using the [`Strategy\WithOptionalStrategy`](#strategywithoptio
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -817,6 +877,8 @@ A fixture factory using the [`Strategy\WithoutOptionalStrategy`](#strategywithou
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -843,6 +905,8 @@ First, create concrete definition providers.
 ```php
 <?php
 
+declare(strict_types=1);
+
 namespace Example\Test\Fixture\Entity;
 
 use Ergebnis\FactoryBot;
@@ -865,6 +929,8 @@ Second, adjust your abstract test case to load definitions from entity definitio
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 namespace App\Test\Functional;
 
@@ -897,6 +963,8 @@ Instead of loading entity definition providers contained within a directory with
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 namespace App\Test\Functional;
 
@@ -961,6 +1029,8 @@ To create a fixture factory using the `Strategy\WithOptionalStrategy` out of an 
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
@@ -982,6 +1052,8 @@ To create a fixture factory using the `Strategy\WithoutOptionalStrategy` out of 
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
@@ -996,6 +1068,8 @@ The fixture factory will return a single entity.
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -1043,6 +1117,8 @@ You can create the count from an exact number:
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 
 $count = FactoryBot\Count::exact(5);
@@ -1054,6 +1130,8 @@ You can also create the count from minimum and maximum values.
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 
@@ -1069,6 +1147,8 @@ The fixture factory will return an array of entities.
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\FactoryBot;
 use Example\Entity;
@@ -1123,6 +1203,8 @@ To create a fixture factory that persists entities out of an available fixture f
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\FactoryBot;
 
 /** @var FactoryBot\FixtureFactory $fixtureFactory */
@@ -1148,6 +1230,10 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 ## Code of Conduct
 
 Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+
+## Security Policy
+
+Please have a look at [`SECURITY.md`](.github/SECURITY.md).
 
 ## License
 
