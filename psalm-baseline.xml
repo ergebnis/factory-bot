@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
+<files psalm-version="5.12.0@f90118cdeacd0088e7215e64c0c99ceca819e176">
   <file src="example/src/Entity/Avatar.php">
     <PossiblyUnusedMethod>
       <code>height</code>
@@ -69,12 +69,12 @@
       <code>$fieldValue</code>
     </MixedAssignment>
     <TooManyArguments>
-      <code>function () use ($className, $fieldDefinitionOverrides) {
-            return $this-&gt;createOne(
+      <code><![CDATA[function () use ($className, $fieldDefinitionOverrides) {
+            return $this->createOne(
                 $className,
                 $fieldDefinitionOverrides,
             );
-        }</code>
+        }]]></code>
     </TooManyArguments>
     <UnnecessaryVarAnnotation>
       <code>EntityDefinition</code>
@@ -87,7 +87,7 @@
       <code>public function arbitrary(): \Generator</code>
     </InvalidDocblock>
     <MixedInferredReturnType>
-      <code>\Generator&lt;string, array&lt;string[], bool, float, int, object, \stdClass, string&gt;&gt;</code>
+      <code><![CDATA[\Generator<string, array<string[], bool, float, int, object, \stdClass, string>>]]></code>
     </MixedInferredReturnType>
   </file>
   <file src="test/Double/Faker/FalseGenerator.php">
@@ -254,11 +254,6 @@
       <code>$fieldValues</code>
     </UnusedClosureParam>
   </file>
-  <file src="test/Unit/FieldDefinition/ClosureTest.php">
-    <UnusedClosureParam>
-      <code>$faker</code>
-    </UnusedClosureParam>
-  </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
     <RedundantCondition>
       <code>assertIsArray</code>
@@ -275,10 +270,6 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam>
-      <code>$faker</code>
-      <code>$faker</code>
-    </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
     <UnnecessaryVarAnnotation>
@@ -305,12 +296,6 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-    </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation>
@@ -339,12 +324,6 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-    </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation>
@@ -373,12 +352,6 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-      <code>$faker</code>
-    </UnusedClosureParam>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion>
@@ -417,9 +390,6 @@
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
-    <UnusedClosureParam>
-      <code>$user</code>
-    </UnusedClosureParam>
     <UnusedVariable>
       <code>$name</code>
     </UnusedVariable>
