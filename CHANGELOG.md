@@ -31,7 +31,7 @@ For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
 
 ### Changed
 
-- Dropped support for PHP 7.3 ([#922]), by [@localheinz]
+- Dropped support for PHP 7.4 ([#922]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
