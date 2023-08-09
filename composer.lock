@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60cfa18d58049229f3a40dfc258aecda",
+    "content-hash": "405c685a1ef92ef8bf8aaf15e7bae96a",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -5638,21 +5638,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.17.4",
+            "version": "0.17.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "14829888274eebddc67a0d7248c3dd2965704fbc"
+                "reference": "f4c0627d5e157272cf4783099730ef7241fddb14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/14829888274eebddc67a0d7248c3dd2965704fbc",
-                "reference": "14829888274eebddc67a0d7248c3dd2965704fbc",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4c0627d5e157272cf4783099730ef7241fddb14",
+                "reference": "f4c0627d5e157272cf4783099730ef7241fddb14",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.10.20"
+                "phpstan/phpstan": "^1.10.26"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -5687,7 +5687,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.17.4"
+                "source": "https://github.com/rectorphp/rector/tree/0.17.10"
             },
             "funding": [
                 {
@@ -5695,7 +5695,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-11T16:00:46+00:00"
+            "time": "2023-08-03T14:19:51+00:00"
         },
         {
             "name": "sanmai/later",
