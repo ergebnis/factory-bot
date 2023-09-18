@@ -19,8 +19,6 @@ use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\Reference
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition

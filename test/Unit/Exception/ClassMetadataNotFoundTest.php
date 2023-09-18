@@ -17,8 +17,6 @@ use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
  */
 final class ClassMetadataNotFoundTest extends Framework\TestCase

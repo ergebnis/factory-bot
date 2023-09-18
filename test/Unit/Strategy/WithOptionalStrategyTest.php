@@ -20,8 +20,6 @@ use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Strategy\WithOptionalStrategy
  *
  * @uses \Ergebnis\FactoryBot\Count

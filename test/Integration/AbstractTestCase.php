@@ -17,9 +17,6 @@ use Doctrine\ORM;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- */
 abstract class AbstractTestCase extends Framework\TestCase
 {
     use Test\Util\Helper;

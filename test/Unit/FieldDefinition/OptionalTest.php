@@ -20,8 +20,6 @@ use Example\Entity;
 use Faker\Generator;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\Optional
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition

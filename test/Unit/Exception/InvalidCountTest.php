@@ -18,8 +18,6 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Exception\InvalidCount
  */
 final class InvalidCountTest extends Framework\TestCase

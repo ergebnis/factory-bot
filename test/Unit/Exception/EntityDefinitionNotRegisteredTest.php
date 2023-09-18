@@ -17,8 +17,6 @@ use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered
  */
 final class EntityDefinitionNotRegisteredTest extends Framework\TestCase

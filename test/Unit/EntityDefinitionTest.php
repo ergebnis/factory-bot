@@ -21,8 +21,6 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\EntityDefinition
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions

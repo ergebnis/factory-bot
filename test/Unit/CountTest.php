@@ -19,8 +19,6 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Count
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidCount

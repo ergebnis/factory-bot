@@ -19,9 +19,6 @@ use Faker\Factory;
 use Faker\Generator;
 use PHPUnit\Framework;
 
-/**
- * @internal
- */
 abstract class AbstractTestCase extends Framework\TestCase
 {
     final protected static function entityManager(): ORM\EntityManagerInterface

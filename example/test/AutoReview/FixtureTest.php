@@ -17,8 +17,6 @@ use Ergebnis\FactoryBot;
 use Example\Test;
 
 /**
- * @internal
- *
  * @coversNothing
  */
 final class FixtureTest extends Test\Unit\AbstractTestCase

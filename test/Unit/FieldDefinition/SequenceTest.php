@@ -19,8 +19,6 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\Sequence
  *
  * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence

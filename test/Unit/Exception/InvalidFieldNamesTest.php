@@ -18,8 +18,6 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Exception\InvalidFieldNames
  */
 final class InvalidFieldNamesTest extends Framework\TestCase

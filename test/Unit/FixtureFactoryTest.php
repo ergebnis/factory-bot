@@ -23,8 +23,6 @@ use Example\Test\Fixture;
 use Faker\Generator;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FixtureFactory
  *
  * @uses \Ergebnis\FactoryBot\Count

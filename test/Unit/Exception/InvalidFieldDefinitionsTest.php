@@ -19,8 +19,6 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions
  */
 final class InvalidFieldDefinitionsTest extends Framework\TestCase

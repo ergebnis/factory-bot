@@ -18,8 +18,6 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FieldDefinition\Value
  *
  * @uses \Ergebnis\FactoryBot\EntityDefinition

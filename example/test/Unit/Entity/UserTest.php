@@ -17,8 +17,6 @@ use Example\Entity;
 use Example\Test;
 
 /**
- * @internal
- *
  * @covers \Example\Entity\User
  */
 final class UserTest extends Test\Unit\AbstractTestCase

@@ -21,8 +21,6 @@ use Example\Entity;
 use Faker\Generator;
 
 /**
- * @internal
- *
  * @covers \Ergebnis\FactoryBot\FieldDefinition
  *
  * @uses \Ergebnis\FactoryBot\Count
