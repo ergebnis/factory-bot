@@ -246,10 +246,6 @@
     <InternalMethod>
       <code>addToAssertionCount</code>
     </InternalMethod>
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
   </file>
   <file src="test/Unit/EntityDefinitionTest.php">
     <MissingClosureParamType>
@@ -266,36 +262,16 @@
       <code>$fieldValues</code>
     </UnusedClosureParam>
   </file>
-  <file src="test/Unit/FieldDefinition/OptionalTest.php">
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
-  </file>
-  <file src="test/Unit/FieldDefinition/ReferenceTest.php">
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
-  </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
     <RedundantCondition>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Exception\InvalidCount</code>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
   </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
     <MixedAssignment>
       <code>$resolved</code>
     </MixedAssignment>
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-    </UndefinedClass>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
     <UnnecessaryVarAnnotation>
@@ -304,10 +280,6 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -334,11 +306,6 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-      <code>Strategy\WithOptionalStrategy</code>
-    </UndefinedClass>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -367,11 +334,6 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
-    <UndefinedClass>
-      <code>EntityDefinition</code>
-      <code>Strategy\DefaultStrategy</code>
-      <code>Strategy\WithoutOptionalStrategy</code>
-    </UndefinedClass>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -411,9 +373,6 @@
       <code>assertNotNull</code>
       <code>assertNotNull</code>
     </RedundantCondition>
-    <UndefinedClass>
-      <code>Strategy\DefaultStrategy</code>
-    </UndefinedClass>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>

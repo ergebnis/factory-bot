@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
+use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;

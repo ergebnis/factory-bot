@@ -18,6 +18,7 @@ use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Example\Test\Fixture;

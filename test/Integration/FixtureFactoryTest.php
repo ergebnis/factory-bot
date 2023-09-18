@@ -14,8 +14,10 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Integration;
 
 use Ergebnis\FactoryBot\Count;
+use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Strategy;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
