@@ -76,6 +76,14 @@ parameters:
 			path: example/test/AutoReview/FixtureTest.php
 
 		-
+			message: """
+				#^Fetching deprecated class constant PHPUNIT_91 of class Rector\\\\PHPUnit\\\\Set\\\\PHPUnitSetList\\:
+				Use PHPUnitSetList\\:\\:PHPUNIT_100 directly$#
+			"""
+			count: 1
+			path: rector.php
+
+		-
 			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
