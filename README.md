@@ -12,7 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/factory-bot/downloads)](https://packagist.org/packages/ergebnis/factory-bot)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/factory-bot/d/monthly)](https://packagist.org/packages/ergebnis/factory-bot)
 
-Provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities.
+This package provides a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities.
 
 ## Installation
 
@@ -1221,30 +1221,40 @@ The fixture factory will not flush the entity manager - you need to flush it you
 
 ## Changelog
 
-Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
+The maintainers of this package record notable changes to this project in a [changelog](CHANGELOG.md).
 
 ## Contributing
 
-Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
+The maintainers of this package suggest following the [contribution guide](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+The maintainers of this package ask contributors to follow the [code of conduct](.github/CODE_OF_CONDUCT.md).
+
+## General Support Policy
+
+The maintainers of this package provide limited support.
+
+You can support the maintenance of this package by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this package](mailto:am@localheinz.com?subject=ergebnis/factory-bot:%20Requesting%20invoice%20for%20services).
+
+## PHP Version Support Policy
+
+This package supports PHP versions with [active support](https://www.php.net/supported-versions.php).
+
+The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version when it has reached its end of active support.
 
 ## Security Policy
 
-Please have a look at [`SECURITY.md`](.github/SECURITY.md).
+This package has a [security policy](.github/SECURITY.md).
 
 ## License
 
-This package is licensed using the MIT License.
-
-Please have a look at [`LICENSE.md`](LICENSE.md).
+This package uses the [MIT license](LICENSE.md).
 
 ## Credits
 
 This project is based on [`breerly/factory-girl-php@0e6f1b6`](https://github.com/GoodPete/factory-girl-php/tree/0e6f1b6724d39108a2e7cef68a74668b7a77b856) (originally licensed under MIT by [Grayson Koonce](https://github.com/unhashable)), which is based on [`xi/doctrine`](https://github.com/xi-project/xi-doctrine) (originally licensed under MIT by [Xi](https://github.com/xi-project)), which in turn provided a port of [`factory_bot`](https://github.com/thoughtbot/factory_girl) (originally licensed under MIT by [Joe Ferris](https://github.com/jferris) and [thoughtbot, Inc.](https://github.com/thoughtbot)).
 
-## Curious what I am up to?
+## Social
 
-Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!
+Follow [@localheinz](https://twitter.com/intent/follow?screen_name=localheinz) and [@ergebnis](https://twitter.com/intent/follow?screen_name=ergebnis) on Twitter.
