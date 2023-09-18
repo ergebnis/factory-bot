@@ -22,7 +22,7 @@ final class ValueProvider
     /**
      * @return \Generator<string, array<string[], bool, float, int, object, \stdClass, string>>
      */
-    public function arbitrary(): \Generator
+    public static function arbitrary(): \Generator
     {
         $faker = self::faker();
 

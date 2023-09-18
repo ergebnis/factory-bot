@@ -22,7 +22,7 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function arbitrary(): \Generator
+    public static function arbitrary(): \Generator
     {
         $faker = self::faker();
 
@@ -44,7 +44,7 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function lessThanZero(): \Generator
+    public static function lessThanZero(): \Generator
     {
         $values = [
             'int-less-than-minus-one' => -1 * self::faker()->numberBetween(2),
@@ -61,7 +61,7 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function greaterThanOrEqualToZero(): \Generator
+    public static function greaterThanOrEqualToZero(): \Generator
     {
         $values = [
             'int-zero' => 0,
@@ -79,7 +79,7 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public function greaterThanZero()
+    public static function greaterThanZero()
     {
         $values = [
             'int-one' => 1,
