@@ -79,7 +79,7 @@ final class IntProvider
     /**
      * @return \Generator<string, array<int>>
      */
-    public static function greaterThanZero()
+    public static function greaterThanZero(): \Generator
     {
         $values = [
             'int-one' => 1,
