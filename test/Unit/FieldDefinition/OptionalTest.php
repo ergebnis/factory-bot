@@ -21,11 +21,11 @@ use Faker\Generator;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
 final class OptionalTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfResolvingResolvableWithFixtureFactory(): void

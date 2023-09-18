@@ -21,9 +21,9 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\UsesClass(Exception\InvalidFieldDefinitions::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 final class EntityDefinitionTest extends Framework\TestCase
 {
     use Test\Util\Helper;

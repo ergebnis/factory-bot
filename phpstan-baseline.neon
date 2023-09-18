@@ -191,6 +191,16 @@ parameters:
 			path: test/Double/Faker/TrueGenerator.php
 
 		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Integration\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Integration/FixtureFactoryTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Integration\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Integration/FixtureFactoryTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Count' and Ergebnis\\\\FactoryBot\\\\Count will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/CountTest.php
@@ -431,9 +441,14 @@ parameters:
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
-			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\FieldDefinition\\\\Closure not found\\.$#"
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\EntityDefinition not found\\.$#"
 			count: 1
-			path: test/Unit/FieldDefinition/ClosureTest.php
+			path: test/Unit/FieldDefinition/OptionalTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/OptionalTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\User' and Example\\\\Entity\\\\User will always evaluate to true\\.$#"
@@ -441,9 +456,79 @@ parameters:
 			path: test/Unit/FieldDefinition/ReferenceTest.php
 
 		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferenceTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferenceTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int, Example\\\\Entity\\\\User\\> will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FieldDefinition/ReferencesTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferencesTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\Exception\\\\InvalidCount not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferencesTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ReferencesTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ValueTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingDefaultStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingDefaultStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\Strategy\\\\WithOptionalStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\EntityDefinition not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FixtureFactory\\\\Strategy\\\\WithoutOptionalStrategy not found\\.$#"
+			count: 1
+			path: test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\FixtureFactory' and Ergebnis\\\\FactoryBot\\\\FixtureFactory will always evaluate to true\\.$#"
@@ -473,6 +558,11 @@ parameters:
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
 			count: 2
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Strategy\\\\DefaultStrategy not found\\.$#"
+			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
 		-

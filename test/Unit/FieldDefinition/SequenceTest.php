@@ -20,8 +20,8 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition\Sequence::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
+#[Framework\Attributes\UsesClass(Exception\InvalidSequence::class)]
+#[Framework\Attributes\UsesClass(FixtureFactory::class)]
 final class SequenceTest extends Test\Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void

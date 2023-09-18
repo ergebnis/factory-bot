@@ -19,9 +19,9 @@ use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Count::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidMaximum')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidMinimum')]
+#[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidMaximum::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidMinimum::class)]
 final class CountTest extends Framework\TestCase
 {
     use Test\Util\Helper;

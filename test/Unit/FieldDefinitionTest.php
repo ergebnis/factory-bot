@@ -23,15 +23,15 @@ use Faker\Generator;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\UsesClass(Count::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidSequence::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsClosure(): void

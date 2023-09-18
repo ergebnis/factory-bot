@@ -21,13 +21,13 @@ use Example\Entity;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition\References::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\UsesClass(Count::class)]
+#[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
 final class ReferencesTest extends Test\Unit\AbstractTestCase
 {
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]

@@ -21,14 +21,14 @@ use Faker\Generator;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\UsesClass(Count::class)]
+#[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
 final class FixtureFactoryTest extends AbstractTestCase
 {
     public function testCreateOneDoesNotPersistEntityByDefault(): void

@@ -13,19 +13,21 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\FieldDefinition\Closure;
+use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test\Unit;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition\Closure::class)]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
-#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
 final class ClosureTest extends Unit\AbstractTestCase
 {
     public function testResolvesToResultOfInvokingClosureWithFakerAndFixtureFactory(): void
@@ -43,7 +45,7 @@ final class ClosureTest extends Unit\AbstractTestCase
             return $fixtureFactory->createOne(Entity\User::class);
         };
 
-        $fieldDefinition = new Closure($closure);
+        $fieldDefinition = new FieldDefinition\Closure($closure);
 
         $resolved = $fieldDefinition->resolve(
             $faker,
