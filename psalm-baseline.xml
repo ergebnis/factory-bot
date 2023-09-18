@@ -89,7 +89,7 @@
   </file>
   <file src="test/DataProvider/ValueProvider.php">
     <InvalidDocblock>
-      <code>public function arbitrary(): \Generator</code>
+      <code>public static function arbitrary(): \Generator</code>
     </InvalidDocblock>
     <MixedInferredReturnType>
       <code><![CDATA[\Generator<string, array<string[], bool, float, int, object, \stdClass, string>>]]></code>
