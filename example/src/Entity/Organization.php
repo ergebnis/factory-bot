@@ -19,13 +19,16 @@ use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
+ *
  * @ORM\Mapping\Table(name="organization")
  */
 class Organization
 {
     /**
      * @ORM\Mapping\Id
+     *
      * @ORM\Mapping\GeneratedValue(strategy="NONE")
+     *
      * @ORM\Mapping\Column(
      *     type="string",
      *     length=36
@@ -76,7 +79,7 @@ class Organization
      *
      * @var Common\Collections\Collection<int, User>
      */
-    private Common\Collections\Collection$members;
+    private Common\Collections\Collection $members;
     private bool $constructorWasCalled = false;
 
     public function __construct(string $name)

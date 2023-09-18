@@ -18,13 +18,16 @@ use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
+ *
  * @ORM\Mapping\Table(name="project")
  */
 class Project
 {
     /**
      * @ORM\Mapping\Id
+     *
      * @ORM\Mapping\GeneratedValue(strategy="NONE")
+     *
      * @ORM\Mapping\Column(
      *     type="string",
      *     length=36
@@ -42,6 +45,7 @@ class Project
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
+     *
      * @ORM\Mapping\JoinColumn(
      *     name="repository_id",
      *     referencedColumnName="id",

@@ -47,7 +47,6 @@ final class FixtureFactory
      * @psalm-template T
      *
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitions
-     * @param \Closure                                                 $afterCreate
      *
      * @throws Exception\ClassMetadataNotFound
      * @throws Exception\ClassNotFound
