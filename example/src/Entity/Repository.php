@@ -18,13 +18,16 @@ use Ramsey\Uuid;
 
 /**
  * @ORM\Mapping\Entity
+ *
  * @ORM\Mapping\Table(name="repository")
  */
 class Repository
 {
     /**
      * @ORM\Mapping\Id
+     *
      * @ORM\Mapping\GeneratedValue(strategy="NONE")
+     *
      * @ORM\Mapping\Column(
      *     name="id",
      *     type="string"
@@ -45,6 +48,7 @@ class Repository
      *     targetEntity="Example\Entity\Organization",
      *     inversedBy="repositories"
      * )
+     *
      * @ORM\Mapping\JoinColumn(
      *     name="organization_id",
      *     referencedColumnName="id",
@@ -55,6 +59,7 @@ class Repository
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
+     *
      * @ORM\Mapping\JoinColumn(
      *     name="template_id",
      *     referencedColumnName="id"
@@ -64,6 +69,7 @@ class Repository
 
     /**
      * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\CodeOfConduct")
+     *
      * @ORM\Mapping\JoinColumn(
      *     name="code_of_conduct_key",
      *     referencedColumnName="key"

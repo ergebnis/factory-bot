@@ -17,12 +17,14 @@ use Doctrine\ORM;
 
 /**
  * @ORM\Mapping\Entity
+ *
  * @ORM\Mapping\Table(name="code_of_conduct")
  */
 class CodeOfConduct
 {
     /**
      * @ORM\Mapping\Id
+     *
      * @ORM\Mapping\Column(type="string")
      */
     private string $key;
