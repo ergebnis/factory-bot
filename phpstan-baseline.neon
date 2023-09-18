@@ -431,6 +431,11 @@ parameters:
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
+			message: "#^Class Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\FieldDefinition\\\\FieldDefinition\\\\Closure not found\\.$#"
+			count: 1
+			path: test/Unit/FieldDefinition/ClosureTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\User' and Example\\\\Entity\\\\User will always evaluate to true\\.$#"
 			count: 2
 			path: test/Unit/FieldDefinition/ReferenceTest.php

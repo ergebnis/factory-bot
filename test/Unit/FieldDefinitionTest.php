@@ -17,19 +17,21 @@ use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FieldDefinition::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\CoversClass(FieldDefinition::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
 final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsClosure(): void
@@ -136,7 +138,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testReferencesReturnsReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Entity\User::class;
@@ -215,7 +217,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
@@ -266,7 +268,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'arbitrary')]
     public function testOptionalSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
@@ -284,7 +286,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testValueReturnsValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::value($value);
@@ -294,7 +296,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testOptionalValueReturnsOptionalValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::optionalValue($value);

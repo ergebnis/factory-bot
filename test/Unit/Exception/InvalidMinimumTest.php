@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidMinimum::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidMinimum::class)]
 final class InvalidMinimumTest extends Framework\TestCase
 {
     use Test\Util\Helper;

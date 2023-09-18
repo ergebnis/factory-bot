@@ -18,16 +18,17 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 use Faker\Generator;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FixtureFactory::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\CoversClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
 final class FixtureFactoryTest extends AbstractTestCase
 {
     public function testCreateOneDoesNotPersistEntityByDefault(): void

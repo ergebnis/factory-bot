@@ -15,8 +15,9 @@ namespace Example\Test\Unit\Entity;
 
 use Example\Entity;
 use Example\Test;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Example\Entity\User::class)]
+#[Framework\Attributes\CoversClass(Entity\User::class)]
 final class UserTest extends Test\Unit\AbstractTestCase
 {
     public function testRenameToRenamesUser(): void

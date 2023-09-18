@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidCount::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidCount::class)]
 final class InvalidCountTest extends Framework\TestCase
 {
     use Test\Util\Helper;

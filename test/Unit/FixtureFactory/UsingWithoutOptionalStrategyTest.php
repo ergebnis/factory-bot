@@ -19,19 +19,20 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FixtureFactory::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\WithoutOptionalStrategy')]
+#[Framework\Attributes\CoversClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\WithoutOptionalStrategy')]
 final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
@@ -210,7 +211,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
@@ -238,7 +239,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertCount($value, $organization->repositories());
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
@@ -446,7 +447,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame('City (3)', $userThree->location());
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsExact(int $value): void
     {
         $fixtureFactory = new FixtureFactory(
@@ -466,7 +467,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertCount($value, $entities);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsBetween(int $minimum): void
     {
         $maximum = $minimum + 10;

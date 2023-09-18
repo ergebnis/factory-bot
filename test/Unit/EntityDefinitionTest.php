@@ -20,15 +20,15 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\EntityDefinition::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\CoversClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
 final class EntityDefinitionTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
     {
         $fieldDefinitions = [

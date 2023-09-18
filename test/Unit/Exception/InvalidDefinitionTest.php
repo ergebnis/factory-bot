@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidDefinition::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidDefinition::class)]
 final class InvalidDefinitionTest extends Framework\TestCase
 {
     use Test\Util\Helper;

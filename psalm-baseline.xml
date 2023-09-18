@@ -292,6 +292,9 @@
       <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
       <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
     </ArgumentTypeCoercion>
+    <UndefinedClass>
+      <code>FieldDefinition\Closure</code>
+    </UndefinedClass>
   </file>
   <file src="test/Unit/FieldDefinition/OptionalTest.php">
     <ArgumentTypeCoercion>

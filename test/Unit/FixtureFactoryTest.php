@@ -21,26 +21,27 @@ use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Example\Test\Fixture;
 use Faker\Generator;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FixtureFactory::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\ClassMetadataNotFound')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\ClassNotFound')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidDirectory')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidFieldNames')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
+#[Framework\Attributes\CoversClass(FixtureFactory::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\ClassMetadataNotFound')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\ClassNotFound')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidDirectory')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidFieldNames')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
 final class FixtureFactoryTest extends AbstractTestCase
 {
     public function testDefineThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
@@ -630,7 +631,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertNull($repository->template());
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsArray(int $value): void
     {
         $faker = self::faker();
@@ -665,7 +666,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertCount($value, $repositories);
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneAllowsOverridingAssociationWithCollectionOfEntitiesWhenFieldDefinitionOverrideHasBeenSpecifiedAsFieldDefinition(int $value): void
     {
         $faker = self::faker();

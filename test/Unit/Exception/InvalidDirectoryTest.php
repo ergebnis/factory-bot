@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidDirectory::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidDirectory::class)]
 final class InvalidDirectoryTest extends Framework\TestCase
 {
     use Test\Util\Helper;

@@ -17,10 +17,11 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FieldDefinition\Sequence::class)]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
-#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
+#[Framework\Attributes\CoversClass(FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
+#[Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
 final class SequenceTest extends Test\Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void

@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidFieldNames::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidFieldNames::class)]
 final class InvalidFieldNamesTest extends Framework\TestCase
 {
     use Test\Util\Helper;

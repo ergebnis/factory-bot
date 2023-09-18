@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidSequence::class)]
+#[Framework\Attributes\CoversClass(Exception\InvalidSequence::class)]
 final class InvalidSequenceTest extends Framework\TestCase
 {
     use Test\Util\Helper;
