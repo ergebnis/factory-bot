@@ -17,7 +17,7 @@ use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Strategy;
-use Ergebnis\FactoryBot\Test\Unit;
+use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
@@ -28,7 +28,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
 #[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
-final class ClosureTest extends Unit\AbstractTestCase
+final class ClosureTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfInvokingClosureWithFakerAndFixtureFactory(): void
     {
