@@ -17,9 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\InvalidMaximum
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidMaximum::class)]
 final class InvalidMaximumTest extends Framework\TestCase
 {
     use Test\Util\Helper;

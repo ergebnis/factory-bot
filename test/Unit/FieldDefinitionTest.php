@@ -20,19 +20,16 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 use Faker\Generator;
 
-/**
- * @covers \Ergebnis\FactoryBot\FieldDefinition
- *
- * @uses \Ergebnis\FactoryBot\Count
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
- * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Closure
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Reference
- * @uses \Ergebnis\FactoryBot\FieldDefinition\References
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Sequence
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FieldDefinition::class)]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Closure')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Reference')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\References')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Sequence')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
 final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsClosure(): void
@@ -139,9 +136,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testReferencesReturnsReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Entity\User::class;
@@ -220,9 +215,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
@@ -273,9 +266,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::arbitrary()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'arbitrary')]
     public function testOptionalSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
@@ -293,9 +284,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testValueReturnsValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::value($value);
@@ -305,9 +294,7 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::arbitrary()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testOptionalValueReturnsOptionalValue(mixed $value): void
     {
         $fieldDefinition = FieldDefinition::optionalValue($value);

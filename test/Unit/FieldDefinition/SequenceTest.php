@@ -18,12 +18,9 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 
-/**
- * @covers \Ergebnis\FactoryBot\FieldDefinition\Sequence
- *
- * @uses \Ergebnis\FactoryBot\Exception\InvalidSequence
- * @uses \Ergebnis\FactoryBot\FixtureFactory
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FieldDefinition\Sequence::class)]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidSequence')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
 final class SequenceTest extends Test\Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void

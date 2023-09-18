@@ -19,15 +19,12 @@ use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
 
-/**
- * @covers \Ergebnis\FactoryBot\FieldDefinition\Optional
- *
- * @uses \Ergebnis\FactoryBot\EntityDefinition
- * @uses \Ergebnis\FactoryBot\FieldDefinition
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\FixtureFactory
- * @uses \Ergebnis\FactoryBot\Strategy\DefaultStrategy
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\FieldDefinition\Optional::class)]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\EntityDefinition')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Strategy\DefaultStrategy')]
 final class OptionalTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfResolvingResolvableWithFixtureFactory(): void

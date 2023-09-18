@@ -19,15 +19,12 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 
-/**
- * @covers \Ergebnis\FactoryBot\Strategy\DefaultStrategy
- *
- * @uses \Ergebnis\FactoryBot\Count
- * @uses \Ergebnis\FactoryBot\FieldDefinition
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Optional
- * @uses \Ergebnis\FactoryBot\FieldDefinition\Value
- * @uses \Ergebnis\FactoryBot\FixtureFactory
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Strategy\DefaultStrategy::class)]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Count')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Optional')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FieldDefinition\Value')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\FixtureFactory')]
 final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testResolveFieldValueResolvesOptionalFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
@@ -133,9 +130,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame($expected, $resolved);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsExact(int $value): void
     {
         $strategy = new Strategy\DefaultStrategy();
@@ -148,9 +143,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame($value, $resolved);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMinimum(int $minimum): void
     {
         $maximum = self::faker()->numberBetween($minimum + 1);
@@ -168,9 +161,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame($minimum, $resolved);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMaximum(int $maximum): void
     {
         $minimum = self::faker()->numberBetween(0, $maximum - 1);

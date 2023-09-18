@@ -17,9 +17,7 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\InvalidFieldNames
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidFieldNames::class)]
 final class InvalidFieldNamesTest extends Framework\TestCase
 {
     use Test\Util\Helper;

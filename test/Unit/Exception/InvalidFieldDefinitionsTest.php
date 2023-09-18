@@ -18,9 +18,7 @@ use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions::class)]
 final class InvalidFieldDefinitionsTest extends Framework\TestCase
 {
     use Test\Util\Helper;

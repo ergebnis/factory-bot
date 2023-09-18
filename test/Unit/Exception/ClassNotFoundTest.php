@@ -16,9 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\ClassNotFound
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\ClassNotFound::class)]
 final class ClassNotFoundTest extends Framework\TestCase
 {
     public function testNameReturnsException(): void

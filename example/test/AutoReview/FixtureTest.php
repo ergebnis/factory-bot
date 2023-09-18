@@ -16,9 +16,7 @@ namespace Example\Test\AutoReview;
 use Ergebnis\FactoryBot;
 use Example\Test;
 
-/**
- * @coversNothing
- */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 final class FixtureTest extends Test\Unit\AbstractTestCase
 {
     public function testEntitiesHaveEntityDefinitionProviders(): void

@@ -16,9 +16,7 @@ namespace Example\Test\Unit\Entity;
 use Example\Entity;
 use Example\Test;
 
-/**
- * @covers \Example\Entity\User
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Example\Entity\User::class)]
 final class UserTest extends Test\Unit\AbstractTestCase
 {
     public function testRenameToRenamesUser(): void

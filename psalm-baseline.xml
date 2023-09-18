@@ -82,13 +82,21 @@
       <code>ORM\Mapping\ClassMetadata</code>
     </UnnecessaryVarAnnotation>
   </file>
+  <file src="test/DataProvider/IntProvider.php">
+    <PossiblyUnusedMethod>
+      <code>arbitrary</code>
+      <code>greaterThanOrEqualToZero</code>
+      <code>greaterThanZero</code>
+      <code>lessThanZero</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/DataProvider/ValueProvider.php">
     <InvalidDocblock>
       <code>public static function arbitrary(): \Generator</code>
     </InvalidDocblock>
-    <MixedInferredReturnType>
-      <code><![CDATA[\Generator<string, array<string[], bool, float, int, object, \stdClass, string>>]]></code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>arbitrary</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/Double/Faker/FalseGenerator.php">
     <MissingParamType>
@@ -235,11 +243,33 @@
     </UnusedClass>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
     <InternalMethod>
       <code>addToAssertionCount</code>
     </InternalMethod>
   </file>
+  <file src="test/Unit/CountTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidCount']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidMaximum']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidMinimum']]></code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="test/Unit/EntityDefinitionTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidFieldDefinitions']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+    </ArgumentTypeCoercion>
     <MissingClosureParamType>
       <code>$entity</code>
       <code>$entity</code>
@@ -254,24 +284,94 @@
       <code>$fieldValues</code>
     </UnusedClosureParam>
   </file>
+  <file src="test/Unit/FieldDefinition/ClosureTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/Unit/FieldDefinition/OptionalTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/Unit/FieldDefinition/ReferenceTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidCount']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
     <RedundantCondition>
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
+  <file src="test/Unit/FieldDefinition/SequenceTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidSequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+    </ArgumentTypeCoercion>
     <MixedAssignment>
       <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidCount']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidSequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\References']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+    </ArgumentTypeCoercion>
     <UnnecessaryVarAnnotation>
       <code>Entity\User</code>
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\References']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+    </ArgumentTypeCoercion>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -298,6 +398,19 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\References']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\WithOptionalStrategy']]></code>
+    </ArgumentTypeCoercion>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -326,6 +439,19 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\References']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\WithoutOptionalStrategy']]></code>
+    </ArgumentTypeCoercion>
     <UnnecessaryVarAnnotation>
       <code>Entity\Organization</code>
       <code>Entity\Organization</code>
@@ -356,6 +482,24 @@
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion>
       <code>$className</code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\EntityDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\ClassMetadataNotFound']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\ClassNotFound']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\EntityDefinitionNotRegistered']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidCount']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidDirectory']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Exception\InvalidFieldNames']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Closure']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Reference']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\References']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Sequence']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\Strategy\DefaultStrategy']]></code>
     </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$fieldValues['name']]]></code>
@@ -395,17 +539,40 @@
     </UnusedVariable>
   </file>
   <file src="test/Unit/Strategy/DefaultStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+    </ArgumentTypeCoercion>
     <MixedAssignment>
       <code>$expected</code>
       <code>$resolved</code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/Strategy/WithOptionalStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+    </ArgumentTypeCoercion>
     <MixedAssignment>
       <code>$expected</code>
       <code>$expected</code>
       <code>$resolved</code>
       <code>$resolved</code>
     </MixedAssignment>
+  </file>
+  <file src="test/Unit/Strategy/WithoutOptionalStrategyTest.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['\Ergebnis\FactoryBot\Count']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Optional']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FieldDefinition\Value']]></code>
+      <code><![CDATA['\Ergebnis\FactoryBot\FixtureFactory']]></code>
+    </ArgumentTypeCoercion>
   </file>
 </files>

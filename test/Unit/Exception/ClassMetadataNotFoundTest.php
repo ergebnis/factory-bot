@@ -16,9 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\ClassMetadataNotFound
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\ClassMetadataNotFound::class)]
 final class ClassMetadataNotFoundTest extends Framework\TestCase
 {
     public function testNameReturnsException(): void

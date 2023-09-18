@@ -18,20 +18,15 @@ use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Count
- *
- * @uses \Ergebnis\FactoryBot\Exception\InvalidCount
- * @uses \Ergebnis\FactoryBot\Exception\InvalidMaximum
- * @uses \Ergebnis\FactoryBot\Exception\InvalidMinimum
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Count::class)]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidCount')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidMaximum')]
+#[\PHPUnit\Framework\Attributes\UsesClass('\Ergebnis\FactoryBot\Exception\InvalidMinimum')]
 final class CountTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'lessThanZero')]
     public function testExactRejectsValueLessThanZero(int $value): void
     {
         $this->expectException(Exception\InvalidCount::class);
@@ -43,9 +38,7 @@ final class CountTest extends Framework\TestCase
         Count::exact($value);
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testExactReturnsCountWhenValueIsGreaterThanZero(int $value): void
     {
         $count = Count::exact($value);
@@ -55,9 +48,7 @@ final class CountTest extends Framework\TestCase
         self::assertSame($value, $count->maximum());
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::lessThanZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'lessThanZero')]
     public function testBetweenRejectsMinimumLessThanZero(int $minimum): void
     {
         $maximum = $minimum + 1;
@@ -74,9 +65,7 @@ final class CountTest extends Framework\TestCase
         );
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testBetweenRejectsMaximumNotGreaterThanMinimum(int $difference): void
     {
         $minimum = self::faker()->numberBetween(1);
@@ -95,9 +84,7 @@ final class CountTest extends Framework\TestCase
         );
     }
 
-    /**
-     * @dataProvider \Ergebnis\FactoryBot\Test\DataProvider\IntProvider::greaterThanOrEqualToZero()
-     */
+    #[\PHPUnit\Framework\Attributes\DataProviderExternal(\Ergebnis\FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testBetweenReturnsCountWhenMinimumIsGreaterThanOrEqualToZeroAndMaximumIsGreaterThanMinimum(int $minimum): void
     {
         $faker = self::faker();

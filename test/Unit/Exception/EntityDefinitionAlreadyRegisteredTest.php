@@ -16,9 +16,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 use Ergebnis\FactoryBot\Exception;
 use PHPUnit\Framework;
 
-/**
- * @covers \Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Ergebnis\FactoryBot\Exception\EntityDefinitionAlreadyRegistered::class)]
 final class EntityDefinitionAlreadyRegisteredTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
