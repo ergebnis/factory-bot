@@ -61,11 +61,6 @@
       <code>Entity\User</code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="rector.php">
-    <DeprecatedConstant>
-      <code>PHPUnit\Set\PHPUnitSetList::PHPUNIT_91</code>
-    </DeprecatedConstant>
-  </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType>
       <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>

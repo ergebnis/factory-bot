@@ -29,6 +29,6 @@ return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->phpVersion(Core\ValueObject\PhpVersion::PHP_81);
 
     $rectorConfig->sets([
-        PHPUnit\Set\PHPUnitSetList::PHPUNIT_91,
+        PHPUnit\Set\PHPUnitSetList::PHPUNIT_100,
     ]);
 };
