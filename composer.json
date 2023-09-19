@@ -35,7 +35,7 @@
     "ext-pdo_sqlite": "*",
     "ergebnis/composer-normalize": "^2.37.0",
     "ergebnis/license": "^2.2.0",
-    "ergebnis/php-cs-fixer-config": "^6.0.0",
+    "ergebnis/php-cs-fixer-config": "^6.2.0",
     "ergebnis/phpstan-rules": "^2.1.0",
     "ergebnis/phpunit-slow-test-detector": "^2.3.0",
     "infection/infection": "~0.27.2",
