@@ -20,7 +20,7 @@ final class ValueProvider
     use Test\Util\Helper;
 
     /**
-     * @return \Generator<string, array<string[], bool, float, int, object, \stdClass, string>>
+     * @return \Generator<string, array<array<string>, bool, float, int, object, \stdClass, string>>
      */
     public static function arbitrary(): \Generator
     {
