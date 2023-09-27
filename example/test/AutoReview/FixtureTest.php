@@ -15,8 +15,9 @@ namespace Example\Test\AutoReview;
 
 use Ergebnis\FactoryBot;
 use Example\Test;
+use PHPUnit\Framework;
 
-#[\PHPUnit\Framework\Attributes\CoversNothing()]
+#[Framework\Attributes\CoversNothing()]
 final class FixtureTest extends Test\Unit\AbstractTestCase
 {
     public function testEntitiesHaveEntityDefinitionProviders(): void
