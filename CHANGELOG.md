@@ -10,7 +10,7 @@ For a full diff see [`1.4.0...main`][1.4.0...main].
 
 ### Changed
 
-- Dropped support for PHP 7.3 ([#1109]), by [@localheinz]
+- Dropped support for PHP 8.0 ([#1109]), by [@localheinz]
 
 ## [`1.4.0`][1.4.0]
 
