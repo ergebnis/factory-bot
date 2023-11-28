@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65b26d81e7d0f4ffdab46156e11611f0",
+    "content-hash": "b46ce6de57e924df3d4768eb1ef31883",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1086,33 +1086,33 @@
         },
         {
             "name": "ergebnis/classy",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "c19d96325c858049a1275536f38e9e9e406f8cf5"
+                "reference": "e8da19634d7d7d7e293e916b1419395224658d5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/c19d96325c858049a1275536f38e9e9e406f8cf5",
-                "reference": "c19d96325c858049a1275536f38e9e9e406f8cf5",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/e8da19634d7d7d7e293e916b1419395224658d5a",
+                "reference": "e8da19634d7d7d7e293e916b1419395224658d5a",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "~8.1.0 || ~8.2.0"
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.36.0",
-                "ergebnis/license": "^2.1.0",
-                "ergebnis/php-cs-fixer-config": "^5.15.1",
-                "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+                "ergebnis/composer-normalize": "^2.39.0",
+                "ergebnis/license": "^2.3.0",
+                "ergebnis/php-cs-fixer-config": "~6.12.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.4.0",
                 "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.27.0",
-                "phpunit/phpunit": "^10.3.4",
+                "infection/infection": "~0.27.8",
+                "phpunit/phpunit": "^10.4.2",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.3",
-                "vimeo/psalm": "^5.15.0"
+                "rector/rector": "~0.18.11",
+                "vimeo/psalm": "^5.16.0"
             },
             "type": "library",
             "extra": {
@@ -1132,7 +1132,8 @@
             "authors": [
                 {
                     "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
                 }
             ],
             "description": "Provides a finder for classy constructs (classes, enums, interfaces, and traits).",
@@ -1149,7 +1150,7 @@
                 "issues": "https://github.com/ergebnis/classy/issues",
                 "source": "https://github.com/ergebnis/classy"
             },
-            "time": "2023-09-13T15:18:43+00:00"
+            "time": "2023-11-27T16:46:22+00:00"
         },
         {
             "name": "fakerphp/faker",
