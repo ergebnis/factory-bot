@@ -3,17 +3,12 @@
 version: 2
 
 updates:
-  - commit-message:
+  - allow:
+      - dependency-type: "development"
+    commit-message:
       include: "scope"
       prefix: "composer"
     directory: "/"
-    ignore:
-      - dependency-name: "doctrine/annotations"
-      - dependency-name: "doctrine/collections"
-      - dependency-name: "doctrine/dbal"
-      - dependency-name: "doctrine/orm"
-      - dependency-name: "doctrine/persistence"
-      - dependency-name: "fakerphp/faker"
     labels:
       - "dependency"
     open-pull-requests-limit: 10

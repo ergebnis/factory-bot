@@ -1229,7 +1229,7 @@ The maintainers of this package suggest following the [contribution guide](.gith
 
 ## Code of Conduct
 
-The maintainers of this package ask contributors to follow the [code of conduct](.github/CODE_OF_CONDUCT.md).
+The maintainers of this package ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## General Support Policy
 
