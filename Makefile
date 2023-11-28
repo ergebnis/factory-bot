@@ -16,7 +16,7 @@ coding-standards: vendor ## Lints YAML files with yamllint, normalizes composer.
 
 .PHONY: dependency-analysis
 dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/composer-require-checker
-	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
+	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json --verbose
 
 .PHONY: doctrine
 doctrine: vendor ## Shows and validates Docrine mapping information
