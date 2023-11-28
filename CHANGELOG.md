@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.4.0...main`][1.4.0...main].
 
+### Added
+
+- Added support for PHP 8.3 ([#1213]), by [@localheinz]
+
 ### Changed
 
 - Dropped support for PHP 8.0 ([#1109]), by [@localheinz]
@@ -328,6 +332,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#948]: https://github.com/ergebnis/factory-bot/pull/948
 [#1000]: https://github.com/ergebnis/factory-bot/pull/1000
 [#1109]: https://github.com/ergebnis/factory-bot/pull/1109
+[#1213]: https://github.com/ergebnis/factory-bot/pull/1213
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
