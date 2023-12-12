@@ -32,7 +32,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "xdebug"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -100,7 +100,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -168,7 +168,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
 
@@ -224,7 +224,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "xdebug"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -276,7 +276,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -338,7 +338,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -388,7 +388,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, opcache, pcntl, pdo, pdo_sqlite, phar, posix, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, opcache, pcntl, pdo, pdo_sqlite, phar, posix, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -432,6 +432,7 @@ jobs:
     timeout-minutes: 5
 
     strategy:
+      fail-fast: false
       matrix:
         php-version:
           - "8.1"
@@ -451,7 +452,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -472,6 +473,10 @@ jobs:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Remove platform configuration with composer"
+        if: "matrix.dependencies != 'locked'"
+        run: "composer config platform.php --ansi --unset"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ergebnis/.github/actions/composer/install@1.8.0"

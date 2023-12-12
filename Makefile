@@ -2,7 +2,7 @@
 it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
-code-coverage: vendor ## Collects coverage from running unit tests with phpunit/phpunit
+code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit/
 	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=unit,integration
 
@@ -66,13 +66,13 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 
 .PHONY: tests
 tests: vendor ## Runs unit and integration tests with phpunit/phpunit
-	mkdir -p .build/phpunit
+	mkdir -p .build/phpunit/
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
 
 .PHONY: tests-example
 tests-example: vendor ## Runs auto-review and unit tests for examples with phpunit/phpunit
-	mkdir -p .build/phpunit
+	mkdir -p .build/phpunit/
 	vendor/bin/phpunit --configuration=example/test/AutoReview/phpunit.xml
 	vendor/bin/phpunit --configuration=example/test/Unit/phpunit.xml
 
