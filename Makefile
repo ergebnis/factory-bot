@@ -1,5 +1,5 @@
 .PHONY: it
-it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
+it: refactoring coding-standards security-analysis static-code-analysis tests tests-example ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, tests, and tests-example targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
