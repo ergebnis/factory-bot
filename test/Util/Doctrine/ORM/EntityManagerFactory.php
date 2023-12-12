@@ -19,15 +19,11 @@ final class EntityManagerFactory
 {
     public static function create(): ORM\EntityManagerInterface
     {
-        $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
-            [
-                __DIR__ . '/../../../../example/src/Entity',
-            ],
-            true,
-            null,
-            null,
-            false,
-        );
+        $configuration = ORM\Tools\Setup::createConfiguration(true);
+
+        $configuration->setMetadataDriverImpl(new ORM\Mapping\Driver\AttributeDriver([
+            __DIR__ . '/../../../../example/src/Entity',
+        ]));
 
         return ORM\EntityManager::create(
             [

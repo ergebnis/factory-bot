@@ -15,42 +15,32 @@ namespace Example\Entity;
 
 use Doctrine\ORM;
 
-/**
- * @ORM\Mapping\Entity
- *
- * @ORM\Mapping\Table(name="code_of_conduct")
- */
+#[ORM\Mapping\Entity()]
+#[ORM\Mapping\Table(name: 'code_of_conduct')]
 class CodeOfConduct
 {
-    /**
-     * @ORM\Mapping\Id
-     *
-     * @ORM\Mapping\Column(type="string")
-     */
+    #[ORM\Mapping\Id()]
+    #[ORM\Mapping\Column(
+        type: 'string',
+    )]
     private string $key;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="name",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'name',
+        type: 'string',
+    )]
     private string $name;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="url",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'url',
+        type: 'string',
+    )]
     private string $url;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="body",
-     *     type="text"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'body',
+        type: 'text',
+    )]
     private string $body;
 
     public function __construct(

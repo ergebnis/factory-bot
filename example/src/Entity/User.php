@@ -17,58 +17,41 @@ use Doctrine\Common;
 use Doctrine\ORM;
 use Ramsey\Uuid;
 
-/**
- * @ORM\Mapping\Entity
- *
- * @ORM\Mapping\Table(name="user")
- */
+#[ORM\Mapping\Entity()]
+#[ORM\Mapping\Table(name: 'user')]
 class User
 {
-    /**
-     * @ORM\Mapping\Id
-     *
-     * @ORM\Mapping\GeneratedValue(strategy="NONE")
-     *
-     * @ORM\Mapping\Column(
-     *     type="string",
-     *     length=36
-     * )
-     */
+    #[ORM\Mapping\Id()]
+    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
+    #[ORM\Mapping\Column(
+        type: 'string',
+        length: 36,
+    )]
     private string $id;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="login",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'login',
+        type: 'string',
+    )]
     private string $login;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="location",
-     *     type="string",
-     *     nullable=true
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'location',
+        type: 'string',
+        nullable: true,
+    )]
     private ?string $location;
 
-    /**
-     * @ORM\Mapping\Embedded(
-     *     class="Example\Entity\Avatar",
-     *     columnPrefix="avatar"
-     * )
-     */
+    #[ORM\Mapping\Embedded(
+        class: Avatar::class,
+        columnPrefix: 'avatar',
+    )]
     private Avatar $avatar;
 
-    /**
-     * @ORM\Mapping\ManyToMany(
-     *     targetEntity="Example\Entity\Organization",
-     *     mappedBy="members"
-     * )
-     *
-     * @var Common\Collections\Collection<int, Organization>
-     */
+    #[ORM\Mapping\ManyToMany(
+        targetEntity: Organization::class,
+        mappedBy: 'members',
+    )]
     private Common\Collections\Collection $organizations;
 
     public function __construct(

@@ -15,33 +15,25 @@ namespace Example\Entity;
 
 use Doctrine\ORM;
 
-/**
- * @ORM\Mapping\Embeddable
- */
+#[ORM\Mapping\Embeddable()]
 final class Avatar
 {
-    /**
-     * @ORM\Mapping\Column(
-     *     name="url",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'url',
+        type: 'string',
+    )]
     private string $url = '';
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="width",
-     *     type="integer"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'width',
+        type: 'integer',
+    )]
     private int $width = 0;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="height",
-     *     type="integer"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'height',
+        type: 'integer',
+    )]
     private int $height = 0;
 
     public function url(): string

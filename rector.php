@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Rector\Config;
 use Rector\Core;
+use Rector\Doctrine;
 use Rector\PHPUnit;
 
 return static function (Config\RectorConfig $rectorConfig): void {
@@ -29,6 +30,7 @@ return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->phpVersion(Core\ValueObject\PhpVersion::PHP_81);
 
     $rectorConfig->sets([
+        Doctrine\Set\DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
         PHPUnit\Set\PHPUnitSetList::PHPUNIT_100,
     ]);
 };

@@ -16,65 +16,47 @@ namespace Example\Entity;
 use Doctrine\ORM;
 use Ramsey\Uuid;
 
-/**
- * @ORM\Mapping\Entity
- *
- * @ORM\Mapping\Table(name="repository")
- */
+#[ORM\Mapping\Entity()]
+#[ORM\Mapping\Table(name: 'repository')]
 class Repository
 {
-    /**
-     * @ORM\Mapping\Id
-     *
-     * @ORM\Mapping\GeneratedValue(strategy="NONE")
-     *
-     * @ORM\Mapping\Column(
-     *     name="id",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Id()]
+    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
+    #[ORM\Mapping\Column(
+        name: 'id',
+        type: 'string',
+    )]
     private string $id;
 
-    /**
-     * @ORM\Mapping\Column(
-     *     name="name",
-     *     type="string"
-     * )
-     */
+    #[ORM\Mapping\Column(
+        name: 'name',
+        type: 'string',
+    )]
     private string $name;
 
-    /**
-     * @ORM\Mapping\ManyToOne(
-     *     targetEntity="Example\Entity\Organization",
-     *     inversedBy="repositories"
-     * )
-     *
-     * @ORM\Mapping\JoinColumn(
-     *     name="organization_id",
-     *     referencedColumnName="id",
-     *     nullable=false
-     * )
-     */
+    #[ORM\Mapping\ManyToOne(
+        targetEntity: Organization::class,
+        inversedBy: 'repositories',
+    )]
+    #[ORM\Mapping\JoinColumn(
+        name: 'organization_id',
+        referencedColumnName: 'id',
+        nullable: false,
+    )]
     private Organization $organization;
 
-    /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\Repository")
-     *
-     * @ORM\Mapping\JoinColumn(
-     *     name="template_id",
-     *     referencedColumnName="id"
-     * )
-     */
+    #[ORM\Mapping\ManyToOne(targetEntity: self::class)]
+    #[ORM\Mapping\JoinColumn(
+        name: 'template_id',
+        referencedColumnName: 'id',
+    )]
     private ?Repository $template;
 
-    /**
-     * @ORM\Mapping\ManyToOne(targetEntity="Example\Entity\CodeOfConduct")
-     *
-     * @ORM\Mapping\JoinColumn(
-     *     name="code_of_conduct_key",
-     *     referencedColumnName="key"
-     * )
-     */
+    #[ORM\Mapping\ManyToOne(targetEntity: CodeOfConduct::class)]
+    #[ORM\Mapping\JoinColumn(
+        name: 'code_of_conduct_key',
+        referencedColumnName: 'key',
+    )]
     private ?CodeOfConduct $codeOfConduct;
 
     public function __construct(
