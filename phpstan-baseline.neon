@@ -66,7 +66,7 @@ parameters:
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string, non\\-falsy\\-string\\> will always evaluate to true\\.$#"
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<class\\-string, non\\-falsy\\-string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: example/test/AutoReview/FixtureTest.php
 
@@ -74,6 +74,22 @@ parameters:
 			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
 			count: 1
 			path: example/test/AutoReview/FixtureTest.php
+
+		-
+			message: """
+				#^Call to deprecated method create\\(\\) of class Doctrine\\\\ORM\\\\EntityManager\\:
+				Use \\{@see DriverManager\\:\\:getConnection\\(\\)\\} to bootstrap the connection and call the constructor\\.$#
+			"""
+			count: 1
+			path: example/test/Unit/AbstractTestCase.php
+
+		-
+			message: """
+				#^Call to method createAnnotationMetadataConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
+				Use \\{@see ORMSetup\\} instead\\.$#
+			"""
+			count: 1
+			path: example/test/Unit/AbstractTestCase.php
 
 		-
 			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
@@ -96,6 +112,11 @@ parameters:
 			path: src/FieldDefinition/References.php
 
 		-
+			message: "#^Call to function array_key_exists\\(\\) with 'inversedBy' and array\\{cache\\?\\: array, cascade\\: array\\<string\\>, declared\\?\\: class\\-string, fetch\\: mixed, fieldName\\: string, id\\?\\: bool, inherited\\?\\: class\\-string, indexBy\\?\\: string, \\.\\.\\.\\} will always evaluate to true\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
 			message: "#^Dead catch \\- ReflectionException is never thrown in the try block\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
@@ -116,12 +137,22 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
+			message: "#^Parameter \\#1 \\$className of method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getClassMetadata\\(\\) expects class\\-string\\<object\\>, class\\-string\\<T\\> given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
 			message: "#^Parameter \\#1 \\$entity of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:setField\\(\\) expects object, T given\\.$#"
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
 			message: "#^Parameter \\#1 \\$object of method Doctrine\\\\Persistence\\\\ObjectManager\\:\\:persist\\(\\) expects object, T given\\.$#"
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: "#^Unable to resolve the template type T in call to method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getClassMetadata\\(\\)$#"
 			count: 1
 			path: src/FixtureFactory.php
 
@@ -474,4 +505,20 @@ parameters:
 			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: """
+				#^Call to deprecated method create\\(\\) of class Doctrine\\\\ORM\\\\EntityManager\\:
+				Use \\{@see DriverManager\\:\\:getConnection\\(\\)\\} to bootstrap the connection and call the constructor\\.$#
+			"""
+			count: 1
+			path: test/Util/Doctrine/ORM/EntityManagerFactory.php
+
+		-
+			message: """
+				#^Call to method createAnnotationMetadataConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
+				Use \\{@see ORMSetup\\} instead\\.$#
+			"""
+			count: 1
+			path: test/Util/Doctrine/ORM/EntityManagerFactory.php
 
