@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
+### Changed
+
+- Required `doctrine/orm:^2.9.0` ([#1234]), by [@localheinz]
+
 ## [`1.5.0`][1.5.0]
 
 For a full diff see [`1.4.0...1.5.0`][1.4.0...1.5.0].
@@ -339,6 +343,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1000]: https://github.com/ergebnis/factory-bot/pull/1000
 [#1109]: https://github.com/ergebnis/factory-bot/pull/1109
 [#1213]: https://github.com/ergebnis/factory-bot/pull/1213
+[#1234]: https://github.com/ergebnis/factory-bot/pull/1234
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz

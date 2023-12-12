@@ -56,6 +56,28 @@
       <code>ProjectDefinitionProvider</code>
     </UnusedClass>
   </file>
+  <file src="example/test/Unit/AbstractTestCase.php">
+    <DeprecatedClass>
+      <code><![CDATA[ORM\Tools\Setup::createAnnotationMetadataConfiguration(
+            [
+                __DIR__ . '/../../src/Entity',
+            ],
+            true,
+            null,
+            null,
+            false,
+        )]]></code>
+    </DeprecatedClass>
+    <DeprecatedMethod>
+      <code><![CDATA[ORM\EntityManager::create(
+            [
+                'driver' => 'pdo_sqlite',
+                'path' => ':memory:',
+            ],
+            $configuration,
+        )]]></code>
+    </DeprecatedMethod>
+  </file>
   <file src="example/test/Unit/Entity/UserTest.php">
     <UnnecessaryVarAnnotation>
       <code>Entity\User</code>
@@ -79,7 +101,6 @@
     <UnnecessaryVarAnnotation>
       <code>EntityDefinition</code>
       <code>EntityDefinitionProvider</code>
-      <code>ORM\Mapping\ClassMetadata</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/DataProvider/IntProvider.php">
@@ -414,5 +435,27 @@
       <code>$resolved</code>
       <code>$resolved</code>
     </MixedAssignment>
+  </file>
+  <file src="test/Util/Doctrine/ORM/EntityManagerFactory.php">
+    <DeprecatedClass>
+      <code><![CDATA[ORM\Tools\Setup::createAnnotationMetadataConfiguration(
+            [
+                __DIR__ . '/../../../../example/src/Entity',
+            ],
+            true,
+            null,
+            null,
+            false,
+        )]]></code>
+    </DeprecatedClass>
+    <DeprecatedMethod>
+      <code><![CDATA[ORM\EntityManager::create(
+            [
+                'driver' => 'pdo_sqlite',
+                'path' => ':memory:',
+            ],
+            $configuration,
+        )]]></code>
+    </DeprecatedMethod>
   </file>
 </files>
