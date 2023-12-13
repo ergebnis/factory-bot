@@ -23,15 +23,11 @@ abstract class AbstractTestCase extends Framework\TestCase
 {
     final protected static function entityManager(): ORM\EntityManagerInterface
     {
-        $configuration = ORM\Tools\Setup::createAnnotationMetadataConfiguration(
-            [
-                __DIR__ . '/../../src/Entity',
-            ],
-            true,
-            null,
-            null,
-            false,
-        );
+        $configuration = ORM\Tools\Setup::createConfiguration(true);
+
+        $configuration->setMetadataDriverImpl(new ORM\Mapping\Driver\AttributeDriver([
+            __DIR__ . '/../../src/Entity',
+        ]));
 
         $entityManager = ORM\EntityManager::create(
             [

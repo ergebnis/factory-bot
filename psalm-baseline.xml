@@ -16,6 +16,16 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/Organization.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA['Example\Entity\Repository']]></code>
+      <code><![CDATA['Example\Entity\User']]></code>
+    </ArgumentTypeCoercion>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->members->toArray()]]></code>
+      <code><![CDATA[$this->repositories->toArray()]]></code>
+      <code><![CDATA[array<int, Repository>]]></code>
+      <code><![CDATA[array<int, User>]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
       <code>__construct</code>
       <code>id</code>
@@ -37,6 +47,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/User.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->organizations->toArray()]]></code>
+      <code><![CDATA[array<int, Organization>]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
       <code>__construct</code>
       <code>id</code>
@@ -58,15 +72,7 @@
   </file>
   <file src="example/test/Unit/AbstractTestCase.php">
     <DeprecatedClass>
-      <code><![CDATA[ORM\Tools\Setup::createAnnotationMetadataConfiguration(
-            [
-                __DIR__ . '/../../src/Entity',
-            ],
-            true,
-            null,
-            null,
-            false,
-        )]]></code>
+      <code>ORM\Tools\Setup::createConfiguration(true)</code>
     </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[ORM\EntityManager::create(
@@ -438,15 +444,7 @@
   </file>
   <file src="test/Util/Doctrine/ORM/EntityManagerFactory.php">
     <DeprecatedClass>
-      <code><![CDATA[ORM\Tools\Setup::createAnnotationMetadataConfiguration(
-            [
-                __DIR__ . '/../../../../example/src/Entity',
-            ],
-            true,
-            null,
-            null,
-            false,
-        )]]></code>
+      <code>ORM\Tools\Setup::createConfiguration(true)</code>
     </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[ORM\EntityManager::create(
