@@ -1,7 +1,37 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:members\\(\\) should return array\\<int, Example\\\\Entity\\\\User\\> but returns array\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:repositories\\(\\) should return array\\<int, Example\\\\Entity\\\\Repository\\> but returns array\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
 			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:url\\(\\) has a nullable return type declaration\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$members type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\User\\>\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$members with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$repositories type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\Repository\\>\\.$#"
+			count: 1
+			path: example/src/Entity/Organization.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$repositories with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
 			count: 1
 			path: example/src/Entity/Organization.php
 
@@ -66,6 +96,21 @@ parameters:
 			path: example/src/Entity/User.php
 
 		-
+			message: "#^Method Example\\\\Entity\\\\User\\:\\:organizations\\(\\) should return array\\<int, Example\\\\Entity\\\\Organization\\> but returns array\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\User\\:\\:\\$organizations type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\Organization\\>\\.$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
+			message: "#^Property Example\\\\Entity\\\\User\\:\\:\\$organizations with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
+			count: 1
+			path: example/src/Entity/User.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<class\\-string, non\\-falsy\\-string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: example/test/AutoReview/FixtureTest.php
@@ -85,7 +130,7 @@ parameters:
 
 		-
 			message: """
-				#^Call to method createAnnotationMetadataConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
+				#^Call to method createConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
 				Use \\{@see ORMSetup\\} instead\\.$#
 			"""
 			count: 1
@@ -516,7 +561,7 @@ parameters:
 
 		-
 			message: """
-				#^Call to method createAnnotationMetadataConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
+				#^Call to method createConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
 				Use \\{@see ORMSetup\\} instead\\.$#
 			"""
 			count: 1
