@@ -12,6 +12,10 @@ For a full diff see [`1.5.0...main`][1.5.0...main].
 
 - Required `doctrine/orm:^2.9.0` ([#1234]), by [@localheinz]
 
+### Removed
+
+- Removed dependency on `doctrine/annotations` ([#1233]), by [@localheinz]
+
 ## [`1.5.0`][1.5.0]
 
 For a full diff see [`1.4.0...1.5.0`][1.4.0...1.5.0].
@@ -343,6 +347,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1000]: https://github.com/ergebnis/factory-bot/pull/1000
 [#1109]: https://github.com/ergebnis/factory-bot/pull/1109
 [#1213]: https://github.com/ergebnis/factory-bot/pull/1213
+[#1233]: https://github.com/ergebnis/factory-bot/pull/1233
 [#1234]: https://github.com/ergebnis/factory-bot/pull/1234
 
 [@abenerd]: https://github.com/abenerd
