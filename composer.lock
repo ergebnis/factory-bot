@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dacf0dce76354f31f7009fe8b2c3f038",
+    "content-hash": "d723d52a286f6cad1c6a9af342cdae2b",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -5459,16 +5459,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.54",
+            "version": "1.10.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "3e25f279dada0adc14ffd7bad09af2e2fc3523bb"
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3e25f279dada0adc14ffd7bad09af2e2fc3523bb",
-                "reference": "3e25f279dada0adc14ffd7bad09af2e2fc3523bb",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/27816a01aea996191ee14d010f325434c0ee76fa",
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa",
                 "shasum": ""
             },
             "require": {
@@ -5517,7 +5517,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-05T15:50:47+00:00"
+            "time": "2024-01-15T10:43:00+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -5569,16 +5569,16 @@
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "1.3.54",
+            "version": "1.3.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "f9555a2d54d685efd7003ae33c15e3d19d7d0c36"
+                "reference": "0edf5b0cf1ff0a85adeefe4b5c1a6ba238f961cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/f9555a2d54d685efd7003ae33c15e3d19d7d0c36",
-                "reference": "f9555a2d54d685efd7003ae33c15e3d19d7d0c36",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/0edf5b0cf1ff0a85adeefe4b5c1a6ba238f961cc",
+                "reference": "0edf5b0cf1ff0a85adeefe4b5c1a6ba238f961cc",
                 "shasum": ""
             },
             "require": {
@@ -5633,9 +5633,9 @@
             "description": "Doctrine extensions for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
-                "source": "https://github.com/phpstan/phpstan-doctrine/tree/1.3.54"
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/1.3.56"
             },
-            "time": "2024-01-05T15:44:44+00:00"
+            "time": "2024-01-15T10:17:55+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
