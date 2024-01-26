@@ -77,7 +77,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":robot: Provides a fixture factory for doctrine/orm entities."
+  description: "🤖 Provides a composer package with a fixture factory for doctrine/orm entities."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
