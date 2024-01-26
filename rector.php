@@ -12,9 +12,9 @@ declare(strict_types=1);
  */
 
 use Rector\Config;
-use Rector\Core;
 use Rector\Doctrine;
 use Rector\PHPUnit;
+use Rector\ValueObject;
 
 return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
@@ -27,7 +27,7 @@ return static function (Config\RectorConfig $rectorConfig): void {
         __DIR__ . '/test/',
     ]);
 
-    $rectorConfig->phpVersion(Core\ValueObject\PhpVersion::PHP_81);
+    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_81);
 
     $rectorConfig->sets([
         Doctrine\Set\DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
