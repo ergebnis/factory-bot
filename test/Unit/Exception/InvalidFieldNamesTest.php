@@ -53,7 +53,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
 
         $className = $faker->word();
 
-        /** @var array<string> $fieldNames */
+        /** @var list<string> $fieldNames */
         $fieldNames = $faker->words(10);
 
         $exception = Exception\InvalidFieldNames::notFoundIn(
