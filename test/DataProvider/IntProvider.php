@@ -20,7 +20,7 @@ final class IntProvider
     use Test\Util\Helper;
 
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, list<int>>
      */
     public static function arbitrary(): \Generator
     {
@@ -42,7 +42,7 @@ final class IntProvider
     }
 
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, list<int>>
      */
     public static function lessThanZero(): \Generator
     {
@@ -59,7 +59,7 @@ final class IntProvider
     }
 
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, list<int>>
      */
     public static function greaterThanOrEqualToZero(): \Generator
     {
@@ -77,7 +77,7 @@ final class IntProvider
     }
 
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, list<int>>
      */
     public static function greaterThanZero(): \Generator
     {
