@@ -76,9 +76,6 @@
     </UnusedClass>
   </file>
   <file src="example/test/Unit/AbstractTestCase.php">
-    <DeprecatedClass>
-      <code>ORM\Tools\Setup::createConfiguration(true)</code>
-    </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[ORM\EntityManager::create(
             [
@@ -448,9 +445,6 @@
     </MixedAssignment>
   </file>
   <file src="test/Util/Doctrine/ORM/EntityManagerFactory.php">
-    <DeprecatedClass>
-      <code>ORM\Tools\Setup::createConfiguration(true)</code>
-    </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[ORM\EntityManager::create(
             [
