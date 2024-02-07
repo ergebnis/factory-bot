@@ -42,7 +42,8 @@ $config->getFinder()
         '/test/Fixture/Definitions/CanNotBeAutoloaded/',
     ])
     ->ignoreDotFiles(false)
-    ->in(__DIR__);
+    ->in(__DIR__)
+    ->name('console');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 

@@ -524,10 +524,10 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Show Doctrine mapping information"
-        run: "vendor/bin/doctrine orm:info --ansi"
+        run: "bin/console orm:info --ansi"
 
       - name: "Validate Doctrine mapping"
-        run: "vendor/bin/doctrine orm:validate-schema --ansi --skip-sync"
+        run: "bin/console orm:validate-schema --ansi --skip-sync"
 
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=unit"

@@ -22,8 +22,8 @@ dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/com
 
 .PHONY: doctrine
 doctrine: vendor ## Shows and validates Docrine mapping information
-	vendor/bin/doctrine orm:info
-	vendor/bin/doctrine orm:validate-schema --skip-sync
+	bin/console orm:info
+	bin/console orm:validate-schema --skip-sync
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
