@@ -12,10 +12,10 @@ declare(strict_types=1);
  */
 
 use Doctrine\ORM;
-use Ergebnis\FactoryBot\Test\Util;
+use Ergebnis\FactoryBot\Test;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$entityManager = Util\Doctrine\ORM\EntityManagerFactory::create();
+$entityManager = Test\Util\Doctrine\ORM\EntityManagerFactory::create();
 
 return ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);
