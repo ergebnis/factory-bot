@@ -137,14 +137,6 @@ parameters:
 			path: example/test/Unit/AbstractTestCase.php
 
 		-
-			message: """
-				#^Call to method createConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
-				Use \\{@see ORMSetup\\} instead\\.$#
-			"""
-			count: 1
-			path: example/test/Unit/AbstractTestCase.php
-
-		-
 			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
 			count: 1
 			path: src/EntityDefinition.php
@@ -563,14 +555,6 @@ parameters:
 			message: """
 				#^Call to deprecated method create\\(\\) of class Doctrine\\\\ORM\\\\EntityManager\\:
 				Use \\{@see DriverManager\\:\\:getConnection\\(\\)\\} to bootstrap the connection and call the constructor\\.$#
-			"""
-			count: 1
-			path: test/Util/Doctrine/ORM/EntityManagerFactory.php
-
-		-
-			message: """
-				#^Call to method createConfiguration\\(\\) of deprecated class Doctrine\\\\ORM\\\\Tools\\\\Setup\\:
-				Use \\{@see ORMSetup\\} instead\\.$#
 			"""
 			count: 1
 			path: test/Util/Doctrine/ORM/EntityManagerFactory.php
