@@ -87,6 +87,12 @@
     <MixedAssignment>
       <code>$fieldValue</code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code>?string</code>
+    </MixedInferredReturnType>
+    <RedundantConditionGivenDocblockType>
+      <code>\is_array($association)</code>
+    </RedundantConditionGivenDocblockType>
     <TooManyArguments>
       <code><![CDATA[function () use ($className, $fieldDefinitionOverrides) {
             return $this->createOne(
@@ -95,6 +101,9 @@
             );
         }]]></code>
     </TooManyArguments>
+    <UndefinedClass>
+      <code>ORM\Mapping\AssociationMapping</code>
+    </UndefinedClass>
     <UnnecessaryVarAnnotation>
       <code>EntityDefinition</code>
       <code>EntityDefinitionProvider</code>

@@ -434,19 +434,12 @@ final class FixtureFactory
         string $fieldName,
         object $fieldValue,
     ): void {
-        $association = $classMetadata->getAssociationMapping($fieldName);
-
-        if (!\array_key_exists('inversedBy', $association)) {
-            return;
-        }
-
-        $inversedBy = $association['inversedBy'];
+        $inversedBy = $this->resolveInversedBy(
+            $classMetadata,
+            $fieldName,
+        );
 
         if (!\is_string($inversedBy)) {
-            return;
-        }
-
-        if ('' === $inversedBy) {
             return;
         }
 
@@ -462,5 +455,22 @@ final class FixtureFactory
         }
 
         $collection->add($entity);
+    }
+
+    private function resolveInversedBy(
+        ORM\Mapping\ClassMetadata $classMetadata,
+        string $fieldName,
+    ): ?string {
+        $association = $classMetadata->getAssociationMapping($fieldName);
+
+        if (\is_array($association)) {
+            return $association['inversedBy'];
+        }
+
+        if ($association instanceof ORM\Mapping\AssociationMapping) {
+            return $association->inversedBy;
+        }
+
+        throw new \RuntimeException('This should not happen');
     }
 }

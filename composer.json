@@ -27,7 +27,7 @@
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "doctrine/collections": "^1.6.5 || ^2.0.0",
     "doctrine/dbal": "^2.12.0 || ^3.0.0",
-    "doctrine/orm": "^2.14.0",
+    "doctrine/orm": "^2.14.0 || ^3.0.0",
     "doctrine/persistence": "^2.1.0 || ^3.0.0",
     "ergebnis/classy": "^1.6.0",
     "fakerphp/faker": "^1.20.0"

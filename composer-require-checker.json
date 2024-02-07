@@ -1,3 +1,5 @@
 {
-  "symbol-whitelist": []
+  "symbol-whitelist": [
+    "Doctrine\\ORM\\Mapping\\AssociationMapping"
+  ]
 }
