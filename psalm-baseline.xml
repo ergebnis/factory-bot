@@ -75,17 +75,6 @@
       <code>ProjectDefinitionProvider</code>
     </UnusedClass>
   </file>
-  <file src="example/test/Unit/AbstractTestCase.php">
-    <DeprecatedMethod>
-      <code><![CDATA[ORM\EntityManager::create(
-            [
-                'driver' => 'pdo_sqlite',
-                'path' => ':memory:',
-            ],
-            $configuration,
-        )]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="example/test/Unit/Entity/UserTest.php">
     <UnnecessaryVarAnnotation>
       <code>Entity\User</code>
@@ -443,16 +432,5 @@
       <code>$resolved</code>
       <code>$resolved</code>
     </MixedAssignment>
-  </file>
-  <file src="test/Util/Doctrine/ORM/EntityManagerFactory.php">
-    <DeprecatedMethod>
-      <code><![CDATA[ORM\EntityManager::create(
-            [
-                'driver' => 'pdo_sqlite',
-                'path' => ':memory:',
-            ],
-            $configuration,
-        )]]></code>
-    </DeprecatedMethod>
   </file>
 </files>

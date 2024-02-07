@@ -13,23 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Util\Doctrine\ORM;
 
+use Doctrine\DBAL;
 use Doctrine\ORM;
 
 final class EntityManagerFactory
 {
     public static function create(): ORM\EntityManagerInterface
     {
+        $connection = DBAL\DriverManager::getConnection([
+            'driver' => 'pdo_sqlite',
+            'path' => ':memory:',
+        ]);
+
         $configuration = ORM\ORMSetup::createConfiguration(true);
 
         $configuration->setMetadataDriverImpl(new ORM\Mapping\Driver\AttributeDriver([
             __DIR__ . '/../../../../example/src/Entity',
         ]));
 
-        return ORM\EntityManager::create(
-            [
-                'driver' => 'pdo_sqlite',
-                'path' => ':memory:',
-            ],
+        return new ORM\EntityManager(
+            $connection,
             $configuration,
         );
     }
