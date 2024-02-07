@@ -10,6 +10,7 @@ For a full diff see [`1.6.0...main`][1.6.0...main].
 
 ### Changed
 
+- Allowed installation of `doctrine/orm:^3.0.0` ([#1293]), by [@localheinz]
 - Required `doctrine/orm:^2.14.0` ([#1298]), by [@localheinz]
 
 ## [`1.6.0`][1.6.0]
@@ -359,6 +360,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1213]: https://github.com/ergebnis/factory-bot/pull/1213
 [#1233]: https://github.com/ergebnis/factory-bot/pull/1233
 [#1234]: https://github.com/ergebnis/factory-bot/pull/1234
+[#1293]: https://github.com/ergebnis/factory-bot/pull/1293
 [#1298]: https://github.com/ergebnis/factory-bot/pull/1298
 
 [@abenerd]: https://github.com/abenerd
