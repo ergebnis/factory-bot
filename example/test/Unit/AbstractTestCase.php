@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Example\Test\Unit;
 
+use Doctrine\DBAL;
 use Doctrine\ORM;
 use Ergebnis\FactoryBot;
 use Faker\Factory;
@@ -23,17 +24,19 @@ abstract class AbstractTestCase extends Framework\TestCase
 {
     final protected static function entityManager(): ORM\EntityManagerInterface
     {
+        $connection = DBAL\DriverManager::getConnection([
+            'driver' => 'pdo_sqlite',
+            'path' => ':memory:',
+        ]);
+
         $configuration = ORM\ORMSetup::createConfiguration(true);
 
         $configuration->setMetadataDriverImpl(new ORM\Mapping\Driver\AttributeDriver([
             __DIR__ . '/../../src/Entity',
         ]));
 
-        $entityManager = ORM\EntityManager::create(
-            [
-                'driver' => 'pdo_sqlite',
-                'path' => ':memory:',
-            ],
+        $entityManager = new ORM\EntityManager(
+            $connection,
             $configuration,
         );
 
