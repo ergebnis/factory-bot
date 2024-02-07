@@ -17,12 +17,11 @@
     </plugins>
 
     <projectFiles>
+        <directory name="config/" />
         <directory name="example/" />
         <directory name="src/" />
         <directory name="test/" />
+        <file name=".php-cs-fixer.php" />
         <file name="rector.php" />
-        <ignoreFiles>
-            <directory name="vendor/" />
-        </ignoreFiles>
     </projectFiles>
 </psalm>
