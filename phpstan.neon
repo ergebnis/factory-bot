@@ -22,9 +22,11 @@ parameters:
 	level: max
 
 	paths:
+		- config/
 		- example/
 		- src/
 		- test/
+		- .php-cs-fixer.php
 		- rector.php
 
 	tmpDir: .build/phpstan/

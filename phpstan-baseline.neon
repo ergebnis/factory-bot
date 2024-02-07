@@ -1,6 +1,14 @@
 parameters:
 	ignoreErrors:
 		-
+			message: """
+				#^Call to deprecated method createHelperSet\\(\\) of class Doctrine\\\\ORM\\\\Tools\\\\Console\\\\ConsoleRunner\\:
+				This method will be removed in ORM 3\\.0 without replacement\\.$#
+			"""
+			count: 1
+			path: config/cli-config.php
+
+		-
 			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:members\\(\\) should return array\\<int, Example\\\\Entity\\\\User\\> but returns array\\.$#"
 			count: 1
 			path: example/src/Entity/Organization.php
