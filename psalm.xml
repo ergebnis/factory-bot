@@ -21,6 +21,7 @@
         <directory name="example/" />
         <directory name="src/" />
         <directory name="test/" />
+        <file name="bin/console" />
         <file name=".php-cs-fixer.php" />
         <file name="rector.php" />
     </projectFiles>

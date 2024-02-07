@@ -26,6 +26,7 @@ parameters:
 		- example/
 		- src/
 		- test/
+		- bin/console
 		- .php-cs-fixer.php
 		- rector.php
 
