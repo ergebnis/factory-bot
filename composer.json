@@ -49,7 +49,7 @@
     "phpunit/phpunit": "^10.5.11",
     "psalm/plugin-phpunit": "~0.18.4",
     "ramsey/uuid": "^4.7.5",
-    "rector/rector": "^1.0.1",
+    "rector/rector": "^1.0.2",
     "roave/backward-compatibility-check": "^8.6.0",
     "symfony/cache": "^6.4.4",
     "vimeo/psalm": "^5.22.2"
