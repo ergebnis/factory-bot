@@ -51,7 +51,7 @@
     "ramsey/uuid": "^4.7.5",
     "rector/rector": "^1.0.3",
     "roave/backward-compatibility-check": "^8.6.0",
-    "symfony/cache": "^6.4.4",
+    "symfony/cache": "^6.4.6",
     "vimeo/psalm": "^5.23.1"
   },
   "autoload": {
