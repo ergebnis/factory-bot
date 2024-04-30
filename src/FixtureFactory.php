@@ -271,7 +271,7 @@ final class FixtureFactory
     }
 
     /**
-     * Creates an array of entites with all of their dependencies.
+     * Creates an array of entities with all of their dependencies.
      *
      * @phpstan-param class-string<T> $className
      *
