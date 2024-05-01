@@ -16,8 +16,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\FixtureFactory;
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot\FieldResolution;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use Faker\Generator;
@@ -33,7 +33,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
 final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Strategy;
+namespace Ergebnis\FactoryBot\FieldResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
@@ -21,13 +21,17 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class WithOptionalStrategy implements ResolutionStrategy
+final class DefaultStrategy implements ResolutionStrategy
 {
     public function resolveFieldValue(
         Generator $faker,
         FixtureFactory $fixtureFactory,
         FieldDefinition\Resolvable $fieldDefinition,
     ) {
+        if ($fieldDefinition instanceof FieldDefinition\Optional && !$faker->boolean()) {
+            return null;
+        }
+
         return $fieldDefinition->resolve(
             $faker,
             $fixtureFactory,
@@ -38,19 +42,9 @@ final class WithOptionalStrategy implements ResolutionStrategy
         Generator $faker,
         Count $count,
     ): int {
-        if ($count->minimum() === $count->maximum()) {
-            return $count->minimum();
-        }
-
-        $resolved = $faker->numberBetween(
+        return $faker->numberBetween(
             $count->minimum(),
             $count->maximum(),
         );
-
-        if (0 === $resolved) {
-            return 1;
-        }
-
-        return $resolved;
     }
 }
