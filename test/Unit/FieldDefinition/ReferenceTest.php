@@ -15,8 +15,8 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\EntityDefinition;
 use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot\FieldResolution;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 use Example\Entity;
 use PHPUnit\Framework;
@@ -26,7 +26,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(Strategy\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
 final class ReferenceTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToObjectCreatedByFixtureFactory(): void

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.21.1@8c473e2437be8b6a8fd8f630f0f11a16b114c494">
+<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
   <file src="config/cli-config.php">
     <DeprecatedMethod>
-      <code>ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager)</code>
+      <code><![CDATA[ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager)]]></code>
     </DeprecatedMethod>
   </file>
   <file src="example/src/Entity/Avatar.php">
     <PossiblyUnusedMethod>
-      <code>height</code>
-      <code>width</code>
+      <code><![CDATA[height]]></code>
+      <code><![CDATA[width]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/CodeOfConduct.php">
     <PossiblyUnusedMethod>
-      <code>__construct</code>
-      <code>body</code>
-      <code>key</code>
-      <code>name</code>
-      <code>url</code>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[body]]></code>
+      <code><![CDATA[key]]></code>
+      <code><![CDATA[name]]></code>
+      <code><![CDATA[url]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/Organization.php">
@@ -32,23 +32,23 @@
       <code><![CDATA[array<int, User>]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
-      <code>__construct</code>
-      <code>id</code>
-      <code>members</code>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[members]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/Project.php">
     <PossiblyUnusedMethod>
-      <code>__construct</code>
-      <code>id</code>
-      <code>name</code>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[name]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/Repository.php">
     <PossiblyUnusedMethod>
-      <code>__construct</code>
-      <code>id</code>
-      <code>name</code>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[name]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/src/Entity/User.php">
@@ -57,41 +57,41 @@
       <code><![CDATA[array<int, Organization>]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
-      <code>__construct</code>
-      <code>id</code>
-      <code>organizations</code>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[organizations]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="example/test/AutoReview/FixtureTest.php">
     <ArgumentTypeCoercion>
-      <code>$providerClassName</code>
+      <code><![CDATA[$providerClassName]]></code>
     </ArgumentTypeCoercion>
     <RedundantConditionGivenDocblockType>
-      <code>assertIsArray</code>
+      <code><![CDATA[assertIsArray]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="example/test/Fixture/Entity/ProjectDefinitionProvider.php">
     <UnusedClass>
-      <code>ProjectDefinitionProvider</code>
+      <code><![CDATA[ProjectDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="example/test/Unit/Entity/UserTest.php">
     <UnnecessaryVarAnnotation>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType>
-      <code>function (FieldDefinition\Resolvable $fieldDefinition) {</code>
+      <code><![CDATA[function (FieldDefinition\Resolvable $fieldDefinition) {]]></code>
     </MissingClosureReturnType>
     <MixedAssignment>
-      <code>$fieldValue</code>
+      <code><![CDATA[$fieldValue]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>?string</code>
+      <code><![CDATA[?string]]></code>
     </MixedInferredReturnType>
     <RedundantConditionGivenDocblockType>
-      <code>\is_array($association)</code>
+      <code><![CDATA[\is_array($association)]]></code>
     </RedundantConditionGivenDocblockType>
     <TooManyArguments>
       <code><![CDATA[function () use ($className, $fieldDefinitionOverrides) {
@@ -102,344 +102,344 @@
         }]]></code>
     </TooManyArguments>
     <UndefinedClass>
-      <code>ORM\Mapping\AssociationMapping</code>
+      <code><![CDATA[ORM\Mapping\AssociationMapping]]></code>
     </UndefinedClass>
     <UnnecessaryVarAnnotation>
-      <code>EntityDefinition</code>
-      <code>EntityDefinitionProvider</code>
+      <code><![CDATA[EntityDefinition]]></code>
+      <code><![CDATA[EntityDefinitionProvider]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/DataProvider/IntProvider.php">
     <PossiblyUnusedMethod>
-      <code>arbitrary</code>
-      <code>greaterThanOrEqualToZero</code>
-      <code>greaterThanZero</code>
-      <code>lessThanZero</code>
+      <code><![CDATA[arbitrary]]></code>
+      <code><![CDATA[greaterThanOrEqualToZero]]></code>
+      <code><![CDATA[greaterThanZero]]></code>
+      <code><![CDATA[lessThanZero]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/DataProvider/ValueProvider.php">
     <InvalidDocblock>
-      <code>public static function arbitrary(): \Generator</code>
+      <code><![CDATA[public static function arbitrary(): \Generator]]></code>
     </InvalidDocblock>
     <PossiblyUnusedMethod>
-      <code>arbitrary</code>
+      <code><![CDATA[arbitrary]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/Double/Faker/FalseGenerator.php">
     <MissingParamType>
-      <code>$chanceOfGettingTrue</code>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$chanceOfGettingTrue]]></code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MissingParamType>
     <MixedArgument>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MixedArgument>
     <ParamNameMismatch>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </ParamNameMismatch>
     <PossiblyUnusedMethod>
-      <code>boolean</code>
+      <code><![CDATA[boolean]]></code>
     </PossiblyUnusedMethod>
     <UnusedParam>
-      <code>$chanceOfGettingTrue</code>
+      <code><![CDATA[$chanceOfGettingTrue]]></code>
     </UnusedParam>
   </file>
   <file src="test/Double/Faker/MaximumGenerator.php">
     <MissingParamType>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MissingParamType>
     <MixedInferredReturnType>
-      <code>int</code>
+      <code><![CDATA[int]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$max</code>
+      <code><![CDATA[$max]]></code>
     </MixedReturnStatement>
     <ParamNameMismatch>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/MinimumGenerator.php">
     <MissingParamType>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MissingParamType>
     <MixedInferredReturnType>
-      <code>int</code>
+      <code><![CDATA[int]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$min</code>
+      <code><![CDATA[$min]]></code>
     </MixedReturnStatement>
     <ParamNameMismatch>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </ParamNameMismatch>
   </file>
   <file src="test/Double/Faker/TrueGenerator.php">
     <MissingParamType>
-      <code>$chanceOfGettingTrue</code>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$chanceOfGettingTrue]]></code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MissingParamType>
     <MixedArgument>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </MixedArgument>
     <ParamNameMismatch>
-      <code>$max</code>
-      <code>$min</code>
+      <code><![CDATA[$max]]></code>
+      <code><![CDATA[$min]]></code>
     </ParamNameMismatch>
     <PossiblyUnusedMethod>
-      <code>boolean</code>
+      <code><![CDATA[boolean]]></code>
     </PossiblyUnusedMethod>
     <UnusedParam>
-      <code>$chanceOfGettingTrue</code>
+      <code><![CDATA[$chanceOfGettingTrue]]></code>
     </UnusedParam>
   </file>
   <file src="test/Fixture/DefinitionProvider/CanNotBeAutoloaded/OrganizationDefinitionProvider.php">
     <UnusedClass>
-      <code>OrganizationDefinitionProvider</code>
+      <code><![CDATA[OrganizationDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/CanNotBeAutoloaded/UserDefinitionProvider.php">
     <UnusedClass>
-      <code>UserDefinitionProvider</code>
+      <code><![CDATA[UserDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/OrganizationDefinitionProvider.php">
     <UnusedClass>
-      <code>OrganizationDefinitionProvider</code>
+      <code><![CDATA[OrganizationDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/RepositoryDefinition.php">
     <UnusedClass>
-      <code>RepositoryDefinition</code>
+      <code><![CDATA[RepositoryDefinition]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/DoesNotImplementDefinitionProvider/UserDefinitionProvider.php">
     <UnusedClass>
-      <code>UserDefinitionProvider</code>
+      <code><![CDATA[UserDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/OrganizationDefinitionProvider.php">
     <UnusedClass>
-      <code>OrganizationDefinitionProvider</code>
+      <code><![CDATA[OrganizationDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/RepositoryDefinitionProvider.php">
     <UnusedConstructor>
-      <code>__construct</code>
+      <code><![CDATA[__construct]]></code>
     </UnusedConstructor>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated/UserDefinitionProvider.php">
     <UnusedClass>
-      <code>UserDefinitionProvider</code>
+      <code><![CDATA[UserDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/OrganizationDefinitionProvider.php">
     <UnusedClass>
-      <code>OrganizationDefinitionProvider</code>
+      <code><![CDATA[OrganizationDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/RepositoryDefinitionProvider.php">
     <UnusedClass>
-      <code>RepositoryDefinitionProvider</code>
+      <code><![CDATA[RepositoryDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButIsAbstract/UserDefinitionProvider.php">
     <UnusedClass>
-      <code>UserDefinitionProvider</code>
+      <code><![CDATA[UserDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/OrganizationDefinitionProvider.php">
     <UnusedClass>
-      <code>OrganizationDefinitionProvider</code>
+      <code><![CDATA[OrganizationDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/RepositoryDefinitionProvider.php">
     <PossiblyUnusedMethod>
-      <code>__construct</code>
+      <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/Fixture/DefinitionProvider/ImplementsDefinitionProviderButThrowsExceptionDuringInstantiation/UserDefinitionProvider.php">
     <UnusedClass>
-      <code>UserDefinitionProvider</code>
+      <code><![CDATA[UserDefinitionProvider]]></code>
     </UnusedClass>
   </file>
   <file src="test/Integration/FixtureFactoryTest.php">
     <InternalMethod>
-      <code>addToAssertionCount</code>
+      <code><![CDATA[addToAssertionCount]]></code>
     </InternalMethod>
   </file>
   <file src="test/Unit/EntityDefinitionTest.php">
     <MissingClosureParamType>
-      <code>$entity</code>
-      <code>$entity</code>
+      <code><![CDATA[$entity]]></code>
+      <code><![CDATA[$entity]]></code>
     </MissingClosureParamType>
     <MixedArgumentTypeCoercion>
-      <code>$fieldDefinitions</code>
+      <code><![CDATA[$fieldDefinitions]]></code>
     </MixedArgumentTypeCoercion>
     <UnusedClosureParam>
-      <code>$entity</code>
-      <code>$entity</code>
-      <code>$fieldValues</code>
-      <code>$fieldValues</code>
+      <code><![CDATA[$entity]]></code>
+      <code><![CDATA[$entity]]></code>
+      <code><![CDATA[$fieldValues]]></code>
+      <code><![CDATA[$fieldValues]]></code>
     </UnusedClosureParam>
   </file>
   <file src="test/Unit/FieldDefinition/ReferencesTest.php">
     <RedundantCondition>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
+      <code><![CDATA[assertIsArray]]></code>
+      <code><![CDATA[assertIsArray]]></code>
     </RedundantCondition>
   </file>
   <file src="test/Unit/FieldDefinition/ValueTest.php">
     <MixedAssignment>
-      <code>$resolved</code>
+      <code><![CDATA[$resolved]]></code>
     </MixedAssignment>
   </file>
   <file src="test/Unit/FieldDefinitionTest.php">
     <UnnecessaryVarAnnotation>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
+  </file>
+  <file src="test/Unit/FieldResolution/DefaultStrategyTest.php">
+    <MixedAssignment>
+      <code><![CDATA[$expected]]></code>
+      <code><![CDATA[$resolved]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="test/Unit/FieldResolution/WithOptionalStrategyTest.php">
+    <MixedAssignment>
+      <code><![CDATA[$expected]]></code>
+      <code><![CDATA[$expected]]></code>
+      <code><![CDATA[$resolved]]></code>
+      <code><![CDATA[$resolved]]></code>
+    </MixedAssignment>
   </file>
   <file src="test/Unit/FixtureFactory/UsingDefaultStrategyTest.php">
     <UnnecessaryVarAnnotation>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactory/UsingWithoutOptionalStrategyTest.php">
     <UnnecessaryVarAnnotation>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Unit/FixtureFactoryTest.php">
     <ArgumentTypeCoercion>
-      <code>$className</code>
+      <code><![CDATA[$className]]></code>
     </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$fieldValues['name']]]></code>
     </MixedArgument>
     <RedundantCondition>
-      <code>assertNotNull</code>
-      <code>assertNotNull</code>
+      <code><![CDATA[assertNotNull]]></code>
+      <code><![CDATA[assertNotNull]]></code>
     </RedundantCondition>
     <UnnecessaryVarAnnotation>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Organization</code>
-      <code>Entity\Project</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\Repository</code>
-      <code>Entity\User</code>
-      <code>Entity\User</code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Organization]]></code>
+      <code><![CDATA[Entity\Project]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\Repository]]></code>
+      <code><![CDATA[Entity\User]]></code>
+      <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
     <UnusedVariable>
-      <code>$name</code>
+      <code><![CDATA[$name]]></code>
     </UnusedVariable>
-  </file>
-  <file src="test/Unit/Strategy/DefaultStrategyTest.php">
-    <MixedAssignment>
-      <code>$expected</code>
-      <code>$resolved</code>
-    </MixedAssignment>
-  </file>
-  <file src="test/Unit/Strategy/WithOptionalStrategyTest.php">
-    <MixedAssignment>
-      <code>$expected</code>
-      <code>$expected</code>
-      <code>$resolved</code>
-      <code>$resolved</code>
-    </MixedAssignment>
   </file>
 </files>

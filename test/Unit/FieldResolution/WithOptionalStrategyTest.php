@@ -11,22 +11,22 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\Strategy;
+namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot\FieldResolution;
 use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Strategy;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Strategy\DefaultStrategy::class)]
+#[Framework\Attributes\CoversClass(FieldResolution\WithOptionalStrategy::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
+final class WithOptionalStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testResolveFieldValueResolvesOptionalFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
@@ -39,7 +39,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\TrueGenerator(),
@@ -55,7 +55,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame($expected, $resolved);
     }
 
-    public function testResolveFieldValueResolvesOptionalFieldDefinitionToNullWhenFakerReturnsFalse(): void
+    public function testResolveFieldValueResolvesOptionalFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void
     {
         $faker = self::faker();
 
@@ -66,7 +66,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\FalseGenerator(),
@@ -74,7 +74,12 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
             $fieldDefinition,
         );
 
-        self::assertNull($resolved);
+        $expected = $fieldDefinition->resolve(
+            $faker,
+            $fixtureFactory,
+        );
+
+        self::assertSame($expected, $resolved);
     }
 
     public function testResolveFieldValueResolvesFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
@@ -88,7 +93,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence());
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\TrueGenerator(),
@@ -115,7 +120,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence());
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\FalseGenerator(),
@@ -134,10 +139,12 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsExact(int $value): void
     {
-        $strategy = new Strategy\DefaultStrategy();
+        $faker = self::faker();
+
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
-            self::faker(),
+            $faker,
             Count::exact($value),
         );
 
@@ -149,7 +156,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
     {
         $maximum = self::faker()->numberBetween($minimum + 1);
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
             new Test\Double\Faker\MinimumGenerator(),
@@ -159,7 +166,12 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
             ),
         );
 
-        self::assertSame($minimum, $resolved);
+        $minimumGreaterThanZero = \max(
+            1,
+            $minimum,
+        );
+
+        self::assertSame($minimumGreaterThanZero, $resolved);
     }
 
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanZero')]
@@ -167,7 +179,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
     {
         $minimum = self::faker()->numberBetween(0, $maximum - 1);
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
             new Test\Double\Faker\MaximumGenerator(),
@@ -187,7 +199,7 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
         $minimum = $faker->numberBetween(1);
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new Strategy\DefaultStrategy();
+        $strategy = new FieldResolution\WithOptionalStrategy();
 
         $resolved = $strategy->resolveCount(
             $faker,
@@ -197,7 +209,12 @@ final class DefaultStrategyTest extends Test\Unit\AbstractTestCase
             ),
         );
 
-        self::assertGreaterThanOrEqual($minimum, $resolved);
+        $minimumGreaterThanZero = \max(
+            1,
+            $minimum,
+        );
+
+        self::assertGreaterThanOrEqual($minimumGreaterThanZero, $resolved);
         self::assertLessThanOrEqual($maximum, $resolved);
     }
 }
