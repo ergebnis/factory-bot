@@ -21,7 +21,7 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class DefaultStrategy implements FieldValueResolutionStrategy, ResolutionStrategy
+final class DefaultStrategy implements CountResolutionStrategy, FieldValueResolutionStrategy
 {
     public function resolveFieldValue(
         Generator $faker,
