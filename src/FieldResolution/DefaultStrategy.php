@@ -27,7 +27,10 @@ final class DefaultStrategy implements FieldValueResolutionStrategy
         FixtureFactory $fixtureFactory,
         FieldDefinition\Resolvable $fieldDefinition,
     ) {
-        if ($fieldDefinition instanceof FieldDefinition\Optional && !$faker->boolean()) {
+        if (
+            $fieldDefinition instanceof FieldDefinition\Optional
+            && !$faker->boolean()
+        ) {
             return null;
         }
 
