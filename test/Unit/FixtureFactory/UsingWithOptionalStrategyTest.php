@@ -33,9 +33,9 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\WithOptionalStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOptionalFieldValue::class)]
 final class UsingWithOptionalStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void

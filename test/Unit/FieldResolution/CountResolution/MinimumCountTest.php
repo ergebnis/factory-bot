@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution;
+namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\CountResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
@@ -20,20 +20,20 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\MinimumCountResolutionStrategy::class)]
+#[Framework\Attributes\CoversClass(FieldResolution\CountResolution\MinimumCount::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class MinimumCountResolutionStrategyTest extends Test\Unit\AbstractTestCase
+final class MinimumCountTest extends Test\Unit\AbstractTestCase
 {
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountToValueWhenCountIsExact(int $value): void
     {
         $faker = self::faker();
 
-        $strategy = new FieldResolution\MinimumCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\MinimumCount();
 
         $resolved = $strategy->resolveCount(
             $faker,
@@ -50,7 +50,7 @@ final class MinimumCountResolutionStrategyTest extends Test\Unit\AbstractTestCas
 
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\MinimumCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\MinimumCount();
 
         $resolved = $strategy->resolveCount(
             $faker,

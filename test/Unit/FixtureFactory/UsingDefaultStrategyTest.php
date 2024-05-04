@@ -33,8 +33,8 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\BetweenMinimumAndMaximumCountResolutionStrategy::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
 final class UsingDefaultStrategyTest extends Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void

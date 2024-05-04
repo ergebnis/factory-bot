@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\FieldResolution;
+namespace Ergebnis\FactoryBot\FieldResolution\FieldValueResolution;
 
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -20,13 +20,20 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class WithOptionalStrategy implements FieldValueResolutionStrategy
+final class WithOrWithoutOptionalFieldValue implements FieldValueResolutionStrategy
 {
     public function resolveFieldValue(
         Generator $faker,
         FixtureFactory $fixtureFactory,
         FieldDefinition\Resolvable $fieldDefinition,
     ) {
+        if (
+            $fieldDefinition instanceof FieldDefinition\Optional
+            && !$faker->boolean()
+        ) {
+            return null;
+        }
+
         return $fieldDefinition->resolve(
             $faker,
             $fixtureFactory,

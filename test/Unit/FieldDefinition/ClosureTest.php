@@ -27,7 +27,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
 final class ClosureTest extends Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfInvokingClosureWithFakerAndFixtureFactory(): void

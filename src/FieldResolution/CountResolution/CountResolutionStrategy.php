@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\FieldResolution;
+namespace Ergebnis\FactoryBot\FieldResolution\CountResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Faker\Generator;

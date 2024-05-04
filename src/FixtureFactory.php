@@ -20,8 +20,8 @@ use Faker\Generator;
 
 final class FixtureFactory
 {
-    private FieldResolution\FieldValueResolutionStrategy $fieldValueResolutionStrategy;
-    private FieldResolution\CountResolutionStrategy $countResolutionStrategy;
+    private FieldResolution\FieldValueResolution\FieldValueResolutionStrategy $fieldValueResolutionStrategy;
+    private FieldResolution\CountResolution\CountResolutionStrategy $countResolutionStrategy;
     private bool $persistAfterCreate = false;
 
     /**
@@ -33,8 +33,8 @@ final class FixtureFactory
         private ORM\EntityManagerInterface $entityManager,
         private Generator $faker,
     ) {
-        $this->fieldValueResolutionStrategy = new FieldResolution\DefaultStrategy();
-        $this->countResolutionStrategy = new FieldResolution\BetweenMinimumAndMaximumCountResolutionStrategy();
+        $this->fieldValueResolutionStrategy = new FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue();
+        $this->countResolutionStrategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
     }
 
     /**
@@ -327,8 +327,8 @@ final class FixtureFactory
     {
         $instance = clone $this;
 
-        $instance->fieldValueResolutionStrategy = new FieldResolution\WithOptionalStrategy();
-        $instance->countResolutionStrategy = new FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy();
+        $instance->fieldValueResolutionStrategy = new FieldResolution\FieldValueResolution\WithOptionalFieldValue();
+        $instance->countResolutionStrategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount();
 
         return $instance;
     }
@@ -345,8 +345,8 @@ final class FixtureFactory
     {
         $instance = clone $this;
 
-        $instance->fieldValueResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
-        $instance->countResolutionStrategy = new FieldResolution\MinimumCountResolutionStrategy();
+        $instance->fieldValueResolutionStrategy = new FieldResolution\FieldValueResolution\WithoutOptionalFieldValue();
+        $instance->countResolutionStrategy = new FieldResolution\CountResolution\MinimumCount();
 
         return $instance;
     }

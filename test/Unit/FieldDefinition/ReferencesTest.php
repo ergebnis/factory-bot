@@ -30,8 +30,8 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\BetweenMinimumAndMaximumCountResolutionStrategy::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
 final class ReferencesTest extends Test\Unit\AbstractTestCase
 {
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
