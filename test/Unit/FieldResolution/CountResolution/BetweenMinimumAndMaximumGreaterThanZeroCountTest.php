@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution;
+namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\CountResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
@@ -20,20 +20,20 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy::class)]
+#[Framework\Attributes\CoversClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategyTest extends Test\Unit\AbstractTestCase
+final class BetweenMinimumAndMaximumGreaterThanZeroCountTest extends Test\Unit\AbstractTestCase
 {
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsExact(int $value): void
     {
         $faker = self::faker();
 
-        $strategy = new FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount();
 
         $resolved = $strategy->resolveCount(
             $faker,
@@ -48,7 +48,7 @@ final class BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategyTest e
     {
         $maximum = self::faker()->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount();
 
         $resolved = $strategy->resolveCount(
             new Test\Double\Faker\MinimumGenerator(),
@@ -71,7 +71,7 @@ final class BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategyTest e
     {
         $minimum = self::faker()->numberBetween(0, $maximum - 1);
 
-        $strategy = new FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount();
 
         $resolved = $strategy->resolveCount(
             new Test\Double\Faker\MaximumGenerator(),
@@ -91,7 +91,7 @@ final class BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategyTest e
         $minimum = $faker->numberBetween(1);
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\BetweenMinimumAndMaximumGreaterThanZeroCountResolutionStrategy();
+        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumGreaterThanZeroCount();
 
         $resolved = $strategy->resolveCount(
             $faker,

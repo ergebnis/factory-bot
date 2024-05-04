@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\FieldResolution;
+namespace Ergebnis\FactoryBot\FieldResolution\CountResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Faker\Generator;
@@ -19,12 +19,15 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class MinimumCountResolutionStrategy implements CountResolutionStrategy
+final class BetweenMinimumAndMaximumCount implements CountResolutionStrategy
 {
     public function resolveCount(
         Generator $faker,
         Count $count,
     ): int {
-        return $count->minimum();
+        return $faker->numberBetween(
+            $count->minimum(),
+            $count->maximum(),
+        );
     }
 }

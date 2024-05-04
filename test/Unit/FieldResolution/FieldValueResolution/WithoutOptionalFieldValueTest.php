@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution;
+namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\FieldValueResolution;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
@@ -20,13 +20,13 @@ use Ergebnis\FactoryBot\FixtureFactory;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\WithoutOptionalStrategy::class)]
+#[Framework\Attributes\CoversClass(FieldResolution\FieldValueResolution\WithoutOptionalFieldValue::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
+final class WithoutOptionalFieldValueTest extends Test\Unit\AbstractTestCase
 {
     public function testResolveFieldValueResolvesOptionalFieldDefinitionToNullWhenFakerReturnsTrue(): void
     {
@@ -39,7 +39,7 @@ final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
+        $strategy = new FieldResolution\FieldValueResolution\WithoutOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\TrueGenerator(),
@@ -61,7 +61,7 @@ final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
+        $strategy = new FieldResolution\FieldValueResolution\WithoutOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\FalseGenerator(),
@@ -83,7 +83,7 @@ final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence());
 
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
+        $strategy = new FieldResolution\FieldValueResolution\WithoutOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\TrueGenerator(),
@@ -110,7 +110,7 @@ final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $fieldDefinition = FieldDefinition::value($faker->sentence());
 
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
+        $strategy = new FieldResolution\FieldValueResolution\WithoutOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
             new Test\Double\Faker\FalseGenerator(),
