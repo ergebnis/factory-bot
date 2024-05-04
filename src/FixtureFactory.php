@@ -21,7 +21,7 @@ use Faker\Generator;
 final class FixtureFactory
 {
     private FieldResolution\FieldValueResolutionStrategy $fieldValueResolutionStrategy;
-    private FieldResolution\ResolutionStrategy $resolutionStrategy;
+    private FieldResolution\CountResolutionStrategy $countResolutionStrategy;
     private bool $persistAfterCreate = false;
 
     /**
@@ -34,7 +34,7 @@ final class FixtureFactory
         private Generator $faker,
     ) {
         $this->fieldValueResolutionStrategy = new FieldResolution\DefaultStrategy();
-        $this->resolutionStrategy = new FieldResolution\DefaultStrategy();
+        $this->countResolutionStrategy = new FieldResolution\DefaultStrategy();
     }
 
     /**
@@ -298,7 +298,7 @@ final class FixtureFactory
         Count $count,
         array $fieldDefinitionOverrides = [],
     ): array {
-        $resolved = $this->resolutionStrategy->resolveCount(
+        $resolved = $this->countResolutionStrategy->resolveCount(
             $this->faker,
             $count,
         );
@@ -328,7 +328,7 @@ final class FixtureFactory
         $instance = clone $this;
 
         $instance->fieldValueResolutionStrategy = new FieldResolution\WithOptionalStrategy();
-        $instance->resolutionStrategy = new FieldResolution\WithOptionalStrategy();
+        $instance->countResolutionStrategy = new FieldResolution\WithOptionalStrategy();
 
         return $instance;
     }
@@ -346,7 +346,7 @@ final class FixtureFactory
         $instance = clone $this;
 
         $instance->fieldValueResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
-        $instance->resolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
+        $instance->countResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
 
         return $instance;
     }

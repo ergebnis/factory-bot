@@ -19,7 +19,7 @@ use Faker\Generator;
 /**
  * @internal
  */
-interface ResolutionStrategy
+interface CountResolutionStrategy
 {
     public function resolveCount(
         Generator $faker,
