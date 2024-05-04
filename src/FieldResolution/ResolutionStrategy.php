@@ -14,8 +14,6 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\FieldResolution;
 
 use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
 
 /**
@@ -23,15 +21,6 @@ use Faker\Generator;
  */
 interface ResolutionStrategy
 {
-    /**
-     * @return mixed
-     */
-    public function resolveFieldValue(
-        Generator $faker,
-        FixtureFactory $fixtureFactory,
-        FieldDefinition\Resolvable $fieldDefinition,
-    );
-
     public function resolveCount(
         Generator $faker,
         Count $count,

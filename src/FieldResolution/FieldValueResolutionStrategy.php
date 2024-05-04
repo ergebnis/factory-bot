@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldResolution;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
@@ -21,30 +20,14 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class DefaultStrategy implements FieldValueResolutionStrategy, ResolutionStrategy
+interface FieldValueResolutionStrategy
 {
+    /**
+     * @return mixed
+     */
     public function resolveFieldValue(
         Generator $faker,
         FixtureFactory $fixtureFactory,
         FieldDefinition\Resolvable $fieldDefinition,
-    ) {
-        if ($fieldDefinition instanceof FieldDefinition\Optional && !$faker->boolean()) {
-            return null;
-        }
-
-        return $fieldDefinition->resolve(
-            $faker,
-            $fixtureFactory,
-        );
-    }
-
-    public function resolveCount(
-        Generator $faker,
-        Count $count,
-    ): int {
-        return $faker->numberBetween(
-            $count->minimum(),
-            $count->maximum(),
-        );
-    }
+    );
 }

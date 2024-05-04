@@ -20,6 +20,7 @@ use Faker\Generator;
 
 final class FixtureFactory
 {
+    private FieldResolution\FieldValueResolutionStrategy $fieldValueResolutionStrategy;
     private FieldResolution\ResolutionStrategy $resolutionStrategy;
     private bool $persistAfterCreate = false;
 
@@ -32,6 +33,7 @@ final class FixtureFactory
         private ORM\EntityManagerInterface $entityManager,
         private Generator $faker,
     ) {
+        $this->fieldValueResolutionStrategy = new FieldResolution\DefaultStrategy();
         $this->resolutionStrategy = new FieldResolution\DefaultStrategy();
     }
 
@@ -239,7 +241,7 @@ final class FixtureFactory
         );
 
         $fieldValues = \array_map(function (FieldDefinition\Resolvable $fieldDefinition) {
-            return $this->resolutionStrategy->resolveFieldValue(
+            return $this->fieldValueResolutionStrategy->resolveFieldValue(
                 $this->faker,
                 $this,
                 $fieldDefinition,
@@ -325,6 +327,7 @@ final class FixtureFactory
     {
         $instance = clone $this;
 
+        $instance->fieldValueResolutionStrategy = new FieldResolution\WithOptionalStrategy();
         $instance->resolutionStrategy = new FieldResolution\WithOptionalStrategy();
 
         return $instance;
@@ -342,6 +345,7 @@ final class FixtureFactory
     {
         $instance = clone $this;
 
+        $instance->fieldValueResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
         $instance->resolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
 
         return $instance;
