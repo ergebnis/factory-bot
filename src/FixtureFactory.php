@@ -34,7 +34,7 @@ final class FixtureFactory
         private Generator $faker,
     ) {
         $this->fieldValueResolutionStrategy = new FieldResolution\DefaultStrategy();
-        $this->countResolutionStrategy = new FieldResolution\DefaultStrategy();
+        $this->countResolutionStrategy = new FieldResolution\BetweenMinimumAndMaximumCountResolutionStrategy();
     }
 
     /**
