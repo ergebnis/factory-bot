@@ -30,6 +30,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\BetweenMinimumAndMaximumCountResolutionStrategy::class)]
 #[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
 final class FixtureFactoryTest extends AbstractTestCase
 {
