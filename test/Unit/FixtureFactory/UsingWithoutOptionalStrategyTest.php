@@ -34,6 +34,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FieldResolution\DefaultStrategy::class)]
+#[Framework\Attributes\UsesClass(FieldResolution\MinimumCountResolutionStrategy::class)]
 #[Framework\Attributes\UsesClass(FieldResolution\WithoutOptionalStrategy::class)]
 final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 {

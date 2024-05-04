@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldResolution;
 
-use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Generator;
@@ -21,7 +20,7 @@ use Faker\Generator;
 /**
  * @internal
  */
-final class WithoutOptionalStrategy implements CountResolutionStrategy, FieldValueResolutionStrategy
+final class WithoutOptionalStrategy implements FieldValueResolutionStrategy
 {
     public function resolveFieldValue(
         Generator $faker,
@@ -36,12 +35,5 @@ final class WithoutOptionalStrategy implements CountResolutionStrategy, FieldVal
             $faker,
             $fixtureFactory,
         );
-    }
-
-    public function resolveCount(
-        Generator $faker,
-        Count $count,
-    ): int {
-        return $count->minimum();
     }
 }

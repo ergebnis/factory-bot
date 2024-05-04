@@ -125,39 +125,4 @@ final class WithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         self::assertSame($expected, $resolved);
     }
-
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
-    public function testResolveCountResolvesCountToValueWhenCountIsExact(int $value): void
-    {
-        $faker = self::faker();
-
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
-
-        $resolved = $strategy->resolveCount(
-            $faker,
-            Count::exact($value),
-        );
-
-        self::assertSame($value, $resolved);
-    }
-
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
-    public function testResolveCountResolvesCountToMininumWhenCountIsBetween(int $minimum): void
-    {
-        $faker = self::faker();
-
-        $maximum = $faker->numberBetween($minimum + 1);
-
-        $strategy = new FieldResolution\WithoutOptionalStrategy();
-
-        $resolved = $strategy->resolveCount(
-            $faker,
-            Count::between(
-                $minimum,
-                $maximum,
-            ),
-        );
-
-        self::assertSame($minimum, $resolved);
-    }
 }
