@@ -346,7 +346,7 @@ final class FixtureFactory
         $instance = clone $this;
 
         $instance->fieldValueResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
-        $instance->countResolutionStrategy = new FieldResolution\WithoutOptionalStrategy();
+        $instance->countResolutionStrategy = new FieldResolution\MinimumCountResolutionStrategy();
 
         return $instance;
     }
