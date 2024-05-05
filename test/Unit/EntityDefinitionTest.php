@@ -60,14 +60,14 @@ final class EntityDefinitionTest extends Framework\TestCase
             // intentionally left blank
         };
 
-        $entityDefiniton = new EntityDefinition(
+        $entityDefinition = new EntityDefinition(
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,
         );
 
-        self::assertSame($classMetadata, $entityDefiniton->classMetadata());
-        self::assertSame($fieldDefinitions, $entityDefiniton->fieldDefinitions());
-        self::assertSame($afterCreate, $entityDefiniton->afterCreate());
+        self::assertSame($classMetadata, $entityDefinition->classMetadata());
+        self::assertSame($fieldDefinitions, $entityDefinition->fieldDefinitions());
+        self::assertSame($afterCreate, $entityDefinition->afterCreate());
     }
 }
