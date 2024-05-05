@@ -29,7 +29,7 @@ final class EntityDefinitionTest extends Framework\TestCase
     use Test\Util\Helper;
 
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
-    public function testConstructorRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
+    public function testCreateRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
     {
         $fieldDefinitions = [
             'foo' => FieldDefinition::value('bar'),
@@ -38,7 +38,7 @@ final class EntityDefinitionTest extends Framework\TestCase
 
         $this->expectException(Exception\InvalidFieldDefinitions::class);
 
-        new EntityDefinition(
+        EntityDefinition::create(
             $this->createMock(ORM\Mapping\ClassMetadata::class),
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
@@ -47,7 +47,7 @@ final class EntityDefinitionTest extends Framework\TestCase
         );
     }
 
-    public function testConstructorSetsValues(): void
+    public function testCreateReturnsEntityDefinition(): void
     {
         $classMetadata = $this->createMock(ORM\Mapping\ClassMetadata::class);
 
@@ -60,7 +60,7 @@ final class EntityDefinitionTest extends Framework\TestCase
             // intentionally left blank
         };
 
-        $entityDefinition = new EntityDefinition(
+        $entityDefinition = EntityDefinition::create(
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,

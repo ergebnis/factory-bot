@@ -284,7 +284,7 @@ parameters:
 			path: test/Unit/EntityDefinitionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$fieldDefinitions of class Ergebnis\\\\FactoryBot\\\\EntityDefinition constructor expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
+			message: "#^Parameter \\#2 \\$fieldDefinitions of static method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:create\\(\\) expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: test/Unit/EntityDefinitionTest.php
 
