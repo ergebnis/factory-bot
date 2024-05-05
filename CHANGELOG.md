@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.7.0...main`][1.7.0...main].
 
+### Changed
+
+- Required and used `doctrine/instantiator` directly to create new entities ([#1381]), by [@localheinz]
+
 ## [`1.7.0`][1.7.0]
 
 For a full diff see [`1.6.0...1.7.0`][1.6.0...1.7.0].
@@ -370,6 +374,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1293]: https://github.com/ergebnis/factory-bot/pull/1293
 [#1298]: https://github.com/ergebnis/factory-bot/pull/1298
 [#1299]: https://github.com/ergebnis/factory-bot/pull/1299
+[#1381]: https://github.com/ergebnis/factory-bot/pull/1381
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
