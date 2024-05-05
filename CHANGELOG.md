@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.6.0...main`][1.6.0...main].
+For a full diff see [`1.7.0...main`][1.7.0...main].
 
 ## [`1.7.0`][1.7.0]
 
