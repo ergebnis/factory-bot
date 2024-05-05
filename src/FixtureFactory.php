@@ -14,12 +14,14 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot;
 
 use Doctrine\Common;
+use Doctrine\Instantiator;
 use Doctrine\ORM;
 use Ergebnis\Classy;
 use Faker\Generator;
 
 final class FixtureFactory
 {
+    private Instantiator\Instantiator $instantiator;
     private FieldResolution\FieldValueResolution\FieldValueResolutionStrategy $fieldValueResolutionStrategy;
     private FieldResolution\CountResolution\CountResolutionStrategy $countResolutionStrategy;
     private bool $persistAfterCreate = false;
@@ -33,6 +35,7 @@ final class FixtureFactory
         private ORM\EntityManagerInterface $entityManager,
         private Generator $faker,
     ) {
+        $this->instantiator = new Instantiator\Instantiator();
         $this->fieldValueResolutionStrategy = new FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue();
         $this->countResolutionStrategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
     }
@@ -100,7 +103,7 @@ final class FixtureFactory
 
         $fieldDefinitions = self::normalizeFieldDefinitions($fieldDefinitions);
 
-        $defaultEntity = $classMetadata->newInstance();
+        $defaultEntity = $this->instantiator->instantiate($className);
 
         foreach ($fieldNames as $fieldName) {
             if (\array_key_exists($fieldName, $fieldDefinitions)) {
@@ -232,8 +235,7 @@ final class FixtureFactory
         /** @var ORM\Mapping\ClassMetadata $classMetadata */
         $classMetadata = $entityDefinition->classMetadata();
 
-        /** @var T $entity */
-        $entity = $classMetadata->newInstance();
+        $entity = $this->instantiator->instantiate($className);
 
         $fieldDefinitions = \array_merge(
             $entityDefinition->fieldDefinitions(),
