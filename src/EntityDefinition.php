@@ -20,16 +20,23 @@ use Doctrine\ORM;
  */
 final class EntityDefinition
 {
+    private function __construct(
+        private ORM\Mapping\ClassMetadata $classMetadata,
+        private array $fieldDefinitions,
+        private \Closure $afterCreate,
+    ) {
+    }
+
     /**
      * @param array<string, FieldDefinition\Resolvable> $fieldDefinitions
      *
      * @throws Exception\InvalidFieldDefinitions
      */
-    public function __construct(
-        private ORM\Mapping\ClassMetadata $classMetadata,
-        private array $fieldDefinitions,
-        private \Closure $afterCreate,
-    ) {
+    public static function create(
+        ORM\Mapping\ClassMetadata $classMetadata,
+        array $fieldDefinitions,
+        \Closure $afterCreate,
+    ): self {
         $invalidFieldDefinitions = \array_filter($fieldDefinitions, static function ($fieldDefinition): bool {
             return !$fieldDefinition instanceof FieldDefinition\Resolvable;
         });
@@ -37,6 +44,12 @@ final class EntityDefinition
         if ([] !== $invalidFieldDefinitions) {
             throw Exception\InvalidFieldDefinitions::values();
         }
+
+        return new self(
+            $classMetadata,
+            $fieldDefinitions,
+            $afterCreate,
+        );
     }
 
     /**

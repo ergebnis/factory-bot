@@ -122,7 +122,7 @@ final class FixtureFactory
             };
         }
 
-        $this->entityDefinitions[$className] = new EntityDefinition(
+        $this->entityDefinitions[$className] = EntityDefinition::create(
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,
