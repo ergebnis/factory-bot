@@ -15,12 +15,14 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\EntityMetadata;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\Test;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(EntityMetadata::class)]
 #[Framework\Attributes\UsesClass(Exception\InvalidFieldDefinitions::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
@@ -31,6 +33,15 @@ final class EntityDefinitionTest extends Framework\TestCase
     #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testCreateRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
     {
+        $entityMetadata = EntityMetadata::create(
+            \stdClass::class,
+            [
+                'foo',
+                'bar',
+                'baz',
+            ],
+        );
+
         $fieldDefinitions = [
             'foo' => FieldDefinition::value('bar'),
             'bar' => $fieldDefinition,
@@ -39,6 +50,7 @@ final class EntityDefinitionTest extends Framework\TestCase
         $this->expectException(Exception\InvalidFieldDefinitions::class);
 
         EntityDefinition::create(
+            $entityMetadata,
             $this->createMock(ORM\Mapping\ClassMetadata::class),
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
@@ -49,6 +61,15 @@ final class EntityDefinitionTest extends Framework\TestCase
 
     public function testCreateReturnsEntityDefinition(): void
     {
+        $entityMetadata = EntityMetadata::create(
+            \stdClass::class,
+            [
+                'foo',
+                'bar',
+                'baz',
+            ],
+        );
+
         $classMetadata = $this->createMock(ORM\Mapping\ClassMetadata::class);
 
         $fieldDefinitions = [
@@ -61,11 +82,13 @@ final class EntityDefinitionTest extends Framework\TestCase
         };
 
         $entityDefinition = EntityDefinition::create(
+            $entityMetadata,
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,
         );
 
+        self::assertSame($entityMetadata, $entityDefinition->entityMetadata());
         self::assertSame($classMetadata, $entityDefinition->classMetadata());
         self::assertSame($fieldDefinitions, $entityDefinition->fieldDefinitions());
         self::assertSame($afterCreate, $entityDefinition->afterCreate());

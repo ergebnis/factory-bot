@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\EntityMetadata;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FieldResolution;
@@ -28,6 +29,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\CoversClass(FixtureFactory::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(EntityMetadata::class)]
 #[Framework\Attributes\UsesClass(Exception\ClassMetadataNotFound::class)]
 #[Framework\Attributes\UsesClass(Exception\ClassNotFound::class)]
 #[Framework\Attributes\UsesClass(Exception\EntityDefinitionAlreadyRegistered::class)]

@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Integration;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\EntityMetadata;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FieldResolution;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -25,6 +26,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\CoversClass(FixtureFactory::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(EntityMetadata::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]

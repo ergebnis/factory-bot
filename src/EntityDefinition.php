@@ -21,7 +21,8 @@ use Doctrine\ORM;
 final class EntityDefinition
 {
     private function __construct(
-        private ORM\Mapping\ClassMetadata $classMetadata,
+        private readonly EntityMetadata $entityMetadata,
+        private ORM\Mapping\ClassMetadata $doctrineClassMetadata,
         private array $fieldDefinitions,
         private \Closure $afterCreate,
     ) {
@@ -33,6 +34,7 @@ final class EntityDefinition
      * @throws Exception\InvalidFieldDefinitions
      */
     public static function create(
+        EntityMetadata $entityMetadata,
         ORM\Mapping\ClassMetadata $classMetadata,
         array $fieldDefinitions,
         \Closure $afterCreate,
@@ -46,10 +48,16 @@ final class EntityDefinition
         }
 
         return new self(
+            $entityMetadata,
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,
         );
+    }
+
+    public function entityMetadata(): EntityMetadata
+    {
+        return $this->entityMetadata;
     }
 
     /**
@@ -57,7 +65,7 @@ final class EntityDefinition
      */
     public function classMetadata(): ORM\Mapping\ClassMetadata
     {
-        return $this->classMetadata;
+        return $this->doctrineClassMetadata;
     }
 
     /**

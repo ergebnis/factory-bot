@@ -98,6 +98,11 @@ final class FixtureFactory
             );
         }
 
+        $entityMetadata = EntityMetadata::create(
+            $className,
+            $fieldNames,
+        );
+
         $fieldDefinitions = self::normalizeFieldDefinitions($fieldDefinitions);
 
         $defaultEntity = $classMetadata->newInstance();
@@ -123,6 +128,7 @@ final class FixtureFactory
         }
 
         $this->entityDefinitions[$className] = EntityDefinition::create(
+            $entityMetadata,
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,

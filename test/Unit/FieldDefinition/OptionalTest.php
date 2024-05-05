@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\EntityMetadata;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FieldResolution;
 use Ergebnis\FactoryBot\FixtureFactory;
@@ -24,6 +25,7 @@ use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(FieldDefinition\Optional::class)]
 #[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(EntityMetadata::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FixtureFactory::class)]

@@ -284,9 +284,14 @@ parameters:
 			path: test/Unit/EntityDefinitionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$fieldDefinitions of static method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:create\\(\\) expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
+			message: "#^Parameter \\#3 \\$fieldDefinitions of static method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:create\\(\\) expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: test/Unit/EntityDefinitionTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\EntityMetadataTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			count: 1
+			path: test/Unit/EntityMetadataTest.php
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassMetadataNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"

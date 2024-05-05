@@ -15,6 +15,7 @@ namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
 use Ergebnis\FactoryBot\Count;
 use Ergebnis\FactoryBot\EntityDefinition;
+use Ergebnis\FactoryBot\EntityMetadata;
 use Ergebnis\FactoryBot\Exception;
 use Ergebnis\FactoryBot\FieldDefinition;
 use Ergebnis\FactoryBot\FieldResolution;
@@ -26,6 +27,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\CoversClass(FieldDefinition\References::class)]
 #[Framework\Attributes\UsesClass(Count::class)]
 #[Framework\Attributes\UsesClass(EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(EntityMetadata::class)]
 #[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]

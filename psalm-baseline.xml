@@ -87,6 +87,9 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="src/FixtureFactory.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$fieldNames]]></code>
+    </ArgumentTypeCoercion>
     <MissingClosureReturnType>
       <code><![CDATA[function (FieldDefinition\Resolvable $fieldDefinition) {]]></code>
     </MissingClosureReturnType>
