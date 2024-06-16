@@ -20,12 +20,12 @@ use Ramsey\Uuid;
 #[ORM\Mapping\Table(name: 'repository')]
 class Repository
 {
-    #[ORM\Mapping\Id()]
-    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
     #[ORM\Mapping\Column(
         name: 'id',
         type: 'string',
     )]
+    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
+    #[ORM\Mapping\Id()]
     private string $id;
 
     #[ORM\Mapping\Column(
@@ -34,29 +34,29 @@ class Repository
     )]
     private string $name;
 
-    #[ORM\Mapping\ManyToOne(
-        targetEntity: Organization::class,
-        inversedBy: 'repositories',
-    )]
     #[ORM\Mapping\JoinColumn(
         name: 'organization_id',
         referencedColumnName: 'id',
         nullable: false,
     )]
+    #[ORM\Mapping\ManyToOne(
+        targetEntity: Organization::class,
+        inversedBy: 'repositories',
+    )]
     private Organization $organization;
 
-    #[ORM\Mapping\ManyToOne(targetEntity: self::class)]
     #[ORM\Mapping\JoinColumn(
         name: 'template_id',
         referencedColumnName: 'id',
     )]
+    #[ORM\Mapping\ManyToOne(targetEntity: self::class)]
     private ?Repository $template;
 
-    #[ORM\Mapping\ManyToOne(targetEntity: CodeOfConduct::class)]
     #[ORM\Mapping\JoinColumn(
         name: 'code_of_conduct_key',
         referencedColumnName: 'key',
     )]
+    #[ORM\Mapping\ManyToOne(targetEntity: CodeOfConduct::class)]
     private ?CodeOfConduct $codeOfConduct;
 
     public function __construct(

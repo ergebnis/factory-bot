@@ -20,12 +20,12 @@ use Ramsey\Uuid;
 #[ORM\Mapping\Table(name: 'project')]
 class Project
 {
-    #[ORM\Mapping\Id()]
-    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
     #[ORM\Mapping\Column(
         type: 'string',
         length: 36,
     )]
+    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
+    #[ORM\Mapping\Id()]
     private string $id;
 
     #[ORM\Mapping\Column(
@@ -34,12 +34,12 @@ class Project
     )]
     private string $name;
 
-    #[ORM\Mapping\ManyToOne(targetEntity: Repository::class)]
     #[ORM\Mapping\JoinColumn(
         name: 'repository_id',
         referencedColumnName: 'id',
         nullable: false,
     )]
+    #[ORM\Mapping\ManyToOne(targetEntity: Repository::class)]
     private Repository $repository;
 
     public function __construct(
