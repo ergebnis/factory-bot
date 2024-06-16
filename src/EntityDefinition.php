@@ -20,6 +20,9 @@ use Doctrine\ORM;
  */
 final class EntityDefinition
 {
+    /**
+     * @param array<string, FieldDefinition\Resolvable> $fieldDefinitions
+     */
     private function __construct(
         private ORM\Mapping\ClassMetadata $classMetadata,
         private array $fieldDefinitions,

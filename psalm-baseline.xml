@@ -80,12 +80,6 @@
       <code><![CDATA[Entity\User]]></code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/EntityDefinition.php">
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->fieldDefinitions]]></code>
-      <code><![CDATA[array<string, FieldDefinition\Resolvable>]]></code>
-    </MixedReturnTypeCoercion>
-  </file>
   <file src="src/FixtureFactory.php">
     <MissingClosureReturnType>
       <code><![CDATA[function (FieldDefinition\Resolvable $fieldDefinition) {]]></code>
