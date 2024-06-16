@@ -21,12 +21,12 @@ use Ramsey\Uuid;
 #[ORM\Mapping\Table(name: 'user')]
 class User
 {
-    #[ORM\Mapping\Id()]
-    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
     #[ORM\Mapping\Column(
         type: 'string',
         length: 36,
     )]
+    #[ORM\Mapping\GeneratedValue(strategy: 'NONE')]
+    #[ORM\Mapping\Id()]
     private string $id;
 
     #[ORM\Mapping\Column(

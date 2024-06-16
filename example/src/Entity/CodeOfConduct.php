@@ -19,10 +19,10 @@ use Doctrine\ORM;
 #[ORM\Mapping\Table(name: 'code_of_conduct')]
 class CodeOfConduct
 {
-    #[ORM\Mapping\Id()]
     #[ORM\Mapping\Column(
         type: 'string',
     )]
+    #[ORM\Mapping\Id()]
     private string $key;
 
     #[ORM\Mapping\Column(
