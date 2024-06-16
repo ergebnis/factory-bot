@@ -2,8 +2,6 @@ includes:
 	- phpstan-baseline.neon
 
 parameters:
-	checkMissingIterableValueType: false
-
 	doctrine:
 		objectManagerLoader: config/object-manager.php
 
