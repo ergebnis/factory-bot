@@ -39,7 +39,7 @@
     "ergebnis/license": "^2.4.0",
     "ergebnis/php-cs-fixer-config": "^6.30.1",
     "ergebnis/phpstan-rules": "^2.2.0",
-    "ergebnis/phpunit-slow-test-detector": "^2.14.0",
+    "ergebnis/phpunit-slow-test-detector": "^2.15.0",
     "infection/infection": "~0.27.11",
     "phpstan/extension-installer": "^1.4.1",
     "phpstan/phpstan": "^1.11.4",
