@@ -19,7 +19,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\CoversClass(Exception\ClassMetadataNotFound::class)]
 final class ClassMetadataNotFoundTest extends Framework\TestCase
 {
-    public function testNameReturnsException(): void
+    public function testForReturnsException(): void
     {
         $className = 'foo';
 
