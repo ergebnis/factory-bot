@@ -77,13 +77,13 @@ final class ReferencesTest extends Test\Unit\AbstractTestCase
             'login' => $faker->userName(),
         ]);
 
-        $overridenLogin = $faker->userName();
+        $overriddenLogin = $faker->userName();
 
         $fieldDefinition = new FieldDefinition\References(
             $className,
             Count::exact(3),
             [
-                'login' => $overridenLogin,
+                'login' => $overriddenLogin,
             ],
         );
 
@@ -101,7 +101,7 @@ final class ReferencesTest extends Test\Unit\AbstractTestCase
         }, $resolved));
 
         $expectedLogins = [
-            $overridenLogin,
+            $overriddenLogin,
         ];
 
         self::assertSame($expectedLogins, $logins);
