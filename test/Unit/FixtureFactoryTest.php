@@ -185,7 +185,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $fixtureFactory->load(__DIR__ . '/../Fixture/DefinitionProvider/ImplementsDefinitionProviderButCanNotBeInstantiated');
     }
 
-    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionProviderInterfaceButExceptionIsThrownDuringInstantation(): void
+    public function testLoadThrowsInvalidDefinitionExceptionWhenClassImplementsDefinitionProviderInterfaceButExceptionIsThrownDuringInstantiation(): void
     {
         $fixtureFactory = new FixtureFactory(
             self::entityManager(),
