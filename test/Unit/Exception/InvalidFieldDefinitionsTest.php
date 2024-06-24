@@ -23,7 +23,7 @@ final class InvalidFieldDefinitionsTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testFromClassNameCreatesException(): void
+    public function testValuesCreatesException(): void
     {
         $exception = Exception\InvalidFieldDefinitions::values();
 
