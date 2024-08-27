@@ -41,7 +41,7 @@
     "ergebnis/phpstan-rules": "^2.2.0",
     "ergebnis/phpunit-slow-test-detector": "^2.15.0",
     "infection/infection": "~0.27.11",
-    "phpstan/extension-installer": "^1.4.1",
+    "phpstan/extension-installer": "^1.4.2",
     "phpstan/phpstan": "^1.12.0",
     "phpstan/phpstan-deprecation-rules": "^1.2.0",
     "phpstan/phpstan-doctrine": "^1.5.2",
