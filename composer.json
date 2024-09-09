@@ -53,7 +53,7 @@
     "rector/rector": "^1.2.5",
     "roave/backward-compatibility-check": "^8.6.0",
     "symfony/cache": "^6.4.8",
-    "vimeo/psalm": "^5.25.0"
+    "vimeo/psalm": "^5.26.1"
   },
   "autoload": {
     "psr-4": {
