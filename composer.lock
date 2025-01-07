@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14307e0586867271c75260e3036236e9",
+    "content-hash": "55c13af0c756f3a3a5bc8e61cd26bfa9",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -3828,16 +3828,16 @@
         },
         {
             "name": "ergebnis/phpstan-rules",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "ffbc24d0d7e7b0d2b45f524753c20d83a83f66de"
+                "reference": "9999fb11a1c426d616a10f6ee7c524b9d7bd2e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/ffbc24d0d7e7b0d2b45f524753c20d83a83f66de",
-                "reference": "ffbc24d0d7e7b0d2b45f524753c20d83a83f66de",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/9999fb11a1c426d616a10f6ee7c524b9d7bd2e13",
+                "reference": "9999fb11a1c426d616a10f6ee7c524b9d7bd2e13",
                 "shasum": ""
             },
             "require": {
@@ -3847,16 +3847,18 @@
             },
             "require-dev": {
                 "doctrine/orm": "^2.20.0 || ^3.3.0",
-                "ergebnis/composer-normalize": "^2.44.0",
+                "ergebnis/composer-normalize": "^2.45.0",
                 "ergebnis/license": "^2.6.0",
                 "ergebnis/php-cs-fixer-config": "^6.39.0",
                 "ergebnis/phpunit-slow-test-detector": "^2.17.0",
                 "nette/di": "^3.1.10",
                 "nikic/php-parser": "^4.19.4",
+                "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^1.2.1",
                 "phpstan/phpstan-strict-rules": "^1.6.1",
                 "phpunit/phpunit": "^9.6.21",
                 "psr/container": "^2.0.2",
+                "symfony/finder": "^5.4.45",
                 "symfony/process": "^5.4.47"
             },
             "type": "phpstan-extension",
@@ -3894,7 +3896,7 @@
                 "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpstan-rules"
             },
-            "time": "2024-12-01T16:44:41+00:00"
+            "time": "2025-01-07T16:43:59+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
@@ -5628,16 +5630,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.12",
+            "version": "1.12.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "b5ae1b88f471d3fd4ba1aa0046234b5ca3776dd0"
+                "reference": "c91d4e8bc056f46cf653656e6f71004b254574d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b5ae1b88f471d3fd4ba1aa0046234b5ca3776dd0",
-                "reference": "b5ae1b88f471d3fd4ba1aa0046234b5ca3776dd0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c91d4e8bc056f46cf653656e6f71004b254574d1",
+                "reference": "c91d4e8bc056f46cf653656e6f71004b254574d1",
                 "shasum": ""
             },
             "require": {
@@ -5682,7 +5684,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-28T22:13:23+00:00"
+            "time": "2025-01-05T16:40:22+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
