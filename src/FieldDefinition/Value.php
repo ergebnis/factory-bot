@@ -19,27 +19,19 @@ use Faker\Generator;
 /**
  * @internal
  *
- * @phpstan-template T
- *
- * @psalm-template T
+ * @template T of mixed
  */
 final class Value implements Resolvable
 {
     /**
-     * @phpstan-param T $value
-     *
-     * @psalm-param T $value
+     * @param T $value
      */
     public function __construct(private mixed $value)
     {
     }
 
     /**
-     * @phpstan-return T
-     *
-     * @psalm-return T
-     *
-     * @return mixed
+     * @return T
      */
     public function resolve(
         Generator $faker,

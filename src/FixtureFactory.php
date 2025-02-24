@@ -43,14 +43,9 @@ final class FixtureFactory
     /**
      * Creates a definition for populating an entity with fake data.
      *
-     * @phpstan-param class-string<T> $className
+     * @template T of object
      *
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     *
-     * @psalm-template T
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitions
      *
      * @throws Exception\ClassMetadataNotFound
@@ -190,24 +185,15 @@ final class FixtureFactory
     /**
      * Creates a single entity with all of its dependencies.
      *
-     * @phpstan-param class-string<T> $className
+     * @template T of object
      *
-     * @phpstan-return T
-     *
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     *
-     * @psalm-return T
-     *
-     * @psalm-template T
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
      * @throws Exception\EntityDefinitionNotRegistered
      * @throws Exception\InvalidFieldNames
      *
-     * @return object
+     * @return T
      */
     public function createOne(
         string $className,
@@ -277,23 +263,12 @@ final class FixtureFactory
     /**
      * Creates an array of entities with all of their dependencies.
      *
-     * @phpstan-param class-string<T> $className
+     * @template T of object
      *
-     * @phpstan-return array<int, T>
-     *
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     *
-     * @psalm-return list<T>
-     *
-     * @psalm-template T
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      *
-     * @throws Exception\EntityDefinitionNotRegistered
-     *
-     * @return array<int, object>
+     * @return list<T>
      */
     public function createMany(
         string $className,

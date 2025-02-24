@@ -6,7 +6,6 @@
 [![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/factory-bot/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/factory-bot)
-[![Type Coverage](https://shepherd.dev/github/ergebnis/factory-bot/coverage.svg)](https://shepherd.dev/github/ergebnis/factory-bot)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/factory-bot/v/stable)](https://packagist.org/packages/ergebnis/factory-bot)
 [![Total Downloads](https://poser.pugx.org/ergebnis/factory-bot/downloads)](https://packagist.org/packages/ergebnis/factory-bot)
