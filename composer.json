@@ -40,7 +40,6 @@
     "ergebnis/php-cs-fixer-config": "^6.44.0",
     "ergebnis/phpstan-rules": "^2.5.0",
     "ergebnis/phpunit-slow-test-detector": "^2.19.0",
-    "infection/infection": "~0.27.11",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^1.12.8",
     "phpstan/phpstan-deprecation-rules": "^1.2.1",

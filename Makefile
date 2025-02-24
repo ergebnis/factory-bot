@@ -29,10 +29,6 @@ doctrine: vendor ## Shows and validates Docrine mapping information
 help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: mutation-tests
-mutation-tests: vendor ## Runs mutation tests with infection/infection
-	vendor/bin/infection --configuration=infection.json
-
 .PHONY: phive
 phive: .phive ## Installs dependencies with phive
 	PHIVE_HOME=.build/phive phive install --trust-gpg-keys 0x033E5F8D801A2F8D
