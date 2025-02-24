@@ -19,19 +19,12 @@ use Faker\Generator;
 /**
  * @internal
  *
- * @phpstan-template T
- *
- * @psalm-template T
+ * @template T of object
  */
 final class Reference implements Resolvable
 {
     /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
-     *
+     * @param class-string<T>                          $className
      * @param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      */
     public function __construct(
@@ -41,11 +34,7 @@ final class Reference implements Resolvable
     }
 
     /**
-     * @phpstan-return T
-     *
-     * @psalm-return T
-     *
-     * @return object
+     * @return T
      */
     public function resolve(
         Generator $faker,

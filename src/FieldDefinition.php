@@ -26,21 +26,12 @@ final class FieldDefinition
     }
 
     /**
-     * @phpstan-param class-string<T> $className
-     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     * @template T of object
      *
-     * @phpstan-return FieldDefinition\Reference<T>
-     *
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
-     *
-     * @psalm-return FieldDefinition\Reference<T>
-     *
-     * @psalm-template T
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
+     *
+     * @return FieldDefinition\Reference<T>
      */
     public static function reference(
         string $className,
@@ -53,12 +44,9 @@ final class FieldDefinition
     }
 
     /**
-     * @phpstan-param class-string $className
-     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
+     * @template T of object
      *
-     * @psalm-param class-string $className
-     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
      */
     public static function optionalReference(
@@ -72,22 +60,12 @@ final class FieldDefinition
     }
 
     /**
-     * @phpstan-param class-string<T> $className
+     * @template T of object
      *
-     * @phpstan-return FieldDefinition\References<T>
-     *
-     * @phpstan-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
-     *
-     * @phpstan-template T
-     *
-     * @psalm-param class-string<T> $className
-     * @psalm-param array<string, \Closure|mixed|FieldDefinition\Resolvable> $fieldDefinitionOverrides
-     *
-     * @psalm-return FieldDefinition\References<T>
-     *
-     * @psalm-template T
-     *
+     * @param class-string<T>                                          $className
      * @param array<string, \Closure|FieldDefinition\Resolvable|mixed> $fieldDefinitionOverrides
+     *
+     * @return FieldDefinition\References<T>
      */
     public static function references(
         string $className,
@@ -125,17 +103,11 @@ final class FieldDefinition
     }
 
     /**
-     * @phpstan-param T $value
+     * @template T of mixed
      *
-     * @phpstan-return FieldDefinition\Value<T>
+     * @param T $value
      *
-     * @phpstan-template T
-     *
-     * @psalm-param T $value
-     *
-     * @psalm-return FieldDefinition\Value<T>
-     *
-     * @psalm-template T
+     * @return FieldDefinition\Value<T>
      */
     public static function value(mixed $value): FieldDefinition\Value
     {

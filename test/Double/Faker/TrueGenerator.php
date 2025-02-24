@@ -17,11 +17,18 @@ use Faker\Generator;
 
 final class TrueGenerator extends Generator
 {
+    /**
+     * @param int $chanceOfGettingTrue
+     */
     public function boolean($chanceOfGettingTrue = 50): bool
     {
         return true;
     }
 
+    /**
+     * @param int $min
+     * @param int $max
+     */
     public function numberBetween($min = 0, $max = 2147483647): int
     {
         return \mt_rand(
