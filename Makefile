@@ -1,10 +1,6 @@
 .PHONY: it
 it: refactoring coding-standards security-analysis static-code-analysis tests tests-example ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, tests, and tests-example targets
 
-.PHONY: backward-compatibility-analysis
-backward-compatibility-analysis: vendor ## Runs a backward-compatibility analysis with roave/backward-compatibility-check
-	vendor/bin/roave-backward-compatibility-check
-
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text --testsuite=unit,integration
