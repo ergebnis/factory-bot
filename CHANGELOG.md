@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.9.0...main`][1.9.0...main].
 
+### Added
+
+- Added support for PHP 8.5 ([#1555]), by [@localheinz]
+
 ## [`1.9.0`][1.9.0]
 
 For a full diff see [`1.8.0...1.9.0`][1.8.0...1.9.0].
@@ -392,6 +396,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1299]: https://github.com/ergebnis/factory-bot/pull/1299
 [#1381]: https://github.com/ergebnis/factory-bot/pull/1381
 [#1516]: https://github.com/ergebnis/factory-bot/pull/1516
+[#1555]: https://github.com/ergebnis/factory-bot/pull/1555
 
 [@abenerd]: https://github.com/abenerd
 [@localheinz]: https://github.com/localheinz
