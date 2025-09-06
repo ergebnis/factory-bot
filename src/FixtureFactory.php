@@ -415,7 +415,7 @@ final class FixtureFactory
         string $fieldName,
         object $fieldValue,
     ): void {
-        $inversedBy = $this->resolveInversedBy(
+        $inversedBy = self::resolveInversedBy(
             $classMetadata,
             $fieldName,
         );
@@ -438,7 +438,7 @@ final class FixtureFactory
         $collection->add($entity);
     }
 
-    private function resolveInversedBy(
+    private static function resolveInversedBy(
         ORM\Mapping\ClassMetadata $classMetadata,
         string $fieldName,
     ): ?string {

@@ -32,7 +32,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "xdebug"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -100,7 +100,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -165,7 +165,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
 
@@ -221,7 +221,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -280,7 +280,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -330,7 +330,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, opcache, pcntl, pdo, pdo_sqlite, phar, posix, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, opcache, pcntl, pdo, pdo_sqlite, phar, posix, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -386,7 +386,7 @@ jobs:
         uses: "shivammathur/setup-php@2.35.4"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, iconv, intl, json, mbstring, pdo, pdo_sqlite, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
