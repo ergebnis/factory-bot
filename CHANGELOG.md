@@ -14,7 +14,7 @@ For a full diff see [`1.8.0...1.9.0`][1.8.0...1.9.0].
 
 ### Added
 
-- Added support for PHP 8.4 ([#1615]), by [@martinssipenko]
+- Added support for PHP 8.4 ([#1516]), by [@martinssipenko]
 
 ## [`1.8.0`][1.8.0]
 
