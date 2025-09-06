@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.9.0...main`][1.9.0...main].
+For a full diff see [`1.10.0...main`][1.10.0...main].
+
+## [`1.10.0`][1.10.0]
+
+For a full diff see [`1.9.0...1.10.0`][1.9.0...1.10.0].
 
 ### Added
 
@@ -281,6 +285,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [1.7.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.7.0
 [1.8.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.8.0
 [1.9.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.9.0
+[1.10.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.10.0
 
 [fa9c564...0.1.0]: https://github.com/ergebnis/factory-bot/compare/fa9c564...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/factory-bot/compare/0.1.0...0.2.0
@@ -301,7 +306,8 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [1.6.0...1.7.0]: https://github.com/ergebnis/factory-bot/compare/1.6.0...1.7.0
 [1.7.0...1.8.0]: https://github.com/ergebnis/factory-bot/compare/1.7.0...1.8.0
 [1.8.0...1.9.0]: https://github.com/ergebnis/factory-bot/compare/1.8.0...1.9.0
-[1.9.0...main]: https://github.com/ergebnis/factory-bot/compare/1.9.0...main
+[1.9.0...1.10.0]: https://github.com/ergebnis/factory-bot/compare/1.9.0...1.10.0
+[1.10.0...main]: https://github.com/ergebnis/factory-bot/compare/1.10.0...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
