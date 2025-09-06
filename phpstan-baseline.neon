@@ -1,499 +1,595 @@
 parameters:
 	ignoreErrors:
 		-
-			message: """
-				#^Call to deprecated method createHelperSet\\(\\) of class Doctrine\\\\ORM\\\\Tools\\\\Console\\\\ConsoleRunner\\:
-				This method will be removed in ORM 3\\.0 without replacement\\.$#
-			"""
+			message: '#^Call to an undefined static method Doctrine\\ORM\\Tools\\Console\\ConsoleRunner\:\:createHelperSet\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 1
 			path: config/cli-config.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:members\\(\\) should return array\\<int, Example\\\\Entity\\\\User\\> but returns array\\.$#"
+			message: '#^Method Example\\Entity\\Organization\:\:members\(\) should return array\<int, Example\\Entity\\User\> but returns array\<mixed\>\.$#'
+			identifier: return.type
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:repositories\\(\\) should return array\\<int, Example\\\\Entity\\\\Repository\\> but returns array\\.$#"
+			message: '#^Method Example\\Entity\\Organization\:\:repositories\(\) should return array\<int, Example\\Entity\\Repository\> but returns array\<mixed\>\.$#'
+			identifier: return.type
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Organization\\:\\:url\\(\\) has a nullable return type declaration\\.$#"
+			message: '#^Method Example\\Entity\\Organization\:\:url\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$members type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\User\\>\\.$#"
+			message: '#^Property Example\\Entity\\Organization\:\:\$members type mapping mismatch\: property can contain Doctrine\\Common\\Collections\\Collection but database expects Doctrine\\Common\\Collections\\Collection&iterable\<Example\\Entity\\User\>\.$#'
+			identifier: doctrine.associationType
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$members with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
+			message: '#^Property Example\\Entity\\Organization\:\:\$members with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$repositories type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\Repository\\>\\.$#"
+			message: '#^Property Example\\Entity\\Organization\:\:\$repositories type mapping mismatch\: property can contain Doctrine\\Common\\Collections\\Collection but database expects Doctrine\\Common\\Collections\\Collection&iterable\<Example\\Entity\\Repository\>\.$#'
+			identifier: doctrine.associationType
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\Organization\\:\\:\\$repositories with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
+			message: '#^Property Example\\Entity\\Organization\:\:\$repositories with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
 			count: 1
 			path: example/src/Entity/Organization.php
 
 		-
-			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$codeOfConduct with default value\\.$#"
+			message: '#^Constructor in Example\\Entity\\Repository has parameter \$codeOfConduct with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Constructor in Example\\\\Entity\\\\Repository has parameter \\$template with default value\\.$#"
+			message: '#^Constructor in Example\\Entity\\Repository has parameter \$template with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with a nullable type declaration\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:__construct\(\) has parameter \$codeOfConduct with a nullable type declaration\.$#'
+			identifier: ergebnis.noParameterWithNullableTypeDeclaration
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$codeOfConduct with null as default value\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:__construct\(\) has parameter \$codeOfConduct with null as default value\.$#'
+			identifier: ergebnis.noParameterWithNullDefaultValue
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with a nullable type declaration\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:__construct\(\) has parameter \$template with a nullable type declaration\.$#'
+			identifier: ergebnis.noParameterWithNullableTypeDeclaration
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:__construct\\(\\) has parameter \\$template with null as default value\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:__construct\(\) has parameter \$template with null as default value\.$#'
+			identifier: ergebnis.noParameterWithNullDefaultValue
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:codeOfConduct\\(\\) has a nullable return type declaration\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:codeOfConduct\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\Repository\\:\\:template\\(\\) has a nullable return type declaration\\.$#"
+			message: '#^Method Example\\Entity\\Repository\:\:template\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
 			path: example/src/Entity/Repository.php
 
 		-
-			message: "#^Constructor in Example\\\\Entity\\\\User has parameter \\$location with default value\\.$#"
+			message: '#^Constructor in Example\\Entity\\User has parameter \$location with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with a nullable type declaration\\.$#"
+			message: '#^Method Example\\Entity\\User\:\:__construct\(\) has parameter \$location with a nullable type declaration\.$#'
+			identifier: ergebnis.noParameterWithNullableTypeDeclaration
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\User\\:\\:__construct\\(\\) has parameter \\$location with null as default value\\.$#"
+			message: '#^Method Example\\Entity\\User\:\:__construct\(\) has parameter \$location with null as default value\.$#'
+			identifier: ergebnis.noParameterWithNullDefaultValue
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\User\\:\\:location\\(\\) has a nullable return type declaration\\.$#"
+			message: '#^Method Example\\Entity\\User\:\:location\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Method Example\\\\Entity\\\\User\\:\\:organizations\\(\\) should return array\\<int, Example\\\\Entity\\\\Organization\\> but returns array\\.$#"
+			message: '#^Method Example\\Entity\\User\:\:organizations\(\) should return array\<int, Example\\Entity\\Organization\> but returns array\<mixed\>\.$#'
+			identifier: return.type
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\User\\:\\:\\$organizations type mapping mismatch\\: property can contain Doctrine\\\\Common\\\\Collections\\\\Collection but database expects Doctrine\\\\Common\\\\Collections\\\\Collection&iterable\\<Example\\\\Entity\\\\Organization\\>\\.$#"
+			message: '#^Property Example\\Entity\\User\:\:\$organizations type mapping mismatch\: property can contain Doctrine\\Common\\Collections\\Collection but database expects Doctrine\\Common\\Collections\\Collection&iterable\<Example\\Entity\\Organization\>\.$#'
+			identifier: doctrine.associationType
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Property Example\\\\Entity\\\\User\\:\\:\\$organizations with generic interface Doctrine\\\\Common\\\\Collections\\\\Collection does not specify its types\\: TKey, T$#"
+			message: '#^Property Example\\Entity\\User\:\:\$organizations with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
 			count: 1
 			path: example/src/Entity/User.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
+			message: '#^Parameter \#1 \$objectOrClass of class ReflectionClass constructor expects class\-string\<T of object\>\|T of object, string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: example/test/AutoReview/FixtureTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 1
-			path: example/test/AutoReview/FixtureTest.php
-
-		-
-			message: "#^Instanceof between Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable and Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable will always evaluate to true\\.$#"
+			message: '#^Instanceof between Ergebnis\\FactoryBot\\FieldDefinition\\Resolvable and Ergebnis\\FactoryBot\\FieldDefinition\\Resolvable will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
 			count: 1
 			path: src/EntityDefinition.php
 
 		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Reference has parameter \\$fieldDefinitionOverrides with default value\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\EntityDefinition\:\:__construct\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EntityDefinition.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\EntityDefinition\:\:classMetadata\(\) return type with generic class Doctrine\\ORM\\Mapping\\ClassMetadata does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EntityDefinition.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\EntityDefinition\:\:create\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EntityDefinition.php
+
+		-
+			message: '#^Constructor in Ergebnis\\FactoryBot\\FieldDefinition\\Reference has parameter \$fieldDefinitionOverrides with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: src/FieldDefinition/Reference.php
 
 		-
-			message: "#^Constructor in Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\References has parameter \\$fieldDefinitionOverrides with default value\\.$#"
+			message: '#^Constructor in Ergebnis\\FactoryBot\\FieldDefinition\\References has parameter \$fieldDefinitionOverrides with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: src/FieldDefinition/References.php
 
 		-
-			message: "#^Class Doctrine\\\\ORM\\\\Mapping\\\\AssociationMapping not found\\.$#"
+			message: '#^Access to an undefined property Doctrine\\ORM\\Mapping\\AssociationMapping\:\:\$inversedBy\.$#'
+			identifier: property.notFound
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Dead catch \\- ReflectionException is never thrown in the try block\\.$#"
+			message: '#^Call to function is_array\(\) with Doctrine\\ORM\\Mapping\\AssociationMapping will always evaluate to false\.$#'
+			identifier: function.impossibleType
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:collectionFrom\\(\\) return type with generic class Doctrine\\\\Common\\\\Collections\\\\ArrayCollection does not specify its types\\: TKey, T$#"
+			message: '#^Dead catch \- ReflectionException is never thrown in the try block\.$#'
+			identifier: catch.neverThrown
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with a nullable type declaration\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:collectionFrom\(\) return type with generic class Doctrine\\Common\\Collections\\ArrayCollection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) has parameter \\$afterCreate with null as default value\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:define\(\) has parameter \$afterCreate with a nullable type declaration\.$#'
+			identifier: ergebnis.noParameterWithNullableTypeDeclaration
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:resolveInversedBy\\(\\) has a nullable return type declaration\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:define\(\) has parameter \$afterCreate with null as default value\.$#'
+			identifier: ergebnis.noParameterWithNullDefaultValue
 			count: 1
 			path: src/FixtureFactory.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\DataProvider\\\\IntProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:resolveInversedBy\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
-			path: test/DataProvider/IntProvider.php
+			path: src/FixtureFactory.php
 
 		-
-			message: "#^Generator expects value type array\\<int, string\\>\\|bool\\|float\\|int\\|resource\\|stdClass\\|string, array\\<int, array\\|bool\\|float\\|int\\|resource\\|stdClass\\|string\\> given\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:resolveInversedBy\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:resolveInversedBy\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 2
+			path: src/FixtureFactory.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:updateCollectionSideOfAssociation\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$classMetadata contains generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 1
+			path: src/FixtureFactory.php
+
+		-
+			message: '#^Generator expects value type bool\|float\|int\|list\<string\>\|resource\|stdClass\|string, array\{array\|bool\|float\|int\|resource\|stdClass\|string\} given\.$#'
+			identifier: generator.valueType
 			count: 1
 			path: test/DataProvider/ValueProvider.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\DataProvider\\\\ValueProvider\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/DataProvider/ValueProvider.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:boolean\\(\\) has parameter \\$chanceOfGettingTrue with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\FalseGenerator\:\:boolean\(\) has parameter \$chanceOfGettingTrue with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\FalseGenerator\:\:numberBetween\(\) has parameter \$max with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\FalseGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\FalseGenerator\:\:numberBetween\(\) has parameter \$min with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/FalseGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
+			message: '#^Parameter \#1 \$min of function mt_rand expects int, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Double/Faker/FalseGenerator.php
+
+		-
+			message: '#^Parameter \#2 \$max of function mt_rand expects int, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Double/Faker/FalseGenerator.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MaximumGenerator\:\:numberBetween\(\) has parameter \$max with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/MaximumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MaximumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MaximumGenerator\:\:numberBetween\(\) has parameter \$min with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/MaximumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$max with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MaximumGenerator\:\:numberBetween\(\) should return int but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: test/Double/Faker/MaximumGenerator.php
+
+		-
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MinimumGenerator\:\:numberBetween\(\) has parameter \$max with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/MinimumGenerator.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\MinimumGenerator\\:\\:numberBetween\\(\\) has parameter \\$min with no type specified\\.$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MinimumGenerator\:\:numberBetween\(\) has parameter \$min with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: test/Double/Faker/MinimumGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$min \\(int\\) of method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) should be contravariant with parameter \\$int1 \\(mixed\\) of method Faker\\\\Generator\\:\\:numberBetween\\(\\)$#"
+			message: '#^Method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\MinimumGenerator\:\:numberBetween\(\) should return int but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: test/Double/Faker/MinimumGenerator.php
+
+		-
+			message: '#^Parameter \#1 \$min \(int\) of method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\TrueGenerator\:\:numberBetween\(\) should be contravariant with parameter \$int1 \(mixed\) of method Faker\\Generator\:\:numberBetween\(\)$#'
+			identifier: method.childParameterType
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
 		-
-			message: "#^Parameter \\#2 \\$max \\(int\\) of method Ergebnis\\\\FactoryBot\\\\Test\\\\Double\\\\Faker\\\\TrueGenerator\\:\\:numberBetween\\(\\) should be contravariant with parameter \\$int2 \\(mixed\\) of method Faker\\\\Generator\\:\\:numberBetween\\(\\)$#"
+			message: '#^Parameter \#2 \$max \(int\) of method Ergebnis\\FactoryBot\\Test\\Double\\Faker\\TrueGenerator\:\:numberBetween\(\) should be contravariant with parameter \$int2 \(mixed\) of method Faker\\Generator\:\:numberBetween\(\)$#'
+			identifier: method.childParameterType
 			count: 1
 			path: test/Double/Faker/TrueGenerator.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Count' and Ergebnis\\\\FactoryBot\\\\Count will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Count'' and Ergebnis\\FactoryBot\\Count will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: test/Unit/CountTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\CountTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/CountTest.php
-
-		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\EntityDefinitionTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
+			message: '#^Parameter \#2 \$fieldDefinitions of static method Ergebnis\\FactoryBot\\EntityDefinition\:\:create\(\) expects array\<string, Ergebnis\\FactoryBot\\FieldDefinition\\Resolvable\>, array\<string, mixed\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: test/Unit/EntityDefinitionTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$fieldDefinitions of static method Ergebnis\\\\FactoryBot\\\\EntityDefinition\\:\\:create\\(\\) expects array\\<string, Ergebnis\\\\FactoryBot\\\\FieldDefinition\\\\Resolvable\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
-			path: test/Unit/EntityDefinitionTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassMetadataNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound'' and Ergebnis\\FactoryBot\\Exception\\ClassMetadataNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\ClassMetadataNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassMetadataNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''RuntimeException'' and Ergebnis\\FactoryBot\\Exception\\ClassMetadataNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassMetadataNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\ClassNotFound' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound'' and Ergebnis\\FactoryBot\\Exception\\ClassNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\ClassNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\ClassNotFound will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\ClassNotFound will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/ClassNotFoundTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\EntityDefinitionAlreadyRegistered' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionAlreadyRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionAlreadyRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionAlreadyRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''RuntimeException'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionAlreadyRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionAlreadyRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\EntityDefinitionNotRegistered' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionNotRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionNotRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\EntityDefinitionNotRegistered will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''RuntimeException'' and Ergebnis\\FactoryBot\\Exception\\EntityDefinitionNotRegistered will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/EntityDefinitionNotRegisteredTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidCount will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidCount' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount'' and Ergebnis\\FactoryBot\\Exception\\InvalidCount will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidCount will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidCount will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidCountTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidCountTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidCountTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidDefinition will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDefinition' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition'' and Ergebnis\\FactoryBot\\Exception\\InvalidDefinition will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'RuntimeException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDefinition will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''RuntimeException'' and Ergebnis\\FactoryBot\\Exception\\InvalidDefinition will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: test/Unit/Exception/InvalidDefinitionTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidDefinitionTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidDefinitionTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidDirectory will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidDirectoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidDirectory' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory'' and Ergebnis\\FactoryBot\\Exception\\InvalidDirectory will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidDirectoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidDirectory will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidDirectory will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidDirectoryTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidDirectoryTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidDirectoryTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldDefinitions will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldDefinitions' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldDefinitions will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldDefinitions will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldDefinitions will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidFieldDefinitionsTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidFieldDefinitionsTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldNames will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidFieldNames' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldNames will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidFieldNames will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidFieldNames will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: test/Unit/Exception/InvalidFieldNamesTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidFieldNamesTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidFieldNamesTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidMaximum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMaximumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMaximum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum'' and Ergebnis\\FactoryBot\\Exception\\InvalidMaximum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMaximumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMaximum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidMaximum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMaximumTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidMaximumTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidMaximumTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidMinimum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidMinimum' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum'' and Ergebnis\\FactoryBot\\Exception\\InvalidMinimum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidMinimum will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidMinimum will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidMinimumTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidMinimumTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidMinimumTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\Exception' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\Exception'' and Ergebnis\\FactoryBot\\Exception\\InvalidSequence will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\Exception\\\\\\\\InvalidSequence' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence'' and Ergebnis\\FactoryBot\\Exception\\InvalidSequence will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'InvalidArgumentException' and Ergebnis\\\\FactoryBot\\\\Exception\\\\InvalidSequence will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''InvalidArgumentException'' and Ergebnis\\FactoryBot\\Exception\\InvalidSequence will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/Exception/InvalidSequenceTest.php
 
 		-
-			message: "#^Method Ergebnis\\\\FactoryBot\\\\Test\\\\Unit\\\\Exception\\\\InvalidSequenceTest\\:\\:faker\\(\\) is protected, but since the containing class is final, it can be private\\.$#"
-			count: 1
-			path: test/Unit/Exception/InvalidSequenceTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
-			count: 2
-			path: test/Unit/FieldDefinition/ReferencesTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Ergebnis\\\\\\\\FactoryBot\\\\\\\\FixtureFactory' and Ergebnis\\\\FactoryBot\\\\FixtureFactory will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Ergebnis\\\\FactoryBot\\\\FixtureFactory'' and Ergebnis\\FactoryBot\\FixtureFactory will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 3
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Organization' and Example\\\\Entity\\\\Organization will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Example\\\\Entity\\\\Organization'' and Example\\Entity\\Organization will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'Example\\\\\\\\Entity\\\\\\\\Repository' and Example\\\\Entity\\\\Repository will always evaluate to true\\.$#"
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Example\\\\Entity\\\\Repository'' and Example\\Entity\\Repository will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$className of method Ergebnis\\\\FactoryBot\\\\FixtureFactory\\:\\:define\\(\\) expects class\\-string\\<NotAClass\\>, string given\\.$#"
+			message: '#^Parameter \#1 \$className of method Ergebnis\\FactoryBot\\FixtureFactory\:\:define\(\) expects class\-string\<NotAClass\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Unit/FixtureFactoryTest.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: test/Unit/FixtureFactoryTest.php
