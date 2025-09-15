@@ -35,7 +35,7 @@
   },
   "require-dev": {
     "ext-pdo_sqlite": "*",
-    "ergebnis/composer-normalize": "^2.48.1",
+    "ergebnis/composer-normalize": "^2.48.2",
     "ergebnis/license": "^2.7.0",
     "ergebnis/php-cs-fixer-config": "^6.54.0",
     "ergebnis/phpstan-rules": "^2.11.0",
