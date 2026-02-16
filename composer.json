@@ -42,7 +42,7 @@
     "ergebnis/phpunit-slow-test-detector": "^2.22.2",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.1.33",
-    "phpstan/phpstan-deprecation-rules": "^2.0.3",
+    "phpstan/phpstan-deprecation-rules": "^2.0.4",
     "phpstan/phpstan-doctrine": "^2.0.12",
     "phpstan/phpstan-phpunit": "^2.0.11",
     "phpstan/phpstan-strict-rules": "^2.0.7",
