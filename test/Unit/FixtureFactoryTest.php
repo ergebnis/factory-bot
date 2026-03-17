@@ -535,6 +535,46 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Entity\User::class, $profile->user());
     }
 
+    public function testCreateOneSetsInverseSideOfBidirectionalOneToOneAssociations(): void
+    {
+        $entityManager = self::entityManager();
+
+        $fixtureFactory = new FixtureFactory(
+            $entityManager,
+            self::faker(),
+        );
+
+        $fixtureFactory->define(Entity\Profile::class);
+
+        $fixtureFactory->define(Entity\User::class, [
+            'profile' => FieldDefinition::reference(Entity\Profile::class),
+        ]);
+
+        \set_error_handler(static function (int $severity, string $message, string $file, int $line): bool {
+            throw new \ErrorException(
+                $message,
+                0,
+                $severity,
+                $file,
+                $line,
+            );
+        });
+
+        try {
+            /** @var Entity\User $user */
+            $user = $fixtureFactory->createOne(Entity\User::class);
+        } finally {
+            \restore_error_handler();
+        }
+
+        $profile = $entityManager->getClassMetadata(Entity\User::class)->getFieldValue(
+            $user,
+            'profile',
+        );
+
+        self::assertInstanceOf(Entity\Profile::class, $profile);
+    }
+
     public function testOptionalFieldValuesAreSetToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(

@@ -448,8 +448,12 @@ final class FixtureFactory
             return $association['inversedBy'];
         }
 
-        if ($association instanceof ORM\Mapping\AssociationMapping) {
+        if ($association instanceof ORM\Mapping\OwningSideMapping) {
             return $association->inversedBy;
+        }
+
+        if ($association instanceof ORM\Mapping\AssociationMapping) {
+            return null;
         }
 
         throw new \RuntimeException('This should not happen');
