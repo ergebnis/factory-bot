@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
+use Ergebnis\Rector;
 use Rector\Config;
 use Rector\Doctrine;
 use Rector\PHPUnit;
@@ -18,8 +19,6 @@ use Rector\ValueObject;
 
 return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
-
-    $rectorConfig->import(__DIR__ . '/vendor/fakerphp/faker/rector-migrate.php');
 
     $rectorConfig->paths([
         __DIR__ . '/config/',
@@ -31,6 +30,10 @@ return static function (Config\RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_81);
+
+    $rectorConfig->rules([
+        Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
+    ]);
 
     $rectorConfig->sets([
         Doctrine\Set\DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
