@@ -43,7 +43,7 @@
     "ergebnis/rector-rules": "^1.15.2",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.1.33",
-    "phpstan/phpstan-deprecation-rules": "^2.0.3",
+    "phpstan/phpstan-deprecation-rules": "^2.0.4",
     "phpstan/phpstan-doctrine": "^2.0.20",
     "phpstan/phpstan-phpunit": "^2.0.16",
     "phpstan/phpstan-strict-rules": "^2.0.7",
