@@ -3,6 +3,7 @@
 name: "Merge"
 
 on: # yamllint disable-line rule:truthy
+  # zizmor: ignore[dangerous-triggers] -- only consumes metadata from completed Integrate runs; no checkout of untrusted code
   workflow_run:
     types:
       - "completed"
