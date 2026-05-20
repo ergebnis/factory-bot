@@ -6,6 +6,8 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "0 0 1 1 *"
 
+permissions: {}
+
 jobs:
   license:
     name: "License"
@@ -13,6 +15,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
+
+    permissions:
+      contents: "read"
 
     strategy:
       matrix:

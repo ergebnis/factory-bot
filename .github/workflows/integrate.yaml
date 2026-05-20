@@ -8,6 +8,8 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "main"
 
+permissions: {}
+
 jobs:
   code-coverage:
     name: "Code Coverage"
@@ -15,6 +17,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
+
+    permissions:
+      contents: "read"
 
     strategy:
       matrix:
@@ -76,6 +81,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
+
+    permissions:
+      contents: "read"
 
     strategy:
       matrix:
@@ -149,6 +157,9 @@ jobs:
 
     timeout-minutes: 5
 
+    permissions:
+      contents: "read"
+
     strategy:
       matrix:
         php-version:
@@ -207,6 +218,7 @@ jobs:
 
     permissions:
       contents: "read"
+      security-events: "write"
 
     steps:
       - name: "Checkout"
@@ -223,6 +235,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
+
+    permissions:
+      contents: "read"
 
     strategy:
       matrix:
@@ -283,6 +298,9 @@ jobs:
 
     timeout-minutes: 5
 
+    permissions:
+      contents: "read"
+
     strategy:
       matrix:
         php-version:
@@ -333,6 +351,9 @@ jobs:
 
     timeout-minutes: 5
 
+    permissions:
+      contents: "read"
+
     strategy:
       matrix:
         php-version:
@@ -382,6 +403,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
+
+    permissions:
+      contents: "read"
 
     strategy:
       fail-fast: false
