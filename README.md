@@ -1,9 +1,9 @@
 # factory-bot
 
-[![Integrate](https://github.com/ergebnis/factory-bot/workflows/Integrate/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
-[![Merge](https://github.com/ergebnis/factory-bot/workflows/Merge/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
-[![Release](https://github.com/ergebnis/factory-bot/workflows/Release/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
-[![Renew](https://github.com/ergebnis/factory-bot/workflows/Renew/badge.svg)](https://github.com/ergebnis/factory-bot/actions)
+[![Integrate](https://github.com/ergebnis/factory-bot/actions/workflows/integrate.yaml/badge.svg?branch=main)](https://github.com/ergebnis/factory-bot/actions/workflows/integrate.yaml)
+[![Merge](https://github.com/ergebnis/factory-bot/actions/workflows/merge.yaml/badge.svg)](https://github.com/ergebnis/factory-bot/actions/workflows/merge.yaml)
+[![Release](https://github.com/ergebnis/factory-bot/actions/workflows/release.yaml/badge.svg)](https://github.com/ergebnis/factory-bot/actions/workflows/release.yaml)
+[![Renew](https://github.com/ergebnis/factory-bot/actions/workflows/renew.yaml/badge.svg)](https://github.com/ergebnis/factory-bot/actions/workflows/renew.yaml)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/factory-bot/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/factory-bot)
 
