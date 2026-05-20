@@ -50,7 +50,7 @@
     "phpunit/phpunit": "^10.5.62",
     "ramsey/uuid": "^4.9.2",
     "rector/rector": "^2.4.3",
-    "symfony/cache": "^6.4.8"
+    "symfony/cache": "^6.4.40"
   },
   "autoload": {
     "psr-4": {
