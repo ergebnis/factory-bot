@@ -49,7 +49,7 @@
     "phpstan/phpstan-strict-rules": "^2.0.11",
     "phpunit/phpunit": "^10.5.62",
     "ramsey/uuid": "^4.9.3",
-    "rector/rector": "^2.4.4",
+    "rector/rector": "^2.5.2",
     "symfony/cache": "^6.4.40"
   },
   "autoload": {
