@@ -516,6 +516,30 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertContains($repository, $organization->repositories());
     }
 
+    public function testCreateOneDoesNotFailForSingleValuedInverseSideAssociationsWithoutInversedBy(): void
+    {
+        $faker = self::faker();
+
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            $faker,
+        );
+
+        $fixtureFactory->define(Entity\Device::class, [
+            'name' => $faker->word(),
+        ]);
+
+        $fixtureFactory->define(Entity\Fingerprint::class, [
+            'token' => $faker->sha1(),
+            'device' => FieldDefinition::reference(Entity\Device::class),
+        ]);
+
+        /** @var Entity\Fingerprint $fingerprint */
+        $fingerprint = $fixtureFactory->createOne(Entity\Fingerprint::class);
+
+        self::assertInstanceOf(Entity\Device::class, $fingerprint->device());
+    }
+
     public function testOptionalFieldValuesAreSetToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(

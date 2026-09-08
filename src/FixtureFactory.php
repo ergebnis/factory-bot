@@ -445,10 +445,14 @@ final class FixtureFactory
         $association = $classMetadata->getAssociationMapping($fieldName);
 
         if (\is_array($association)) {
-            return $association['inversedBy'];
+            return $association['inversedBy'] ?? null;
         }
 
         if ($association instanceof ORM\Mapping\AssociationMapping) {
+            if (!\property_exists($association, 'inversedBy')) {
+                return null;
+            }
+
             return $association->inversedBy;
         }
 
