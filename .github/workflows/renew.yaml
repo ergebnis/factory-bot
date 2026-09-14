@@ -57,7 +57,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@04b5426bcc1ce207abf7bea5f5dabb15dd65786a" # 1.12.0
+        uses: "ergebnis/.github/actions/composer/install@f5048b197f24b30496f4989821523d688959fbc3" # 1.13.1
         with:
           dependencies: "${{ matrix.dependencies }}"
 
