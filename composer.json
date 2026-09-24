@@ -78,5 +78,10 @@
     },
     "preferred-install": "dist",
     "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.10-dev"
+    }
   }
 }
