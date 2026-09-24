@@ -31,7 +31,7 @@ phive: .phive ## Installs dependencies with phive
 
 .PHONY: refactoring
 refactoring: vendor ## Runs automated refactoring with rector/rector
-	vendor/bin/rector process --config=rector.php
+	vendor/bin/rector --config=rector.php
 
 .PHONY: security-analysis
 security-analysis: vendor ## Runs a security analysis with composer
