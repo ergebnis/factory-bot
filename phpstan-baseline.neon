@@ -145,12 +145,6 @@ parameters:
 			path: example/test/AutoReview/FixtureTest.php
 
 		-
-			message: '#^Instanceof between Ergebnis\\FactoryBot\\FieldDefinition\\Resolvable and Ergebnis\\FactoryBot\\FieldDefinition\\Resolvable will always evaluate to true\.$#'
-			identifier: instanceof.alwaysTrue
-			count: 1
-			path: src/EntityDefinition.php
-
-		-
 			message: '#^Method Ergebnis\\FactoryBot\\EntityDefinition\:\:__construct\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
 			identifier: missingType.generics
 			count: 1
