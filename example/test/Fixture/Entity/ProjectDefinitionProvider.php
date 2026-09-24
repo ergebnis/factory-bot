@@ -13,22 +13,24 @@ declare(strict_types=1);
 
 namespace Example\Test\Fixture\Entity;
 
-use Ergebnis\FactoryBot;
+use Ergebnis\FactoryBot\EntityDefinitionProvider;
+use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 use Faker\Generator;
 
-final class ProjectDefinitionProvider implements FactoryBot\EntityDefinitionProvider
+final class ProjectDefinitionProvider implements EntityDefinitionProvider
 {
-    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\Project::class, [
-            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            'id' => FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid();
             }),
-            'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            'name' => FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->word();
             }),
-            'repository' => FactoryBot\FieldDefinition::reference(Entity\Repository::class),
+            'repository' => FieldDefinition::reference(Entity\Repository::class),
         ]);
     }
 }

@@ -32,7 +32,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-final class FieldDefinitionTest extends AbstractTestCase
+final class FieldDefinitionTest extends Test\Unit\AbstractTestCase
 {
     public function testClosureReturnsClosure(): void
     {

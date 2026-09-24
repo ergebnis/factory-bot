@@ -13,12 +13,13 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\CanNotBeAutoloaded;
 
-use Ergebnis\FactoryBot;
+use Ergebnis\FactoryBot\EntityDefinitionProvider;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 
-final class UserDefinitionProvider implements FactoryBot\EntityDefinitionProvider
+final class UserDefinitionProvider implements EntityDefinitionProvider
 {
-    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\User::class);
     }

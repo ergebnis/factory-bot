@@ -13,29 +13,32 @@ declare(strict_types=1);
 
 namespace Example\Test\Fixture\Entity;
 
-use Ergebnis\FactoryBot;
+use Ergebnis\FactoryBot\Count;
+use Ergebnis\FactoryBot\EntityDefinitionProvider;
+use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 use Faker\Generator;
 
-final class OrganizationDefinitionProvider implements FactoryBot\EntityDefinitionProvider
+final class OrganizationDefinitionProvider implements EntityDefinitionProvider
 {
-    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\Organization::class, [
-            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            'id' => FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid();
             }),
-            'isVerified' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): bool {
+            'isVerified' => FieldDefinition::closure(static function (Generator $faker): bool {
                 return $faker->boolean();
             }),
-            'members' => FactoryBot\FieldDefinition::references(
+            'members' => FieldDefinition::references(
                 Entity\User::class,
-                FactoryBot\Count::between(1, 10),
+                Count::between(1, 10),
             ),
-            'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
+            'name' => FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->word();
             }),
-            'url' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker): string {
+            'url' => FieldDefinition::optionalClosure(static function (Generator $faker): string {
                 return $faker->url();
             }),
         ]);

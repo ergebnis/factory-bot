@@ -15,7 +15,7 @@ namespace Example\Test\Unit;
 
 use Doctrine\DBAL;
 use Doctrine\ORM;
-use Ergebnis\FactoryBot;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Faker\Factory;
 use Faker\Generator;
 use PHPUnit\Framework;
@@ -56,9 +56,9 @@ abstract class AbstractTestCase extends Framework\TestCase
         return $faker;
     }
 
-    final protected static function fixtureFactory(): FactoryBot\FixtureFactory
+    final protected static function fixtureFactory(): FixtureFactory
     {
-        $fixtureFactory = new FactoryBot\FixtureFactory(
+        $fixtureFactory = new FixtureFactory(
             self::entityManager(),
             self::faker(),
         );

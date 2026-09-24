@@ -13,16 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Fixture\DefinitionProvider\ImplementsDefinitionProviderButCanNotBeInstantiated;
 
-use Ergebnis\FactoryBot;
+use Ergebnis\FactoryBot\EntityDefinitionProvider;
+use Ergebnis\FactoryBot\FixtureFactory;
 use Example\Entity;
 
-final class RepositoryDefinitionProvider implements FactoryBot\EntityDefinitionProvider
+final class RepositoryDefinitionProvider implements EntityDefinitionProvider
 {
     private function __construct()
     {
     }
 
-    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
+    public function accept(FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\Repository::class);
     }
