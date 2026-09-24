@@ -95,6 +95,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertInstanceOf(Entity\Organization::class, $organization);
     }
 
+    #[Framework\Attributes\DoesNotPerformAssertions()]
     public function testCreateOneDoesNotPersistEmbeddablesWhenFixtureFactoryIsPersisting(): void
     {
         $entityManager = self::entityManager();
@@ -124,8 +125,6 @@ final class FixtureFactoryTest extends AbstractTestCase
         $persistingFixtureFactory->createOne(Entity\User::class);
 
         $entityManager->flush();
-
-        $this->addToAssertionCount(1);
     }
 
     public function testCreateManyDoesNotPersistEntitiesByDefault(): void

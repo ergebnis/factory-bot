@@ -44,6 +44,6 @@ return static function (Config\RectorConfig $rectorConfig): void {
 
     $rectorConfig->sets([
         Doctrine\Set\DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        PHPUnit\Set\PHPUnitSetList::PHPUNIT_100,
+        PHPUnit\Set\PHPUnitSetList::COMPOSER_BASED,
     ]);
 };
