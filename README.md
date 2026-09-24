@@ -9,7 +9,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/factory-bot/v/stable)](https://packagist.org/packages/ergebnis/factory-bot)
 [![Total Downloads](https://poser.pugx.org/ergebnis/factory-bot/downloads)](https://packagist.org/packages/ergebnis/factory-bot)
-[![Monthly Downloads](http://poser.pugx.org/ergebnis/factory-bot/d/monthly)](https://packagist.org/packages/ergebnis/factory-bot)
+[![Monthly Downloads](https://poser.pugx.org/ergebnis/factory-bot/d/monthly)](https://packagist.org/packages/ergebnis/factory-bot)
 
 This project provides a [`composer`](https://getcomposer.org) package with a fixture factory for [`doctrine/orm`](https://github.com/doctrine/orm) entities.
 
