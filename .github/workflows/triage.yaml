@@ -18,9 +18,6 @@ jobs:
 
     timeout-minutes: 5
 
-    permissions:
-      contents: "read"
-
     steps:
       - name: "Add labels based on branch name"
         uses: "ergebnis/.github/actions/github/pull-request/add-label-based-on-branch-name@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
