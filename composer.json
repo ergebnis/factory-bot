@@ -42,6 +42,7 @@
     "ergebnis/phpunit-agent-reporter": "^1.2.0",
     "ergebnis/phpunit-slow-test-detector": "^2.26.0",
     "ergebnis/rector-rules": "^1.18.5",
+    "infection/infection": "~0.27.11",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.2.16",
     "phpstan/phpstan-deprecation-rules": "^2.0.5",
@@ -69,6 +70,7 @@
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
       "ergebnis/composer-normalize": true,
+      "infection/extension-installer": true,
       "phpstan/extension-installer": true
     },
     "audit": {

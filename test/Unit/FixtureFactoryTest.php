@@ -45,7 +45,7 @@ use PHPUnit\Framework;
 #[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
 #[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
 #[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
-final class FixtureFactoryTest extends Test\Unit\AbstractTestCase
+final class FixtureFactoryTest extends AbstractTestCase
 {
     public function testDefineThrowsEntityDefinitionAlreadyRegisteredExceptionWhenDefinitionHasAlreadyBeenProvidedForEntity(): void
     {
