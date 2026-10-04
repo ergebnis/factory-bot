@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.11.1...main`][1.11.1...main].
 
+### Changed
+
+- Allowed installation of `doctrine/persistence:^4.0.0` ([#1795]), by [@localheinz]
+
 ## [`1.11.1`][1.11.1]
 
 For a full diff see [`1.11.0...1.11.1`][1.11.0...1.11.1].
@@ -425,6 +429,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1555]: https://github.com/ergebnis/factory-bot/pull/1555
 [#1641]: https://github.com/ergebnis/factory-bot/pull/1641
 [#1767]: https://github.com/ergebnis/factory-bot/pull/1767
+[#1795]: https://github.com/ergebnis/factory-bot/pull/1795
 
 [@abenerd]: https://github.com/abenerd
 [@alexmart]: https://github.com/alexmart
