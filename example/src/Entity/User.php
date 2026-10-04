@@ -54,6 +54,12 @@ class User
     )]
     private Common\Collections\Collection $organizations;
 
+    #[ORM\Mapping\OneToOne(
+        targetEntity: Profile::class,
+        mappedBy: 'user',
+    )]
+    private ?Profile $profile = null;
+
     public function __construct(
         string $login,
         Avatar $avatar,

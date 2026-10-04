@@ -516,6 +516,25 @@ final class FixtureFactoryTest extends AbstractTestCase
         self::assertContains($repository, $organization->repositories());
     }
 
+    public function testCreateOneEstablishesOwningSideOfBidirectionalOneToOneAssociations(): void
+    {
+        $fixtureFactory = new FixtureFactory(
+            self::entityManager(),
+            self::faker(),
+        );
+
+        $fixtureFactory->define(Entity\User::class);
+
+        $fixtureFactory->define(Entity\Profile::class, [
+            'user' => FieldDefinition::reference(Entity\User::class),
+        ]);
+
+        /** @var Entity\Profile $profile */
+        $profile = $fixtureFactory->createOne(Entity\Profile::class);
+
+        self::assertInstanceOf(Entity\User::class, $profile->user());
+    }
+
     public function testOptionalFieldValuesAreSetToNullWhenFakerReturnsFalse(): void
     {
         $fixtureFactory = new FixtureFactory(
