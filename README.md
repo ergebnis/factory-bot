@@ -1260,4 +1260,4 @@ This project is based on [`breerly/factory-girl-php@0e6f1b6`](https://github.com
 
 ## Social
 
-Follow [@localheinz](https://twitter.com/intent/follow?screen_name=localheinz) and [@ergebnis](https://twitter.com/intent/follow?screen_name=ergebnis) on Twitter.
+Follow [@localheinz](https://x.com/intent/follow?screen_name=localheinz) and [@ergebnis](https://x.com/intent/follow?screen_name=ergebnis) on X.
