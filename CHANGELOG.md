@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.11.0...main`][1.11.0...main].
 
+### Fixed
+
+- Adjusted `FixtureFactory` to skip inverse-side associations when establishing bidirectional associations with `doctrine/orm:^3.0.0` ([#1641]), by [@alexmart]
+
 ## [`1.11.0`][1.11.0]
 
 For a full diff see [`1.10.0...1.11.0`][1.10.0...1.11.0].
@@ -413,9 +417,11 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1381]: https://github.com/ergebnis/factory-bot/pull/1381
 [#1516]: https://github.com/ergebnis/factory-bot/pull/1516
 [#1555]: https://github.com/ergebnis/factory-bot/pull/1555
+[#1641]: https://github.com/ergebnis/factory-bot/pull/1641
 [#1767]: https://github.com/ergebnis/factory-bot/pull/1767
 
 [@abenerd]: https://github.com/abenerd
+[@alexmart]: https://github.com/alexmart
 [@localheinz]: https://github.com/localheinz
 [@martinssipenko]: https://github.com/martinssipenko
 [@OskarStark]: https://github.com/OskarStark

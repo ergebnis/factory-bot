@@ -175,12 +175,6 @@ parameters:
 			path: src/FieldDefinition/References.php
 
 		-
-			message: '#^Access to an undefined property Doctrine\\ORM\\Mapping\\AssociationMapping\:\:\$inversedBy\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: '#^Call to function is_array\(\) with Doctrine\\ORM\\Mapping\\AssociationMapping will always evaluate to false\.$#'
 			identifier: function.impossibleType
 			count: 1
@@ -225,7 +219,7 @@ parameters:
 		-
 			message: '#^Method Ergebnis\\FactoryBot\\FixtureFactory\:\:resolveInversedBy\(\) should return string\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/FixtureFactory.php
 
 		-
