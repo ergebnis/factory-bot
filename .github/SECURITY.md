@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/factory-bot` have active support:
 
-- `^1.11.1`
+- `^1.12.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/factory-bot` have reached their end of life:
 
-- `<1.11.1`
+- `<1.12.0`
 
 ## Reporting a Vulnerability
 

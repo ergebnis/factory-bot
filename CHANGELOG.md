@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.11.1...main`][1.11.1...main].
+For a full diff see [`1.12.0...main`][1.12.0...main].
+
+## [`1.12.0`][1.12.0]
+
+For a full diff see [`1.11.1...1.12.0`][1.11.1...1.12.0].
 
 ### Changed
 
@@ -332,7 +336,9 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [1.11.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.11.0
 [1.11.0...1.11.1]: https://github.com/ergebnis/factory-bot/compare/1.11.0...1.11.1
 [1.11.1]: https://github.com/ergebnis/factory-bot/releases/tag/1.11.1
-[1.11.1...main]: https://github.com/ergebnis/factory-bot/compare/1.11.1...main
+[1.11.1...1.12.0]: https://github.com/ergebnis/factory-bot/compare/1.11.1...1.12.0
+[1.12.0]: https://github.com/ergebnis/factory-bot/releases/tag/1.12.0
+[1.12.0...main]: https://github.com/ergebnis/factory-bot/compare/1.12.0...main
 
 [#1]: https://github.com/ergebnis/factory-bot/pull/1
 [#3]: https://github.com/ergebnis/factory-bot/pull/3
