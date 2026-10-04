@@ -11,6 +11,7 @@ For a full diff see [`1.11.1...main`][1.11.1...main].
 ### Changed
 
 - Allowed installation of `doctrine/persistence:^4.0.0` ([#1795]), by [@localheinz]
+- Allowed installation of `doctrine/collections:^3.0.0` ([#1796]), by [@localheinz]
 
 ## [`1.11.1`][1.11.1]
 
@@ -430,6 +431,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1641]: https://github.com/ergebnis/factory-bot/pull/1641
 [#1767]: https://github.com/ergebnis/factory-bot/pull/1767
 [#1795]: https://github.com/ergebnis/factory-bot/pull/1795
+[#1796]: https://github.com/ergebnis/factory-bot/pull/1796
 
 [@abenerd]: https://github.com/abenerd
 [@alexmart]: https://github.com/alexmart
