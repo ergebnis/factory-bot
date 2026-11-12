@@ -139,9 +139,30 @@ final class FixtureFactory
             throw Exception\InvalidDirectory::notDirectory($directory);
         }
 
-        foreach (Classy\Constructs::fromDirectory($directory) as $construct) {
+        $splFileInfos = new \CallbackFilterIterator(
+            new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(
+                $directory,
+                \FilesystemIterator::FOLLOW_SYMLINKS,
+            )),
+            static function (\SplFileInfo $splFileInfo): bool {
+                return 'php' === $splFileInfo->getExtension();
+            },
+        );
+
+        $constructFromFinderCollector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector());
+
+        $constructs = $constructFromFinderCollector->collectFromFinder($splFileInfos);
+
+        \usort($constructs, static function (Classy\ConstructFromSplFileInfo $a, Classy\ConstructFromSplFileInfo $b): int {
+            return \strcmp(
+                $a->name()->toString(),
+                $b->name()->toString(),
+            );
+        });
+
+        foreach ($constructs as $construct) {
             /** @var class-string $className */
-            $className = $construct->name();
+            $className = $construct->name()->toString();
 
             try {
                 $reflection = new \ReflectionClass($className);

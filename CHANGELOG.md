@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.12.0...main`][1.12.0...main].
 
+### Changed
+
+- Required `ergebnis/classy:^3.1.0` ([#1829]), by [@localheinz]
+
 ## [`1.12.0`][1.12.0]
 
 For a full diff see [`1.11.1...1.12.0`][1.11.1...1.12.0].
@@ -438,6 +442,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1767]: https://github.com/ergebnis/factory-bot/pull/1767
 [#1795]: https://github.com/ergebnis/factory-bot/pull/1795
 [#1796]: https://github.com/ergebnis/factory-bot/pull/1796
+[#1829]: https://github.com/ergebnis/factory-bot/pull/1829
 
 [@abenerd]: https://github.com/abenerd
 [@alexmart]: https://github.com/alexmart
