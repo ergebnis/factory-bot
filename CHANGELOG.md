@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.12.0...main`][1.12.0...main].
 
+### Added
+
+- Added support for PHP 8.6 ([#1828]), by [@localheinz]
+
 ### Changed
 
 - Required `ergebnis/classy:^3.1.0` ([#1829]), by [@localheinz]
@@ -442,6 +446,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1767]: https://github.com/ergebnis/factory-bot/pull/1767
 [#1795]: https://github.com/ergebnis/factory-bot/pull/1795
 [#1796]: https://github.com/ergebnis/factory-bot/pull/1796
+[#1828]: https://github.com/ergebnis/factory-bot/pull/1828
 [#1829]: https://github.com/ergebnis/factory-bot/pull/1829
 
 [@abenerd]: https://github.com/abenerd
