@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ccbbae9f72a8c69ed5daae977df1ce7",
+    "content-hash": "8d63a362a5da7df98afdd64b478e661a",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -758,38 +758,49 @@
         },
         {
             "name": "ergebnis/classy",
-            "version": "1.6.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "e8da19634d7d7d7e293e916b1419395224658d5a"
+                "reference": "ec12838b12df0dcdceea7bcb04ddb15005dfe272"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/e8da19634d7d7d7e293e916b1419395224658d5a",
-                "reference": "e8da19634d7d7d7e293e916b1419395224658d5a",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/ec12838b12df0dcdceea7bcb04ddb15005dfe272",
+                "reference": "ec12838b12df0dcdceea7bcb04ddb15005dfe272",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.39.0",
-                "ergebnis/license": "^2.3.0",
-                "ergebnis/php-cs-fixer-config": "~6.12.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.4.0",
-                "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.27.8",
-                "phpunit/phpunit": "^10.4.2",
-                "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.11",
-                "vimeo/psalm": "^5.16.0"
+                "ergebnis/composer-normalize": "^2.53.0",
+                "ergebnis/data-provider": "^3.6.0",
+                "ergebnis/license": "^2.7.0",
+                "ergebnis/php-cs-fixer-config": "^6.63.2",
+                "ergebnis/phpstan-rules": "^2.13.1",
+                "ergebnis/phpunit-slow-test-detector": "^2.25.0",
+                "ergebnis/rector-rules": "^1.18.3",
+                "fakerphp/faker": "^1.24.1",
+                "infection/infection": "~0.26.6",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^2.2.13",
+                "phpstan/phpstan-deprecation-rules": "^2.0.5",
+                "phpstan/phpstan-phpunit": "^2.0.18",
+                "phpstan/phpstan-strict-rules": "^2.0.12",
+                "phpunit/phpunit": "^9.6.33",
+                "rector/rector": "^2.6.7",
+                "symfony/filesystem": "^5.4.45",
+                "symfony/finder": "^5.4.45"
+            },
+            "suggest": {
+                "symfony/finder": "If you want to collect constructs from a finder."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.0-dev"
+                    "dev-main": "3.1-dev"
                 }
             },
             "autoload": {
@@ -808,7 +819,7 @@
                     "homepage": "https://localheinz.com"
                 }
             ],
-            "description": "Provides a finder for classy constructs (classes, enums, interfaces, and traits).",
+            "description": "Provides collectors for classy constructs (classes, enums, interfaces, and traits).",
             "homepage": "https://github.com/ergebnis/classy",
             "keywords": [
                 "classes",
@@ -822,7 +833,7 @@
                 "issues": "https://github.com/ergebnis/classy/issues",
                 "source": "https://github.com/ergebnis/classy"
             },
-            "time": "2023-11-27T16:46:22+00:00"
+            "time": "2026-09-24T19:40:59+00:00"
         },
         {
             "name": "fakerphp/faker",
