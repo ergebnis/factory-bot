@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.13.0...main`][1.13.0...main].
 
+### Changed
+
+- Allowed installation on PHP 8.7 ([#1837]), by [@localheinz]
+
 ## [`1.13.0`][1.13.0]
 
 For a full diff see [`1.12.0...1.13.0`][1.12.0...1.13.0].
@@ -454,6 +458,7 @@ For a full diff see [`fa9c564...0.1.0`][fa9c564...0.1.0].
 [#1796]: https://github.com/ergebnis/factory-bot/pull/1796
 [#1828]: https://github.com/ergebnis/factory-bot/pull/1828
 [#1829]: https://github.com/ergebnis/factory-bot/pull/1829
+[#1837]: https://github.com/ergebnis/factory-bot/pull/1837
 
 [@abenerd]: https://github.com/abenerd
 [@alexmart]: https://github.com/alexmart
