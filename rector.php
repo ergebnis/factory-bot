@@ -12,38 +12,23 @@ declare(strict_types=1);
  */
 
 use Ergebnis\Rector;
-use Rector\Config;
 use Rector\Doctrine;
-use Rector\PHPUnit;
-use Rector\ValueObject;
 
-return static function (Config\RectorConfig $rectorConfig): void {
-    $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
+$ruleSet = Rector\Config\RuleSet\Php81::create();
 
-    $rectorConfig->paths([
+return Rector\Config\Factory::fromRuleSet($ruleSet)
+    ->withCache(__DIR__ . '/.build/rector/')
+    ->withPaths([
         __DIR__ . '/config/',
         __DIR__ . '/example/',
         __DIR__ . '/src/',
         __DIR__ . '/test/',
         __DIR__ . '/.php-cs-fixer.php',
         __DIR__ . '/rector.php',
-    ]);
-
-    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_81);
-
-    $rectorConfig->rules([
-        Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
-    ]);
-
-    $rectorConfig->ruleWithConfiguration(Rector\Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class, [
-        'discoverNamespacePrefixes' => true,
-        'parentNamespacePrefixes' => [
-            'Ergebnis\FactoryBot',
-        ],
-    ]);
-
-    $rectorConfig->sets([
+    ])
+    ->withSets([
         Doctrine\Set\DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        PHPUnit\Set\PHPUnitSetList::COMPOSER_BASED,
+    ])
+    ->withSkip([
+        __DIR__ . '/example/src/Entity/',
     ]);
-};
