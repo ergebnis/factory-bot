@@ -13,26 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\EntityDefinitionNotRegistered::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\EntityDefinitionNotRegistered::class)]
 final class EntityDefinitionNotRegisteredTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
     {
         $className = 'foo';
 
-        $exception = Exception\EntityDefinitionNotRegistered::for($className);
+        $exception = FactoryBot\Exception\EntityDefinitionNotRegistered::for($className);
 
         $message = \sprintf(
             'An entity definition for class name "%s" has not been registered.',
             $className,
         );
 
-        self::assertInstanceOf(Exception\EntityDefinitionNotRegistered::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\EntityDefinitionNotRegistered::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
 
         self::assertSame($message, $exception->getMessage());
     }

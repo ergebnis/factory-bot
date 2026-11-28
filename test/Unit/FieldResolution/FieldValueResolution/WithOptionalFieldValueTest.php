@@ -13,36 +13,32 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\FieldValueResolution;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\FieldValueResolution\WithOptionalFieldValue::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class WithOptionalFieldValueTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldResolution\FieldValueResolution\WithOptionalFieldValue::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+final class WithOptionalFieldValueTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
     public function testResolveFieldValueResolvesOptionalFieldDefinitionWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new FieldResolution\FieldValueResolution\WithOptionalFieldValue();
+        $strategy = new FactoryBot\FieldResolution\FieldValueResolution\WithOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -59,17 +55,17 @@ final class WithOptionalFieldValueTest extends Test\Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::optionalValue($faker->sentence());
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalValue($faker->sentence());
 
-        $strategy = new FieldResolution\FieldValueResolution\WithOptionalFieldValue();
+        $strategy = new FactoryBot\FieldResolution\FieldValueResolution\WithOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -86,17 +82,17 @@ final class WithOptionalFieldValueTest extends Test\Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::value($faker->sentence());
+        $fieldDefinition = FactoryBot\FieldDefinition::value($faker->sentence());
 
-        $strategy = new FieldResolution\FieldValueResolution\WithOptionalFieldValue();
+        $strategy = new FactoryBot\FieldResolution\FieldValueResolution\WithOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );
@@ -113,17 +109,17 @@ final class WithOptionalFieldValueTest extends Test\Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
-        $fieldDefinition = FieldDefinition::value($faker->sentence());
+        $fieldDefinition = FactoryBot\FieldDefinition::value($faker->sentence());
 
-        $strategy = new FieldResolution\FieldValueResolution\WithOptionalFieldValue();
+        $strategy = new FactoryBot\FieldResolution\FieldValueResolution\WithOptionalFieldValue();
 
         $resolved = $strategy->resolveFieldValue(
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
             $fixtureFactory,
             $fieldDefinition,
         );

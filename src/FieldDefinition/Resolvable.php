@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 interface Resolvable
@@ -23,6 +23,6 @@ interface Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory,
+        FactoryBot\FixtureFactory $fixtureFactory,
     );
 }

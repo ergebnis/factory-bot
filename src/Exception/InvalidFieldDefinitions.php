@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Exception;
 
-use Ergebnis\FactoryBot\FieldDefinition;
+use Ergebnis\FactoryBot;
 
 final class InvalidFieldDefinitions extends \InvalidArgumentException implements Exception
 {
@@ -21,7 +21,7 @@ final class InvalidFieldDefinitions extends \InvalidArgumentException implements
     {
         return new self(\sprintf(
             'Field definitions need to be instances of "%s".',
-            FieldDefinition::class,
+            FactoryBot\FieldDefinition::class,
         ));
     }
 }

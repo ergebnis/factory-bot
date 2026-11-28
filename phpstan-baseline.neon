@@ -229,18 +229,6 @@ parameters:
 			path: src/FixtureFactory.php
 
 		-
-			message: '#^PHPDoc tag @var for variable \$classMetadata contains generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
-			identifier: missingType.generics
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
-			message: '#^Unreachable statement \- code above always terminates\.$#'
-			identifier: deadCode.unreachable
-			count: 1
-			path: src/FixtureFactory.php
-
-		-
 			message: '#^Generator expects value type bool\|float\|int\|list\<string\>\|resource\|stdClass\|string, array\{array\|bool\|float\|int\|resource\|stdClass\|string\} given\.$#'
 			identifier: generator.valueType
 			count: 1

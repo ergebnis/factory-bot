@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldResolution\FieldValueResolution;
 
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 /**
@@ -27,7 +26,7 @@ interface FieldValueResolutionStrategy
      */
     public function resolveFieldValue(
         Generator $faker,
-        FixtureFactory $fixtureFactory,
-        FieldDefinition\Resolvable $fieldDefinition,
+        FactoryBot\FixtureFactory $fixtureFactory,
+        FactoryBot\FieldDefinition\Resolvable $fieldDefinition,
     );
 }

@@ -105,7 +105,6 @@ final class FixtureFactory
                 continue;
             }
 
-            /** @var mixed $defaultFieldValue */
             $defaultFieldValue = $classMetadata->getFieldValue(
                 $defaultEntity,
                 $fieldName,
@@ -114,7 +113,7 @@ final class FixtureFactory
             $fieldDefinitions[$fieldName] = FieldDefinition::value($defaultFieldValue);
         }
 
-        if (null === $afterCreate) {
+        if (!$afterCreate instanceof \Closure) {
             $afterCreate = static function (): void {
                 // nothing to do here
             };
@@ -219,12 +218,11 @@ final class FixtureFactory
     public function createOne(
         string $className,
         array $fieldDefinitionOverrides = [],
-    ) {
+    ): object {
         if (!\array_key_exists($className, $this->entityDefinitions)) {
             throw Exception\EntityDefinitionNotRegistered::for($className);
         }
 
-        /** @var EntityDefinition $entityDefinition */
         $entityDefinition = $this->entityDefinitions[$className];
 
         $extraFieldNames = \array_diff(
@@ -239,7 +237,6 @@ final class FixtureFactory
             );
         }
 
-        /** @var ORM\Mapping\ClassMetadata $classMetadata */
         $classMetadata = $entityDefinition->classMetadata();
 
         $entity = $this->instantiator->instantiate($className);
@@ -305,7 +302,7 @@ final class FixtureFactory
             return [];
         }
 
-        return \array_map(function () use ($className, $fieldDefinitionOverrides) {
+        return \array_map(function () use ($className, $fieldDefinitionOverrides): object {
             return $this->createOne(
                 $className,
                 $fieldDefinitionOverrides,
@@ -473,10 +470,6 @@ final class FixtureFactory
             return $association->inversedBy;
         }
 
-        if ($association instanceof ORM\Mapping\AssociationMapping) {
-            return null;
-        }
-
-        throw new \RuntimeException('This should not happen');
+        return null;
     }
 }

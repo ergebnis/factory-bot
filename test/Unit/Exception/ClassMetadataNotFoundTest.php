@@ -13,26 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\ClassMetadataNotFound::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\ClassMetadataNotFound::class)]
 final class ClassMetadataNotFoundTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
     {
         $className = 'foo';
 
-        $exception = Exception\ClassMetadataNotFound::for($className);
+        $exception = FactoryBot\Exception\ClassMetadataNotFound::for($className);
 
         $message = \sprintf(
             'Class metadata for a class with the name "%s" could not be found.',
             $className,
         );
 
-        self::assertInstanceOf(Exception\ClassMetadataNotFound::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\ClassMetadataNotFound::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }

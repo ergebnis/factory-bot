@@ -13,24 +13,22 @@ declare(strict_types=1);
 
 namespace Example\Test\Fixture\Entity;
 
-use Ergebnis\FactoryBot\EntityDefinitionProvider;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 
-final class AvatarDefinitionProvider implements EntityDefinitionProvider
+final class AvatarDefinitionProvider implements FactoryBot\EntityDefinitionProvider
 {
-    public function accept(FixtureFactory $fixtureFactory): void
+    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\Avatar::class, [
-            'height' => FieldDefinition::closure(static function (Generator $faker): int {
+            'height' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): int {
                 return $faker->numberBetween(300, 600);
             }),
-            'url' => FieldDefinition::closure(static function (Generator $faker): string {
+            'url' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->imageUrl();
             }),
-            'width' => FieldDefinition::closure(static function (Generator $faker): int {
+            'width' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): int {
                 return $faker->numberBetween(400, 900);
             }),
         ]);

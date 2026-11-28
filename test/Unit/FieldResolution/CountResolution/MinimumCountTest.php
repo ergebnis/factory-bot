@@ -13,48 +13,44 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\CountResolution;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\CountResolution\MinimumCount::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class MinimumCountTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldResolution\CountResolution\MinimumCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+final class MinimumCountTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountToValueWhenCountIsExact(int $value): void
     {
         $faker = self::faker();
 
-        $strategy = new FieldResolution\CountResolution\MinimumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\MinimumCount();
 
         $resolved = $strategy->resolveCount(
             $faker,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         self::assertSame($value, $resolved);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountToMinimumWhenCountIsBetween(int $minimum): void
     {
         $faker = self::faker();
 
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\CountResolution\MinimumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\MinimumCount();
 
         $resolved = $strategy->resolveCount(
             $faker,
-            Count::between(
+            FactoryBot\Count::between(
                 $minimum,
                 $maximum,
             ),

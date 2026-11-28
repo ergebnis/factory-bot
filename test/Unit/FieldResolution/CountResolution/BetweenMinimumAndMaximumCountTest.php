@@ -13,44 +13,40 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldResolution\CountResolution;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class BetweenMinimumAndMaximumCountTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+final class BetweenMinimumAndMaximumCountTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsExact(int $value): void
     {
-        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
 
         $resolved = $strategy->resolveCount(
             self::faker(),
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         self::assertSame($value, $resolved);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMinimum(int $minimum): void
     {
         $maximum = self::faker()->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
 
         $resolved = $strategy->resolveCount(
-            new Test\Double\Faker\MinimumGenerator(),
-            Count::between(
+            new FactoryBot\Test\Double\Faker\MinimumGenerator(),
+            FactoryBot\Count::between(
                 $minimum,
                 $maximum,
             ),
@@ -59,16 +55,16 @@ final class BetweenMinimumAndMaximumCountTest extends Test\Unit\AbstractTestCase
         self::assertSame($minimum, $resolved);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanZero')]
     public function testResolveCountResolvesCountWithFakerWhenCountIsBetweenAndFakerReturnsMaximum(int $maximum): void
     {
         $minimum = self::faker()->numberBetween(0, $maximum - 1);
 
-        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
 
         $resolved = $strategy->resolveCount(
-            new Test\Double\Faker\MaximumGenerator(),
-            Count::between(
+            new FactoryBot\Test\Double\Faker\MaximumGenerator(),
+            FactoryBot\Count::between(
                 $minimum,
                 $maximum,
             ),
@@ -84,11 +80,11 @@ final class BetweenMinimumAndMaximumCountTest extends Test\Unit\AbstractTestCase
         $minimum = $faker->numberBetween(1);
         $maximum = $faker->numberBetween($minimum + 1);
 
-        $strategy = new FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
+        $strategy = new FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount();
 
         $resolved = $strategy->resolveCount(
             $faker,
-            Count::between(
+            FactoryBot\Count::between(
                 $minimum,
                 $maximum,
             ),

@@ -13,29 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class ValueTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+final class ValueTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testResolvesToValue(mixed $value): void
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
-        $fieldDefinition = new FieldDefinition\Value($value);
+        $fieldDefinition = new FactoryBot\FieldDefinition\Value($value);
 
         $resolved = $fieldDefinition->resolve(
             $faker,

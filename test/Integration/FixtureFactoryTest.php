@@ -13,25 +13,21 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Integration;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
 final class FixtureFactoryTest extends AbstractTestCase
 {
     public function testCreateOneDoesNotPersistEntityByDefault(): void
@@ -39,7 +35,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $entityManager = self::entityManager();
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             $entityManager,
             $faker,
         );
@@ -67,7 +63,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $entityManager = self::entityManager();
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             $entityManager,
             $faker,
         );
@@ -75,7 +71,7 @@ final class FixtureFactoryTest extends AbstractTestCase
         $name = $faker->word();
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid();
             }),
             'name' => $name,
@@ -101,20 +97,20 @@ final class FixtureFactoryTest extends AbstractTestCase
         $entityManager = self::entityManager();
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             $entityManager,
             $faker,
         );
 
         $fixtureFactory->define(Entity\Avatar::class, [
-            'url' => FieldDefinition::closure(static function (Generator $faker): string {
+            'url' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->imageUrl();
             }),
         ]);
 
         $fixtureFactory->define(Entity\User::class, [
-            'avatar' => FieldDefinition::reference(Entity\Avatar::class),
-            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+            'avatar' => FactoryBot\FieldDefinition::reference(Entity\Avatar::class),
+            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid();
             }),
             'login' => $faker->userName(),
@@ -131,18 +127,18 @@ final class FixtureFactoryTest extends AbstractTestCase
     {
         $entityManager = self::entityManager();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             $entityManager,
             self::faker(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'name' => FieldDefinition::sequence('name-%d'),
+            'name' => FactoryBot\FieldDefinition::sequence('name-%d'),
         ]);
 
         $fixtureFactory->createMany(
             Entity\Organization::class,
-            Count::exact(5),
+            FactoryBot\Count::exact(5),
         );
 
         $entityManager->flush();
@@ -158,16 +154,16 @@ final class FixtureFactoryTest extends AbstractTestCase
         $entityManager = self::entityManager();
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             $entityManager,
             $faker,
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->unique()->uuid();
             }),
-            'name' => FieldDefinition::sequence('name-%d'),
+            'name' => FactoryBot\FieldDefinition::sequence('name-%d'),
         ]);
 
         $persistingFixtureFactory = $fixtureFactory->persisting();
@@ -176,7 +172,7 @@ final class FixtureFactoryTest extends AbstractTestCase
 
         $persistingFixtureFactory->createMany(
             Entity\Organization::class,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         $entityManager->flush();

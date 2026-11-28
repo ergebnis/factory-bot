@@ -13,26 +13,24 @@ declare(strict_types=1);
 
 namespace Example\Test\Fixture\Entity;
 
-use Ergebnis\FactoryBot\EntityDefinitionProvider;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 
-final class RepositoryDefinitionProvider implements EntityDefinitionProvider
+final class RepositoryDefinitionProvider implements FactoryBot\EntityDefinitionProvider
 {
-    public function accept(FixtureFactory $fixtureFactory): void
+    public function accept(FactoryBot\FixtureFactory $fixtureFactory): void
     {
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
-            'id' => FieldDefinition::closure(static function (Generator $faker): string {
+            'codeOfConduct' => FactoryBot\FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
+            'id' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->uuid();
             }),
-            'name' => FieldDefinition::closure(static function (Generator $faker): string {
+            'name' => FactoryBot\FieldDefinition::closure(static function (Generator $faker): string {
                 return $faker->word();
             }),
-            'organization' => FieldDefinition::reference(Entity\Organization::class),
-            'template' => FieldDefinition::optionalReference(Entity\Repository::class),
+            'organization' => FactoryBot\FieldDefinition::reference(Entity\Organization::class),
+            'template' => FactoryBot\FieldDefinition::optionalReference(Entity\Repository::class),
         ]);
     }
 }

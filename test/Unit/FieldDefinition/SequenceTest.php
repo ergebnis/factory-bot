@@ -13,16 +13,13 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition\Sequence::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidSequence::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-final class SequenceTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Exception\InvalidSequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+final class SequenceTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
     public function testConstructorRejectsValueWhenItIsMissingPercentDPlaceholder(): void
     {
@@ -31,13 +28,13 @@ final class SequenceTest extends Test\Unit\AbstractTestCase
         $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
-        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectException(FactoryBot\Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
             $value,
         ));
 
-        new FieldDefinition\Sequence(
+        new FactoryBot\FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );
@@ -47,7 +44,7 @@ final class SequenceTest extends Test\Unit\AbstractTestCase
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
@@ -56,7 +53,7 @@ final class SequenceTest extends Test\Unit\AbstractTestCase
 
         $initialNumber = $faker->numberBetween();
 
-        $fieldDefinition = new FieldDefinition\Sequence(
+        $fieldDefinition = new FactoryBot\FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );

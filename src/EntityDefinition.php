@@ -24,9 +24,9 @@ final class EntityDefinition
      * @param array<string, FieldDefinition\Resolvable> $fieldDefinitions
      */
     private function __construct(
-        private ORM\Mapping\ClassMetadata $classMetadata,
-        private array $fieldDefinitions,
-        private \Closure $afterCreate,
+        private readonly ORM\Mapping\ClassMetadata $classMetadata,
+        private readonly array $fieldDefinitions,
+        private readonly \Closure $afterCreate,
     ) {
     }
 

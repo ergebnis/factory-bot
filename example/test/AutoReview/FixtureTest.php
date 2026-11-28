@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Example\Test\AutoReview;
 
-use Ergebnis\FactoryBot\EntityDefinitionProvider;
+use Ergebnis\FactoryBot;
 use Example\Test;
 use PHPUnit\Framework;
 
@@ -50,7 +50,7 @@ final class FixtureTest extends Test\Unit\AbstractTestCase
                 return false;
             }
 
-            return $reflection->implementsInterface(EntityDefinitionProvider::class);
+            return $reflection->implementsInterface(FactoryBot\EntityDefinitionProvider::class);
         });
 
         $missingProviderClassNames = \array_diff(
@@ -74,7 +74,7 @@ TXT
                 \PHP_EOL . ' - ',
                 \array_keys($missingProviderClassNames),
             ),
-            EntityDefinitionProvider::class,
+            FactoryBot\EntityDefinitionProvider::class,
             \implode(
                 \PHP_EOL . ' - ',
                 $missingProviderClassNames,

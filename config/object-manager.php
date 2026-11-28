@@ -11,8 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/factory-bot
  */
 
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-return Test\Util\Doctrine\ORM\EntityManagerFactory::create();
+return FactoryBot\Test\Util\Doctrine\ORM\EntityManagerFactory::create();

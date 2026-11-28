@@ -13,39 +13,35 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition\Closure::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
-final class ClosureTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+final class ClosureTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
     public function testResolvesToResultOfInvokingClosureWithFakerAndFixtureFactory(): void
     {
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
         $fixtureFactory->define(Entity\User::class);
 
-        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
+        $closure = static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\User {
             return $fixtureFactory->createOne(Entity\User::class);
         };
 
-        $fieldDefinition = new FieldDefinition\Closure($closure);
+        $fieldDefinition = new FactoryBot\FieldDefinition\Closure($closure);
 
         $resolved = $fieldDefinition->resolve(
             $faker,
