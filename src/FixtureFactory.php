@@ -469,6 +469,7 @@ final class FixtureFactory
         if ($association instanceof ORM\Mapping\OwningSideMapping) {
             return $association->inversedBy;
         }
+
         return null;
     }
 }
