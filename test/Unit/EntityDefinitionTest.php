@@ -14,31 +14,28 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Unit;
 
 use Doctrine\ORM;
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidFieldDefinitions::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Exception\InvalidFieldDefinitions::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
 final class EntityDefinitionTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testCreateRejectsFieldDefinitionsWhenValuesAreNotFieldDefinitions(mixed $fieldDefinition): void
     {
         $fieldDefinitions = [
-            'foo' => FieldDefinition::value('bar'),
             'bar' => $fieldDefinition,
+            'foo' => FactoryBot\FieldDefinition::value('bar'),
         ];
 
-        $this->expectException(Exception\InvalidFieldDefinitions::class);
+        $this->expectException(FactoryBot\Exception\InvalidFieldDefinitions::class);
 
-        EntityDefinition::create(
+        FactoryBot\EntityDefinition::create(
             $this->createMock(ORM\Mapping\ClassMetadata::class),
             $fieldDefinitions,
             static function ($entity, array $fieldValues): void {
@@ -52,15 +49,15 @@ final class EntityDefinitionTest extends Framework\TestCase
         $classMetadata = $this->createMock(ORM\Mapping\ClassMetadata::class);
 
         $fieldDefinitions = [
-            'foo' => FieldDefinition::value('bar'),
-            'bar' => FieldDefinition::value('baz'),
+            'bar' => FactoryBot\FieldDefinition::value('baz'),
+            'foo' => FactoryBot\FieldDefinition::value('bar'),
         ];
 
         $afterCreate = static function ($entity, array $fieldValues): void {
             // intentionally left blank
         };
 
-        $entityDefinition = EntityDefinition::create(
+        $entityDefinition = FactoryBot\EntityDefinition::create(
             $classMetadata,
             $fieldDefinitions,
             $afterCreate,

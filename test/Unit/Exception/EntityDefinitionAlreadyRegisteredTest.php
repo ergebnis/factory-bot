@@ -13,26 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\EntityDefinitionAlreadyRegistered::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\EntityDefinitionAlreadyRegistered::class)]
 final class EntityDefinitionAlreadyRegisteredTest extends Framework\TestCase
 {
     public function testForReturnsException(): void
     {
         $className = self::class;
 
-        $exception = Exception\EntityDefinitionAlreadyRegistered::for($className);
+        $exception = FactoryBot\Exception\EntityDefinitionAlreadyRegistered::for($className);
 
         $message = \sprintf(
             'An entity definition for class name "%s" has already been registered.',
             $className,
         );
 
-        self::assertInstanceOf(Exception\EntityDefinitionAlreadyRegistered::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\EntityDefinitionAlreadyRegistered::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }

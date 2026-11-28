@@ -13,43 +13,37 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition\References::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
-final class ReferencesTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition\References::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Exception\InvalidCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\CountResolution\BetweenMinimumAndMaximumCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+final class ReferencesTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testResolvesToArrayOfObjectsCreatedByFixtureFactory(int $value): void
     {
         $className = Entity\User::class;
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
         $fixtureFactory->define($className);
 
-        $fieldDefinition = new FieldDefinition\References(
+        $fieldDefinition = new FactoryBot\FieldDefinition\References(
             $className,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         $resolved = $fieldDefinition->resolve(
@@ -68,7 +62,7 @@ final class ReferencesTest extends Test\Unit\AbstractTestCase
 
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
@@ -79,9 +73,9 @@ final class ReferencesTest extends Test\Unit\AbstractTestCase
 
         $overriddenLogin = $faker->userName();
 
-        $fieldDefinition = new FieldDefinition\References(
+        $fieldDefinition = new FactoryBot\FieldDefinition\References(
             $className,
-            Count::exact(3),
+            FactoryBot\Count::exact(3),
             [
                 'login' => $overriddenLogin,
             ],

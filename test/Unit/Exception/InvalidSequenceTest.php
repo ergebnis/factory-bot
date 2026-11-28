@@ -13,29 +13,28 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\InvalidSequence::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\InvalidSequence::class)]
 final class InvalidSequenceTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     public function testValueReturnsException(): void
     {
         $value = self::faker()->sentence();
 
-        $exception = Exception\InvalidSequence::value($value);
+        $exception = FactoryBot\Exception\InvalidSequence::value($value);
 
         $message = \sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
             $value,
         );
 
-        self::assertInstanceOf(Exception\InvalidSequence::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidSequence::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }

@@ -14,16 +14,16 @@ declare(strict_types=1);
 namespace Ergebnis\FactoryBot\Test\Integration;
 
 use Doctrine\ORM;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     final protected static function entityManager(): ORM\EntityManagerInterface
     {
-        $entityManager = Test\Util\Doctrine\ORM\EntityManagerFactory::create();
+        $entityManager = FactoryBot\Test\Util\Doctrine\ORM\EntityManagerFactory::create();
 
         $schemaTool = new ORM\Tools\SchemaTool($entityManager);
 

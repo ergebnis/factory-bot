@@ -13,14 +13,13 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\InvalidFieldNames::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\InvalidFieldNames::class)]
 final class InvalidFieldNamesTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     public function testNotFoundInReturnsExceptionWhenOnlyOneFieldNameIsProvided(): void
     {
@@ -29,7 +28,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
         $className = $faker->word();
         $fieldName = $faker->word();
 
-        $exception = Exception\InvalidFieldNames::notFoundIn(
+        $exception = FactoryBot\Exception\InvalidFieldNames::notFoundIn(
             $className,
             $fieldName,
         );
@@ -40,9 +39,9 @@ final class InvalidFieldNamesTest extends Framework\TestCase
             $fieldName,
         );
 
-        self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidFieldNames::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }
@@ -56,7 +55,7 @@ final class InvalidFieldNamesTest extends Framework\TestCase
         /** @var list<string> $fieldNames */
         $fieldNames = $faker->words(10);
 
-        $exception = Exception\InvalidFieldNames::notFoundIn(
+        $exception = FactoryBot\Exception\InvalidFieldNames::notFoundIn(
             $className,
             ...$fieldNames,
         );
@@ -71,9 +70,9 @@ final class InvalidFieldNamesTest extends Framework\TestCase
             \implode('", "', $sortedFieldNames),
         );
 
-        self::assertInstanceOf(Exception\InvalidFieldNames::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidFieldNames::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
     }

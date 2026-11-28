@@ -13,30 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidCount::class)]
-#[Framework\Attributes\UsesClass(Exception\InvalidSequence::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Exception\InvalidCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Exception\InvalidSequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\References::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
 final class FieldDefinitionTest extends AbstractTestCase
 {
     public function testClosureReturnsClosure(): void
     {
-        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
+        $closure = static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\User {
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
@@ -45,16 +41,16 @@ final class FieldDefinitionTest extends AbstractTestCase
             return $user;
         };
 
-        $fieldDefinition = FieldDefinition::closure($closure);
+        $fieldDefinition = FactoryBot\FieldDefinition::closure($closure);
 
-        $expected = new FieldDefinition\Closure($closure);
+        $expected = new FactoryBot\FieldDefinition\Closure($closure);
 
         self::assertEquals($expected, $fieldDefinition);
     }
 
     public function testOptionalClosureReturnsOptionalClosure(): void
     {
-        $closure = static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\User {
+        $closure = static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\User {
             /** @var Entity\User $user */
             $user = $fixtureFactory->createOne(Entity\User::class);
 
@@ -63,9 +59,9 @@ final class FieldDefinitionTest extends AbstractTestCase
             return $user;
         };
 
-        $fieldDefinition = FieldDefinition::optionalClosure($closure);
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalClosure($closure);
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Closure($closure));
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Closure($closure));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -74,9 +70,9 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $className = Entity\User::class;
 
-        $fieldDefinition = FieldDefinition::reference($className);
+        $fieldDefinition = FactoryBot\FieldDefinition::reference($className);
 
-        $expected = new FieldDefinition\Reference($className);
+        $expected = new FactoryBot\FieldDefinition\Reference($className);
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -87,17 +83,17 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $name = self::faker()->name();
 
-        $fieldDefinition = FieldDefinition::reference(
+        $fieldDefinition = FactoryBot\FieldDefinition::reference(
             $className,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         );
 
-        $expected = new FieldDefinition\Reference(
+        $expected = new FactoryBot\FieldDefinition\Reference(
             $className,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         );
 
@@ -108,9 +104,9 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $className = Entity\User::class;
 
-        $fieldDefinition = FieldDefinition::optionalReference($className);
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalReference($className);
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Reference($className));
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Reference($className));
 
         self::assertEquals($expected, $fieldDefinition);
     }
@@ -121,36 +117,36 @@ final class FieldDefinitionTest extends AbstractTestCase
 
         $name = self::faker()->name();
 
-        $fieldDefinition = FieldDefinition::optionalReference(
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalReference(
             $className,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         );
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Reference(
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Reference(
             $className,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         ));
 
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testReferencesReturnsReferencesWhenCountIsSpecified(int $value): void
     {
         $className = Entity\User::class;
 
-        $fieldDefinition = FieldDefinition::references(
+        $fieldDefinition = FactoryBot\FieldDefinition::references(
             $className,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
-        $expected = new FieldDefinition\References(
+        $expected = new FactoryBot\FieldDefinition\References(
             $className,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         self::assertEquals($expected, $fieldDefinition);
@@ -161,23 +157,23 @@ final class FieldDefinitionTest extends AbstractTestCase
         $faker = self::faker();
 
         $className = Entity\User::class;
-        $count = Count::exact($faker->numberBetween(1, 5));
+        $count = FactoryBot\Count::exact($faker->numberBetween(1, 5));
 
         $name = $faker->name();
 
-        $fieldDefinition = FieldDefinition::references(
+        $fieldDefinition = FactoryBot\FieldDefinition::references(
             $className,
             $count,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         );
 
-        $expected = new FieldDefinition\References(
+        $expected = new FactoryBot\FieldDefinition\References(
             $className,
             $count,
             [
-                'name' => FieldDefinition::value($name),
+                'name' => FactoryBot\FieldDefinition::value($name),
             ],
         );
 
@@ -191,13 +187,13 @@ final class FieldDefinitionTest extends AbstractTestCase
         $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
-        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectException(FactoryBot\Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
             $value,
         ));
 
-        FieldDefinition::sequence(
+        FactoryBot\FieldDefinition::sequence(
             $value,
             $initialNumber,
         );
@@ -207,9 +203,9 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
-        $fieldDefinition = FieldDefinition::sequence($value);
+        $fieldDefinition = FactoryBot\FieldDefinition::sequence($value);
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = new FactoryBot\FieldDefinition\Sequence(
             $value,
             1,
         );
@@ -217,17 +213,17 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testSequenceReturnsSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
-        $fieldDefinition = FieldDefinition::sequence(
+        $fieldDefinition = FactoryBot\FieldDefinition::sequence(
             $value,
             $initialNumber,
         );
 
-        $expected = new FieldDefinition\Sequence(
+        $expected = new FactoryBot\FieldDefinition\Sequence(
             $value,
             $initialNumber,
         );
@@ -242,13 +238,13 @@ final class FieldDefinitionTest extends AbstractTestCase
         $value = $faker->sentence();
         $initialNumber = $faker->randomNumber();
 
-        $this->expectException(Exception\InvalidSequence::class);
+        $this->expectException(FactoryBot\Exception\InvalidSequence::class);
         $this->expectExceptionMessage(\sprintf(
             'Value needs to contain a placeholder "%%d", but "%s" does not',
             $value,
         ));
 
-        FieldDefinition::optionalSequence(
+        FactoryBot\FieldDefinition::optionalSequence(
             $value,
             $initialNumber,
         );
@@ -258,9 +254,9 @@ final class FieldDefinitionTest extends AbstractTestCase
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
-        $fieldDefinition = FieldDefinition::optionalSequence($value);
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalSequence($value);
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Sequence(
             $value,
             1,
         ));
@@ -268,17 +264,17 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'arbitrary')]
     public function testOptionalSequenceReturnsOptionalSequenceWhenValueContainsPlaceholderAndInitialNumberIsSpecified(int $initialNumber): void
     {
         $value = 'there-is-no-difference-between-%d-and-%d';
 
-        $fieldDefinition = FieldDefinition::optionalSequence(
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalSequence(
             $value,
             $initialNumber,
         );
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Sequence(
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Sequence(
             $value,
             $initialNumber,
         ));
@@ -286,22 +282,22 @@ final class FieldDefinitionTest extends AbstractTestCase
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testValueReturnsValue(mixed $value): void
     {
-        $fieldDefinition = FieldDefinition::value($value);
+        $fieldDefinition = FactoryBot\FieldDefinition::value($value);
 
-        $expected = new FieldDefinition\Value($value);
+        $expected = new FactoryBot\FieldDefinition\Value($value);
 
         self::assertEquals($expected, $fieldDefinition);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\ValueProvider::class, 'arbitrary')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\ValueProvider::class, 'arbitrary')]
     public function testOptionalValueReturnsOptionalValue(mixed $value): void
     {
-        $fieldDefinition = FieldDefinition::optionalValue($value);
+        $fieldDefinition = FactoryBot\FieldDefinition::optionalValue($value);
 
-        $expected = new FieldDefinition\Optional(new FieldDefinition\Value($value));
+        $expected = new FactoryBot\FieldDefinition\Optional(new FactoryBot\FieldDefinition\Value($value));
 
         self::assertEquals($expected, $fieldDefinition);
     }

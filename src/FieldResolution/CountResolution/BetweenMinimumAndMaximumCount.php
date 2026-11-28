@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldResolution\CountResolution;
 
-use Ergebnis\FactoryBot\Count;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 /**
@@ -23,7 +23,7 @@ final class BetweenMinimumAndMaximumCount implements CountResolutionStrategy
 {
     public function resolveCount(
         Generator $faker,
-        Count $count,
+        FactoryBot\Count $count,
     ): int {
         return $faker->numberBetween(
             $count->minimum(),

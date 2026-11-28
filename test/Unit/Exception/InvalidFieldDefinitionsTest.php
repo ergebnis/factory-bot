@@ -13,28 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\InvalidFieldDefinitions::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\InvalidFieldDefinitions::class)]
 final class InvalidFieldDefinitionsTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     public function testValuesCreatesException(): void
     {
-        $exception = Exception\InvalidFieldDefinitions::values();
+        $exception = FactoryBot\Exception\InvalidFieldDefinitions::values();
 
         $message = \sprintf(
             'Field definitions need to be instances of "%s".',
-            FieldDefinition::class,
+            FactoryBot\FieldDefinition::class,
         );
 
-        self::assertInstanceOf(Exception\InvalidFieldDefinitions::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidFieldDefinitions::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }

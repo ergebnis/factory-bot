@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\DataProvider;
 
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 
 final class IntProvider
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     /**
      * @return \Generator<string, list<int>>
@@ -27,11 +27,11 @@ final class IntProvider
         $faker = self::faker();
 
         $values = [
+            'int-greater-than-one' => $faker->numberBetween(2),
             'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
             'int-minus-one' => -1,
-            'int-zero' => 0,
             'int-one' => 1,
-            'int-greater-than-one' => $faker->numberBetween(2),
+            'int-zero' => 0,
         ];
 
         foreach ($values as $key => $value) {
@@ -64,9 +64,9 @@ final class IntProvider
     public static function greaterThanOrEqualToZero(): \Generator
     {
         $values = [
-            'int-zero' => 0,
-            'int-one' => 1,
             'int-greater-than-one' => self::faker()->numberBetween(2, 10),
+            'int-one' => 1,
+            'int-zero' => 0,
         ];
 
         foreach ($values as $key => $value) {
@@ -82,8 +82,8 @@ final class IntProvider
     public static function greaterThanZero(): \Generator
     {
         $values = [
-            'int-one' => 1,
             'int-greater-than-one' => self::faker()->numberBetween(2, 10),
+            'int-one' => 1,
         ];
 
         foreach ($values as $key => $value) {

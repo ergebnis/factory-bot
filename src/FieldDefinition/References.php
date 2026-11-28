@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 /**
@@ -29,9 +28,9 @@ final class References implements Resolvable
      * @param array<string, \Closure|mixed|Resolvable> $fieldDefinitionOverrides
      */
     public function __construct(
-        private string $className,
-        private Count $count,
-        private array $fieldDefinitionOverrides = [],
+        private readonly string $className,
+        private readonly FactoryBot\Count $count,
+        private readonly array $fieldDefinitionOverrides = [],
     ) {
     }
 
@@ -40,7 +39,7 @@ final class References implements Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory,
+        FactoryBot\FixtureFactory $fixtureFactory,
     ): array {
         return $fixtureFactory->createMany(
             $this->className,

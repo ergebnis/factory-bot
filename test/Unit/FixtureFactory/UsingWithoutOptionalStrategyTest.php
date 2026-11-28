@@ -13,42 +13,37 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FixtureFactory;
 
-use Ergebnis\FactoryBot\Count;
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use Faker\Generator;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(Count::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Closure::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Optional::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Reference::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\References::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Sequence::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\CountResolution\MinimumCount::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithoutOptionalFieldValue::class)]
-final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\Count::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Closure::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Optional::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\References::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Sequence::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\CountResolution\MinimumCount::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithoutOptionalFieldValue::class)]
+final class UsingWithoutOptionalStrategyTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalClosure(static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
+            'codeOfConduct' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Entity\CodeOfConduct::class);
             }),
         ]);
@@ -63,15 +58,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesOptionalClosureToNullWhenFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalClosure(static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
+            'codeOfConduct' => FactoryBot\FieldDefinition::optionalClosure(static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Entity\CodeOfConduct::class);
             }),
         ]);
@@ -86,15 +81,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::closure(static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
+            'codeOfConduct' => FactoryBot\FieldDefinition::closure(static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Entity\CodeOfConduct::class);
             }),
         ]);
@@ -109,15 +104,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesClosureToResultOfClosureInvokedWithFakerAndFixtureFactoryWhenFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::closure(static function (Generator $faker, FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
+            'codeOfConduct' => FactoryBot\FieldDefinition::closure(static function (Generator $faker, FactoryBot\FixtureFactory $fixtureFactory): Entity\CodeOfConduct {
                 return $fixtureFactory->createOne(Entity\CodeOfConduct::class);
             }),
         ]);
@@ -132,15 +127,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesOptionalReferenceToNullWhenFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
+            'codeOfConduct' => FactoryBot\FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -153,15 +148,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesOptionalReferenceToNullWhenFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
+            'codeOfConduct' => FactoryBot\FieldDefinition::optionalReference(Entity\CodeOfConduct::class),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -174,15 +169,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesReferenceToEntityWhenFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::reference(Entity\CodeOfConduct::class),
+            'codeOfConduct' => FactoryBot\FieldDefinition::reference(Entity\CodeOfConduct::class),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -195,15 +190,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesReferenceToEntityWhenFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\CodeOfConduct::class);
 
         $fixtureFactory->define(Entity\Repository::class, [
-            'codeOfConduct' => FieldDefinition::reference(Entity\CodeOfConduct::class),
+            'codeOfConduct' => FactoryBot\FieldDefinition::reference(Entity\CodeOfConduct::class),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -214,18 +209,18 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertInstanceOf(Entity\CodeOfConduct::class, $repository->codeOfConduct());
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsFalseAndCountIsExact(int $value): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(
+            'repositories' => FactoryBot\FieldDefinition::references(
                 Entity\Repository::class,
-                Count::exact($value),
+                FactoryBot\Count::exact($value),
             ),
         ]);
 
@@ -242,18 +237,18 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertCount($value, $organization->repositories());
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateOneResolvesReferencesToArrayCollectionOfEntitiesWhenFakerReturnsTrueAndCountIsExact(int $value): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(
+            'repositories' => FactoryBot\FieldDefinition::references(
                 Entity\Repository::class,
-                Count::exact($value),
+                FactoryBot\Count::exact($value),
             ),
         ]);
 
@@ -279,15 +274,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         $minimum = $faker->numberBetween(1, 5);
         $maximum = $faker->numberBetween(10, 20);
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(
+            'repositories' => FactoryBot\FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(
+                FactoryBot\Count::between(
                     $minimum,
                     $maximum,
                 ),
@@ -314,15 +309,15 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         $minimum = $faker->numberBetween(1, 5);
         $maximum = $faker->numberBetween(10, 20);
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class, [
-            'repositories' => FieldDefinition::references(
+            'repositories' => FactoryBot\FieldDefinition::references(
                 Entity\Repository::class,
-                Count::between(
+                FactoryBot\Count::between(
                     $minimum,
                     $maximum,
                 ),
@@ -344,13 +339,13 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesOptionalSequenceNullWhenFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
-            'location' => FieldDefinition::optionalSequence('City (%d)'),
+            'location' => FactoryBot\FieldDefinition::optionalSequence('City (%d)'),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -371,13 +366,13 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesOptionalSequenceNullWhenFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
-            'location' => FieldDefinition::optionalSequence('City (%d)'),
+            'location' => FactoryBot\FieldDefinition::optionalSequence('City (%d)'),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -398,13 +393,13 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsFalse(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\FalseGenerator(),
+            new FactoryBot\Test\Double\Faker\FalseGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
-            'location' => FieldDefinition::sequence('City (%d)'),
+            'location' => FactoryBot\FieldDefinition::sequence('City (%d)'),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -425,13 +420,13 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
     public function testCreateOneResolvesSequenceToStringValueWhenPercentDPlaceholderIsPresentAndFakerReturnsTrue(): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\TrueGenerator(),
+            new FactoryBot\Test\Double\Faker\TrueGenerator(),
         );
 
         $fixtureFactory->define(Entity\User::class, [
-            'location' => FieldDefinition::sequence('City (%d)'),
+            'location' => FactoryBot\FieldDefinition::sequence('City (%d)'),
         ]);
 
         $withoutOptionalFixtureFactory = $fixtureFactory->withoutOptional();
@@ -450,10 +445,10 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
         self::assertSame('City (3)', $userThree->location());
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsExact(int $value): void
     {
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             self::faker(),
         );
@@ -464,20 +459,20 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $entities = $withoutOptionalFixtureFactory->createMany(
             Entity\Organization::class,
-            Count::exact($value),
+            FactoryBot\Count::exact($value),
         );
 
         self::assertCount($value, $entities);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
+    #[Framework\Attributes\DataProviderExternal(FactoryBot\Test\DataProvider\IntProvider::class, 'greaterThanOrEqualToZero')]
     public function testCreateManyResolvesToArrayOfEntitiesWhenCountIsBetween(int $minimum): void
     {
         $maximum = $minimum + 10;
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
-            new Test\Double\Faker\MinimumGenerator(),
+            new FactoryBot\Test\Double\Faker\MinimumGenerator(),
         );
 
         $fixtureFactory->define(Entity\Organization::class);
@@ -486,7 +481,7 @@ final class UsingWithoutOptionalStrategyTest extends Test\Unit\AbstractTestCase
 
         $entities = $withoutOptionalFixtureFactory->createMany(
             Entity\Organization::class,
-            Count::between(
+            FactoryBot\Count::between(
                 $minimum,
                 $maximum,
             ),

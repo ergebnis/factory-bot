@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 /**
@@ -22,25 +21,21 @@ use Faker\Generator;
  */
 final class Sequence implements Resolvable
 {
-    private int $sequentialNumber;
-
     /**
-     * @throws Exception\InvalidSequence
+     * @throws FactoryBot\Exception\InvalidSequence
      */
     public function __construct(
-        private string $value,
-        int $initialNumber,
+        private readonly string $value,
+        private int $sequentialNumber,
     ) {
         if (!\str_contains($value, '%d')) {
-            throw Exception\InvalidSequence::value($value);
+            throw FactoryBot\Exception\InvalidSequence::value($value);
         }
-
-        $this->sequentialNumber = $initialNumber;
     }
 
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory,
+        FactoryBot\FixtureFactory $fixtureFactory,
     ): string {
         return \str_replace(
             '%d',

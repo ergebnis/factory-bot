@@ -13,21 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\FieldDefinition;
 
-use Ergebnis\FactoryBot\EntityDefinition;
-use Ergebnis\FactoryBot\FieldDefinition;
-use Ergebnis\FactoryBot\FieldResolution;
-use Ergebnis\FactoryBot\FixtureFactory;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use Example\Entity;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(FieldDefinition\Reference::class)]
-#[Framework\Attributes\UsesClass(EntityDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition::class)]
-#[Framework\Attributes\UsesClass(FieldDefinition\Value::class)]
-#[Framework\Attributes\UsesClass(FixtureFactory::class)]
-#[Framework\Attributes\UsesClass(FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
-final class ReferenceTest extends Test\Unit\AbstractTestCase
+#[Framework\Attributes\CoversClass(FactoryBot\FieldDefinition\Reference::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\EntityDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldDefinition\Value::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FixtureFactory::class)]
+#[Framework\Attributes\UsesClass(FactoryBot\FieldResolution\FieldValueResolution\WithOrWithoutOptionalFieldValue::class)]
+final class ReferenceTest extends FactoryBot\Test\Unit\AbstractTestCase
 {
     public function testResolvesToObjectCreatedByFixtureFactory(): void
     {
@@ -35,14 +31,14 @@ final class ReferenceTest extends Test\Unit\AbstractTestCase
 
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
 
         $fixtureFactory->define($className);
 
-        $fieldDefinition = new FieldDefinition\Reference($className);
+        $fieldDefinition = new FactoryBot\FieldDefinition\Reference($className);
 
         $resolved = $fieldDefinition->resolve(
             $faker,
@@ -58,7 +54,7 @@ final class ReferenceTest extends Test\Unit\AbstractTestCase
 
         $faker = self::faker();
 
-        $fixtureFactory = new FixtureFactory(
+        $fixtureFactory = new FactoryBot\FixtureFactory(
             self::entityManager(),
             $faker,
         );
@@ -69,7 +65,7 @@ final class ReferenceTest extends Test\Unit\AbstractTestCase
 
         $overriddenLogin = $faker->userName();
 
-        $fieldDefinition = new FieldDefinition\Reference(
+        $fieldDefinition = new FactoryBot\FieldDefinition\Reference(
             $className,
             [
                 'login' => $overriddenLogin,

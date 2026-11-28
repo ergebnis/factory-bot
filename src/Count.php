@@ -16,8 +16,8 @@ namespace Ergebnis\FactoryBot;
 final class Count
 {
     private function __construct(
-        private int $minimum,
-        private int $maximum,
+        private readonly int $minimum,
+        private readonly int $maximum,
     ) {
     }
 

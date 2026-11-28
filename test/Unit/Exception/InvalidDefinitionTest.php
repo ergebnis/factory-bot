@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
-use Ergebnis\FactoryBot\Test;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\InvalidDefinition::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\InvalidDefinition::class)]
 final class InvalidDefinitionTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use FactoryBot\Test\Util\Helper;
 
     public function testCanNotBeAutoloadedReturnsException(): void
     {
         $className = self::faker()->word();
 
-        $exception = Exception\InvalidDefinition::canNotBeAutoloaded($className);
+        $exception = FactoryBot\Exception\InvalidDefinition::canNotBeAutoloaded($className);
 
-        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidDefinition::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
 
         $message = \sprintf(
             'Definition "%s" can not be autoloaded.',
@@ -44,11 +43,11 @@ final class InvalidDefinitionTest extends Framework\TestCase
     {
         $className = self::faker()->word();
 
-        $exception = Exception\InvalidDefinition::canNotBeInstantiated($className);
+        $exception = FactoryBot\Exception\InvalidDefinition::canNotBeInstantiated($className);
 
-        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidDefinition::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
 
         $message = \sprintf(
             'Definition "%s" can not be instantiated.',
@@ -63,14 +62,14 @@ final class InvalidDefinitionTest extends Framework\TestCase
         $className = self::faker()->word();
         $previousException = new \Exception();
 
-        $exception = Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
+        $exception = FactoryBot\Exception\InvalidDefinition::throwsExceptionDuringInstantiation(
             $className,
             $previousException,
         );
 
-        self::assertInstanceOf(Exception\InvalidDefinition::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\InvalidDefinition::class, $exception);
         self::assertInstanceOf(\RuntimeException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
 
         $message = \sprintf(
             'An exception was thrown while trying to instantiate definition "%s".',

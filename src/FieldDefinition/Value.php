@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\FieldDefinition;
 
-use Ergebnis\FactoryBot\FixtureFactory;
+use Ergebnis\FactoryBot;
 use Faker\Generator;
 
 /**
@@ -26,7 +26,7 @@ final class Value implements Resolvable
     /**
      * @param T $value
      */
-    public function __construct(private mixed $value)
+    public function __construct(private readonly mixed $value)
     {
     }
 
@@ -35,7 +35,7 @@ final class Value implements Resolvable
      */
     public function resolve(
         Generator $faker,
-        FixtureFactory $fixtureFactory,
+        FactoryBot\FixtureFactory $fixtureFactory,
     ) {
         return $this->value;
     }

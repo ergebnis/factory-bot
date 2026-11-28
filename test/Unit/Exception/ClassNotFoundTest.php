@@ -13,26 +13,26 @@ declare(strict_types=1);
 
 namespace Ergebnis\FactoryBot\Test\Unit\Exception;
 
-use Ergebnis\FactoryBot\Exception;
+use Ergebnis\FactoryBot;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\ClassNotFound::class)]
+#[Framework\Attributes\CoversClass(FactoryBot\Exception\ClassNotFound::class)]
 final class ClassNotFoundTest extends Framework\TestCase
 {
     public function testNameReturnsException(): void
     {
         $className = 'foo';
 
-        $exception = Exception\ClassNotFound::name($className);
+        $exception = FactoryBot\Exception\ClassNotFound::name($className);
 
         $message = \sprintf(
             'A class with the name "%s" could not be found.',
             $className,
         );
 
-        self::assertInstanceOf(Exception\ClassNotFound::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\ClassNotFound::class, $exception);
         self::assertInstanceOf(\InvalidArgumentException::class, $exception);
-        self::assertInstanceOf(Exception\Exception::class, $exception);
+        self::assertInstanceOf(FactoryBot\Exception\Exception::class, $exception);
         self::assertSame($message, $exception->getMessage());
     }
 }
